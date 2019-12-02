@@ -34,9 +34,6 @@
     <packaging>jar</packaging>
 
     <properties>
-<!--
-        <maven-war-plugin.warName>${project.parent.artifactId}</maven-war-plugin.warName>
--->
         <maven-cucumber-reporting.version>4.11.2</maven-cucumber-reporting.version>
     </properties>
 
@@ -127,6 +124,12 @@
             <scope>test</scope>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.isis.extensions</groupId>
+            <artifactId>isis-extensions-specsupport</artifactId>
+            <scope>test</scope>
+        </dependency>
+
     </dependencies>
 
     <profiles>
@@ -192,7 +195,7 @@
                                     <goal>list</goal>
                                 </goals>
                                 <configuration>
-                                    <outputFile>${project.build.directory}/test-classes/domain/webapp/lockdown/LockDownMavenDeps_Test.list.actual.txt</outputFile>
+                                    <outputFile>${project.build.directory}/test-classes/domainapp/webapp/lockdown/LockDownMavenDeps_Test.list.actual.txt</outputFile>
                                 </configuration>
                             </execution>
                             <execution>
@@ -202,7 +205,7 @@
                                     <goal>tree</goal>
                                 </goals>
                                 <configuration>
-                                    <outputFile>${project.build.directory}/test-classes/domain/webapp/lockdown/LockDownMavenDeps_Test.tree.actual.txt</outputFile>
+                                    <outputFile>${project.build.directory}/test-classes/domainapp/webapp/lockdown/LockDownMavenDeps_Test.tree.actual.txt</outputFile>
                                 </configuration>
                             </execution>
                         </executions>

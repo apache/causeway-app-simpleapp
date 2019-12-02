@@ -66,11 +66,6 @@
 			<artifactId>isis-extensions-fixtures</artifactId>
 		</dependency>
 		
-		<dependency>
-			<groupId>org.apache.isis.extensions</groupId>
-			<artifactId>isis-extensions-specsupport</artifactId>
-		</dependency>
-
 		<!-- TESTS -->
 		<dependency>
 			<groupId>org.apache.isis.mavendeps</groupId>
