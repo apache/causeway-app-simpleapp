@@ -2,6 +2,7 @@ package domainapp.webapp.integtests;
 
 import domainapp.webapp.application.ApplicationModule;
 
+import org.apache.isis.applib.annotation.Property;
 import org.apache.isis.config.IsisPresets;
 import org.apache.isis.extensions.fixtures.IsisExtFixturesModule;
 import org.apache.isis.integtestsupport.IsisIntegrationTestAbstract;
@@ -15,15 +16,18 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
 import org.springframework.test.context.ContextConfiguration;
 
-@SpringBootTest(classes = ApplicationIntegTestAbstract.AppManifest.class)
+@SpringBootTest(
+        classes = ApplicationIntegTestAbstract.AppManifest.class,
+        properties = {
+                "logging.config=log4j2-test.xml"
+        }
+)
 @ContextConfiguration
 public abstract class ApplicationIntegTestAbstract extends IsisIntegrationTestAbstract {
 
     @Configuration
     @PropertySources({
-            @PropertySource(IsisPresets.Log4j2Test),
             @PropertySource(IsisPresets.H2InMemory_withUniqueSchema),
-            @PropertySource(IsisPresets.NoTranslations),
             @PropertySource(IsisPresets.DataNucleusAutoCreate),
     })
     @Import({

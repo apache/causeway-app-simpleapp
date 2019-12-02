@@ -135,10 +135,10 @@
     <profiles>
 
         <profile>
-            <id>lockdown</id>
+            <id>mavendeps-lockdown</id>
             <activation>
                 <property>
-                    <name>lockdown</name>
+                    <name>mavendeps.lockdown</name>
                 </property>
             </activation>
             <build>
@@ -153,7 +153,7 @@
                                     <goal>list</goal>
                                 </goals>
                                 <configuration>
-                                    <outputFile>${project.build.directory}/test-classes/domainapp/webapp/unittests/mavendeps/lockdown/received/LockDownMavenDeps_Test.list.txt</outputFile>
+                                    <outputFile>${project.build.directory}/test-classes/domainapp/webapp/unittests/mavendeps/lockdown/current/LockDownMavenDeps_Test.list.txt</outputFile>
                                 </configuration>
                             </execution>
                             <execution>
@@ -163,7 +163,7 @@
                                     <goal>tree</goal>
                                 </goals>
                                 <configuration>
-                                    <outputFile>${project.build.directory}/test-classes/domainapp/webapp/unittests/mavendeps/lockdown/received/LockDownMavenDeps_Test.tree.txt</outputFile>
+                                    <outputFile>${project.build.directory}/test-classes/domainapp/webapp/unittests/mavendeps/lockdown/current/LockDownMavenDeps_Test.tree.txt</outputFile>
                                 </configuration>
                             </execution>
                         </executions>

@@ -1,13 +1,15 @@
 package domainapp.webapp.integtests.metamodel.lockdown;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 
 import org.approvaltests.namer.StackTraceNamer;
 import org.approvaltests.reporters.DiffReporter;
-import org.approvaltests.reporters.QuietReporter;
 import org.approvaltests.reporters.UseReporter;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.apache.isis.applib.services.jaxb.JaxbService;
@@ -22,23 +24,21 @@ import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assume.assumeThat;
 
 import domainapp.webapp.integtests.ApplicationIntegTestAbstract;
-import domainapp.webapp.util.ReceivedVsApprovedApprovalTextWriter;
+import domainapp.webapp.util.CurrentVsApprovedApprovalTextWriter;
 
 class LockDownMetaModel_IntegTest extends ApplicationIntegTestAbstract {
 
     @Inject MetaModelService metaModelService;
     @Inject JaxbService jaxbService;
 
-    //
-    // learn...
-    //
-    // ... move the resultant files in "received" directory over to "approved".
-    //
-    @UseReporter(QuietReporter.class)
-    @Test
-    void _1_learn() throws Exception {
+    @BeforeEach
+    public void setUp() throws Exception {
+        assumeThat(System.getProperty("metamodel.lockdown"), is(notNullValue()));
+    }
 
-        assumeThat(System.getProperty("learn"), is(notNullValue()));
+    @UseReporter(DiffReporter.class)
+    @Test
+    void compare() throws Exception {
 
         // when
         MetamodelDto metamodelDto =
@@ -53,49 +53,24 @@ class LockDownMetaModel_IntegTest extends ApplicationIntegTestAbstract {
 
         // then
         final List<DomainClassDto> domainClassDto = metamodelDto.getDomainClassDto();
+        final List<Error> errors = new ArrayList<>();
         for (final DomainClassDto domainClass : domainClassDto) {
             try {
                 verifyClass(domainClass);
             } catch (Error e) {
-                //ignore ... learning.
+                errors.add(e);
             }
         }
-    }
-
-
-    //
-    // verify ...
-    //
-    // ... ie compare the current metamodel to that previously captured.
-    //
-    @UseReporter(DiffReporter.class)
-    @Test
-    void _2_verify() throws Exception {
-
-        assumeThat(System.getProperty("lockdown"), is(notNullValue()));
-
-        // when
-        MetamodelDto metamodelDto =
-                metaModelService.exportMetaModel(
-                        new MetaModelService.Config()
-                        .withIgnoreNoop()
-                        .withIgnoreAbstractClasses()
-                        .withIgnoreBuiltInValueTypes()
-                        .withIgnoreInterfaces()
-                        .withPackagePrefix("domainapp")
-                        );
-
-        // then
-        final List<DomainClassDto> domainClassDto = metamodelDto.getDomainClassDto();
-        for (final DomainClassDto domainClass : domainClassDto) {
-            verifyClass(domainClass);
+        if(!errors.isEmpty()) {
+            final String message = errors.stream().map(x -> x.getMessage()).collect(Collectors.joining("\n"));
+            throw new Error(message);
         }
     }
 
     private void verifyClass(final DomainClassDto domainClass) {
         String asXml = jaxbService.toXml(domainClass);
         verify(
-                new ReceivedVsApprovedApprovalTextWriter(asXml, "xml"),
+                new CurrentVsApprovedApprovalTextWriter(asXml, "xml"),
                 new StackTraceNamer() {
                     @Override public String getApprovalName() {
                         return domainClass.getId();

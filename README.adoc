@@ -1,4 +1,5 @@
 = SimpleApp
+:toc:
 
 This is a simple link:http://isis.apache.org[Apache Isis] application, but structured so it can be used as a starting point for developing your own applications.
 
@@ -28,7 +29,6 @@ Login using:
 The app runs with H2 running in-memory, with sample data set up using link:https://isis.apache.org/guides/ugtst.html#_ugtst_fixture-scripts[fixture scripts].
 
 
-
 == Application Structure
 
 The following table explains the contents of each of the directories:
@@ -56,7 +56,7 @@ The `pom.xml` also provides goals to run the app from the command line, or to be
 |====================
 
 
-== In Development
+== Development
 
 Apache Isis uses DataNucleus as its ORM, which requires that any entities are "enhanced", a post-compile process.
 
@@ -74,48 +74,81 @@ TIP: You can also use `enhance-all.sh`
 
 == Testing
 
-To disable the running of unit tests: +
+The application has three types of tests.
+Each of these generates its own set of tests, and each can be disabled through a system property.
 
-[source,bash]
-----
-mvn -DskipUTs 
-----
+.Testing types
+[cols="5a,12m,6m,3m", options="header"]
+|===
 
-[TIP]
-====
-By default, output of unit tests are in  `target/surefire-unittest-reports` (in the ``module-simple`` modules).
-====
+| Test type
+| Report
+| Phase
+| Skip using
 
-To disable the running of integration tests: +
 
-[source,bash]
-----
-mvn -DskipITs 
-----
+| Unit test
+| target/surefire-unittest-reports
+| test
+| -DskipUTs
 
-[TIP]
-====
-By default, output of integration tests are in  `target/surefire-integtest-reports` (in the ``application`` and ``module-simple`` modules).
-====
+| Integ test
+| target/surefire-integtest-reports
+| integration-test
+| -DskipITs
 
-To disable the running of BDD specs: +
+| BDD (Cucumber) specs
+| target/surefire-integbddspecs-reports
+| integration-test
+| -DskipBS
 
-[source,bash]
-----
-mvn -DskipBSs 
-----
 
-[TIP]
-====
-By default, output of integration tests are in  `target/surefire-integbddspecs-reports` (in the ``application`` module).
-====
+|===
 
-* To disable the running of all tests and BDD specs: +
+The test reports format are in XML and basic HTML format.
+In addition:
+
+`target/cucumber-html-reports/overview-features.html`::
+BDD (Cucumber) specification reports, as an interactive website
+
+These outputs can for example be processed within/published by a continuous pipeline pipeline.
+
+
+=== Lockdown Tests
+
+Lockdown tests capture the state of the system, so that changes to that system can be captured and confirmed.
+There are two lockdown tests:
+
+* the metamodel (serialized as XML)
++
+This is expected to change whenever the domain logic is changed, but generally should _not_ change when the Apache Isis framework is upgraded.
+
+* Maven dependencies (serialized as flat files)
++
+This should only change when dependencies are bumped or new dependencies added.
+
+The lockdown tests are implemented as link:https://approvaltests.com/[approval test]s, meaning that the current state is compared to an "approved" state.
+If there are no differences then the test passes.
+If there are differences then the test fails, and a diff is shown using any available `diff` tool.
+
+The lockdown tests are disabled by default, and are enabled with system properties.
+
+* to compare the current metamodel with the previously approved metamodel:
 +
 [source,bash]
 ----
-mvn -DskipTests 
+mvn integration-test -Dmetamodel.lockdown
 ----
+
+* to compare the current Maven dependencies with the previously approved dependencies:
++
+[source,bash]
+----
+mvn test -Dmavendeps.lockdown
+----
+
+When there are differences, the current state is written to the `current` subdirectory.
+If the current state is approved, it should be copied over to the corresponding `approved` subdirectory.
 
 
 == Docker
@@ -157,9 +190,28 @@ docker container run -d -p 8080:8080 apacheisis/simpleapp:latest
 This can then be accessed at link:http://localhost:8080[localhost:8080].
 
 
-== Externalized Configuration
+=== Externalized Configuration
 
-The application is configured to run in the `/run/secrets` directory.
+The Docker image is configured to run in the `/run/secrets` directory.
 Configuration can be therefore be externalized by defining an `application.properties` secret for the Kubernetes or Docker Swarm cluster.
 
 Spring Boot will use these settings in preference to the configuration properties defined in `classpath:config/application.properties`, see link:https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-external-config[Spring docs].
+
+
+== Translations
+
+Apache Isis supports i18n using link:https://www.gnu.org/software/gettext/manual/html_node/PO-Files.html[GNU .po file]s.
+The `WEB-INF/translations.po` is the fallback (an empty value means that the key is used "as-is"), while `WEB-INF/translations-XX.po` files provide translations for each "XX" locale.
+
+Translations are required for all domain classes and all members (actions, properties and collections) of all classes.
+This information is available from the metamodel, and so a new template `translations.po` is generated as a side-effect of running the integration tests (through a log4j2 logger).
+A good integration test to run is `ValidateDomainModel_IntegTest`.
+
+In addition, translations are required for any validation messages triggered by the test.
+Running an integration tests that trigger validations will result in these messages being captured as keys, for example `Smoke_IntegTest`.
+
+The generated file should be merged with any existing translations in `WEB-INF/translations.po`, and translations obtained for any new keys (there are numerous online services that support the format).
+
+
+
+

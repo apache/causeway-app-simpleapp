@@ -4,18 +4,18 @@ import java.io.File;
 
 import org.approvaltests.writers.ApprovalTextWriter;
 
-public class ReceivedVsApprovedApprovalTextWriter extends ApprovalTextWriter {
+public class CurrentVsApprovedApprovalTextWriter extends ApprovalTextWriter {
 
     private final String fileExtensionWithoutDot;
 
-    public ReceivedVsApprovedApprovalTextWriter(String received, String fileExtensionWithoutDot) {
+    public CurrentVsApprovedApprovalTextWriter(String received, String fileExtensionWithoutDot) {
         super(received, fileExtensionWithoutDot);
         this.fileExtensionWithoutDot = fileExtensionWithoutDot;
     }
 
     @Override
     public String getReceivedFilename(final String base) {
-        return toFilename("received", base);
+        return toFilename("current", base);
     }
 
     @Override

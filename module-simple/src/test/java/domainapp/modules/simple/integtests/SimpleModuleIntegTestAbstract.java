@@ -15,13 +15,15 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
 
 
-@SpringBootTest(classes = SimpleModuleIntegTestAbstract.AppManifest.class)
+@SpringBootTest(
+        classes = SimpleModuleIntegTestAbstract.AppManifest.class,
+        properties = {"logging.config=log4j2-test.xml" }
+)
 public abstract class SimpleModuleIntegTestAbstract extends IsisIntegrationTestAbstractWithFixtures {
 
     @Configuration
     @PropertySources({
         @PropertySource(IsisPresets.H2InMemory_withUniqueSchema),
-        @PropertySource(IsisPresets.Log4j2Test),
         @PropertySource(IsisPresets.DataNucleusAutoCreate),
     })
     @Import({

@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 
+import org.apache.isis.applib.services.wrapper.InvalidException;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,7 +24,7 @@ class Smoke_IntegTest extends ApplicationIntegTestAbstract {
     @Inject TransactionService transactionService;
 
     @Test
-    void create() {
+    void happy_case() {
 
         // when
         List<SimpleObject> all = wrap(menu).listAll();
@@ -65,6 +67,16 @@ class Smoke_IntegTest extends ApplicationIntegTestAbstract {
         // when
         wrap(fred).setNotes("These are some notes");
         transactionService.flushTransaction();
+
+        // then
+        assertThat(wrap(fred).getNotes()).isEqualTo("These are some notes");
+
+
+        // when
+        Assertions.assertThrows(InvalidException.class, () -> {
+            wrap(fred).updateName("New name !!!");
+            transactionService.flushTransaction();
+        }, "Exclamation mark is not allowed");
 
         // then
         assertThat(wrap(fred).getNotes()).isEqualTo("These are some notes");

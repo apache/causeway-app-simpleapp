@@ -12,6 +12,11 @@
 		<Console name="Console" target="SYSTEM_OUT" follow="true">
 			<PatternLayout pattern="${sys:CONSOLE_LOG_PATTERN}" />
 		</Console>
+		<File name="TranslationsPoFile" fileName="translations.po" append="false" immediateFlush="true">
+			<PatternLayout>
+				<Pattern>%m%n</Pattern>
+			</PatternLayout>
+		</File>
 	</Appenders>
 	<Loggers>
 		<Logger name="org.apache.catalina.startup.DigesterFactory" level="error" />
@@ -22,7 +27,7 @@
 		<Logger name="org.eclipse.jetty.util.component.AbstractLifeCycle" level="error" />
 		<Logger name="org.hibernate.validator.internal.util.Version" level="warn" />
 		<logger name="org.springframework.boot.actuate.endpoint.jmx" level="warn"/>
-		
+
 		<logger name="org.apache.directory" level="warn"/>
 		<logger name="org.apache.directory.api.ldap.model.entry.Value" level="off"/>
 		
@@ -34,6 +39,11 @@
 		<Root level="info">
 			<AppenderRef ref="Console" />
 		</Root>
+
+		<logger name="org.apache.isis.runtime.services.i18n.po.PoWriter" level="info">
+			<AppenderRef ref="TranslationsPoFile"/>
+		</logger>
+
 	</Loggers>
 </Configuration>
 

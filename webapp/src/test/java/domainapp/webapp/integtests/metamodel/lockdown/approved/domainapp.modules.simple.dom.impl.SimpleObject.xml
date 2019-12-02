@@ -1274,6 +1274,12 @@
                             <mml:attr name="intent.default0UpdateName">DEFAULTS</mml:attr>
                             <mml:attr name="methods">public java.lang.String domainapp.modules.simple.dom.impl.SimpleObject.default0UpdateName()</mml:attr>
                         </mml:facet>
+                        <mml:facet id="org.apache.isis.metamodel.facets.param.validate.ActionParameterValidationFacet" fqcn="org.apache.isis.metamodel.facets.param.validate.method.ActionParameterValidationFacetViaMethod">
+                            <mml:attr name="intent.validate0UpdateName">CHECK_IF_VALID</mml:attr>
+                            <mml:attr name="methods">public java.lang.String domainapp.modules.simple.dom.impl.SimpleObject.validate0UpdateName(java.lang.String)</mml:attr>
+                            <mml:attr name="underlyingFacet">org.apache.isis.metamodel.facets.param.validate.method.ActionParameterValidationFacetViaMethod</mml:attr>
+                            <mml:attr name="validating">true</mml:attr>
+                        </mml:facet>
                     </mml:facets>
                     <mml:type>java.lang.String</mml:type>
                 </mml:param>

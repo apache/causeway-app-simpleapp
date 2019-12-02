@@ -1,6 +1,6 @@
 package domainapp.webapp.unittests.mavendeps.lockdown;
 
-import domainapp.webapp.util.ReceivedVsApprovedApprovalTextWriter;
+import domainapp.webapp.util.CurrentVsApprovedApprovalTextWriter;
 
 import java.io.IOException;
 import java.net.URL;
@@ -24,12 +24,12 @@ public class LockDownMavenDeps_Test {
 
     @BeforeEach
     public void setUp() throws Exception {
-        Assumptions.assumeThat(System.getProperty("lockdown")).isNotNull();
+        Assumptions.assumeThat(System.getProperty("mavendeps.lockdown")).isNotNull();
     }
 
     @UseReporter(DiffReporter.class)
     @Test
-    public void list() throws Exception {
+    public void compare_list() throws Exception {
         final String variant = "list";
         final String received = sort(read(variant));
         verify(approvalTextWriter(received, "txt"), namerFor(variant), getReporter());
@@ -37,14 +37,14 @@ public class LockDownMavenDeps_Test {
 
     @UseReporter(DiffReporter.class)
     @Test
-    public void tree() throws Exception {
+    public void compare_tree() throws Exception {
         final String variant = "tree";
         final String received = read(variant);
         verify(approvalTextWriter(received, "txt"), namerFor(variant), getReporter());
     }
 
     private static ApprovalTextWriter approvalTextWriter(final String received, final String fileExtensionWithoutDot) {
-        return new ReceivedVsApprovedApprovalTextWriter(received, fileExtensionWithoutDot);
+        return new CurrentVsApprovedApprovalTextWriter(received, fileExtensionWithoutDot);
     }
 
     private StackTraceNamer namerFor(String variant) {
