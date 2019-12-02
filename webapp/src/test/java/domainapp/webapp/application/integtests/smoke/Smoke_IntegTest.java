@@ -16,7 +16,7 @@
  *  specific language governing permissions and limitations
  *  under the License.
  */
-package domainapp.application.integtests.smoke;
+package domainapp.webapp.application.integtests.smoke;
 
 import java.util.List;
 
@@ -29,7 +29,7 @@ import org.apache.isis.applib.services.xactn.TransactionService;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import domainapp.application.integtests.ApplicationIntegTestAbstract;
+import domainapp.webapp.application.integtests.ApplicationIntegTestAbstract;
 import domainapp.modules.simple.dom.impl.SimpleObject;
 import domainapp.modules.simple.dom.impl.SimpleObjects;
 

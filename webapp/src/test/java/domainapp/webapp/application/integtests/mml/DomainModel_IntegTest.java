@@ -16,26 +16,26 @@
  *  specific language governing permissions and limitations
  *  under the License.
  */
-package domainapp.application.fixture.scenarios;
+package domainapp.webapp.application.integtests.mml;
 
-import org.apache.isis.extensions.fixtures.fixturescripts.FixtureScript;
-import org.apache.isis.extensions.fixtures.legacy.teardown.TeardownFixtureAbstract2;
-import org.springframework.stereotype.Component;
+import javax.inject.Inject;
 
-import domainapp.modules.simple.dom.impl.SimpleObject;
-import domainapp.modules.simple.fixture.SimpleObject_persona;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
-public class DomainAppDemo extends FixtureScript {
+import org.apache.isis.integtestsupport.validate.ValidateDomainModel;
+import org.apache.isis.metamodel.specloader.SpecificationLoader;
 
-    @Override
-    protected void execute(final ExecutionContext ec) {
-        ec.executeChild(this, new TeardownFixtureAbstract2() {
-            @Override
-            protected void execute(final ExecutionContext executionContext) {
-                deleteFrom(SimpleObject.class);
-            }
-        });
-        ec.executeChild(this, new SimpleObject_persona.PersistAll());
+import domainapp.webapp.application.integtests.ApplicationIntegTestAbstract;
+
+class DomainModel_IntegTest extends ApplicationIntegTestAbstract {
+    
+    @Inject protected SpecificationLoader specificationLoader;
+
+    @Test @Disabled("with full introspection in place this test actually throws")
+    void validateDomainModel() {
+        new ValidateDomainModel(specificationLoader).run();
     }
+
 
 }

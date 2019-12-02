@@ -16,9 +16,9 @@
  *  specific language governing permissions and limitations
  *  under the License.
  */
-package domainapp.application.integtests;
+package domainapp.webapp.application.integtests;
 
-import domainapp.application.ApplicationModule;
+import domainapp.webapp.application.ApplicationModule;
 
 import org.apache.isis.config.IsisPresets;
 import org.apache.isis.extensions.fixtures.IsisExtFixturesModule;

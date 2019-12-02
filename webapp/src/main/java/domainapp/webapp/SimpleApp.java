@@ -18,8 +18,8 @@
  */
 package domainapp.webapp;
 
-import domainapp.application.ApplicationModule;
-import domainapp.application.fixture.scenarios.DomainAppDemo;
+import domainapp.webapp.application.ApplicationModule;
+import domainapp.webapp.application.fixture.scenarios.DomainAppDemo;
 
 import org.apache.isis.extensions.fixtures.IsisExtFixturesModule;
 import org.apache.isis.jdo.IsisBootDataNucleus;

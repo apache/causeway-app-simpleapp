@@ -16,26 +16,27 @@
  *  specific language governing permissions and limitations
  *  under the License.
  */
-package domainapp.application.integtests.mml;
+package domainapp.webapp.application.services.homepage;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
+import org.springframework.stereotype.Service;
 
-import org.apache.isis.integtestsupport.validate.ValidateDomainModel;
-import org.apache.isis.metamodel.specloader.SpecificationLoader;
+import org.apache.isis.applib.annotation.Action;
+import org.apache.isis.applib.annotation.HomePage;
+import org.apache.isis.applib.annotation.SemanticsOf;
+import org.apache.isis.applib.services.factory.FactoryService;
 
-import domainapp.application.integtests.ApplicationIntegTestAbstract;
+@Service @Named("homepage.HomePageService")
+public class HomePageService {
 
-class DomainModel_IntegTest extends ApplicationIntegTestAbstract {
-    
-    @Inject protected SpecificationLoader specificationLoader;
-
-    @Test @Disabled("with full introspection in place this test actually throws")
-    void validateDomainModel() {
-        new ValidateDomainModel(specificationLoader).run();
+    @Action(semantics = SemanticsOf.SAFE)
+    @HomePage
+    public HomePageViewModel homePage() {
+        return factoryService.instantiate(HomePageViewModel.class);
     }
 
 
+    @Inject FactoryService factoryService;
 }

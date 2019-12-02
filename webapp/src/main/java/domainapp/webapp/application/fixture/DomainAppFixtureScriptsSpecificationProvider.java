@@ -16,7 +16,7 @@
  *  specific language governing permissions and limitations
  *  under the License.
  */
-package domainapp.application.fixture;
+package domainapp.webapp.application.fixture;
 
 import org.apache.isis.applib.annotation.DomainService;
 import org.apache.isis.applib.annotation.NatureOfService;
@@ -24,7 +24,7 @@ import org.apache.isis.extensions.fixtures.fixturescripts.FixtureScripts;
 import org.apache.isis.extensions.fixtures.fixturespec.FixtureScriptsSpecification;
 import org.apache.isis.extensions.fixtures.fixturespec.FixtureScriptsSpecificationProvider;
 
-import domainapp.application.fixture.scenarios.DomainAppDemo;
+import domainapp.webapp.application.fixture.scenarios.DomainAppDemo;
 
 /**
  * Specifies where to find fixtures, and other settings.

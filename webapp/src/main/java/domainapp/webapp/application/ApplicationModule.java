@@ -16,32 +16,18 @@
  *  specific language governing permissions and limitations
  *  under the License.
  */
-package domainapp.application.services.homepage;
+package domainapp.webapp.application;
 
-import java.util.List;
+import org.apache.isis.extensions.fixtures.modules.Module;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 
-import javax.inject.Inject;
+import domainapp.modules.simple.SimpleModule;
 
-import org.apache.isis.applib.annotation.DomainObject;
-import org.apache.isis.applib.annotation.Nature;
-import org.apache.isis.applib.services.i18n.TranslatableString;
+@Configuration
+@Import(SimpleModule.class)
+@ComponentScan
+public class ApplicationModule implements Module {
 
-import domainapp.modules.simple.dom.impl.SimpleObject;
-import domainapp.modules.simple.dom.impl.SimpleObjects;
-
-@DomainObject(
-        nature = Nature.VIEW_MODEL,
-        objectType = "domainapp.application.services.homepage.HomePageViewModel"
-        )
-public class HomePageViewModel {
-
-    public TranslatableString title() {
-        return TranslatableString.tr("{num} objects", "num", getObjects().size());
-    }
-
-    public List<SimpleObject> getObjects() {
-        return simpleObjects.listAll();
-    }
-
-    @Inject SimpleObjects simpleObjects;
 }

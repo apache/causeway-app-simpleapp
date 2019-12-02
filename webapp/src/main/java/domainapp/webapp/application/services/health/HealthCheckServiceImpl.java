@@ -16,27 +16,32 @@
  *  specific language governing permissions and limitations
  *  under the License.
  */
-package domainapp.application.services.homepage;
+package domainapp.webapp.application.services.health;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
-import org.springframework.stereotype.Service;
+import org.apache.isis.applib.annotation.DomainService;
+import org.apache.isis.applib.annotation.NatureOfService;
+import org.apache.isis.applib.services.health.Health;
+import org.apache.isis.applib.services.health.HealthCheckService;
 
-import org.apache.isis.applib.annotation.Action;
-import org.apache.isis.applib.annotation.HomePage;
-import org.apache.isis.applib.annotation.SemanticsOf;
-import org.apache.isis.applib.services.factory.FactoryService;
+import domainapp.modules.simple.dom.impl.SimpleObjects;
 
-@Service @Named("homepage.HomePageService")
-public class HomePageService {
+@DomainService(nature = NatureOfService.DOMAIN)
+public class HealthCheckServiceImpl implements HealthCheckService {
 
-    @Action(semantics = SemanticsOf.SAFE)
-    @HomePage
-    public HomePageViewModel homePage() {
-        return factoryService.instantiate(HomePageViewModel.class);
+    @Override
+    public Health check() {
+
+        try {
+            simpleObjects.ping();
+            return Health.ok();
+        } catch (Exception ex) {
+            return Health.error(ex.getMessage());
+        }
+
     }
 
-
-    @Inject FactoryService factoryService;
+    @Inject
+    SimpleObjects simpleObjects;
 }

@@ -39,7 +39,7 @@
         </mml:facet>
         <mml:facet id="org.apache.isis.metamodel.facets.object.objectspecid.ObjectSpecIdFacet" fqcn="org.apache.isis.metamodel.facets.object.domainobject.objectspecid.ObjectSpecIdFacetForDomainObjectAnnotation">
             <mml:attr name="underlyingFacet">org.apache.isis.metamodel.facets.object.objectspecid.classname.ObjectSpecIdFacetDerivedFromClassName</mml:attr>
-            <mml:attr name="value">domainapp.application.services.homepage.HomePageViewModel</mml:attr>
+            <mml:attr name="value">domainapp.webapp.application.services.homepage.HomePageViewModel</mml:attr>
         </mml:facet>
         <mml:facet id="org.apache.isis.metamodel.facets.object.objectvalidprops.ObjectValidPropertiesFacet" fqcn="org.apache.isis.metamodel.facets.object.objectvalidprops.impl.ObjectValidPropertiesFacetImpl">
             <mml:attr name="validating">true</mml:attr>
@@ -54,7 +54,8 @@
         </mml:facet>
         <mml:facet id="org.apache.isis.metamodel.facets.object.title.TitleFacet" fqcn="org.apache.isis.metamodel.facets.object.title.methods.TitleFacetViaTitleMethod">
             <mml:attr name="intent.title">UI_HINT</mml:attr>
-            <mml:attr name="methods">public org.apache.isis.applib.services.i18n.TranslatableString domainapp.application.services.homepage.HomePageViewModel.title()</mml:attr>
+            <mml:attr name="methods">public org.apache.isis.applib.services.i18n.TranslatableString
+                domainapp.webapp.application.services.homepage.HomePageViewModel.title()</mml:attr>
         </mml:facet>
         <mml:facet id="org.apache.isis.metamodel.facets.object.viewmodel.ViewModelFacet" fqcn="org.apache.isis.metamodel.facets.object.domainobject.recreatable.RecreatableObjectFacetForDomainObjectAnnotation">
             <mml:attr name="recreationMechanism">INITIALIZES</mml:attr>
@@ -242,7 +243,8 @@
                 </mml:facet>
                 <mml:facet id="org.apache.isis.metamodel.facets.collections.modify.CollectionClearFacet" fqcn="org.apache.isis.metamodel.facets.collections.clear.CollectionClearFacetViaAccessor">
                     <mml:attr name="intent.getObjects">ACCESSOR</mml:attr>
-                    <mml:attr name="methods">public java.util.List&lt;domainapp.modules.simple.dom.impl.SimpleObject&gt; domainapp.application.services.homepage.HomePageViewModel.getObjects()</mml:attr>
+                    <mml:attr name="methods">public java.util.List&lt;domainapp.modules.simple.dom.impl.SimpleObject&gt;
+                        domainapp.webapp.application.services.homepage.HomePageViewModel.getObjects()</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.metamodel.facets.collections.modify.CollectionRemoveFromFacet" fqcn="org.apache.isis.metamodel.facets.collections.collection.modify.CollectionRemoveFromFacetForDomainEventFromDefault">
                     <mml:attr name="collectionRemoveFromFacet">org.apache.isis.metamodel.facets.collections.modify.CollectionRemoveFromFacetViaAccessor</mml:attr>
@@ -265,8 +267,9 @@
                 </mml:facet>
                 <mml:facet id="org.apache.isis.metamodel.facets.propcoll.accessor.PropertyOrCollectionAccessorFacet" fqcn="org.apache.isis.metamodel.facets.collections.accessor.CollectionAccessorFacetViaAccessor">
                     <mml:attr name="intent.getObjects">ACCESSOR</mml:attr>
-                    <mml:attr name="methods">public java.util.List&lt;domainapp.modules.simple.dom.impl.SimpleObject&gt; domainapp.application.services.homepage.HomePageViewModel.getObjects()</mml:attr>
-                    <mml:attr name="onType">domainapp.application.services.homepage.HomePageViewModel</mml:attr>
+                    <mml:attr name="methods">public java.util.List&lt;domainapp.modules.simple.dom.impl.SimpleObject&gt;
+                        domainapp.webapp.application.services.homepage.HomePageViewModel.getObjects()</mml:attr>
+                    <mml:attr name="onType">domainapp.webapp.application.services.homepage.HomePageViewModel</mml:attr>
                 </mml:facet>
             </mml:facets>
             <mml:type>domainapp.modules.simple.dom.impl.SimpleObject</mml:type>
