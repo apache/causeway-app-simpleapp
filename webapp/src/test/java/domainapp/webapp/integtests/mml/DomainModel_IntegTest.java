@@ -32,7 +32,7 @@ class DomainModel_IntegTest extends ApplicationIntegTestAbstract {
     
     @Inject protected SpecificationLoader specificationLoader;
 
-    @Test @Disabled("with full introspection in place this test actually throws")
+    @Test
     void validateDomainModel() {
         new ValidateDomainModel(specificationLoader).run();
     }
