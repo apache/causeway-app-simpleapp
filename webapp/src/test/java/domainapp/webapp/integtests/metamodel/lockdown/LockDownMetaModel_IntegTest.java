@@ -1,24 +1,5 @@
-/*
- *  Licensed to the Apache Software Foundation (ASF) under one
- *  or more contributor license agreements.  See the NOTICE file
- *  distributed with this work for additional information
- *  regarding copyright ownership.  The ASF licenses this file
- *  to you under the Apache License, Version 2.0 (the
- *  "License"); you may not use this file except in compliance
- *  with the License.  You may obtain a copy of the License at
- *
- *        http://www.apache.org/licenses/LICENSE-2.0
- *
- *  Unless required by applicable law or agreed to in writing,
- *  software distributed under the License is distributed on an
- *  "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- *  KIND, either express or implied.  See the License for the
- *  specific language governing permissions and limitations
- *  under the License.
- */
-package domainapp.webapp.integtests.mml;
+package domainapp.webapp.integtests.metamodel.lockdown;
 
-import java.io.File;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -27,7 +8,6 @@ import org.approvaltests.namer.StackTraceNamer;
 import org.approvaltests.reporters.DiffReporter;
 import org.approvaltests.reporters.QuietReporter;
 import org.approvaltests.reporters.UseReporter;
-import org.approvaltests.writers.ApprovalTextWriter;
 import org.junit.jupiter.api.Test;
 
 import org.apache.isis.applib.services.jaxb.JaxbService;
@@ -42,8 +22,9 @@ import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assume.assumeThat;
 
 import domainapp.webapp.integtests.ApplicationIntegTestAbstract;
+import domainapp.webapp.util.ReceivedVsApprovedApprovalTextWriter;
 
-class MetaModelService_IntegTest extends ApplicationIntegTestAbstract {
+class LockDownMetaModel_IntegTest extends ApplicationIntegTestAbstract {
 
     @Inject MetaModelService metaModelService;
     @Inject JaxbService jaxbService;
@@ -57,7 +38,7 @@ class MetaModelService_IntegTest extends ApplicationIntegTestAbstract {
     @Test
     void _1_learn() throws Exception {
 
-        assumeThat(System.getProperty("lockdown.learn"), is(notNullValue()));
+        assumeThat(System.getProperty("learn"), is(notNullValue()));
 
         // when
         MetamodelDto metamodelDto =
@@ -91,7 +72,7 @@ class MetaModelService_IntegTest extends ApplicationIntegTestAbstract {
     @Test
     void _2_verify() throws Exception {
 
-        assumeThat(System.getProperty("lockdown.verify"), is(notNullValue()));
+        assumeThat(System.getProperty("lockdown"), is(notNullValue()));
 
         // when
         MetamodelDto metamodelDto =
@@ -113,33 +94,13 @@ class MetaModelService_IntegTest extends ApplicationIntegTestAbstract {
 
     private void verifyClass(final DomainClassDto domainClass) {
         String asXml = jaxbService.toXml(domainClass);
-        verify(new ApprovalTextWriter(asXml, "xml"){
-            @Override public String writeReceivedFile(final String received) {
-                return super.writeReceivedFile(received);
-            }
-
-            @Override public String getReceivedFilename(final String base) {
-                return toFilename("received", base);
-            }
-
-            @Override public String getApprovalFilename(final String base) {
-                return toFilename("approved", base);
-            }
-
-            private String toFilename(final String prefix, final String base) {
-                final File file = new File(base);
-                final File parentFile = file.getParentFile();
-                final String localName = file.getName();
-                final File newDir = new File(parentFile, prefix);
-                final File newFile = new File(newDir, localName + ".xml");
-                return newFile.toString();
-            }
-
-        }, new StackTraceNamer() {
-            @Override public String getApprovalName() {
-                return domainClass.getId();
-            }
-        }, getReporter());
+        verify(
+                new ReceivedVsApprovedApprovalTextWriter(asXml, "xml"),
+                new StackTraceNamer() {
+                    @Override public String getApprovalName() {
+                        return domainClass.getId();
+                    }
+                }, getReporter());
     }
 
 }

@@ -25,7 +25,7 @@ Login using:
 * username: `sven`
 * password: `pass`
 
-The app runs with HSQLDB running in-memory, with sample data set up using link:https://isis.apache.org/guides/ugtst.html#_ugtst_fixture-scripts[fixture scripts].
+The app runs with H2 running in-memory, with sample data set up using link:https://isis.apache.org/guides/ugtst.html#_ugtst_fixture-scripts[fixture scripts].
 
 
 
@@ -33,18 +33,14 @@ The app runs with HSQLDB running in-memory, with sample data set up using link:h
 
 The following table explains the contents of each of the directories:
 
-[width="100%",options="header,footer", cols="2a,4a"]
+[width="100%",options="header,footer",stripes="none",cols="2a,4a"]
 |====================
 |Directory
 |Description
 
-|`application`
-|Defines application-level classes such as menus and the ``AppManifest`` (which defines the modules that make up the application).
-It also  holds application-wide integration tests/BDD specs.
-
 |`module-simple`
-|Holds the "simple" module, consisting of the `SimpleObject` entity and supporting repository, along with module-specific unit- and integration tests.
-Also runs `isis:validate` goal for the domain objects within the module. +
+|Holds the "simple" module, consisting of the `SimpleObject` entity and supporting services.
+It also contains module-specific unit- and integration tests.
 
 [TIP]
 ====
@@ -52,52 +48,63 @@ Larger applications should consist of multiple modules; each such module can be 
 ====
 
 |`webapp`
-|Assembles the application into a webapp (comprising both the Wicket viewer and Restful Objects viewer) and also as a docker image, and runs the `isis:swagger` goal.
+|Holds the bootstrapping classes, along with application-level scoped services and home page.
+It also contains application-wide integration tests/BDD specs, and lockdown tests.
 
+The `pom.xml` also provides goals to run the app from the command line, or to be assembled into a Docker image.
 
 |====================
 
-== More advanced use cases
 
-* To enhance all JDO entities prior to running: +
-+
+== In Development
+
+Apache Isis uses DataNucleus as its ORM, which requires that any entities are "enhanced", a post-compile process.
+
+Normally this is done as part of a "mvn clean install", but the entities can also be enhanced explicity using:
+
 [source,bash]
 ----
 mvn -pl module-simple datanucleus:enhance -o
 ----
 
+This is useful to know if the application or integration test fails to bootstrap, complaining of "unenhanced entities".
 
-* To disable the running of unit tests: +
-+
+TIP: You can also use `enhance-all.sh`
+
+
+== Testing
+
+To disable the running of unit tests: +
+
 [source,bash]
 ----
 mvn -DskipUTs 
 ----
-+
+
 [TIP]
 ====
 By default, output of unit tests are in  `target/surefire-unittest-reports` (in the ``module-simple`` modules).
 ====
 
-* To disable the running of integration tests: +
-+
+To disable the running of integration tests: +
+
 [source,bash]
 ----
 mvn -DskipITs 
 ----
-+
+
 [TIP]
 ====
 By default, output of integration tests are in  `target/surefire-integtest-reports` (in the ``application`` and ``module-simple`` modules).
 ====
 
-* To disable the running of BDD specs: +
-+
+To disable the running of BDD specs: +
+
 [source,bash]
 ----
 mvn -DskipBSs 
 ----
-+
+
 [TIP]
 ====
 By default, output of integration tests are in  `target/surefire-integbddspecs-reports` (in the ``application`` module).
@@ -110,40 +117,49 @@ By default, output of integration tests are in  `target/surefire-integbddspecs-r
 mvn -DskipTests 
 ----
 
-//* To package up the application as a docker image (specifying the docker image name as a system property): +
-//+
-//[source,bash]
-//----
-//mvn install -Dmavenmixin-docker -Ddocker-plugin.imageName=mycompany/myapp
-//----
-//+
-//Alternatively, define the `${docker-plugin.imageName}` in the `webapp` module and use simply: +
-//+
-//[source,bash]
-//----
-//mvn install -Dmavenmixin-docker
-//----
-//+
-//The packaged image can be viewed using `docker images`.
-//
-//* To run a docker image previously packaged: +
-//+
-//[source,bash]
-//----
-//docker container run -d -p 8080:8080 mycompany/myapp
-//----
-//+
-//This can then be accessed at link:http://localhost:8080[localhost:8080].
-//+
-//See link:https://github.com/danhaywood/java-mavenmixin-docker#how-to-consume[mavenmixin-docker] for further details on how to run docker images.
-//
-//* To upload the application as a docker image to link:https://hub.docker.com[docker hub] (or some other docker registry): +
-//+
-//[source,bash]
-//----
-//mvn -pl webapp deploy -Dmavenmixin-docker
-//----
-//+
-//This assumes that the `${docker-plugin.imageName}` property has been defined, _and_ also that docker registry credentials have been specified in `~/.m2/settings.xml`.
-//Once more, see link:https://github.com/danhaywood/java-mavenmixin-docker#how-to-configure[mavenmixin-docker] for further details.
 
+== Docker
+
+To package up the application as a docker image and push to a Docker registry:
+
+* set `$DOCKER_REGISTRY_USERNAME` and `$DOCKER_REGISTRY_PASSWORD` environment variables
+
+* modify the `to/image` configuration property for the link:https://github.com/GoogleContainerTools/jib[jib-maven-plugin] in the `pom.xml`
++
+The default value is `docker.io/apacheisis/simpleapp:latest`:
+
+** change `docker.io` prefix to push to a registry other than Docker hub
+** change `apacheisis/simpleapp` to the name of your app.
+
+* package up the app with the `docker` profile:
++
+[source,bash]
+----
+mvn -pl webapp -DskipTests -Ddocker package
+----
+
+Variants:
+
+* to specify Docker registry credentials through some other mechanism, configure the `pom.xml` for `maven-jib-plugin` (it supports a link:https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin#authentication-methods[variety of ways] to specify credentials)
+
+* to override the image at the command line, use `-Dimage=...`.
+
+
+
+To run a docker image previously packaged:
+
+[source,bash]
+----
+docker pull apacheisis/simpleapp:latest
+docker container run -d -p 8080:8080 apacheisis/simpleapp:latest
+----
+
+This can then be accessed at link:http://localhost:8080[localhost:8080].
+
+
+== Externalized Configuration
+
+The application is configured to run in the `/run/secrets` directory.
+Configuration can be therefore be externalized by defining an `application.properties` secret for the Kubernetes or Docker Swarm cluster.
+
+Spring Boot will use these settings in preference to the configuration properties defined in `classpath:config/application.properties`, see link:https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-external-config[Spring docs].
