@@ -16,7 +16,7 @@
  *  specific language governing permissions and limitations
  *  under the License.
  */
-package domainapp.webapp.application.bdd.glue;
+package domainapp.webapp.bdd.glue;
 
 import java.util.List;
 import java.util.UUID;
@@ -32,7 +32,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 import domainapp.webapp.application.fixture.scenarios.DomainAppDemo;
-import domainapp.webapp.application.integtests.ApplicationIntegTestAbstract;
+import domainapp.webapp.integtests.ApplicationIntegTestAbstract;
 import domainapp.modules.simple.dom.impl.SimpleObject;
 import domainapp.modules.simple.dom.impl.SimpleObjects;
 import domainapp.modules.simple.fixture.SimpleObject_persona;

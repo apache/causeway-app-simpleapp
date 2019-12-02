@@ -16,7 +16,7 @@
  *  specific language governing permissions and limitations
  *  under the License.
  */
-package domainapp.webapp.application.integtests.mml;
+package domainapp.webapp.integtests.mml;
 
 import java.io.File;
 import java.util.List;
@@ -41,7 +41,7 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
 import static org.junit.Assume.assumeThat;
 
-import domainapp.webapp.application.integtests.ApplicationIntegTestAbstract;
+import domainapp.webapp.integtests.ApplicationIntegTestAbstract;
 
 class MetaModelService_IntegTest extends ApplicationIntegTestAbstract {
 

@@ -16,7 +16,7 @@
  *  specific language governing permissions and limitations
  *  under the License.
  */
-package domainapp.webapp.application.integtests;
+package domainapp.webapp.integtests;
 
 import domainapp.webapp.application.ApplicationModule;
 

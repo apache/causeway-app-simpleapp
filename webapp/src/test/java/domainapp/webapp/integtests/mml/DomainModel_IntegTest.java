@@ -16,7 +16,7 @@
  *  specific language governing permissions and limitations
  *  under the License.
  */
-package domainapp.webapp.application.integtests.mml;
+package domainapp.webapp.integtests.mml;
 
 import javax.inject.Inject;
 
@@ -26,7 +26,7 @@ import org.junit.jupiter.api.Test;
 import org.apache.isis.integtestsupport.validate.ValidateDomainModel;
 import org.apache.isis.metamodel.specloader.SpecificationLoader;
 
-import domainapp.webapp.application.integtests.ApplicationIntegTestAbstract;
+import domainapp.webapp.integtests.ApplicationIntegTestAbstract;
 
 class DomainModel_IntegTest extends ApplicationIntegTestAbstract {
     
