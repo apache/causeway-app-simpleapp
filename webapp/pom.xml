@@ -34,7 +34,10 @@
     <packaging>jar</packaging>
 
     <properties>
+<!--
         <maven-war-plugin.warName>${project.parent.artifactId}</maven-war-plugin.warName>
+-->
+        <maven-cucumber-reporting.version>4.11.2</maven-cucumber-reporting.version>
     </properties>
 
     <build>
@@ -54,20 +57,60 @@
                 </excludes>
             </resource>
         </resources>
+        <testResources>
+            <testResource>
+                <filtering>false</filtering>
+                <directory>src/test/resources</directory>
+            </testResource>
+            <testResource>
+                <filtering>false</filtering>
+                <directory>src/test/java</directory>
+            </testResource>
+        </testResources>
+        <plugins>
+            <plugin>
+                <groupId>net.masterthought</groupId>
+                <artifactId>maven-cucumber-reporting</artifactId>
+                <version>${maven-cucumber-reporting.version}</version>
+                <executions>
+                    <execution>
+                        <id>execution</id>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <projectName>SimpleApp</projectName>
+                            <outputDirectory>${project.build.directory}</outputDirectory>
+                            <inputDirectory>${project.build.directory}</inputDirectory>
+                            <jsonFiles>
+                                <param>**/*.json</param>
+                            </jsonFiles>
+                            <skip>${skipBSs}</skip>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
     </build>
 
     <dependencies>
     
-    	<!-- this app -->
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>simpleapp-application</artifactId>
+            <artifactId>simpleapp-module-simple</artifactId>
         </dependency>
 
         <!-- isis -->
         <dependency>
             <groupId>org.apache.isis.mavendeps</groupId>
             <artifactId>isis-mavendeps-webapp</artifactId>
+            <type>pom</type>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.isis.mavendeps</groupId>
+            <artifactId>isis-mavendeps-jdk11</artifactId>
             <type>pom</type>
         </dependency>
 
@@ -130,27 +173,6 @@
 			</build>
 		</profile>
     
-        <profile>
-            <id>jdbc-logging</id>
-            <activation>
-                <property>
-                    <name>jdbc-logging</name>
-                </property>
-            </activation>
-            <dependencies>
-                <dependency>
-                    <groupId>org.lazyluke</groupId>
-                    <artifactId>log4jdbc-remix</artifactId>
-                    <exclusions>
-                        <exclusion>
-                            <groupId>org.slf4j</groupId>
-                            <artifactId>slf4j-api</artifactId>
-                        </exclusion>
-                    </exclusions>
-                </dependency>
-            </dependencies>
-        </profile>
-
         <profile>
             <id>lockdown</id>
             <activation>

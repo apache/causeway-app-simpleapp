@@ -1,4 +1,4 @@
-package domain.webapp.lockdown;
+package domainapp.webapp.lockdown;
 
 import java.io.IOException;
 import java.net.URL;
