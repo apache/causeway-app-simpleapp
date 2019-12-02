@@ -44,9 +44,6 @@
                 <mb3:serviceAction objectType="isisApplib.FixtureScriptsDefault" id="runFixtureScript">
                     <cpt:named>Run Fixture Script</cpt:named>
                 </mb3:serviceAction>
-                <mb3:serviceAction objectType="isisApplib.FixtureScriptsDefault" id="runFixtureScriptWithAutoComplete">
-                    <cpt:named>Run Fixture Script</cpt:named>
-                </mb3:serviceAction>
                 <mb3:serviceAction objectType="isisApplib.FixtureScriptsDefault" id="recreateObjectsAndReturnFirst">
                     <cpt:named>Recreate Objects And Return First</cpt:named>
                 </mb3:serviceAction>
