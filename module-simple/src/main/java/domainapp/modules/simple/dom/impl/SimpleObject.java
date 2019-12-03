@@ -60,9 +60,6 @@ public class SimpleObject implements Comparable<SimpleObject> {
     public String default0UpdateName() {
         return getName();
     }
-    public String validate0UpdateName(String name) {
-        return name.contains("!") ? "Exclamation mark is not allowed" : null;
-    }
 
 
     @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE)
