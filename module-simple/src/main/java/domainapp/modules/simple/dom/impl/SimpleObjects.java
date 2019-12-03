@@ -5,13 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.jdo.JDOQLTypedQuery;
 
-import org.apache.isis.applib.annotation.Action;
-import org.apache.isis.applib.annotation.ActionLayout;
-import org.apache.isis.applib.annotation.BookmarkPolicy;
-import org.apache.isis.applib.annotation.DomainService;
-import org.apache.isis.applib.annotation.NatureOfService;
-import org.apache.isis.applib.annotation.PromptStyle;
-import org.apache.isis.applib.annotation.SemanticsOf;
+import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.events.domain.ActionDomainEvent;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.jdo.jdosupport.IsisJdoSupport_v3_2;
@@ -64,6 +58,7 @@ public class SimpleObjects {
         return repositoryService.allInstances(SimpleObject.class);
     }
 
+    @Programmatic
     public void ping() {
         JDOQLTypedQuery<SimpleObject> q = isisJdoSupport.newTypesafeQuery(SimpleObject.class);
         final QSimpleObject candidate = QSimpleObject.candidate();
