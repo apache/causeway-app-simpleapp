@@ -1,8 +1,12 @@
 = SimpleApp
 :toc:
 
-This is a simple link:http://isis.apache.org[Apache Isis] application, but structured so it can be used as a starting point for developing your own applications.
+This is a simple link:http://isis.apache.org[Apache Isis] application, structured so it can be used as a starting point for developing your own applications.
 
+[TIP]
+====
+If all you want is get a feel for what the framework is all about, then take a look at the link:https://github.com/apache/isis-hello-world[hello world] starter app, which is even simpler.
+====
 
 
 == Quick start
