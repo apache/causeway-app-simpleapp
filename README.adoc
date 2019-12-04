@@ -119,10 +119,7 @@ Each of these generates its own set of tests, and each can be disabled through a
 | `-DskipITs`
 
 | BDD (Cucumber) specs
-| `target/surefire-integbddspecs-reports`
-
-and
-
+| `target/surefire-integbddspecs-reports` and +
 `target/cucumber-html-reports/overview-features.html`
 
 | `integration-test`
