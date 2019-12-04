@@ -47,7 +47,7 @@ mvn -pl webapp spring-boot:run
 ** username: `sven`
 ** password: `pass`
 
-The app runs with H2 running in-memory, with sample data set up using link:https://isis.apache.org/guides/ugtst.html#_ugtst_fixture-scripts[fixture scripts].
+The app runs with H2 running in-memory, with sample data set up using fixture scripts.
 
 
 == Application Structure
