@@ -112,8 +112,8 @@
         </dependency>
 
         <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
+            <groupId>org.apache.isis.extensions</groupId>
+            <artifactId>isis-extensions-h2console</artifactId>
         </dependency>
 
         <!-- test -->

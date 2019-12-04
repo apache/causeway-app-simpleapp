@@ -253,11 +253,6 @@ msgid "Format"
 msgstr ""
 
 
-#: org.apache.isis.runtime.services.hsqldb.HsqlDbManagerMenu#hsqlDbManager()
-msgid "HSQL DB Manager"
-msgstr ""
-
-
 #: domainapp.modules.simple.dom.impl.SimpleObject#datanucleusIdLong()
 #: org.apache.isis.commons.internal.ioc.spring.BeanAdapterSpring#id
 #: org.apache.isis.jdo.jdosupport.mixins.Persistable_datanucleusIdLong#prop()
@@ -431,7 +426,6 @@ msgstr ""
 #: org.apache.isis.applib.services.metamodel.MetaModelServicesMenu
 #: org.apache.isis.applib.services.swagger.SwaggerServiceMenu
 #: org.apache.isis.extensions.fixtures.fixturescripts.FixtureScripts
-#: org.apache.isis.runtime.services.hsqldb.HsqlDbManagerMenu
 #: org.apache.isis.runtime.services.i18n.po.TranslationServicePoMenu
 msgid "Prototyping"
 msgstr "Prototipo"

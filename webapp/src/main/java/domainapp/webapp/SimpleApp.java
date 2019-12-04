@@ -4,6 +4,7 @@ import domainapp.webapp.application.ApplicationModule;
 import domainapp.webapp.application.fixture.scenarios.DomainAppDemo;
 
 import org.apache.isis.extensions.fixtures.IsisExtFixturesModule;
+import org.apache.isis.extensions.h2console.IsisExtH2ConsoleModule;
 import org.apache.isis.jdo.IsisBootDataNucleus;
 import org.apache.isis.runtime.spring.IsisBoot;
 import org.apache.isis.security.shiro.IsisBootSecurityShiro;
@@ -38,6 +39,7 @@ public class SimpleApp extends SpringBootServletInitializer {
             IsisBootViewerWicket.class,
 
             IsisExtFixturesModule.class,
+            IsisExtH2ConsoleModule.class,
 
             ApplicationModule.class,
             DomainAppDemo.class // register this fixture
