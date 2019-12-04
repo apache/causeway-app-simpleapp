@@ -5,7 +5,7 @@ This is a simple link:http://isis.apache.org[Apache Isis] application, structure
 
 [TIP]
 ====
-If all you want is get a feel for what the framework is all about, then take a look at the link:https://github.com/apache/isis-hello-world[hello world] starter app, which is even simpler.
+If all you want is get a feel for what the framework is all about, then take a look at the link:https://github.com/apache/isis-app-helloworld[hello world] starter app, which is even simpler.
 ====
 
 
