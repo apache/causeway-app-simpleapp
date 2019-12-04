@@ -99,7 +99,7 @@ The application has three types of tests.
 Each of these generates its own set of tests, and each can be disabled through a system property.
 
 .Testing types
-[cols="5a,12m,6m,3m", options="header"]
+[cols="5a,12a,6a,3a", options="header"]
 |===
 
 | Test type
@@ -109,28 +109,28 @@ Each of these generates its own set of tests, and each can be disabled through a
 
 
 | Unit test
-| target/surefire-unittest-reports
-| test
-| -DskipUTs
+| `target/surefire-unittest-reports`
+| `test`
+| `-DskipUTs`
 
 | Integ test
-| target/surefire-integtest-reports
-| integration-test
-| -DskipITs
+| `target/surefire-integtest-reports`
+| `integration-test`
+| `-DskipITs`
 
 | BDD (Cucumber) specs
-| target/surefire-integbddspecs-reports
-| integration-test
-| -DskipBS
+| `target/surefire-integbddspecs-reports`
+
+and
+
+`target/cucumber-html-reports/overview-features.html`
+
+| `integration-test`
+| `-DskipBS`
 
 
 |===
 
-The test reports format are in XML and basic HTML format.
-In addition:
-
-`target/cucumber-html-reports/overview-features.html`::
-BDD (Cucumber) specification reports, as an interactive website
 
 These outputs can for example be processed within/published by a continuous pipeline pipeline.
 
