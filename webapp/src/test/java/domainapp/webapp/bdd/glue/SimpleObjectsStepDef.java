@@ -1,29 +1,27 @@
 package domainapp.webapp.bdd.glue;
 
+import domainapp.modules.simple.dom.impl.SimpleObject;
+import domainapp.modules.simple.dom.impl.SimpleObjects;
+import domainapp.modules.simple.fixture.SimpleObject_persona;
+import domainapp.webapp.application.fixture.scenarios.DomainAppDemo;
+import domainapp.webapp.integtests.ApplicationIntegTestAbstract;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.When;
+import lombok.val;
+
 import java.util.List;
 import java.util.UUID;
 
 import javax.inject.Inject;
 
+import org.apache.isis.extensions.fixtures.fixturescripts.FixtureScripts;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.support.TransactionTemplate;
 
-import org.apache.isis.extensions.fixtures.fixturescripts.FixtureScripts;
-
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
-
-import domainapp.webapp.application.fixture.scenarios.DomainAppDemo;
-import domainapp.webapp.integtests.ApplicationIntegTestAbstract;
-import domainapp.modules.simple.dom.impl.SimpleObject;
-import domainapp.modules.simple.dom.impl.SimpleObjects;
-import domainapp.modules.simple.fixture.SimpleObject_persona;
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
-import io.cucumber.java.en.Given;
-import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-import lombok.val;
 
 public class SimpleObjectsStepDef extends ApplicationIntegTestAbstract {
 
@@ -71,7 +69,8 @@ public class SimpleObjectsStepDef extends ApplicationIntegTestAbstract {
     // -- DEPENDENCIES
 
     @Inject protected SimpleObjects simpleObjects;
-    @Inject private FixtureScripts fixtureScripts; 
+    @Inject private FixtureScripts fixtureScripts;
+    //@SuppressWarnings("SpringJavaInjectionPointsAutowiringInspection")
     @Inject private PlatformTransactionManager txMan;
 
     @Before(value="@DomainAppDemo", order=20000)
