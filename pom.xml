@@ -9,7 +9,7 @@
         <version>2.0.0-M3-SNAPSHOT</version>
     </parent>
 
-    <groupId>org.apache.isis.examples.apps</groupId>
+    <groupId>org.apache.isis.starters</groupId>
     <artifactId>simpleapp</artifactId>
 
     <name>Apache Isis App - SimpleApp Parent</name>
@@ -21,24 +21,24 @@
 
             <!-- this project's own modules -->
             <dependency>
-                <groupId>org.apache.isis.examples.apps</groupId>
+                <groupId>org.apache.isis.starters</groupId>
                 <artifactId>simpleapp-module-simple</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.isis.examples.apps</groupId>
+                <groupId>org.apache.isis.starters</groupId>
                 <artifactId>simpleapp-module-simple</artifactId>
                 <version>${project.version}</version>
                 <scope>test</scope>
                 <type>test-jar</type>
             </dependency>
             <dependency>
-                <groupId>org.apache.isis.examples.apps</groupId>
+                <groupId>org.apache.isis.starters</groupId>
                 <artifactId>simpleapp-application</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.isis.examples.apps</groupId>
+                <groupId>org.apache.isis.starters</groupId>
                 <artifactId>simpleapp-webapp</artifactId>
                 <version>${project.version}</version>
             </dependency>
