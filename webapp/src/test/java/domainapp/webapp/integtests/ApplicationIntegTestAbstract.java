@@ -18,9 +18,7 @@ import org.springframework.test.context.ContextConfiguration;
 
 @SpringBootTest(
         classes = ApplicationIntegTestAbstract.AppManifest.class,
-        properties = {
-                "logging.config=log4j2-test.xml"
-        }
+        properties = {"logging.config=log4j2-test.xml"}
 )
 @ContextConfiguration
 public abstract class ApplicationIntegTestAbstract extends IsisIntegrationTestAbstract {
