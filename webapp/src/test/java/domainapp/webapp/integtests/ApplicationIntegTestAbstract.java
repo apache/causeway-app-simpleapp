@@ -2,11 +2,10 @@ package domainapp.webapp.integtests;
 
 import domainapp.webapp.application.ApplicationModule;
 
-import org.apache.isis.applib.annotation.Property;
-import org.apache.isis.config.IsisPresets;
+import org.apache.isis.config.presets.IsisPresets;
 import org.apache.isis.extensions.fixtures.IsisExtFixturesModule;
 import org.apache.isis.integtestsupport.IsisIntegrationTestAbstract;
-import org.apache.isis.jdo.IsisBootDataNucleus;
+import org.apache.isis.persistence.jdo.datanucleus5.IsisBootDataNucleus;
 import org.apache.isis.runtime.spring.IsisBoot;
 import org.apache.isis.security.bypass.IsisBootSecurityBypass;
 import org.springframework.boot.test.context.SpringBootTest;

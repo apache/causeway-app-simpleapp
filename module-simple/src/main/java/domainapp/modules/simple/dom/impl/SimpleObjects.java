@@ -8,7 +8,7 @@ import javax.jdo.JDOQLTypedQuery;
 import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.events.domain.ActionDomainEvent;
 import org.apache.isis.applib.services.repository.RepositoryService;
-import org.apache.isis.jdo.jdosupport.IsisJdoSupport_v3_2;
+import org.apache.isis.persistence.jdo.applib.services.IsisJdoSupport_v3_2;
 
 import domainapp.modules.simple.dom.types.Name;
 

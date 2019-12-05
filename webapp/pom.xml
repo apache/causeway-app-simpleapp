@@ -113,7 +113,7 @@
 
         <dependency>
             <groupId>org.apache.isis.extensions</groupId>
-            <artifactId>isis-extensions-h2console</artifactId>
+            <artifactId>isis-extensions-h2console-dom</artifactId>
         </dependency>
 
         <!-- test -->

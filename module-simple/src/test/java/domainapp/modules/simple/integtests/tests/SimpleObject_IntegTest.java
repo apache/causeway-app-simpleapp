@@ -11,8 +11,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.apache.isis.applib.services.title.TitleService;
 import org.apache.isis.applib.services.wrapper.DisabledException;
 import org.apache.isis.applib.services.wrapper.InvalidException;
-import org.apache.isis.jdo.jdosupport.mixins.Persistable_datanucleusIdLong;
-import org.apache.isis.jdo.jdosupport.mixins.Persistable_datanucleusVersionTimestamp;
+import org.apache.isis.persistence.jdo.datanucleus5.jdosupport.mixins.Persistable_datanucleusIdLong;
+import org.apache.isis.persistence.jdo.datanucleus5.jdosupport.mixins.Persistable_datanucleusVersionTimestamp;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.CoreMatchers.containsString;
