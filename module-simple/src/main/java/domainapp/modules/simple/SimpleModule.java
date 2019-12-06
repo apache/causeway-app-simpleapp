@@ -9,8 +9,7 @@ import org.apache.isis.extensions.fixtures.modules.Module;
 
 import domainapp.modules.simple.dom.impl.SimpleObject;
 
-@Configuration
-@ComponentScan
+@org.apache.isis.applib.annotation.Module
 public class SimpleModule implements Module {
 
     @Override

@@ -3,13 +3,13 @@ package domainapp.webapp;
 import domainapp.webapp.application.ApplicationModule;
 import domainapp.webapp.application.fixture.scenarios.DomainAppDemo;
 
-import org.apache.isis.extensions.fixtures.IsisExtFixturesModule;
-import org.apache.isis.extensions.h2console.dom.IsisExtH2ConsoleModule;
-import org.apache.isis.persistence.jdo.datanucleus5.IsisBootDataNucleus;
-import org.apache.isis.runtime.spring.IsisBoot;
-import org.apache.isis.security.shiro.IsisBootSecurityShiro;
-import org.apache.isis.viewer.restfulobjects.viewer.IsisBootViewerRestfulObjects;
-import org.apache.isis.viewer.wicket.viewer.IsisBootViewerWicket;
+import org.apache.isis.extensions.fixtures.IsisModuleExtFixtures;
+import org.apache.isis.extensions.h2console.dom.IsisModuleExtH2Console;
+import org.apache.isis.persistence.jdo.datanucleus5.IsisModuleJdoDataNucleus5;
+import org.apache.isis.viewer.restfulobjects.viewer.IsisModuleRestfulObjectsViewer;
+import org.apache.isis.webboot.springboot.IsisModuleSpringBoot;
+import org.apache.isis.security.shiro.IsisModuleSecurityShiro;
+import org.apache.isis.viewer.wicket.viewer.IsisModuleWicketViewer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
@@ -30,16 +30,17 @@ public class SimpleApp extends SpringBootServletInitializer {
     @PropertySources({
             @PropertySource(IsisPresets.NoTranslations),
             @PropertySource(IsisPresets.DataNucleusAutoCreate),
+            @PropertySource(IsisPresets.DebugDiscovery),
     })
     @Import({
-            IsisBoot.class,
-            IsisBootSecurityShiro.class,
-            IsisBootDataNucleus.class,
-            IsisBootViewerRestfulObjects.class,
-            IsisBootViewerWicket.class,
+            IsisModuleSpringBoot.class,
+            IsisModuleSecurityShiro.class,
+            IsisModuleJdoDataNucleus5.class,
+            IsisModuleRestfulObjectsViewer.class,
+            IsisModuleWicketViewer.class,
 
-            IsisExtFixturesModule.class,
-            IsisExtH2ConsoleModule.class,
+            IsisModuleExtFixtures.class,
+            IsisModuleExtH2Console.class,
 
             ApplicationModule.class,
             DomainAppDemo.class // register this fixture

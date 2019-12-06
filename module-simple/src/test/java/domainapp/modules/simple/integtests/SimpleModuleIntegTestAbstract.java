@@ -3,11 +3,11 @@ package domainapp.modules.simple.integtests;
 import domainapp.modules.simple.SimpleModule;
 
 import org.apache.isis.config.presets.IsisPresets;
-import org.apache.isis.extensions.fixtures.IsisExtFixturesModule;
+import org.apache.isis.extensions.fixtures.IsisModuleExtFixtures;
 import org.apache.isis.extensions.fixtures.IsisIntegrationTestAbstractWithFixtures;
-import org.apache.isis.persistence.jdo.datanucleus5.IsisBootDataNucleus;
-import org.apache.isis.runtime.spring.IsisBoot;
-import org.apache.isis.security.bypass.IsisBootSecurityBypass;
+import org.apache.isis.persistence.jdo.datanucleus5.IsisModuleJdoDataNucleus5;
+import org.apache.isis.webboot.springboot.IsisModuleSpringBoot;
+import org.apache.isis.security.bypass.IsisModuleSecurityBypass;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -27,10 +27,10 @@ public abstract class SimpleModuleIntegTestAbstract extends IsisIntegrationTestA
         @PropertySource(IsisPresets.DataNucleusAutoCreate),
     })
     @Import({
-        IsisBoot.class,
-        IsisBootSecurityBypass.class,
-        IsisBootDataNucleus.class,
-        IsisExtFixturesModule.class,
+        IsisModuleSpringBoot.class,
+        IsisModuleSecurityBypass.class,
+        IsisModuleJdoDataNucleus5.class,
+        IsisModuleExtFixtures.class,
         SimpleModule.class
     })
     public static class AppManifest {

@@ -7,9 +7,8 @@ import org.springframework.context.annotation.Import;
 
 import domainapp.modules.simple.SimpleModule;
 
-@Configuration
+@org.apache.isis.applib.annotation.Module
 @Import(SimpleModule.class)
-@ComponentScan
 public class ApplicationModule implements Module {
 
 }
