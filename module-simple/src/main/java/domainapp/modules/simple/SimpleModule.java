@@ -1,16 +1,13 @@
 package domainapp.modules.simple;
 
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Configuration;
-
 import org.apache.isis.extensions.fixtures.fixturescripts.FixtureScript;
 import org.apache.isis.extensions.fixtures.legacy.teardown.TeardownFixtureAbstract2;
-import org.apache.isis.extensions.fixtures.modules.Module;
+import org.apache.isis.extensions.fixtures.modules.ModuleWithFixtures;
 
 import domainapp.modules.simple.dom.impl.SimpleObject;
 
 @org.apache.isis.applib.annotation.Module
-public class SimpleModule implements Module {
+public class SimpleModule implements ModuleWithFixtures {
 
     @Override
     public FixtureScript getTeardownFixture() {
