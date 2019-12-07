@@ -10,7 +10,8 @@ import org.apache.isis.applib.annotation.HomePage;
 import org.apache.isis.applib.annotation.SemanticsOf;
 import org.apache.isis.applib.services.factory.FactoryService;
 
-@Service @Named("homepage.HomePageService")
+@Service
+@Named("domainapp.HomePageService")
 public class HomePageService {
 
     @Action(semantics = SemanticsOf.SAFE)
