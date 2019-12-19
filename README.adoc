@@ -22,8 +22,7 @@ If all you want is get a feel for what the framework is all about, then take a l
 REPO=isis-app-simpleapp
 BRANCH=master
 
-curl "https://codeload.github.com/apache/$REPO/zip/$BRANCH" > $REPO-$BRANCH.zip
-unzip $REPO-$BRANCH.zip
+curl "https://codeload.github.com/apache/$REPO/zip/$BRANCH" | jar xv
 mv $REPO-$BRANCH $REPO
 cd $REPO
 ----
