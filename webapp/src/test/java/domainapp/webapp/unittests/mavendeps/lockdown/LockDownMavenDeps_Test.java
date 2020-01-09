@@ -31,16 +31,16 @@ public class LockDownMavenDeps_Test {
     @Test
     public void compare_list() throws Exception {
         final String variant = "list";
-        final String received = sort(read(variant));
-        verify(approvalTextWriter(received, "txt"), namerFor(variant), getReporter());
+        final String current = sort(read(variant));
+        verify(approvalTextWriter(current, "txt"), namerFor(variant), getReporter());
     }
 
     @UseReporter(DiffReporter.class)
     @Test
     public void compare_tree() throws Exception {
         final String variant = "tree";
-        final String received = read(variant);
-        verify(approvalTextWriter(received, "txt"), namerFor(variant), getReporter());
+        final String current = read(variant);
+        verify(approvalTextWriter(current, "txt"), namerFor(variant), getReporter());
     }
 
     private static ApprovalTextWriter approvalTextWriter(final String received, final String fileExtensionWithoutDot) {
@@ -58,7 +58,7 @@ public class LockDownMavenDeps_Test {
 
     private String read(final String goal) throws IOException {
         final URL resource = Resources.getResource(getClass(),
-                String.format("received/%s.%s.txt", getClass().getSimpleName(), goal));
+                String.format("current/%s.%s.txt", getClass().getSimpleName(), goal));
         return Resources.toString(resource, Charsets.UTF_8);
     }
 

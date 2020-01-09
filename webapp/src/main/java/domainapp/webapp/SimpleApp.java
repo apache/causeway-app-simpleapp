@@ -4,9 +4,9 @@ import domainapp.webapp.application.ApplicationModule;
 import domainapp.webapp.application.fixture.scenarios.DomainAppDemo;
 
 import org.apache.isis.extensions.fixtures.IsisModuleExtFixtures;
-import org.apache.isis.extensions.h2console.dom.IsisModuleExtH2Console;
+import org.apache.isis.testing.h2console.ui.IsisModuleTestingH2ConsoleUi;
 import org.apache.isis.persistence.jdo.datanucleus5.IsisModuleJdoDataNucleus5;
-import org.apache.isis.viewer.restfulobjects.viewer.IsisModuleRestfulObjectsViewer;
+import org.apache.isis.viewer.restfulobjects.jaxrsresteasy4.IsisModuleRestfulObjectsJaxrsResteasy4;
 import org.apache.isis.webboot.springboot.IsisModuleSpringBoot;
 import org.apache.isis.security.shiro.IsisModuleSecurityShiro;
 import org.apache.isis.viewer.wicket.viewer.IsisModuleWicketViewer;
@@ -36,14 +36,16 @@ public class SimpleApp extends SpringBootServletInitializer {
             IsisModuleSpringBoot.class,
             IsisModuleSecurityShiro.class,
             IsisModuleJdoDataNucleus5.class,
-            IsisModuleRestfulObjectsViewer.class,
+            IsisModuleRestfulObjectsJaxrsResteasy4.class,
             IsisModuleWicketViewer.class,
 
             IsisModuleExtFixtures.class,
-            IsisModuleExtH2Console.class,
+            IsisModuleTestingH2ConsoleUi.class,
 
             ApplicationModule.class,
-            DomainAppDemo.class // register this fixture
+
+            // discoverable fixtures
+            DomainAppDemo.class
     })
     public static class AppManifest {
     }

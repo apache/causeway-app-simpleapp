@@ -69,6 +69,9 @@ isis:
           delete.*:btn-danger,
           discard.*:btn-warning,
           remove.*:btn-warning
+    introspector:
+      parallelize: false
+      lock-after-full-introspection: false
 
 
   objects:
@@ -142,3 +145,9 @@ isis:
 spring:
   banner:
     location: banner.txt
+
+resteasy:
+  jaxrs:
+    app:
+      registration: beans
+    defaultPath: "/restful"

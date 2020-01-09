@@ -11,7 +11,7 @@
     <artifactId>simpleapp-webapp</artifactId>
     <name>Apache Isis App - SimpleApp Webapp</name>
 
-    <description>This assemblies and runs both the Wicket viewer and the Restfulobjects viewer in a single webapp configured to run using the datanucleus object store.</description>
+    <description>Assembles and runs both the Wicket viewer and the Restfulobjects viewer in a single webapp configured to run using the datanucleus object store.</description>
 
     <packaging>jar</packaging>
 
@@ -38,7 +38,6 @@
         </resources>
         <testResources>
             <testResource>
-                <filtering>false</filtering>
                 <directory>src/test/resources</directory>
             </testResource>
             <testResource>
@@ -112,11 +111,11 @@
         </dependency>
 
         <dependency>
-            <groupId>org.apache.isis.extensions</groupId>
-            <artifactId>isis-extensions-h2console-dom</artifactId>
+            <groupId>org.apache.isis.testing</groupId>
+            <artifactId>isis-testing-h2console-ui</artifactId>
         </dependency>
 
-        <!-- test -->
+        <!-- TESTING -->
         <dependency>
             <groupId>org.apache.isis.mavendeps</groupId>
             <artifactId>isis-mavendeps-testing</artifactId>
@@ -125,8 +124,8 @@
         </dependency>
 
         <dependency>
-            <groupId>org.apache.isis.extensions</groupId>
-            <artifactId>isis-extensions-specsupport</artifactId>
+            <groupId>org.apache.isis.testing</groupId>
+            <artifactId>isis-testing-specsupport</artifactId>
             <scope>test</scope>
         </dependency>
 

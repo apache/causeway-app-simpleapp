@@ -14,12 +14,17 @@ import org.apache.isis.applib.services.factory.FactoryService;
 @Named("domainapp.HomePageService")
 public class HomePageService {
 
+    private final FactoryService factoryService;
+
+    @Inject
+    public HomePageService(final FactoryService factoryService) {
+        this.factoryService = factoryService;
+    }
+
     @Action(semantics = SemanticsOf.SAFE)
     @HomePage
     public HomePageViewModel homePage() {
         return factoryService.instantiate(HomePageViewModel.class);
     }
 
-
-    @Inject FactoryService factoryService;
 }

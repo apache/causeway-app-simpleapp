@@ -35,6 +35,8 @@ import lombok.val;
 @XmlJavaTypeAdapter(PersistentEntityAdapter.class)
 public class SimpleObject implements Comparable<SimpleObject> {
 
+    public static class ActionDomainEvent extends org.apache.isis.applib.events.domain.ActionDomainEvent<SimpleObject> {}
+
     private SimpleObject() {}
 
     public String title() {
@@ -48,7 +50,8 @@ public class SimpleObject implements Comparable<SimpleObject> {
     @Notes private String notes;
 
 
-    @Action(semantics = IDEMPOTENT, command = ENABLED, publishing = Publishing.ENABLED, associateWith = "name")
+    public static class UpdateNameActionDomainEvent extends SimpleObject.ActionDomainEvent {}
+    @Action(semantics = IDEMPOTENT, command = ENABLED, publishing = Publishing.ENABLED, associateWith = "name", domainEvent = UpdateNameActionDomainEvent.class)
     public SimpleObject updateName(
             @Name final String name) {
         setName(name);
@@ -59,7 +62,8 @@ public class SimpleObject implements Comparable<SimpleObject> {
     }
 
 
-    @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE)
+    public static class DeleteActionDomainEvent extends SimpleObject.ActionDomainEvent {}
+    @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE, domainEvent = DeleteActionDomainEvent.class)
     public void delete() {
         final String title = titleService.titleOf(this);
         messageService.informUser(String.format("'%s' deleted", title));

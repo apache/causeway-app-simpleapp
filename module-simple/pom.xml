@@ -13,15 +13,9 @@
 	<artifactId>simpleapp-module-simple</artifactId>
 	<name>Apache Isis App - SimpleApp Simple Module</name>
 
-	<properties>
-		<maven-checkstyle-plugin.configLocation>${project.parent.basedir}/_checks/checkstyle.xml</maven-checkstyle-plugin.configLocation>
-		<maven-pmd-plugin.ruleset>${project.parent.basedir}/_checks/pmd.xml</maven-pmd-plugin.ruleset>
-	</properties>
-
 	<build>
 		<resources>
 			<resource>
-				<filtering>false</filtering>
 				<directory>src/main/resources</directory>
 			</resource>
 			<resource>
@@ -35,6 +29,21 @@
 				</excludes>
 			</resource>
 		</resources>
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+			</testResource>
+			<testResource>
+				<filtering>false</filtering>
+				<directory>src/test/java</directory>
+				<includes>
+					<include>**</include>
+				</includes>
+				<excludes>
+					<exclude>**/*.java</exclude>
+				</excludes>
+			</testResource>
+		</testResources>
 	</build>
 
 	<dependencies>
@@ -52,8 +61,8 @@
 		</dependency>
 
 		<dependency>
-			<groupId>org.apache.isis.extensions</groupId>
-			<artifactId>isis-extensions-fixtures</artifactId>
+			<groupId>org.apache.isis.testing</groupId>
+			<artifactId>isis-testing-fixtures</artifactId>
 		</dependency>
 		
 		<!-- TESTS -->

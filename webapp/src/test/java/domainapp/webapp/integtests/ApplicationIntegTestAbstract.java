@@ -14,19 +14,21 @@ import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.TestPropertySource;
+import org.springframework.test.context.TestPropertySources;
 
 @SpringBootTest(
-        classes = ApplicationIntegTestAbstract.AppManifest.class,
-        properties = {"logging.config=log4j2-test.xml"}
+        classes = ApplicationIntegTestAbstract.AppManifest.class
 )
+@TestPropertySource({
+        IsisPresets.H2InMemory_withUniqueSchema,
+        IsisPresets.DataNucleusAutoCreate,
+        IsisPresets.UseLog4j2Test,
+})
 @ContextConfiguration
 public abstract class ApplicationIntegTestAbstract extends IsisIntegrationTestAbstract {
 
     @Configuration
-    @PropertySources({
-            @PropertySource(IsisPresets.H2InMemory_withUniqueSchema),
-            @PropertySource(IsisPresets.DataNucleusAutoCreate),
-    })
     @Import({
             IsisModuleSpringBoot.class,
             IsisModuleJdoDataNucleus5.class,

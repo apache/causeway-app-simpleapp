@@ -6,7 +6,6 @@ import javax.inject.Inject;
 import javax.jdo.JDOQLTypedQuery;
 
 import org.apache.isis.applib.annotation.*;
-import org.apache.isis.applib.events.domain.ActionDomainEvent;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.persistence.jdo.applib.services.IsisJdoSupport_v3_2;
 
@@ -18,9 +17,19 @@ import domainapp.modules.simple.dom.types.Name;
         )
 public class SimpleObjects {
 
-    public static class CreateDomainEvent extends ActionDomainEvent<SimpleObjects> {}
+    private final RepositoryService repositoryService;
+    private final IsisJdoSupport_v3_2 isisJdoSupport;
 
-    @Action(domainEvent = CreateDomainEvent.class)
+    @Inject
+    public SimpleObjects(RepositoryService repositoryService, IsisJdoSupport_v3_2 isisJdoSupport) {
+        this.repositoryService = repositoryService;
+        this.isisJdoSupport = isisJdoSupport;
+    }
+
+    public static class ActionDomainEvent extends org.apache.isis.applib.events.domain.ActionDomainEvent<SimpleObjects> {}
+
+    public static class CreateActionDomainEvent extends ActionDomainEvent {}
+    @Action(semantics = SemanticsOf.NON_IDEMPOTENT, domainEvent = CreateActionDomainEvent.class)
     @ActionLayout(promptStyle = PromptStyle.DIALOG_MODAL)
     public SimpleObject create(
             @Name final String name
@@ -28,7 +37,8 @@ public class SimpleObjects {
         return repositoryService.persist(SimpleObject.ofName(name));
     }
 
-    @Action(semantics = SemanticsOf.SAFE)
+    public static class FindByNameActionDomainEvent extends ActionDomainEvent {}
+    @Action(semantics = SemanticsOf.SAFE, domainEvent = FindByNameActionDomainEvent.class)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT, promptStyle = PromptStyle.DIALOG_SIDEBAR)
     public List<SimpleObject> findByName(
             @Name final String name
@@ -52,13 +62,13 @@ public class SimpleObjects {
                 .executeUnique();
     }
 
+    public static class ListAllActionDomainEvent extends ActionDomainEvent {}
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
     public List<SimpleObject> listAll() {
         return repositoryService.allInstances(SimpleObject.class);
     }
 
-    @Programmatic
     public void ping() {
         JDOQLTypedQuery<SimpleObject> q = isisJdoSupport.newTypesafeQuery(SimpleObject.class);
         final QSimpleObject candidate = QSimpleObject.candidate();
@@ -67,7 +77,5 @@ public class SimpleObjects {
         q.executeList();
     }
 
-    @Inject RepositoryService repositoryService;
-    @Inject IsisJdoSupport_v3_2 isisJdoSupport;
 
 }

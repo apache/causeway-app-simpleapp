@@ -2,6 +2,7 @@ package domainapp.modules.simple.dom.impl;
 
 import java.util.List;
 
+import org.apache.isis.persistence.jdo.applib.services.IsisJdoSupport_v3_2;
 import org.hamcrest.Description;
 import org.hamcrest.Matcher;
 import org.hamcrest.TypeSafeMatcher;
@@ -26,13 +27,14 @@ public class SimpleObjects_Test {
 
     @Mock
     RepositoryService mockRepositoryService;
+    @Mock
+    IsisJdoSupport_v3_2 mockIsisJdoSupport_v3_2;
 
     SimpleObjects simpleObjects;
 
     @Before
     public void setUp() {
-        simpleObjects = new SimpleObjects();
-        simpleObjects.repositoryService = mockRepositoryService;
+        simpleObjects = new SimpleObjects(mockRepositoryService, mockIsisJdoSupport_v3_2);
     }
 
     public static class Create extends SimpleObjects_Test {
