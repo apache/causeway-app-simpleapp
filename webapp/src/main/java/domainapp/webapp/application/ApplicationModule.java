@@ -1,6 +1,6 @@
 package domainapp.webapp.application;
 
-import org.apache.isis.extensions.fixtures.modules.ModuleWithFixtures;
+import org.apache.isis.testing.fixtures.applib.modules.ModuleWithFixtures;
 import org.springframework.context.annotation.Import;
 
 import domainapp.modules.simple.SimpleModule;

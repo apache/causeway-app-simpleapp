@@ -1,9 +1,9 @@
 package domainapp.modules.simple.fixture;
 
 import org.apache.isis.applib.services.registry.ServiceRegistry;
-import org.apache.isis.extensions.fixtures.api.PersonaWithBuilderScript;
-import org.apache.isis.extensions.fixtures.api.PersonaWithFinder;
-import org.apache.isis.extensions.fixtures.legacy.setup.PersonaEnumPersistAll;
+import org.apache.isis.testing.fixtures.applib.api.PersonaWithBuilderScript;
+import org.apache.isis.testing.fixtures.applib.api.PersonaWithFinder;
+import org.apache.isis.testing.fixtures.applib.legacy.setup.PersonaEnumPersistAll;
 
 import domainapp.modules.simple.dom.impl.SimpleObject;
 import domainapp.modules.simple.dom.impl.SimpleObjects;

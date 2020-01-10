@@ -1,8 +1,8 @@
 package domainapp.modules.simple;
 
-import org.apache.isis.extensions.fixtures.fixturescripts.FixtureScript;
-import org.apache.isis.extensions.fixtures.legacy.teardown.TeardownFixtureAbstract2;
-import org.apache.isis.extensions.fixtures.modules.ModuleWithFixtures;
+import org.apache.isis.testing.fixtures.applib.fixturescripts.FixtureScript;
+import org.apache.isis.testing.fixtures.applib.legacy.teardown.TeardownFixtureAbstract2;
+import org.apache.isis.testing.fixtures.applib.modules.ModuleWithFixtures;
 
 import domainapp.modules.simple.dom.impl.SimpleObject;
 

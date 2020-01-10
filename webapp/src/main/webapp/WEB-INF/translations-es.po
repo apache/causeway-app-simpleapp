@@ -35,7 +35,7 @@ msgid ".csv file name"
 msgstr "fichero .csv"
 
 
-#: org.apache.isis.runtime.services.i18n.po.TranslationServicePoMenu#downloadTranslations(java.lang.String)
+#: org.apache.isis.core.runtimeservices.i18n.po.TranslationServicePoMenu#downloadTranslations(java.lang.String)
 msgid ".pot file name"
 msgstr "fichero .pot"
 
@@ -72,27 +72,27 @@ msgid "Action Owning Type"
 msgstr ""
 
 
-#: org.apache.isis.runtime.system.session.IsisSessionFactory
+#: org.apache.isis.core.runtime.system.session.IsisSessionFactory
 msgid "Are you sure?"
 msgstr "¿Estas seguro?"
 
 
-#: org.apache.isis.commons.internal.ioc.spring.BeanAdapterSpring#beanClass
+#: BeanAdapterSpring#beanClass
 msgid "Bean Class"
 msgstr ""
 
 
-#: org.apache.isis.commons.internal.ioc.spring.BeanAdapterSpring#beanProvider
+#: BeanAdapterSpring#beanProvider
 msgid "Bean Provider"
 msgstr ""
 
 
-#: org.apache.isis.runtime.system.session.IsisSessionFactory
+#: org.apache.isis.core.runtime.system.session.IsisSessionFactory
 msgid "Cancel"
 msgstr "Cancelar"
 
 
-#: org.apache.isis.runtime.services.i18n.po.TranslationServicePoMenu#resetTranslationCache()
+#: org.apache.isis.core.runtimeservices.i18n.po.TranslationServicePoMenu#resetTranslationCache()
 msgid "Clear translation cache"
 msgstr "Limpiar la caché de traducciones"
 
@@ -112,7 +112,7 @@ msgid "Configuration"
 msgstr ""
 
 
-#: org.apache.isis.runtime.system.session.IsisSessionFactory
+#: org.apache.isis.core.runtime.system.session.IsisSessionFactory
 msgid "Confirm"
 msgstr "Confirmar"
 
@@ -189,7 +189,7 @@ msgid "Download Swagger Schema Definition"
 msgstr ""
 
 
-#: org.apache.isis.runtime.services.i18n.po.TranslationServicePoMenu#downloadTranslations()
+#: org.apache.isis.core.runtimeservices.i18n.po.TranslationServicePoMenu#downloadTranslations()
 msgid "Download Translations"
 msgstr "Descargar traducciones"
 
@@ -254,7 +254,7 @@ msgstr ""
 
 
 #: domainapp.modules.simple.dom.impl.SimpleObject#datanucleusIdLong()
-#: org.apache.isis.commons.internal.ioc.spring.BeanAdapterSpring#id
+#: BeanAdapterSpring#id
 #: org.apache.isis.jdo.jdosupport.mixins.Persistable_datanucleusIdLong#prop()
 msgid "Id"
 msgstr ""
@@ -276,7 +276,7 @@ msgid "Include"
 msgstr ""
 
 
-#: org.apache.isis.commons.internal.ioc.spring.BeanAdapterSpring#instance
+#: BeanAdapterSpring#instance
 msgid "Instance"
 msgstr ""
 
@@ -426,7 +426,7 @@ msgstr ""
 #: org.apache.isis.applib.services.metamodel.MetaModelServicesMenu
 #: org.apache.isis.applib.services.swagger.SwaggerServiceMenu
 #: org.apache.isis.extensions.fixtures.fixturescripts.FixtureScripts
-#: org.apache.isis.runtime.services.i18n.po.TranslationServicePoMenu
+#: org.apache.isis.core.runtimeservices.i18n.po.TranslationServicePoMenu
 msgid "Prototyping"
 msgstr "Prototipo"
 
@@ -493,12 +493,12 @@ msgid "Subset of the complete meta model, only including packages starting with 
 msgstr ""
 
 
-#: org.apache.isis.runtime.services.i18n.po.TranslationServicePoMenu#switchToReadingTranslations()
+#: org.apache.isis.core.runtimeservices.i18n.po.TranslationServicePoMenu#switchToReadingTranslations()
 msgid "Switch To Reading Translations"
 msgstr "Cambiar a Lectura de Traducciones"
 
 
-#: org.apache.isis.runtime.services.i18n.po.TranslationServicePoMenu#switchToWritingTranslations()
+#: org.apache.isis.core.runtimeservices.i18n.po.TranslationServicePoMenu#switchToWritingTranslations()
 msgid "Switch To Writing Translations"
 msgstr "Cambiar a Escritura de Traducciones"
 

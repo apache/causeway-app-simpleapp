@@ -10,7 +10,7 @@ import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.Test;
 import org.springframework.transaction.annotation.Transactional;
 
-import org.apache.isis.integtestsupport.ThrowableMatchers;
+import org.apache.isis.testing.integtestsupport.applib.ThrowableMatchers;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;

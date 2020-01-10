@@ -125,7 +125,7 @@
 
         <dependency>
             <groupId>org.apache.isis.testing</groupId>
-            <artifactId>isis-testing-specsupport</artifactId>
+            <artifactId>isis-testing-specsupport-applib</artifactId>
             <scope>test</scope>
         </dependency>
 

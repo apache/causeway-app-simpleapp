@@ -2,7 +2,7 @@ package domainapp.modules.simple.fixture;
 
 import javax.inject.Inject;
 
-import org.apache.isis.extensions.fixtures.fixturescripts.BuilderScriptWithResult;
+import org.apache.isis.testing.fixtures.applib.fixturescripts.BuilderScriptWithResult;
 
 import domainapp.modules.simple.dom.impl.SimpleObject;
 import domainapp.modules.simple.dom.impl.SimpleObjects;

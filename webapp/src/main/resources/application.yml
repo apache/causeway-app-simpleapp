@@ -13,6 +13,7 @@ isis:
       explicit-object-type: true
       service-actions-only: true
       mixins-only: true
+      parallelize: false
 
     facet:
       css-class-fa:
@@ -71,7 +72,7 @@ isis:
           remove.*:btn-warning
     introspector:
       parallelize: false
-      lock-after-full-introspection: false
+      lock-after-full-introspection: true
 
 
   objects:
@@ -98,7 +99,7 @@ isis:
   viewer:
     wicket:
       application:
-        menubars-layout-xml: domainapp/webapp/application/layout/menubars.layout.xml
+        menubars-layout-xml: domainapp/corewebapp/application/layout/menubars.layout.xml
         brand-logo-header: /images/apache-isis/logo-48x48.png
         favicon-url: /images/favicon.png
         name: Simple App

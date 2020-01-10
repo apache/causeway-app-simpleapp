@@ -4,8 +4,8 @@ import javax.inject.Inject;
 
 import org.junit.jupiter.api.Test;
 
-import org.apache.isis.integtestsupport.validate.ValidateDomainModel;
-import org.apache.isis.metamodel.specloader.SpecificationLoader;
+import org.apache.isis.testing.integtestsupport.applib.validate.ValidateDomainModel;
+import org.apache.isis.core.metamodel.specloader.SpecificationLoader;
 
 import domainapp.webapp.integtests.ApplicationIntegTestAbstract;
 

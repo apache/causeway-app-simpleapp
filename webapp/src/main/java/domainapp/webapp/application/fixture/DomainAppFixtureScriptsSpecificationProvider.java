@@ -1,19 +1,19 @@
 package domainapp.webapp.application.fixture;
 
+import org.springframework.stereotype.Service;
+
 import org.apache.isis.applib.annotation.DomainService;
 import org.apache.isis.applib.annotation.NatureOfService;
-import org.apache.isis.extensions.fixtures.fixturescripts.FixtureScripts;
-import org.apache.isis.extensions.fixtures.fixturespec.FixtureScriptsSpecification;
-import org.apache.isis.extensions.fixtures.fixturespec.FixtureScriptsSpecificationProvider;
+import org.apache.isis.testing.fixtures.applib.fixturescripts.FixtureScripts;
+import org.apache.isis.testing.fixtures.applib.fixturespec.FixtureScriptsSpecification;
+import org.apache.isis.testing.fixtures.applib.fixturespec.FixtureScriptsSpecificationProvider;
 
 import domainapp.webapp.application.fixture.scenarios.DomainAppDemo;
 
 /**
  * Specifies where to find fixtures, and other settings.
  */
-@DomainService(
-        nature = NatureOfService.DOMAIN
-        )
+@Service
 public class DomainAppFixtureScriptsSpecificationProvider implements FixtureScriptsSpecificationProvider {
     @Override
     public FixtureScriptsSpecification getSpecification() {

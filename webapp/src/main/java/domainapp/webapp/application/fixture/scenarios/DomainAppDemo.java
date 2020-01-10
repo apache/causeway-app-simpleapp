@@ -1,8 +1,7 @@
 package domainapp.webapp.application.fixture.scenarios;
 
-import org.apache.isis.extensions.fixtures.fixturescripts.FixtureScript;
-import org.apache.isis.extensions.fixtures.legacy.teardown.TeardownFixtureAbstract2;
-import org.springframework.stereotype.Component;
+import org.apache.isis.testing.fixtures.applib.fixturescripts.FixtureScript;
+import org.apache.isis.testing.fixtures.applib.legacy.teardown.TeardownFixtureAbstract2;
 
 import domainapp.modules.simple.dom.impl.SimpleObject;
 import domainapp.modules.simple.fixture.SimpleObject_persona;
