@@ -4,7 +4,7 @@ import domainapp.modules.simple.SimpleModule;
 
 import org.apache.isis.core.config.presets.IsisPresets;
 import org.apache.isis.core.webspringboot.IsisModuleCoreWebSpringBoot;
-import org.apache.isis.testing.fixtures.applib.IsisModuleTstFixturesApplib;
+import org.apache.isis.testing.fixtures.applib.IsisModuleTestingFixturesApplib;
 import org.apache.isis.testing.fixtures.applib.IsisIntegrationTestAbstractWithFixtures;
 import org.apache.isis.testing.integtestsupport.applib.IsisIntegrationTestAbstract;
 import org.apache.isis.persistence.jdo.datanucleus5.IsisModuleJdoDataNucleus5;
@@ -30,7 +30,7 @@ public abstract class SimpleModuleIntegTestAbstract extends IsisIntegrationTestA
         IsisModuleCoreWebSpringBoot.class,
         IsisModuleSecurityBypass.class,
         IsisModuleJdoDataNucleus5.class,
-        IsisModuleTstFixturesApplib.class,
+        IsisModuleTestingFixturesApplib.class,
 
         IsisIntegrationTestAbstract.CommandSupport.class,
 

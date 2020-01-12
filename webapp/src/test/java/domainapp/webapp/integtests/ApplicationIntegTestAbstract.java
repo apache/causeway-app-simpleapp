@@ -3,7 +3,7 @@ package domainapp.webapp.integtests;
 import domainapp.webapp.application.ApplicationModule;
 
 import org.apache.isis.core.config.presets.IsisPresets;
-import org.apache.isis.testing.fixtures.applib.IsisModuleTstFixturesApplib;
+import org.apache.isis.testing.fixtures.applib.IsisModuleTestingFixturesApplib;
 import org.apache.isis.testing.integtestsupport.applib.IsisIntegrationTestAbstract;
 import org.apache.isis.persistence.jdo.datanucleus5.IsisModuleJdoDataNucleus5;
 import org.apache.isis.core.webspringboot.IsisModuleCoreWebSpringBoot;
@@ -30,7 +30,7 @@ public abstract class ApplicationIntegTestAbstract extends IsisIntegrationTestAb
             IsisModuleCoreWebSpringBoot.class,
             IsisModuleJdoDataNucleus5.class,
             IsisModuleSecurityBypass.class,
-            IsisModuleTstFixturesApplib.class,
+            IsisModuleTestingFixturesApplib.class,
             ApplicationModule.class
     })
     public static class AppManifest {

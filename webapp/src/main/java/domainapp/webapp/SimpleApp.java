@@ -3,13 +3,13 @@ package domainapp.webapp;
 import domainapp.webapp.application.ApplicationModule;
 import domainapp.webapp.application.fixture.scenarios.DomainAppDemo;
 
-import org.apache.isis.testing.fixtures.applib.IsisModuleTstFixturesApplib;
+import org.apache.isis.testing.fixtures.applib.IsisModuleTestingFixturesApplib;
 import org.apache.isis.testing.h2console.ui.IsisModuleTestingH2ConsoleUi;
 import org.apache.isis.persistence.jdo.datanucleus5.IsisModuleJdoDataNucleus5;
-import org.apache.isis.viewer.restfulobjects.jaxrsresteasy4.IsisModuleRestfulObjectsJaxrsResteasy4;
+import org.apache.isis.viewer.restfulobjects.jaxrsresteasy4.IsisModuleViewerRestfulObjectsJaxrsResteasy4;
 import org.apache.isis.core.webspringboot.IsisModuleCoreWebSpringBoot;
 import org.apache.isis.security.shiro.IsisModuleSecurityShiro;
-import org.apache.isis.viewer.wicket.viewer.IsisModuleWicketViewer;
+import org.apache.isis.viewer.wicket.viewer.IsisModuleViewerWicketViewer;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
@@ -36,10 +36,10 @@ public class SimpleApp extends SpringBootServletInitializer {
             IsisModuleCoreWebSpringBoot.class,
             IsisModuleSecurityShiro.class,
             IsisModuleJdoDataNucleus5.class,
-            IsisModuleRestfulObjectsJaxrsResteasy4.class,
-            IsisModuleWicketViewer.class,
+            IsisModuleViewerRestfulObjectsJaxrsResteasy4.class,
+            IsisModuleViewerWicketViewer.class,
 
-            IsisModuleTstFixturesApplib.class,
+            IsisModuleTestingFixturesApplib.class,
             IsisModuleTestingH2ConsoleUi.class,
 
             ApplicationModule.class,
