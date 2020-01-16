@@ -3,11 +3,12 @@ package domainapp.webapp;
 import domainapp.webapp.application.ApplicationModule;
 import domainapp.webapp.application.fixture.scenarios.DomainAppDemo;
 
+import org.apache.isis.core.runtime.IsisModuleCoreRuntime;
+import org.apache.isis.core.runtimeservices.IsisModuleCoreRuntimeServices;
 import org.apache.isis.testing.fixtures.applib.IsisModuleTestingFixturesApplib;
 import org.apache.isis.testing.h2console.ui.IsisModuleTestingH2ConsoleUi;
 import org.apache.isis.persistence.jdo.datanucleus5.IsisModuleJdoDataNucleus5;
 import org.apache.isis.viewer.restfulobjects.jaxrsresteasy4.IsisModuleViewerRestfulObjectsJaxrsResteasy4;
-import org.apache.isis.core.webspringboot.IsisModuleCoreWebSpringBoot;
 import org.apache.isis.security.shiro.IsisModuleSecurityShiro;
 import org.apache.isis.viewer.wicket.viewer.IsisModuleViewerWicketViewer;
 import org.springframework.boot.SpringApplication;
@@ -33,7 +34,7 @@ public class SimpleApp extends SpringBootServletInitializer {
             @PropertySource(IsisPresets.DebugDiscovery),
     })
     @Import({
-            IsisModuleCoreWebSpringBoot.class,
+            IsisModuleCoreRuntimeServices.class,
             IsisModuleSecurityShiro.class,
             IsisModuleJdoDataNucleus5.class,
             IsisModuleViewerRestfulObjectsJaxrsResteasy4.class,

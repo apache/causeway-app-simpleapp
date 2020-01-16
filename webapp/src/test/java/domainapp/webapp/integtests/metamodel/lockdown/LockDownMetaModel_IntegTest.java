@@ -14,8 +14,8 @@ import org.junit.jupiter.api.Test;
 
 import org.apache.isis.applib.services.jaxb.JaxbService;
 import org.apache.isis.applib.services.metamodel.MetaModelService;
-import org.apache.isis.schema.metamodel.v1.DomainClassDto;
-import org.apache.isis.schema.metamodel.v1.MetamodelDto;
+import org.apache.isis.schema.metamodel.v2.DomainClassDto;
+import org.apache.isis.schema.metamodel.v2.MetamodelDto;
 
 import static org.approvaltests.Approvals.getReporter;
 import static org.approvaltests.Approvals.verify;

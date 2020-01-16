@@ -3,10 +3,10 @@ package domainapp.webapp.integtests;
 import domainapp.webapp.application.ApplicationModule;
 
 import org.apache.isis.core.config.presets.IsisPresets;
+import org.apache.isis.core.runtimeservices.IsisModuleCoreRuntimeServices;
 import org.apache.isis.testing.fixtures.applib.IsisModuleTestingFixturesApplib;
 import org.apache.isis.testing.integtestsupport.applib.IsisIntegrationTestAbstract;
 import org.apache.isis.persistence.jdo.datanucleus5.IsisModuleJdoDataNucleus5;
-import org.apache.isis.core.webspringboot.IsisModuleCoreWebSpringBoot;
 import org.apache.isis.security.bypass.IsisModuleSecurityBypass;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Configuration;
@@ -27,7 +27,7 @@ public abstract class ApplicationIntegTestAbstract extends IsisIntegrationTestAb
 
     @Configuration
     @Import({
-            IsisModuleCoreWebSpringBoot.class,
+            IsisModuleCoreRuntimeServices.class,
             IsisModuleJdoDataNucleus5.class,
             IsisModuleSecurityBypass.class,
             IsisModuleTestingFixturesApplib.class,
