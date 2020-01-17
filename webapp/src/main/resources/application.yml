@@ -111,6 +111,8 @@ isis:
 
       development-utilities:
         enable: true
+      bookmarked-pages:
+        show-chooser: false
 
   persistence:
     jdo-datanucleus:
@@ -144,4 +146,3 @@ resteasy:
 spring:
   banner:
     location: banner.txt
-

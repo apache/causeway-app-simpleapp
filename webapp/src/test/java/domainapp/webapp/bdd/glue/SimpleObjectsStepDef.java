@@ -48,10 +48,10 @@ public class SimpleObjectsStepDef extends ApplicationIntegTestAbstract {
             txTemplate.getTransactionManager().rollback(status);
         };
 
-		fixtureScripts.runPersonas(
-		        SimpleObject_persona.BANG, 
-		        SimpleObject_persona.BAR, 
-		        SimpleObject_persona.BAZ);
+        fixtureScripts.runPersonas(
+                SimpleObject_persona.BANG,
+                SimpleObject_persona.BAR,
+                SimpleObject_persona.BAZ);
 
         status.flush();
     } 
