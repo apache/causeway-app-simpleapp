@@ -37,7 +37,8 @@ public class SimpleObject implements Comparable<SimpleObject> {
 
     public static class ActionDomainEvent extends org.apache.isis.applib.events.domain.ActionDomainEvent<SimpleObject> {}
 
-    private SimpleObject() {}
+    private SimpleObject() {
+    }
 
     public String title() {
         return "Object: " + getName();

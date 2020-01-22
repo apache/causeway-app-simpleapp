@@ -19,9 +19,10 @@ If all you want is get a feel for what the framework is all about, then take a l
 +
 [source,bash]
 ----
-REPO=isis-app-simpleapp
+APP=simpleapp
 BRANCH=master
 
+REPO=isis-app-$APP
 curl "https://codeload.github.com/apache/$REPO/zip/$BRANCH" | jar xv
 mv $REPO-$BRANCH $REPO
 cd $REPO
@@ -41,7 +42,9 @@ mvn clean install
 mvn -pl webapp spring-boot:run
 ----
 
-* Login using:
+* Browse to http://localhost:8080.
+
+* Login to using:
 
 ** username: `sven`
 ** password: `pass`
