@@ -233,5 +233,36 @@ Running an integration tests that trigger validations will result in these messa
 The generated file should be merged with any existing translations in `WEB-INF/translations.po`, and translations obtained for any new keys (there are numerous online services that support the format).
 
 
+== Flyway
 
+The application also demonstrates how to use Flyway to migrate the database schema.
+
+By default the app runs using an in-memory database.
+The Flyway example is activated using the "SQLSERVER" Spring Boot profile, eg:
+
+[source,bash]
+----
+mvn -Dspring.profiles.active=SQLSERVER -pl webapp install
+mvn -Dspring.profiles.active=SQLSERVER -pl webapp spring-boot:run
+----
+
+This causes the properties defined in  `config/application-SQLSERVER.properties` file to be used in preference to those in the default `config/application.properties` file.
+It defines the following:
+
+* `spring.flyway.url`, `spring.flyway.user` and `spring.flyway.password`
++
+The presence of these is enough to enable the Flyway integration
+
+* `spring.flyway.enabled`
++
+This is explicitly set to `true`, to override the value in the default `config/application.properties`.
+
+* `isis.persistence.jdo-datanucleus.impl.datanucleus.schema.autoCreateAll`
++
+This is set to `false`, also overriding the value in the default `config/application.properties`.
+It instructs the JDO/DataNucleus object store not to automatically create any tables etc.
+
+The Spring Boot profile is also used to add the dependency to the SQL Server driver is included (it is hidden behind a Maven profile).
+
+The prerequisites to try this out are a SQL Server database running on `localhost` and with the credentials as specified in `config/application-SQLSERVER.properties`; adjust as necessary.
 

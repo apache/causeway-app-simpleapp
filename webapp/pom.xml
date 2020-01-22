@@ -227,7 +227,8 @@
             <id>jdbc-sqlserver</id>
             <activation>
                 <property>
-                    <name>!skip.jdbc-sqlserver</name>
+                    <name>spring.profiles.active</name>
+                    <value>SQLSERVER</value>
                 </property>
             </activation>
             <dependencies>
