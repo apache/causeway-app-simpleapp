@@ -171,51 +171,6 @@ When there are differences, the current state is written to the `current` subdir
 If the current state is approved, it should be copied over to the corresponding `approved` subdirectory.
 
 
-== Docker
-
-To package up the application as a docker image and push to a Docker registry:
-
-* set `$DOCKER_REGISTRY_USERNAME` and `$DOCKER_REGISTRY_PASSWORD` environment variables
-
-* modify the `to/image` configuration property for the link:https://github.com/GoogleContainerTools/jib[jib-maven-plugin] in the `pom.xml`
-+
-The default value is `docker.io/apacheisis/simpleapp:latest`:
-
-** change `docker.io` prefix to push to a registry other than Docker hub
-** change `apacheisis/simpleapp` to the name of your app.
-
-* package up the app with the `docker` profile:
-+
-[source,bash]
-----
-mvn -pl webapp -DskipTests -Ddocker package
-----
-
-Variants:
-
-* to specify Docker registry credentials through some other mechanism, configure the `pom.xml` for `maven-jib-plugin` (it supports a link:https://github.com/GoogleContainerTools/jib/tree/master/jib-maven-plugin#authentication-methods[variety of ways] to specify credentials)
-
-* to override the image at the command line, use `-Dimage=...`.
-
-
-
-To run a docker image previously packaged:
-
-[source,bash]
-----
-docker pull apacheisis/simpleapp:latest
-docker container run -d -p 8080:8080 apacheisis/simpleapp:latest
-----
-
-This can then be accessed at link:http://localhost:8080[localhost:8080].
-
-
-=== Externalized Configuration
-
-The Docker image is configured to run in the `/run/secrets` directory.
-Configuration can be therefore be externalized by defining an `application.properties` secret for the Kubernetes or Docker Swarm cluster.
-
-Spring Boot will use these settings in preference to the configuration properties defined in `classpath:config/application.properties`, see link:https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features-external-config[Spring docs].
 
 
 == Translations

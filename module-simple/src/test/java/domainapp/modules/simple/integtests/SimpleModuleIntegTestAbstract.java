@@ -33,12 +33,8 @@ public abstract class SimpleModuleIntegTestAbstract extends IsisIntegrationTestA
         IsisModuleJdoDataNucleus5.class,
         IsisModuleTestingFixturesApplib.class,
 
-        IsisIntegrationTestAbstract.CommandSupport.class,
-
         SimpleModule.class
     })
     public static class AppManifest {
     }
-
 }
-

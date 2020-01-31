@@ -238,7 +238,7 @@
                     <mml:attr name="hiding">true</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.actcoll.typeof.TypeOfFacet" fqcn="org.apache.isis.core.metamodel.facets.actcoll.typeof.TypeOfFacetInferredFromGenerics">
-                    <mml:attr name="value">domainapp.modules.simple.dom.impl.SimpleObject</mml:attr>
+                    <mml:attr name="value">domainapp.modules.simple.dom.so.SimpleObject</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.all.describedas.DescribedAsFacet" fqcn="org.apache.isis.core.metamodel.facets.members.describedas.annotprop.DescribedAsFacetOnMemberDerivedFromType"/>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.all.named.NamedFacet" fqcn="org.apache.isis.core.metamodel.facets.all.i18n.NamedFacetTranslated">
@@ -297,7 +297,7 @@
                     <mml:attr name="onType">domainapp.webapp.application.services.homepage.HomePageViewModel</mml:attr>
                 </mml:facet>
             </mml:facets>
-            <mml:type>domainapp.modules.simple.dom.impl.SimpleObject</mml:type>
+            <mml:type>domainapp.modules.simple.dom.so.SimpleObject</mml:type>
         </mml:coll>
     </mml:collections>
     <mml:actions>

@@ -7,8 +7,8 @@ import org.apache.isis.applib.services.health.Health;
 import org.apache.isis.applib.services.health.HealthCheckService;
 import org.springframework.stereotype.Service;
 
-import domainapp.modules.simple.dom.impl.SimpleObjects;
-import domainapp.modules.simple.dom.types.Name;
+import domainapp.modules.simple.dom.so.SimpleObjects;
+
 import lombok.extern.log4j.Log4j2;
 
 @Service

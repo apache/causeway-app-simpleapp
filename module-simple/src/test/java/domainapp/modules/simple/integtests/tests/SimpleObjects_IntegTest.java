@@ -1,6 +1,5 @@
 package domainapp.modules.simple.integtests.tests;
 
-import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -15,8 +14,8 @@ import org.apache.isis.testing.integtestsupport.applib.ThrowableMatchers;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import domainapp.modules.simple.dom.impl.SimpleObject;
-import domainapp.modules.simple.dom.impl.SimpleObjects;
+import domainapp.modules.simple.dom.so.SimpleObject;
+import domainapp.modules.simple.dom.so.SimpleObjects;
 import domainapp.modules.simple.fixture.SimpleObject_persona;
 import domainapp.modules.simple.integtests.SimpleModuleIntegTestAbstract;
 
@@ -26,7 +25,7 @@ public class SimpleObjects_IntegTest extends SimpleModuleIntegTestAbstract {
     @Inject
     SimpleObjects menu;
 
-    public static class ListAll extends SimpleObjects_IntegTest {
+    public static class listAll extends SimpleObjects_IntegTest {
 
         @Test
         public void happyCase() {
@@ -53,7 +52,7 @@ public class SimpleObjects_IntegTest extends SimpleModuleIntegTestAbstract {
         }
     }
 
-    public static class Create extends SimpleObjects_IntegTest {
+    public static class create extends SimpleObjects_IntegTest {
 
         @Test
         public void happyCase() {

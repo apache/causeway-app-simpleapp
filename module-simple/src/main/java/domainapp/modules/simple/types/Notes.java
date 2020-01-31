@@ -1,4 +1,4 @@
-package domainapp.modules.simple.dom.types;
+package domainapp.modules.simple.types;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

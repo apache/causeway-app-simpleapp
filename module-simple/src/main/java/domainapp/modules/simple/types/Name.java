@@ -1,4 +1,4 @@
-package domainapp.modules.simple.dom.types;
+package domainapp.modules.simple.types;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
@@ -15,7 +15,7 @@ import org.apache.isis.applib.services.i18n.TranslatableString;
 import org.apache.isis.applib.spec.AbstractSpecification2;
 
 @Column(length = Name.MAX_LEN, allowsNull = "false")
-@Property(editing = Editing.DISABLED, mustSatisfy = Name.NoExclamationMarks.class, maxLength = Name.MAX_LEN)
+@Property(mustSatisfy = Name.NoExclamationMarks.class, maxLength = Name.MAX_LEN)
 @Parameter(mustSatisfy = Name.NoExclamationMarks.class, maxLength = Name.MAX_LEN)
 @ParameterLayout(named = "Name")
 @Target({ ElementType.METHOD, ElementType.FIELD, ElementType.PARAMETER, ElementType.ANNOTATION_TYPE })

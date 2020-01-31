@@ -28,11 +28,12 @@ public abstract class ApplicationIntegTestAbstract extends IsisIntegrationTestAb
 
     @Configuration
     @Import({
-            IsisModuleCoreRuntimeServices.class,
-            IsisModuleJdoDataNucleus5.class,
-            IsisModuleSecurityBypass.class,
-            IsisModuleTestingFixturesApplib.class,
-            ApplicationModule.class
+        IsisModuleCoreRuntimeServices.class,
+        IsisModuleJdoDataNucleus5.class,
+        IsisModuleSecurityBypass.class,
+        IsisModuleTestingFixturesApplib.class,
+
+        ApplicationModule.class
     })
     public static class AppManifest {
     }

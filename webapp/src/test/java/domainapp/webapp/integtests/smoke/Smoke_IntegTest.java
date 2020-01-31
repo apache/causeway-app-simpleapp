@@ -14,8 +14,8 @@ import org.apache.isis.applib.services.xactn.TransactionService;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import domainapp.webapp.integtests.ApplicationIntegTestAbstract;
-import domainapp.modules.simple.dom.impl.SimpleObject;
-import domainapp.modules.simple.dom.impl.SimpleObjects;
+import domainapp.modules.simple.dom.so.SimpleObject;
+import domainapp.modules.simple.dom.so.SimpleObjects;
 
 @Transactional
 class Smoke_IntegTest extends ApplicationIntegTestAbstract {
@@ -33,7 +33,6 @@ class Smoke_IntegTest extends ApplicationIntegTestAbstract {
         assertThat(all).isEmpty();
 
 
-
         // when
         final SimpleObject fred = wrap(menu).create("Fred");
         transactionService.flushTransaction();
@@ -44,7 +43,6 @@ class Smoke_IntegTest extends ApplicationIntegTestAbstract {
         assertThat(all).contains(fred);
 
 
-
         // when
         final SimpleObject bill = wrap(menu).create("Bill");
         transactionService.flushTransaction();
@@ -53,7 +51,6 @@ class Smoke_IntegTest extends ApplicationIntegTestAbstract {
         all = wrap(menu).listAll();
         assertThat(all).hasSize(2);
         assertThat(all).contains(fred, bill);
-
 
 
         // when
@@ -86,10 +83,9 @@ class Smoke_IntegTest extends ApplicationIntegTestAbstract {
         wrap(fred).delete();
         transactionService.flushTransaction();
 
-
+        // then
         all = wrap(menu).listAll();
         assertThat(all).hasSize(1);
-
     }
 
 }

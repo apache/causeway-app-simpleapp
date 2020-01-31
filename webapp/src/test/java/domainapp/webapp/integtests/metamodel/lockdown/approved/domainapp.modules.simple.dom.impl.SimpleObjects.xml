@@ -60,14 +60,15 @@
                     <mml:attr name="disabling">true</mml:attr>
                     <mml:attr name="hiding">true</mml:attr>
                     <mml:attr name="validating">true</mml:attr>
-                    <mml:attr name="value">domainapp.modules.simple.dom.impl.SimpleObjects.CreateDomainEvent</mml:attr>
+                    <mml:attr name="value">domainapp.modules.simple.dom.so.SimpleObjects.CreateDomainEvent</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.actions.action.invocation.ActionInvocationFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.invocation.ActionInvocationFacetForDomainEventFromActionAnnotation">
-                    <mml:attr name="eventType">domainapp.modules.simple.dom.impl.SimpleObjects.CreateDomainEvent</mml:attr>
+                    <mml:attr name="eventType">domainapp.modules.simple.dom.so.SimpleObjects.CreateDomainEvent</mml:attr>
                     <mml:attr name="intent.create">EXECUTE</mml:attr>
-                    <mml:attr name="methods">public domainapp.modules.simple.dom.impl.SimpleObject domainapp.modules.simple.dom.impl.SimpleObjects.create(java.lang.String)</mml:attr>
-                    <mml:attr name="onType">domainapp.modules.simple.dom.impl.SimpleObjects</mml:attr>
-                    <mml:attr name="returnType">domainapp.modules.simple.dom.impl.SimpleObject</mml:attr>
+                    <mml:attr name="methods">public domainapp.modules.simple.dom.so.SimpleObject
+                        domainapp.modules.simple.dom.so.SimpleObjects.create(java.lang.String)</mml:attr>
+                    <mml:attr name="onType">domainapp.modules.simple.dom.so.SimpleObjects</mml:attr>
+                    <mml:attr name="returnType">domainapp.modules.simple.dom.so.SimpleObject</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.actions.command.CommandFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.command.CommandFacetFromConfiguration">
                     <mml:attr name="disabled">false</mml:attr>
@@ -102,7 +103,7 @@
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.properties.publish.PublishedPropertyFacet" fqcn="org.apache.isis.core.metamodel.facets.properties.property.publishing.PublishedPropertyFacetFromConfiguration"/>
             </mml:facets>
-            <mml:returnType>domainapp.modules.simple.dom.impl.SimpleObject</mml:returnType>
+            <mml:returnType>domainapp.modules.simple.dom.so.SimpleObject</mml:returnType>
             <mml:params>
                 <mml:param xsi:type="mml:scalarParam" id="name" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
                     <mml:facets>
@@ -131,7 +132,7 @@
                             <mml:attr name="value">40</mml:attr>
                         </mml:facet>
                         <mml:facet id="org.apache.isis.core.metamodel.facets.objectvalue.mustsatisfyspec.MustSatisfySpecificationFacet" fqcn="org.apache.isis.core.metamodel.facets.param.parameter.mustsatisfy.MustSatisfySpecificationFacetForParameterAnnotation">
-                            <mml:attr name="specifications">domainapp.modules.simple.dom.types.Name$NoExclamationMarks</mml:attr>
+                            <mml:attr name="specifications">domainapp.modules.simple.types.Name$NoExclamationMarks</mml:attr>
                             <mml:attr name="underlyingFacet">org.apache.isis.core.metamodel.facets.param.parameter.mustsatisfy.MustSatisfySpecificationFacetForParameterAnnotation</mml:attr>
                             <mml:attr name="validating">true</mml:attr>
                         </mml:facet>
@@ -152,7 +153,7 @@
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.actcoll.typeof.TypeOfFacet" fqcn="org.apache.isis.core.metamodel.facets.actcoll.typeof.TypeOfFacetInferredFromGenerics">
                     <mml:attr name="underlyingFacet">org.apache.isis.core.metamodel.facets.actcoll.typeof.TypeOfFacetInferredFromGenerics</mml:attr>
-                    <mml:attr name="value">domainapp.modules.simple.dom.impl.SimpleObject</mml:attr>
+                    <mml:attr name="value">domainapp.modules.simple.dom.so.SimpleObject</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.actions.action.invocation.ActionDomainEventFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.invocation.ActionDomainEventFacetDefault">
                     <mml:attr name="disabling">true</mml:attr>
@@ -163,8 +164,9 @@
                 <mml:facet id="org.apache.isis.core.metamodel.facets.actions.action.invocation.ActionInvocationFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.invocation.ActionInvocationFacetForDomainEventFromDefault">
                     <mml:attr name="eventType">org.apache.isis.applib.events.domain.ActionDomainEvent.Default</mml:attr>
                     <mml:attr name="intent.findByName">EXECUTE</mml:attr>
-                    <mml:attr name="methods">public java.util.List&lt;domainapp.modules.simple.dom.impl.SimpleObject&gt; domainapp.modules.simple.dom.impl.SimpleObjects.findByName(java.lang.String)</mml:attr>
-                    <mml:attr name="onType">domainapp.modules.simple.dom.impl.SimpleObjects</mml:attr>
+                    <mml:attr name="methods">public java.util.List&lt;domainapp.modules.simple.dom.impl.SimpleObject&gt;
+                        domainapp.modules.simple.dom.so.SimpleObjects.findByName(java.lang.String)</mml:attr>
+                    <mml:attr name="onType">domainapp.modules.simple.dom.so.SimpleObjects</mml:attr>
                     <mml:attr name="returnType">java.util.List</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.actions.command.CommandFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.command.CommandFacetFromConfiguration">
@@ -229,7 +231,7 @@
                             <mml:attr name="value">40</mml:attr>
                         </mml:facet>
                         <mml:facet id="org.apache.isis.core.metamodel.facets.objectvalue.mustsatisfyspec.MustSatisfySpecificationFacet" fqcn="org.apache.isis.core.metamodel.facets.param.parameter.mustsatisfy.MustSatisfySpecificationFacetForParameterAnnotation">
-                            <mml:attr name="specifications">domainapp.modules.simple.dom.types.Name$NoExclamationMarks</mml:attr>
+                            <mml:attr name="specifications">domainapp.modules.simple.types.Name$NoExclamationMarks</mml:attr>
                             <mml:attr name="underlyingFacet">org.apache.isis.core.metamodel.facets.param.parameter.mustsatisfy.MustSatisfySpecificationFacetForParameterAnnotation</mml:attr>
                             <mml:attr name="validating">true</mml:attr>
                         </mml:facet>
@@ -250,7 +252,7 @@
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.actcoll.typeof.TypeOfFacet" fqcn="org.apache.isis.core.metamodel.facets.actcoll.typeof.TypeOfFacetInferredFromGenerics">
                     <mml:attr name="underlyingFacet">org.apache.isis.core.metamodel.facets.actcoll.typeof.TypeOfFacetInferredFromGenerics</mml:attr>
-                    <mml:attr name="value">domainapp.modules.simple.dom.impl.SimpleObject</mml:attr>
+                    <mml:attr name="value">domainapp.modules.simple.dom.so.SimpleObject</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.actions.action.invocation.ActionDomainEventFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.invocation.ActionDomainEventFacetDefault">
                     <mml:attr name="disabling">true</mml:attr>
@@ -261,8 +263,9 @@
                 <mml:facet id="org.apache.isis.core.metamodel.facets.actions.action.invocation.ActionInvocationFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.invocation.ActionInvocationFacetForDomainEventFromDefault">
                     <mml:attr name="eventType">org.apache.isis.applib.events.domain.ActionDomainEvent.Default</mml:attr>
                     <mml:attr name="intent.listAll">EXECUTE</mml:attr>
-                    <mml:attr name="methods">public java.util.List&lt;domainapp.modules.simple.dom.impl.SimpleObject&gt; domainapp.modules.simple.dom.impl.SimpleObjects.listAll()</mml:attr>
-                    <mml:attr name="onType">domainapp.modules.simple.dom.impl.SimpleObjects</mml:attr>
+                    <mml:attr name="methods">public java.util.List&lt;domainapp.modules.simple.dom.impl.SimpleObject&gt;
+                        domainapp.modules.simple.dom.so.SimpleObjects.listAll()</mml:attr>
+                    <mml:attr name="onType">domainapp.modules.simple.dom.so.SimpleObjects</mml:attr>
                     <mml:attr name="returnType">java.util.List</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.actions.command.CommandFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.command.CommandFacetFromConfiguration">

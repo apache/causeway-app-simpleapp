@@ -1,4 +1,4 @@
-package domainapp.modules.simple.dom.impl;
+package domainapp.modules.simple.dom.so;
 
 import java.util.Comparator;
 
@@ -10,6 +10,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import org.apache.isis.applib.annotation.Action;
 import org.apache.isis.applib.annotation.Auditing;
+import org.apache.isis.applib.annotation.CommandReification;
 import org.apache.isis.applib.annotation.DomainObject;
 import org.apache.isis.applib.annotation.DomainObjectLayout;
 import org.apache.isis.applib.annotation.Publishing;
@@ -18,24 +19,34 @@ import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
 import org.apache.isis.applib.jaxbadapters.PersistentEntityAdapter;
 
-import static org.apache.isis.applib.annotation.CommandReification.ENABLED;
 import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
 import static org.apache.isis.applib.annotation.SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE;
 
-import domainapp.modules.simple.dom.types.Name;
-import domainapp.modules.simple.dom.types.Notes;
+import domainapp.modules.simple.SimpleModule;
+import domainapp.modules.simple.types.Name;
+import domainapp.modules.simple.types.Notes;
 import lombok.val;
 
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE, schema = "simple")
 @javax.jdo.annotations.DatastoreIdentity(strategy=IdGeneratorStrategy.IDENTITY, column="id")
 @javax.jdo.annotations.Version(strategy= VersionStrategy.DATE_TIME, column="version")
 @javax.jdo.annotations.Unique(name="SimpleObject_name_UNQ", members = {"name"})
-@DomainObject(auditing = Auditing.ENABLED)
-@DomainObjectLayout()  // causes UI events to be triggered
+@DomainObject()
+@DomainObjectLayout()
 @XmlJavaTypeAdapter(PersistentEntityAdapter.class)
 public class SimpleObject implements Comparable<SimpleObject> {
 
-    public static class ActionDomainEvent extends org.apache.isis.applib.events.domain.ActionDomainEvent<SimpleObject> {}
+    public static SimpleObject withName(String name) {
+        val simpleObject = new SimpleObject();
+        simpleObject.setName(name);
+        return simpleObject;
+    }
+
+    public static class ActionDomainEvent extends SimpleModule.ActionDomainEvent<SimpleObject> {}
+
+    @Inject RepositoryService repositoryService;
+    @Inject TitleService titleService;
+    @Inject MessageService messageService;
 
     private SimpleObject() {
     }
@@ -44,7 +55,7 @@ public class SimpleObject implements Comparable<SimpleObject> {
         return "Object: " + getName();
     }
 
-    @lombok.Getter @lombok.Setter //@lombok.NonNull XXX lombok+JDOQ issue
+    @lombok.Getter @lombok.Setter
     @Name private String name;
 
     @lombok.Getter @lombok.Setter
@@ -52,7 +63,9 @@ public class SimpleObject implements Comparable<SimpleObject> {
 
 
     public static class UpdateNameActionDomainEvent extends SimpleObject.ActionDomainEvent {}
-    @Action(semantics = IDEMPOTENT, command = ENABLED, publishing = Publishing.ENABLED, associateWith = "name", domainEvent = UpdateNameActionDomainEvent.class)
+    @Action(semantics = IDEMPOTENT,
+            command = CommandReification.ENABLED, publishing = Publishing.ENABLED,
+            associateWith = "name", domainEvent = UpdateNameActionDomainEvent.class)
     public SimpleObject updateName(
             @Name final String name) {
         setName(name);
@@ -85,16 +98,5 @@ public class SimpleObject implements Comparable<SimpleObject> {
     }
 
 
-    @Inject RepositoryService repositoryService;
-    @Inject TitleService titleService;
-    @Inject MessageService messageService;
-
-    // FACTORY
-
-    public static SimpleObject ofName(String name) {
-        val simpleObject = new SimpleObject();
-        simpleObject.setName(name);
-        return simpleObject;
-    }
 
 }

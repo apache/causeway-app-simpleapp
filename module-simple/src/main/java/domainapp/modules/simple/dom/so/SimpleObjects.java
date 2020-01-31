@@ -1,4 +1,4 @@
-package domainapp.modules.simple.dom.impl;
+package domainapp.modules.simple.dom.so;
 
 import java.util.List;
 
@@ -9,7 +9,8 @@ import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.persistence.jdo.applib.services.IsisJdoSupport_v3_2;
 
-import domainapp.modules.simple.dom.types.Name;
+import domainapp.modules.simple.SimpleModule;
+import domainapp.modules.simple.types.Name;
 
 @DomainService(
         nature = NatureOfService.VIEW,
@@ -26,15 +27,14 @@ public class SimpleObjects {
         this.isisJdoSupport = isisJdoSupport;
     }
 
-    public static class ActionDomainEvent extends org.apache.isis.applib.events.domain.ActionDomainEvent<SimpleObjects> {}
+    public static class ActionDomainEvent extends SimpleModule.ActionDomainEvent<SimpleObjects> {}
 
     public static class CreateActionDomainEvent extends ActionDomainEvent {}
     @Action(semantics = SemanticsOf.NON_IDEMPOTENT, domainEvent = CreateActionDomainEvent.class)
-    @ActionLayout(promptStyle = PromptStyle.DIALOG_MODAL)
+    @ActionLayout(promptStyle = PromptStyle.DIALOG_SIDEBAR)
     public SimpleObject create(
-            @Name final String name
-            ) {
-        return repositoryService.persist(SimpleObject.ofName(name));
+            @Name final String name) {
+        return repositoryService.persist(SimpleObject.withName(name));
     }
 
     public static class FindByNameActionDomainEvent extends ActionDomainEvent {}

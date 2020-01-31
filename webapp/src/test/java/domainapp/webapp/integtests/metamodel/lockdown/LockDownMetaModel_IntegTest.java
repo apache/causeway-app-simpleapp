@@ -19,9 +19,9 @@ import org.apache.isis.schema.metamodel.v2.MetamodelDto;
 
 import static org.approvaltests.Approvals.getReporter;
 import static org.approvaltests.Approvals.verify;
+import static org.assertj.core.api.Assumptions.assumeThat;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.CoreMatchers.notNullValue;
-import static org.junit.Assume.assumeThat;
 
 import domainapp.webapp.integtests.ApplicationIntegTestAbstract;
 import domainapp.webapp.util.CurrentVsApprovedApprovalTextWriter;
@@ -33,7 +33,7 @@ class LockDownMetaModel_IntegTest extends ApplicationIntegTestAbstract {
 
     @BeforeEach
     public void setUp() throws Exception {
-        assumeThat(System.getProperty("metamodel.lockdown"), is(notNullValue()));
+        assumeThat(System.getProperty("metamodel.lockdown")).isNotNull();
     }
 
     @UseReporter(DiffReporter.class)

@@ -5,7 +5,6 @@
 #
 isis:
 
-
   applib:
     annotation:
       action:
@@ -19,7 +18,6 @@ isis:
             discard.*:btn-warning,
             remove.*:btn-warning
       domain-object:
-        editing: false
         auditing: all
         publishing: all
       property:
@@ -35,34 +33,37 @@ isis:
         no-params-only: true
         explicit-object-type: true
 
+    runtime-services:
+      translation:
+        po:
+          mode: disabled
+
   viewer:
     wicket:
       application:
-        menubars-layout-xml: domainapp/webapp/application/layout/menubars.layout.xml
-        brand-logo-header: /images/apache-isis/logo-48x48.png
-        favicon-url: /images/favicon.png
-        name: Simple App
-        css: css/application.css
-        js: scripts/application.js
         about: Simple App
+        brand-logo-header: images/apache-isis/logo-48x48.png
+        css: css/application.css
+        favicon-url: images/favicon.png
+        js: scripts/application.js
+        name: Simple App
+        menubars-layout-xml: menubars.layout.xml
 
       credit:
         - url:  http://isis.apache.org
-          image: /images/apache-isis/logo-48x48.png
+          image: images/apache-isis/logo-48x48.png
           name: Apache Isis
 
       themes:
-        initial: Flatly
-        showChooser: true
-        enabled: bootstrap-theme, Cerulean, Cosmo, Cyborg, Darkly, Flatly, Journal, Lumen, Paper, Readable, Sandstone, Simplex, Slate, Spacelab, Superhero, United, Yeti
+        show-chooser: true
 
       max-title-length-in-standalone-tables: 0
       max-title-length-in-parented-tables: 0
 
-      development-utilities:
-        enable: true
       bookmarked-pages:
-        show-chooser: false
+        show-chooser: true
+        show-drop-down-on-footer: true
+
 
   persistence:
     jdo-datanucleus:
