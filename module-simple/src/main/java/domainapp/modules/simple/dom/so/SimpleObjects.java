@@ -52,6 +52,7 @@ public class SimpleObjects {
                 .executeList();
     }
 
+    @Programmatic
     public SimpleObject findByNameExact(final String name) {
         JDOQLTypedQuery<SimpleObject> q = isisJdoSupport.newTypesafeQuery(SimpleObject.class);
         final QSimpleObject cand = QSimpleObject.candidate();
@@ -69,6 +70,7 @@ public class SimpleObjects {
         return repositoryService.allInstances(SimpleObject.class);
     }
 
+    @Programmatic
     public void ping() {
         JDOQLTypedQuery<SimpleObject> q = isisJdoSupport.newTypesafeQuery(SimpleObject.class);
         final QSimpleObject candidate = QSimpleObject.candidate();

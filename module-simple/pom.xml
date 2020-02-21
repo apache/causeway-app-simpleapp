@@ -80,6 +80,13 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- IDE support (optional) -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+        </dependency>
+
     </dependencies>
 
 </project>

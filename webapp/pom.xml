@@ -65,7 +65,7 @@
                             <outputDirectory>${project.build.directory}</outputDirectory>
                             <inputDirectory>${project.build.directory}</inputDirectory>
                             <jsonFiles>
-                                <param>**/*.json</param>
+                                <param>**/cucumber.json</param>
                             </jsonFiles>
                             <skip>${skipBSs}</skip>
                         </configuration>

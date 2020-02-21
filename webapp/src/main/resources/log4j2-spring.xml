@@ -35,6 +35,7 @@
         <logger name="DataNucleus.Datastore.Schema" level="info"/>
         <logger name="DataNucleus.Datastore.Native" level="info"/>
 
+        <logger name="org.apache.isis.applib.services.audit.AuditerServiceLogging" level="debug"/>
         <logger name="org.apache.isis.applib.services.publish.PublisherServiceLogging" level="debug"/>
 
         <Root level="info">

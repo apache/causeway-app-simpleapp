@@ -366,7 +366,7 @@
                     <mml:attr name="value">40</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.objectvalue.mustsatisfyspec.MustSatisfySpecificationFacet" fqcn="org.apache.isis.core.metamodel.facets.properties.property.mustsatisfy.MustSatisfySpecificationFacetForPropertyAnnotation">
-                    <mml:attr name="specifications">domainapp.modules.simple.types.Name$NoExclamationMarks</mml:attr>
+                    <mml:attr name="specifications">domainapp.modules.simple.types.Name.Validation</mml:attr>
                     <mml:attr name="validating">true</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.objectvalue.typicallen.TypicalLengthFacet" fqcn="org.apache.isis.core.metamodel.facets.properties.typicallen.fromtype.TypicalLengthFacetOnPropertyDerivedFromType">
@@ -1276,7 +1276,7 @@
                             <mml:attr name="value">40</mml:attr>
                         </mml:facet>
                         <mml:facet id="org.apache.isis.core.metamodel.facets.objectvalue.mustsatisfyspec.MustSatisfySpecificationFacet" fqcn="org.apache.isis.core.metamodel.facets.param.parameter.mustsatisfy.MustSatisfySpecificationFacetForParameterAnnotation">
-                            <mml:attr name="specifications">domainapp.modules.simple.types.Name$NoExclamationMarks</mml:attr>
+                            <mml:attr name="specifications">domainapp.modules.simple.types.Name.Validation</mml:attr>
                             <mml:attr name="underlyingFacet">org.apache.isis.core.metamodel.facets.param.parameter.mustsatisfy.MustSatisfySpecificationFacetForParameterAnnotation</mml:attr>
                             <mml:attr name="validating">true</mml:attr>
                         </mml:facet>

@@ -9,7 +9,6 @@ import javax.jdo.annotations.VersionStrategy;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import org.apache.isis.applib.annotation.Action;
-import org.apache.isis.applib.annotation.Auditing;
 import org.apache.isis.applib.annotation.CommandReification;
 import org.apache.isis.applib.annotation.DomainObject;
 import org.apache.isis.applib.annotation.DomainObjectLayout;
@@ -25,6 +24,9 @@ import static org.apache.isis.applib.annotation.SemanticsOf.NON_IDEMPOTENT_ARE_Y
 import domainapp.modules.simple.SimpleModule;
 import domainapp.modules.simple.types.Name;
 import domainapp.modules.simple.types.Notes;
+
+import lombok.Getter;
+import lombok.Setter;
 import lombok.val;
 
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE, schema = "simple")
@@ -55,11 +57,13 @@ public class SimpleObject implements Comparable<SimpleObject> {
         return "Object: " + getName();
     }
 
-    @lombok.Getter @lombok.Setter
-    @Name private String name;
+    @Getter @Setter
+    @Name
+    private String name;
 
-    @lombok.Getter @lombok.Setter
-    @Notes private String notes;
+    @Getter @Setter
+    @Notes
+    private String notes;
 
 
     public static class UpdateNameActionDomainEvent extends SimpleObject.ActionDomainEvent {}
@@ -74,7 +78,6 @@ public class SimpleObject implements Comparable<SimpleObject> {
     public String default0UpdateName() {
         return getName();
     }
-
 
     public static class DeleteActionDomainEvent extends SimpleObject.ActionDomainEvent {}
     @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE, domainEvent = DeleteActionDomainEvent.class)
