@@ -109,7 +109,7 @@ public class SimpleObject_IntegTest extends SimpleModuleIntegTestAbstract {
             });
 
             // then
-            assertThat(cause.getMessage(), containsString("Exclamation mark is not allowed."));
+            assertThat(cause.getMessage(), containsString("Character '!' is not allowed."));
         }
     }
 

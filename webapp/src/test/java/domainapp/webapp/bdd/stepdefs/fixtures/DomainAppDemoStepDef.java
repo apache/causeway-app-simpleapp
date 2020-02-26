@@ -1,4 +1,4 @@
-package domainapp.webapp.bdd.fixtures;
+package domainapp.webapp.bdd.stepdefs.fixtures;
 
 import java.util.List;
 import java.util.UUID;

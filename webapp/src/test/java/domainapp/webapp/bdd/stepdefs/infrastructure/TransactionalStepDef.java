@@ -1,4 +1,4 @@
-package domainapp.webapp.bdd.infrastructure;
+package domainapp.webapp.bdd.stepdefs.infrastructure;
 
 import java.util.List;
 import java.util.UUID;

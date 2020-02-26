@@ -1,4 +1,4 @@
-package domainapp.webapp.bdd.infrastructure;
+package domainapp.webapp.bdd.stepdefs.infrastructure;
 
 import javax.inject.Inject;
 

@@ -1,4 +1,4 @@
-package domainapp.webapp.bdd.stepdefs;
+package domainapp.webapp.bdd.stepdefs.domain;
 
 import domainapp.modules.simple.dom.so.SimpleObject;
 import domainapp.modules.simple.dom.so.SimpleObjects;
