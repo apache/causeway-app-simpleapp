@@ -12,6 +12,9 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 import org.apache.isis.applib.annotation.OrderPrecedence;
+import org.apache.isis.core.runtime.session.IsisSession;
+import org.apache.isis.core.runtime.session.IsisSessionFactory;
+import org.apache.isis.core.runtime.session.init.InitialisationSession;
 
 import lombok.val;
 
@@ -32,10 +35,12 @@ public class TransactionalStepDef {
 
     @Before(order = OrderPrecedence.EARLY)
     public void beforeScenario(){
+        IsisSession isisSession = isisSessionFactory.openSession(new InitialisationSession());
         val txTemplate = new TransactionTemplate(txMan);
         val status = txTemplate.getTransactionManager().getTransaction(null);
         afterScenario = () -> {
             txTemplate.getTransactionManager().rollback(status);
+            isisSessionFactory.closeSessionStack();
         };
 
         status.flush();
@@ -50,6 +55,7 @@ public class TransactionalStepDef {
         afterScenario = null;
     }
 
+    @Inject private IsisSessionFactory isisSessionFactory;
     @Inject private PlatformTransactionManager txMan;
 
 }

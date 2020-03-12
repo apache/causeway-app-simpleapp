@@ -31,6 +31,5 @@ public class HealthCheckServiceImpl implements HealthCheckService {
         } catch (Exception ex) {
             return Health.error(ex);
         }
-
     }
 }
