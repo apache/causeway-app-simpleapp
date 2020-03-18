@@ -1,25 +1,26 @@
 
    args4j:args4j:jar:2.0.26:compile
    cglib:cglib-nodep:jar:3.2.12:compile
-   cglib:cglib:jar:3.2.8:test
    com.approvaltests:approvaltests-util:jar:4.0.2:test
    com.approvaltests:approvaltests:jar:4.0.2:test
-   com.fasterxml.jackson.core:jackson-annotations:jar:2.10.1:compile
-   com.fasterxml.jackson.core:jackson-core:jar:2.10.1:compile
-   com.fasterxml.jackson.core:jackson-databind:jar:2.10.1:compile
-   com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:jar:2.10.1:compile
-   com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.10.1:compile
-   com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.10.1:compile
-   com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:jar:2.10.1:compile
-   com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:jar:2.10.1:compile
-   com.fasterxml.jackson.module:jackson-module-jaxb-annotations:jar:2.10.1:compile
-   com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.10.1:compile
+   com.fasterxml.jackson.core:jackson-annotations:jar:2.10.2:compile
+   com.fasterxml.jackson.core:jackson-core:jar:2.10.2:compile
+   com.fasterxml.jackson.core:jackson-databind:jar:2.10.2:compile
+   com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:jar:2.10.2:compile
+   com.fasterxml.jackson.datatype:jackson-datatype-jdk8:jar:2.10.2:compile
+   com.fasterxml.jackson.datatype:jackson-datatype-jsr310:jar:2.10.2:compile
+   com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:jar:2.10.2.1:compile
+   com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:jar:2.10.2.1:compile
+   com.fasterxml.jackson.module:jackson-module-jaxb-annotations:jar:2.10.2:compile
+   com.fasterxml.jackson.module:jackson-module-parameter-names:jar:2.10.2:compile
    com.fasterxml:classmate:jar:1.5.1:compile
    com.github.fge:btf:jar:1.2:compile
    com.github.fge:jackson-coreutils:jar:1.6:compile
    com.github.fge:json-patch:jar:1.9:compile
    com.github.fge:msg-simple:jar:1.1:compile
-   com.github.openjson:openjson:jar:1.0.10:compile
+   com.github.javafaker:javafaker:jar:1.0.1:test
+   com.github.mifmif:generex:jar:1.0.2:test
+   com.github.openjson:openjson:jar:1.0.11:compile
    com.google.code.findbugs:annotations:jar:2.0.1:compile
    com.google.code.findbugs:jsr305:jar:3.0.2:compile
    com.google.code.gson:gson:jar:2.8.6:compile
@@ -33,7 +34,7 @@
    com.google.jsinterop:jsinterop-annotations:jar:1.0.0:compile
    com.h2database:h2:jar:1.4.200:compile
    com.jayway.jsonpath:json-path:jar:2.4.0:test
-   com.sun.activation:jakarta.activation:jar:1.2.1:compile
+   com.sun.activation:jakarta.activation:jar:1.2.2:compile
    com.sun.istack:istack-commons-runtime:jar:3.0.8:compile
    com.sun.mail:javax.mail:jar:1.6.0:compile
    com.sun.xml.fastinfoset:FastInfoset:jar:1.2.16:compile
@@ -43,27 +44,32 @@
    commons-collections:commons-collections:jar:3.2.2:compile
    commons-fileupload:commons-fileupload:jar:1.4:compile
    commons-io:commons-io:jar:2.6:compile
+   commons-logging:commons-logging:jar:1.2:compile
    de.agilecoders.wicket.webjars:wicket-webjars:jar:2.0.15:compile
    de.agilecoders.wicket:jquery-selectors:jar:2.0.7:compile
    de.agilecoders.wicket:wicket-bootstrap-core:jar:2.0.11:compile
    de.agilecoders.wicket:wicket-bootstrap-extensions:jar:2.0.11:compile
    de.agilecoders.wicket:wicket-bootstrap-themes:jar:2.0.11:compile
-   io.cucumber:cucumber-core:jar:4.8.0:test
-   io.cucumber:cucumber-expressions:jar:7.0.2:test
-   io.cucumber:cucumber-java:jar:4.8.0:test
-   io.cucumber:cucumber-junit:jar:4.8.0:test
-   io.cucumber:cucumber-spring:jar:4.8.0:test
-   io.cucumber:datatable-dependencies:jar:1.1.14:test
-   io.cucumber:datatable:jar:1.1.14:test
-   io.cucumber:gherkin:jar:5.1.0:test
-   io.cucumber:tag-expressions:jar:1.1.1:test
+   dk.brics.automaton:automaton:jar:1.11-8:test
+   io.cucumber:cucumber-core:jar:5.1.2:test
+   io.cucumber:cucumber-expressions:jar:8.3.1:test
+   io.cucumber:cucumber-gherkin-vintage:jar:5.1.2:test
+   io.cucumber:cucumber-gherkin:jar:5.1.2:test
+   io.cucumber:cucumber-java:jar:5.1.2:test
+   io.cucumber:cucumber-junit-platform-engine:jar:5.1.2:test
+   io.cucumber:cucumber-junit:jar:5.1.2:test
+   io.cucumber:cucumber-plugin:jar:5.1.2:test
+   io.cucumber:cucumber-spring:jar:5.1.2:test
+   io.cucumber:datatable:jar:3.2.1:test
+   io.cucumber:docstring:jar:5.1.2:test
+   io.cucumber:tag-expressions:jar:2.0.4:test
    io.smallrye:smallrye-config:jar:1.3.9:compile
    io.swagger:swagger-annotations:jar:1.6.0:compile
    io.swagger:swagger-core:jar:1.6.0:compile
    io.swagger:swagger-models:jar:1.6.0:compile
-   jakarta.activation:jakarta.activation-api:jar:1.2.1:compile
+   jakarta.activation:jakarta.activation-api:jar:1.2.2:compile
    jakarta.annotation:jakarta.annotation-api:jar:1.3.5:compile
-   jakarta.validation:jakarta.validation-api:jar:2.0.1:compile
+   jakarta.validation:jakarta.validation-api:jar:2.0.2:compile
    jakarta.xml.bind:jakarta.xml.bind-api:jar:2.3.2:compile
    javax.activation:activation:jar:1.1:compile
    javax.annotation:javax.annotation-api:jar:1.3.2:compile
@@ -78,49 +84,50 @@
    javax:javaee-api:jar:8.0:compile
    joda-time:joda-time:jar:2.10.5:compile
    junit:junit:jar:4.12:test
-   net.bytebuddy:byte-buddy:jar:1.10.4:compile
+   net.bytebuddy:byte-buddy-agent:jar:1.10.8:test
+   net.bytebuddy:byte-buddy:jar:1.10.8:compile
    net.ftlines.wicket-source:wicket-source:jar:7.0.0:compile
    net.minidev:accessors-smart:jar:1.2:test
    net.minidev:json-smart:jar:2.3:test
-   org.apache-extras.beanshell:bsh:jar:2.0b6:test
-   org.apache.commons:commons-collections4:jar:4.3:compile
-   org.apache.commons:commons-email:jar:1.4:compile
+   org.apache.commons:commons-collections4:jar:4.4:compile
+   org.apache.commons:commons-email:jar:1.5:compile
    org.apache.commons:commons-lang3:jar:3.9:compile
-   org.apache.httpcomponents:httpclient:jar:4.5.10:compile
-   org.apache.httpcomponents:httpcore:jar:4.4.12:compile
-   org.apache.isis.core:isis-applib:jar:2.0.0-M3-SNAPSHOT:compile
-   org.apache.isis.core:isis-codegen-bytebuddy:jar:2.0.0-M3-SNAPSHOT:compile
-   org.apache.isis.core:isis-commons:jar:2.0.0-M3-SNAPSHOT:compile
-   org.apache.isis.core:isis-config:jar:2.0.0-M3-SNAPSHOT:compile
-   org.apache.isis.core:isis-integtestsupport:jar:2.0.0-M3-SNAPSHOT:test
-   org.apache.isis.core:isis-metamodel:jar:2.0.0-M3-SNAPSHOT:compile
-   org.apache.isis.core:isis-persistence-jdo-applib:jar:2.0.0-M3-SNAPSHOT:compile
-   org.apache.isis.core:isis-persistence-jdo-datanucleus5:jar:2.0.0-M3-SNAPSHOT:compile
-   org.apache.isis.core:isis-runtime-services:jar:2.0.0-M3-SNAPSHOT:compile
-   org.apache.isis.core:isis-runtime:jar:2.0.0-M3-SNAPSHOT:compile
-   org.apache.isis.core:isis-schema:jar:2.0.0-M3-SNAPSHOT:compile
-   org.apache.isis.core:isis-security-api:jar:2.0.0-M3-SNAPSHOT:compile
-   org.apache.isis.core:isis-security-bypass:jar:2.0.0-M3-SNAPSHOT:compile
-   org.apache.isis.core:isis-security-keycloak:jar:2.0.0-M3-SNAPSHOT:compile
-   org.apache.isis.core:isis-security-shiro:jar:2.0.0-M3-SNAPSHOT:compile
-   org.apache.isis.core:isis-unittestsupport:jar:2.0.0-M3-SNAPSHOT:test
-   org.apache.isis.core:isis-viewer-restfulobjects-applib:jar:2.0.0-M3-SNAPSHOT:compile
-   org.apache.isis.core:isis-viewer-restfulobjects-jaxrsresteasy4:jar:2.0.0-M3-SNAPSHOT:compile
-   org.apache.isis.core:isis-viewer-restfulobjects-rendering:jar:2.0.0-M3-SNAPSHOT:compile
-   org.apache.isis.core:isis-viewer-restfulobjects-viewer:jar:2.0.0-M3-SNAPSHOT:compile
-   org.apache.isis.core:isis-viewer-wicket-model:jar:2.0.0-M3-SNAPSHOT:compile
-   org.apache.isis.core:isis-viewer-wicket-ui:jar:2.0.0-M3-SNAPSHOT:compile
-   org.apache.isis.core:isis-viewer-wicket-viewer:jar:2.0.0-M3-SNAPSHOT:compile
-   org.apache.isis.core:isis-webapp:jar:2.0.0-M3-SNAPSHOT:compile
-   org.apache.isis.core:isis-webboot-springboot:jar:2.0.0-M3-SNAPSHOT:compile
-   org.apache.isis.extensions:isis-extensions-fixtures:jar:2.0.0-M3-SNAPSHOT:compile
-   org.apache.isis.extensions:isis-extensions-h2console-dom:jar:2.0.0-M3-SNAPSHOT:compile
-   org.apache.isis.extensions:isis-extensions-specsupport:jar:2.0.0-M3-SNAPSHOT:test
-   org.apache.isis.extensions:isis-extensions-spring:jar:2.0.0-M3-SNAPSHOT:compile
-   org.apache.isis.mavendeps:isis-mavendeps-jdk11:pom:2.0.0-M3-SNAPSHOT:compile
-   org.apache.isis.mavendeps:isis-mavendeps-testing:pom:2.0.0-M3-SNAPSHOT:test
-   org.apache.isis.mavendeps:isis-mavendeps-webapp:pom:2.0.0-M3-SNAPSHOT:compile
-   org.apache.isis.starters:simpleapp-module-simple:jar:2.0.0-M3-SNAPSHOT:compile
+   org.apache.httpcomponents:httpclient:jar:4.5.11:compile
+   org.apache.httpcomponents:httpcore:jar:4.4.13:compile
+   org.apache.isis.core:isis-applib:jar:2.0.0-SNAPSHOT:compile
+   org.apache.isis.core:isis-core-codegen-bytebuddy:jar:2.0.0-SNAPSHOT:compile
+   org.apache.isis.core:isis-core-commons:jar:2.0.0-SNAPSHOT:compile
+   org.apache.isis.core:isis-core-config:jar:2.0.0-SNAPSHOT:compile
+   org.apache.isis.core:isis-core-metamodel:jar:2.0.0-SNAPSHOT:compile
+   org.apache.isis.core:isis-core-runtime:jar:2.0.0-SNAPSHOT:compile
+   org.apache.isis.core:isis-core-runtimeservices:jar:2.0.0-SNAPSHOT:compile
+   org.apache.isis.core:isis-core-security:jar:2.0.0-SNAPSHOT:compile
+   org.apache.isis.core:isis-core-webapp:jar:2.0.0-SNAPSHOT:compile
+   org.apache.isis.core:isis-schema:jar:2.0.0-SNAPSHOT:compile
+   org.apache.isis.extensions:isis-extensions-flyway-impl:jar:2.0.0-SNAPSHOT:compile
+   org.apache.isis.mavendeps:isis-mavendeps-integspecs:pom:2.0.0-SNAPSHOT:test
+   org.apache.isis.mavendeps:isis-mavendeps-integtests:pom:2.0.0-SNAPSHOT:test
+   org.apache.isis.mavendeps:isis-mavendeps-jdk11:pom:2.0.0-SNAPSHOT:compile
+   org.apache.isis.mavendeps:isis-mavendeps-webapp:pom:2.0.0-SNAPSHOT:compile
+   org.apache.isis.persistence:isis-persistence-jdo-applib:jar:2.0.0-SNAPSHOT:compile
+   org.apache.isis.persistence:isis-persistence-jdo-datanucleus5:jar:2.0.0-SNAPSHOT:compile
+   org.apache.isis.security:isis-security-bypass:jar:2.0.0-SNAPSHOT:compile
+   org.apache.isis.security:isis-security-keycloak:jar:2.0.0-SNAPSHOT:compile
+   org.apache.isis.security:isis-security-shiro:jar:2.0.0-SNAPSHOT:compile
+   org.apache.isis.starters:simpleapp-module-simple:jar:2.0.0-M3:compile
+   org.apache.isis.subdomains:isis-subdomains-spring-applib:jar:2.0.0-SNAPSHOT:compile
+   org.apache.isis.testing:isis-testing-fakedata-applib:jar:2.0.0-SNAPSHOT:test
+   org.apache.isis.testing:isis-testing-fixtures-applib:jar:2.0.0-SNAPSHOT:compile
+   org.apache.isis.testing:isis-testing-h2console-ui:jar:2.0.0-SNAPSHOT:compile
+   org.apache.isis.testing:isis-testing-integtestsupport-applib:jar:2.0.0-SNAPSHOT:test
+   org.apache.isis.testing:isis-testing-specsupport-applib:jar:2.0.0-SNAPSHOT:test
+   org.apache.isis.viewer:isis-viewer-restfulobjects-applib:jar:2.0.0-SNAPSHOT:compile
+   org.apache.isis.viewer:isis-viewer-restfulobjects-jaxrsresteasy4:jar:2.0.0-SNAPSHOT:compile
+   org.apache.isis.viewer:isis-viewer-restfulobjects-rendering:jar:2.0.0-SNAPSHOT:compile
+   org.apache.isis.viewer:isis-viewer-restfulobjects-viewer:jar:2.0.0-SNAPSHOT:compile
+   org.apache.isis.viewer:isis-viewer-wicket-model:jar:2.0.0-SNAPSHOT:compile
+   org.apache.isis.viewer:isis-viewer-wicket-ui:jar:2.0.0-SNAPSHOT:compile
+   org.apache.isis.viewer:isis-viewer-wicket-viewer:jar:2.0.0-SNAPSHOT:compile
    org.apache.logging.log4j:log4j-api:jar:2.12.1:compile
    org.apache.logging.log4j:log4j-core:jar:2.12.1:compile
    org.apache.logging.log4j:log4j-jul:jar:2.12.1:compile
@@ -135,24 +142,24 @@
    org.apache.shiro:shiro-event:jar:1.4.1:compile
    org.apache.shiro:shiro-lang:jar:1.4.1:compile
    org.apache.shiro:shiro-web:jar:1.4.1:compile
-   org.apache.tomcat.embed:tomcat-embed-core:jar:9.0.29:compile
-   org.apache.tomcat.embed:tomcat-embed-el:jar:9.0.29:compile
-   org.apache.tomcat.embed:tomcat-embed-websocket:jar:9.0.29:compile
-   org.apache.wicket:wicket-auth-roles:jar:8.6.1:compile
-   org.apache.wicket:wicket-core:jar:8.6.1:compile
-   org.apache.wicket:wicket-devutils:jar:8.6.1:compile
-   org.apache.wicket:wicket-extensions:jar:8.6.1:compile
-   org.apache.wicket:wicket-ioc:jar:8.6.1:compile
-   org.apache.wicket:wicket-request:jar:8.6.1:compile
-   org.apache.wicket:wicket-spring:jar:8.6.1:compile
-   org.apache.wicket:wicket-util:jar:8.6.1:compile
-   org.apache.wicket:wicket:pom:8.6.1:compile
+   org.apache.tomcat.embed:tomcat-embed-core:jar:9.0.31:compile
+   org.apache.tomcat.embed:tomcat-embed-el:jar:9.0.31:compile
+   org.apache.tomcat.embed:tomcat-embed-websocket:jar:9.0.31:compile
+   org.apache.wicket:wicket-auth-roles:jar:8.7.0:compile
+   org.apache.wicket:wicket-core:jar:8.7.0:compile
+   org.apache.wicket:wicket-devutils:jar:8.7.0:compile
+   org.apache.wicket:wicket-extensions:jar:8.7.0:compile
+   org.apache.wicket:wicket-ioc:jar:8.7.0:compile
+   org.apache.wicket:wicket-request:jar:8.7.0:compile
+   org.apache.wicket:wicket-spring:jar:8.7.0:compile
+   org.apache.wicket:wicket-util:jar:8.7.0:compile
+   org.apache.wicket:wicket:pom:8.7.0:compile
    org.apiguardian:apiguardian-api:jar:1.1.0:compile
    org.assertj:assertj-core:jar:3.13.2:test
    org.attoparser:attoparser:jar:2.0.5.RELEASE:compile
    org.checkerframework:checker-qual:jar:2.8.1:compile
    org.codehaus.mojo:animal-sniffer-annotations:jar:1.18:compile
-   org.danekja:jdk-serializable-functional:jar:1.8.5:compile
+   org.danekja:jdk-serializable-functional:jar:1.8.6:compile
    org.datanucleus:datanucleus-api-jdo:jar:5.2.2:compile
    org.datanucleus:datanucleus-core:jar:5.2.2:compile
    org.datanucleus:datanucleus-jdo-query:jar:5.0.9:compile
@@ -160,6 +167,7 @@
    org.datanucleus:datanucleus-rdbms:jar:5.2.1:compile
    org.datanucleus:javax.jdo:jar:3.2.0-m12:compile
    org.eclipse.microprofile.config:microprofile-config-api:jar:1.3:compile
+   org.flywaydb:flyway-core:jar:6.0.8:compile
    org.glassfish.jaxb:jaxb-runtime:jar:2.3.2:compile
    org.glassfish.jaxb:txw2:jar:2.3.2:compile
    org.glassfish:javax.json:jar:1.1.2:compile
@@ -181,18 +189,15 @@
    org.jboss.spec.javax.annotation:jboss-annotations-api_1.3_spec:jar:2.0.1.Final:compile
    org.jboss.spec.javax.ws.rs:jboss-jaxrs-api_2.1_spec:jar:2.0.1.Final:compile
    org.jboss.spec.javax.xml.bind:jboss-jaxb-api_2.3_spec:jar:1.0.1.Final:compile
-   org.jmock:jmock-imposters:jar:2.11.0:test
-   org.jmock:jmock-junit4:jar:2.11.0:test
-   org.jmock:jmock-legacy:jar:2.11.0:test
-   org.jmock:jmock-testjar:jar:2.11.0:test
-   org.jmock:jmock:jar:2.11.0:test
    org.junit.jupiter:junit-jupiter-api:jar:5.5.2:compile
    org.junit.jupiter:junit-jupiter-engine:jar:5.5.2:test
    org.junit.jupiter:junit-jupiter-params:jar:5.5.2:test
    org.junit.jupiter:junit-jupiter:jar:5.5.2:test
    org.junit.platform:junit-platform-commons:jar:1.5.2:compile
+   org.junit.platform:junit-platform-console:jar:1.6.0:test
    org.junit.platform:junit-platform-engine:jar:1.5.2:test
-   org.junit.vintage:junit-vintage-engine:jar:5.5.2:test
+   org.junit.platform:junit-platform-launcher:jar:1.5.2:test
+   org.junit.platform:junit-platform-reporting:jar:1.5.2:test
    org.jvnet.staxex:stax-ex:jar:1.8.1:compile
    org.mockito:mockito-core:jar:3.1.0:test
    org.mockito:mockito-junit-jupiter:jar:3.1.0:test
@@ -202,37 +207,36 @@
    org.ow2.asm:asm-analysis:jar:7.1:compile
    org.ow2.asm:asm-tree:jar:7.1:compile
    org.ow2.asm:asm-util:jar:7.1:compile
-   org.ow2.asm:asm:jar:6.2.1:test
-   org.picocontainer:picocontainer:jar:2.15:test
-   org.projectlombok:lombok:jar:1.18.10:provided
+   org.projectlombok:lombok:jar:1.18.12:provided
    org.reactivestreams:reactive-streams:jar:1.0.3:compile
    org.skyscreamer:jsonassert:jar:1.5.0:test
-   org.slf4j:jul-to-slf4j:jar:1.7.29:compile
-   org.slf4j:slf4j-api:jar:1.7.29:compile
-   org.springframework.boot:spring-boot-actuator-autoconfigure:jar:2.2.2.RELEASE:compile
-   org.springframework.boot:spring-boot-actuator:jar:2.2.2.RELEASE:compile
-   org.springframework.boot:spring-boot-autoconfigure:jar:2.2.2.RELEASE:compile
-   org.springframework.boot:spring-boot-starter-json:jar:2.2.2.RELEASE:compile
-   org.springframework.boot:spring-boot-starter-log4j2:jar:2.2.2.RELEASE:compile
-   org.springframework.boot:spring-boot-starter-test:jar:2.2.2.RELEASE:test
-   org.springframework.boot:spring-boot-starter-thymeleaf:jar:2.2.2.RELEASE:compile
-   org.springframework.boot:spring-boot-starter-tomcat:jar:2.2.2.RELEASE:compile
-   org.springframework.boot:spring-boot-starter-validation:jar:2.2.2.RELEASE:compile
-   org.springframework.boot:spring-boot-starter-web:jar:2.2.2.RELEASE:compile
-   org.springframework.boot:spring-boot-starter:jar:2.2.2.RELEASE:compile
-   org.springframework.boot:spring-boot-test-autoconfigure:jar:2.2.2.RELEASE:test
-   org.springframework.boot:spring-boot-test:jar:2.2.2.RELEASE:test
-   org.springframework.boot:spring-boot:jar:2.2.2.RELEASE:compile
-   org.springframework:spring-aop:jar:5.2.2.RELEASE:compile
-   org.springframework:spring-beans:jar:5.2.2.RELEASE:compile
-   org.springframework:spring-context:jar:5.2.2.RELEASE:compile
-   org.springframework:spring-core:jar:5.2.2.RELEASE:compile
-   org.springframework:spring-expression:jar:5.2.2.RELEASE:compile
-   org.springframework:spring-jcl:jar:5.2.2.RELEASE:compile
-   org.springframework:spring-test:jar:5.2.2.RELEASE:test
-   org.springframework:spring-tx:jar:5.2.2.RELEASE:compile
-   org.springframework:spring-web:jar:5.2.2.RELEASE:compile
-   org.springframework:spring-webmvc:jar:5.2.2.RELEASE:compile
+   org.slf4j:jul-to-slf4j:jar:1.7.30:compile
+   org.slf4j:slf4j-api:jar:1.7.30:compile
+   org.springframework.boot:spring-boot-actuator-autoconfigure:jar:2.2.5.RELEASE:compile
+   org.springframework.boot:spring-boot-actuator:jar:2.2.5.RELEASE:compile
+   org.springframework.boot:spring-boot-autoconfigure:jar:2.2.5.RELEASE:compile
+   org.springframework.boot:spring-boot-starter-json:jar:2.2.5.RELEASE:compile
+   org.springframework.boot:spring-boot-starter-log4j2:jar:2.2.5.RELEASE:compile
+   org.springframework.boot:spring-boot-starter-test:jar:2.2.5.RELEASE:test
+   org.springframework.boot:spring-boot-starter-thymeleaf:jar:2.2.5.RELEASE:compile
+   org.springframework.boot:spring-boot-starter-tomcat:jar:2.2.5.RELEASE:compile
+   org.springframework.boot:spring-boot-starter-validation:jar:2.2.5.RELEASE:compile
+   org.springframework.boot:spring-boot-starter-web:jar:2.2.5.RELEASE:compile
+   org.springframework.boot:spring-boot-starter:jar:2.2.5.RELEASE:compile
+   org.springframework.boot:spring-boot-test-autoconfigure:jar:2.2.5.RELEASE:test
+   org.springframework.boot:spring-boot-test:jar:2.2.5.RELEASE:test
+   org.springframework.boot:spring-boot:jar:2.2.5.RELEASE:compile
+   org.springframework:spring-aop:jar:5.2.4.RELEASE:compile
+   org.springframework:spring-beans:jar:5.2.4.RELEASE:compile
+   org.springframework:spring-context:jar:5.2.4.RELEASE:compile
+   org.springframework:spring-core:jar:5.2.4.RELEASE:compile
+   org.springframework:spring-expression:jar:5.2.4.RELEASE:compile
+   org.springframework:spring-jcl:jar:5.2.4.RELEASE:compile
+   org.springframework:spring-jdbc:jar:5.2.4.RELEASE:compile
+   org.springframework:spring-test:jar:5.2.4.RELEASE:test
+   org.springframework:spring-tx:jar:5.2.4.RELEASE:compile
+   org.springframework:spring-web:jar:5.2.4.RELEASE:compile
+   org.springframework:spring-webmvc:jar:5.2.4.RELEASE:compile
    org.thymeleaf.extras:thymeleaf-extras-java8time:jar:3.0.4.RELEASE:compile
    org.thymeleaf:thymeleaf-spring5:jar:3.0.11.RELEASE:compile
    org.thymeleaf:thymeleaf:jar:3.0.11.RELEASE:compile
@@ -247,7 +251,7 @@
    org.webjars:jquery:jar:1.11.1:compile
    org.webjars:modernizr:jar:2.8.3-1:compile
    org.webjars:select2:jar:4.0.10:compile
-   org.wicketstuff:wicketstuff-select2:jar:8.6.0:compile
+   org.wicketstuff:wicketstuff-select2:jar:8.7.0:compile
    org.xmlunit:xmlunit-core:jar:2.6.3:test
    org.yaml:snakeyaml:jar:1.25:runtime
 The following files have been resolved:

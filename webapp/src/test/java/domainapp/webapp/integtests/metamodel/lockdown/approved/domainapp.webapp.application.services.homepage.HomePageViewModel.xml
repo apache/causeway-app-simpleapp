@@ -41,9 +41,6 @@
             <mml:attr name="disabling">true</mml:attr>
             <mml:attr name="reason">Disabled</mml:attr>
         </mml:facet>
-        <mml:facet id="org.apache.isis.core.metamodel.facets.object.layout.LayoutFacet" fqcn="org.apache.isis.core.metamodel.facets.object.layout.LayoutFacetFallback">
-            <mml:attr name="derived">true</mml:attr>
-        </mml:facet>
         <mml:facet id="org.apache.isis.core.metamodel.facets.object.objectspecid.ObjectSpecIdFacet" fqcn="org.apache.isis.core.metamodel.facets.object.domainobject.objectspecid.ObjectSpecIdFacetForDomainObjectAnnotation">
             <mml:attr name="underlyingFacet">org.apache.isis.core.metamodel.facets.object.objectspecid.classname.ObjectSpecIdFacetDerivedFromClassName</mml:attr>
             <mml:attr name="value">domainapp.HomePageViewModel</mml:attr>
@@ -75,6 +72,7 @@
                     <mml:attr name="disabling">true</mml:attr>
                     <mml:attr name="hiding">true</mml:attr>
                 </mml:facet>
+                <mml:facet id="org.apache.isis.core.metamodel.facets.actions.action.explicit.ActionExplicitFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.explicit.ActionExplicitFacetForActionAnnotation"/>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.actions.action.invocation.ActionDomainEventFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.invocation.ActionDomainEventFacetForActionAnnotation">
                     <mml:attr name="disabling">true</mml:attr>
                     <mml:attr name="hiding">true</mml:attr>
@@ -114,7 +112,7 @@
                     <mml:attr name="underlyingFacet">org.apache.isis.core.metamodel.facets.all.named.NamedFacetInferred</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.collections.collection.defaultview.DefaultViewFacet" fqcn="org.apache.isis.core.metamodel.facets.collections.layout.DefaultViewFacetForCollectionLayoutAnnotation">
-                    <mml:attr name="value">hidden</mml:attr>
+                    <mml:attr name="value">table</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.members.disabled.DisabledFacet" fqcn="org.apache.isis.core.metamodel.facets.members.disabled.DisabledFacetForContributee">
                     <mml:attr name="disabling">true</mml:attr>
@@ -155,6 +153,7 @@
                     <mml:attr name="disabling">true</mml:attr>
                     <mml:attr name="hiding">true</mml:attr>
                 </mml:facet>
+                <mml:facet id="org.apache.isis.core.metamodel.facets.actions.action.explicit.ActionExplicitFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.explicit.ActionExplicitFacetForActionAnnotation"/>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.actions.action.invocation.ActionDomainEventFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.invocation.ActionDomainEventFacetForActionAnnotation">
                     <mml:attr name="disabling">true</mml:attr>
                     <mml:attr name="hiding">true</mml:attr>
@@ -194,7 +193,7 @@
                     <mml:attr name="underlyingFacet">org.apache.isis.core.metamodel.facets.all.named.NamedFacetInferred</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.collections.collection.defaultview.DefaultViewFacet" fqcn="org.apache.isis.core.metamodel.facets.collections.layout.DefaultViewFacetForCollectionLayoutAnnotation">
-                    <mml:attr name="value">hidden</mml:attr>
+                    <mml:attr name="value">table</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.members.disabled.DisabledFacet" fqcn="org.apache.isis.core.metamodel.facets.members.disabled.DisabledFacetForContributee">
                     <mml:attr name="disabling">true</mml:attr>
@@ -247,7 +246,7 @@
                     <mml:attr name="underlyingFacet">org.apache.isis.core.metamodel.facets.fallback.NamedFacetDefault</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.collections.collection.defaultview.DefaultViewFacet" fqcn="org.apache.isis.core.metamodel.facets.collections.layout.DefaultViewFacetForCollectionLayoutAnnotation">
-                    <mml:attr name="value">hidden</mml:attr>
+                    <mml:attr name="value">table</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.collections.collection.modify.CollectionDomainEventFacet" fqcn="org.apache.isis.core.metamodel.facets.collections.collection.modify.CollectionDomainEventFacetDefault">
                     <mml:attr name="disabling">true</mml:attr>
@@ -264,7 +263,7 @@
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.collections.modify.CollectionClearFacet" fqcn="org.apache.isis.core.metamodel.facets.collections.clear.CollectionClearFacetViaAccessor">
                     <mml:attr name="intent.getObjects">ACCESSOR</mml:attr>
-                    <mml:attr name="methods">public java.util.List&lt;domainapp.modules.simple.dom.impl.SimpleObject&gt; domainapp.webapp.application.services.homepage.HomePageViewModel.getObjects()</mml:attr>
+                    <mml:attr name="methods">public java.util.List&lt;domainapp.modules.simple.dom.so.SimpleObject&gt; domainapp.webapp.application.services.homepage.HomePageViewModel.getObjects()</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.collections.modify.CollectionRemoveFromFacet" fqcn="org.apache.isis.core.metamodel.facets.collections.collection.modify.CollectionRemoveFromFacetForDomainEventFromDefault">
                     <mml:attr name="collectionRemoveFromFacet">org.apache.isis.core.metamodel.facets.collections.modify.CollectionRemoveFromFacetViaAccessor</mml:attr>
@@ -293,7 +292,7 @@
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.propcoll.accessor.PropertyOrCollectionAccessorFacet" fqcn="org.apache.isis.core.metamodel.facets.collections.accessor.CollectionAccessorFacetViaAccessor">
                     <mml:attr name="intent.getObjects">ACCESSOR</mml:attr>
-                    <mml:attr name="methods">public java.util.List&lt;domainapp.modules.simple.dom.impl.SimpleObject&gt; domainapp.webapp.application.services.homepage.HomePageViewModel.getObjects()</mml:attr>
+                    <mml:attr name="methods">public java.util.List&lt;domainapp.modules.simple.dom.so.SimpleObject&gt; domainapp.webapp.application.services.homepage.HomePageViewModel.getObjects()</mml:attr>
                     <mml:attr name="onType">domainapp.webapp.application.services.homepage.HomePageViewModel</mml:attr>
                 </mml:facet>
             </mml:facets>
@@ -307,6 +306,7 @@
                     <mml:attr name="disabling">true</mml:attr>
                     <mml:attr name="hiding">true</mml:attr>
                 </mml:facet>
+                <mml:facet id="org.apache.isis.core.metamodel.facets.actions.action.explicit.ActionExplicitFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.explicit.ActionExplicitFacetForActionAnnotation"/>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.actions.action.invocation.ActionDomainEventFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.invocation.ActionDomainEventFacetForActionAnnotation">
                     <mml:attr name="disabling">true</mml:attr>
                     <mml:attr name="hiding">true</mml:attr>
@@ -350,10 +350,11 @@
                     <mml:attr name="underlyingFacet">org.apache.isis.core.metamodel.facets.all.named.NamedFacetInferred</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.collections.collection.defaultview.DefaultViewFacet" fqcn="org.apache.isis.core.metamodel.facets.collections.layout.DefaultViewFacetForCollectionLayoutAnnotation">
-                    <mml:attr name="value">hidden</mml:attr>
+                    <mml:attr name="value">table</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.members.cssclassfa.CssClassFaFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.layout.CssClassFaFacetForActionLayoutAnnotation">
                     <mml:attr name="position">LEFT</mml:attr>
+                    <mml:attr name="underlyingFacet">org.apache.isis.core.metamodel.facets.members.cssclassfa.annotprop.CssClassFaFacetOnMemberFromConfiguredRegex</mml:attr>
                     <mml:attr name="value">fa fa-fw fa-download</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.members.order.MemberOrderFacet" fqcn="org.apache.isis.core.metamodel.facets.members.order.annotprop.MemberOrderFacetAnnotation">
@@ -432,6 +433,7 @@
                     <mml:attr name="disabling">true</mml:attr>
                     <mml:attr name="hiding">true</mml:attr>
                 </mml:facet>
+                <mml:facet id="org.apache.isis.core.metamodel.facets.actions.action.explicit.ActionExplicitFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.explicit.ActionExplicitFacetForActionAnnotation"/>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.actions.action.invocation.ActionDomainEventFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.invocation.ActionDomainEventFacetForActionAnnotation">
                     <mml:attr name="disabling">true</mml:attr>
                     <mml:attr name="hiding">true</mml:attr>
@@ -475,10 +477,11 @@
                     <mml:attr name="underlyingFacet">org.apache.isis.core.metamodel.facets.all.named.NamedFacetInferred</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.collections.collection.defaultview.DefaultViewFacet" fqcn="org.apache.isis.core.metamodel.facets.collections.layout.DefaultViewFacetForCollectionLayoutAnnotation">
-                    <mml:attr name="value">hidden</mml:attr>
+                    <mml:attr name="value">table</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.members.cssclassfa.CssClassFaFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.layout.CssClassFaFacetForActionLayoutAnnotation">
                     <mml:attr name="position">LEFT</mml:attr>
+                    <mml:attr name="underlyingFacet">org.apache.isis.core.metamodel.facets.members.cssclassfa.annotprop.CssClassFaFacetOnMemberFromConfiguredRegex</mml:attr>
                     <mml:attr name="value">fa fa-fw fa-download</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.members.order.MemberOrderFacet" fqcn="org.apache.isis.core.metamodel.facets.members.order.annotprop.MemberOrderFacetAnnotation">
@@ -533,6 +536,7 @@
                     <mml:attr name="disabling">true</mml:attr>
                     <mml:attr name="hiding">true</mml:attr>
                 </mml:facet>
+                <mml:facet id="org.apache.isis.core.metamodel.facets.actions.action.explicit.ActionExplicitFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.explicit.ActionExplicitFacetForActionAnnotation"/>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.actions.action.invocation.ActionDomainEventFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.invocation.ActionDomainEventFacetForActionAnnotation">
                     <mml:attr name="disabling">true</mml:attr>
                     <mml:attr name="hiding">true</mml:attr>
@@ -576,7 +580,7 @@
                     <mml:attr name="underlyingFacet">org.apache.isis.core.metamodel.facets.all.named.NamedFacetInferred</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.collections.collection.defaultview.DefaultViewFacet" fqcn="org.apache.isis.core.metamodel.facets.collections.layout.DefaultViewFacetForCollectionLayoutAnnotation">
-                    <mml:attr name="value">hidden</mml:attr>
+                    <mml:attr name="value">table</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.members.cssclassfa.CssClassFaFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.layout.CssClassFaFacetForActionLayoutAnnotation">
                     <mml:attr name="position">LEFT</mml:attr>
@@ -604,6 +608,7 @@
                     <mml:attr name="disabling">true</mml:attr>
                     <mml:attr name="hiding">true</mml:attr>
                 </mml:facet>
+                <mml:facet id="org.apache.isis.core.metamodel.facets.actions.action.explicit.ActionExplicitFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.explicit.ActionExplicitFacetForActionAnnotation"/>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.actions.action.invocation.ActionDomainEventFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.invocation.ActionDomainEventFacetForActionAnnotation">
                     <mml:attr name="disabling">true</mml:attr>
                     <mml:attr name="hiding">true</mml:attr>
@@ -648,7 +653,7 @@
                     <mml:attr name="underlyingFacet">org.apache.isis.core.metamodel.facets.all.named.NamedFacetInferred</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.collections.collection.defaultview.DefaultViewFacet" fqcn="org.apache.isis.core.metamodel.facets.collections.layout.DefaultViewFacetForCollectionLayoutAnnotation">
-                    <mml:attr name="value">hidden</mml:attr>
+                    <mml:attr name="value">table</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.members.cssclassfa.CssClassFaFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.layout.CssClassFaFacetForActionLayoutAnnotation">
                     <mml:attr name="position">LEFT</mml:attr>
