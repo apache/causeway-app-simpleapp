@@ -16,16 +16,11 @@ import domainapp.modules.simple.types.Name;
         nature = NatureOfService.VIEW,
         objectType = "simple.SimpleObjects"
         )
+@lombok.RequiredArgsConstructor(onConstructor_ = {@Inject} )
 public class SimpleObjects {
 
     private final RepositoryService repositoryService;
     private final IsisJdoSupport_v3_2 isisJdoSupport;
-
-    @Inject
-    public SimpleObjects(RepositoryService repositoryService, IsisJdoSupport_v3_2 isisJdoSupport) {
-        this.repositoryService = repositoryService;
-        this.isisJdoSupport = isisJdoSupport;
-    }
 
     public static class ActionDomainEvent extends SimpleModule.ActionDomainEvent<SimpleObjects> {}
 

@@ -40,7 +40,7 @@ public @interface Name {
             }
             val prohibitedCharacters = configuration.getTypes().getName().getValidation().getProhibitedCharacters();
             for (char prohibitedCharacter : prohibitedCharacters) {
-                if( name.contains("!")) {
+                if( name.contains(""+prohibitedCharacter)) {
                     String message = configuration.getTypes().getName().getValidation().getMessage();
                     return TranslatableString.tr(message, "character", ""+prohibitedCharacter);
                 }

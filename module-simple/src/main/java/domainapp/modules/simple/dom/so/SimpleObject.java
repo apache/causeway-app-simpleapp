@@ -27,6 +27,7 @@ import domainapp.modules.simple.types.Notes;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 import lombok.val;
 
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE, schema = "simple")
@@ -36,6 +37,7 @@ import lombok.val;
 @DomainObject()
 @DomainObjectLayout()
 @XmlJavaTypeAdapter(PersistentEntityAdapter.class)
+@ToString(onlyExplicitlyIncluded = true)
 public class SimpleObject implements Comparable<SimpleObject> {
 
     public static SimpleObject withName(String name) {
@@ -57,12 +59,12 @@ public class SimpleObject implements Comparable<SimpleObject> {
         return "Object: " + getName();
     }
 
-    @Getter @Setter
     @Name
+    @Getter @Setter @ToString.Include
     private String name;
 
-    @Getter @Setter
     @Notes
+    @Getter @Setter
     private String notes;
 
 
@@ -75,6 +77,7 @@ public class SimpleObject implements Comparable<SimpleObject> {
         setName(name);
         return this;
     }
+
     public String default0UpdateName() {
         return getName();
     }
@@ -87,19 +90,12 @@ public class SimpleObject implements Comparable<SimpleObject> {
         repositoryService.removeAndFlush(this);
     }
 
-    @Override
-    public String toString() {
-        return getName();
-    }
-
-    private final static Comparator<SimpleObject> comparator = 
+    private final static Comparator<SimpleObject> comparator =
             Comparator.comparing(SimpleObject::getName);
 
     @Override
     public int compareTo(final SimpleObject other) {
         return comparator.compare(this, other);
     }
-
-
 
 }

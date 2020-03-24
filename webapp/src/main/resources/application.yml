@@ -94,9 +94,11 @@ spring:
   banner:
     location: banner.txt
 
-#app:
-#  simple-module:
-#    types:
-#      name:
-#        validation-message: '{character}' is invalid.
-#
+app:
+  simple-module:
+    types:
+      name:
+        validation:
+          message: "'{character}' is invalid."
+          prohibited-characters: "&%$"
+
