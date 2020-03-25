@@ -6,8 +6,8 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.support.TransactionTemplate;
 
 import org.apache.isis.applib.annotation.OrderPrecedence;
-import org.apache.isis.core.runtime.iacnt.IsisInteraction;
-import org.apache.isis.core.runtime.iacnt.IsisInteractionFactory;
+import org.apache.isis.core.runtime.iactn.IsisInteraction;
+import org.apache.isis.core.runtime.iactn.IsisInteractionFactory;
 import org.apache.isis.core.runtime.session.init.InitialisationSession;
 
 import lombok.val;
