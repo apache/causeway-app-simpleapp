@@ -100,5 +100,5 @@ app:
       name:
         validation:
           message: "'{character}' is invalid."
-          prohibited-characters: "&%$"
+          prohibited-characters: "&%$!"
 

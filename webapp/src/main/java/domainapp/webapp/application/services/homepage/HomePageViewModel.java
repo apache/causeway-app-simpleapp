@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.apache.isis.applib.annotation.DomainObject;
+import org.apache.isis.applib.annotation.DomainObjectLayout;
 import org.apache.isis.applib.annotation.HomePage;
 import org.apache.isis.applib.annotation.Nature;
 import org.apache.isis.applib.services.i18n.TranslatableString;
@@ -17,6 +18,7 @@ import domainapp.modules.simple.dom.so.SimpleObjects;
         objectType = "domainapp.HomePageViewModel"
         )
 @HomePage
+@DomainObjectLayout()
 public class HomePageViewModel {
 
     public TranslatableString title() {
