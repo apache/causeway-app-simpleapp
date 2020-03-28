@@ -62,7 +62,8 @@
                 <mml:facet id="org.apache.isis.core.metamodel.facets.actions.action.invocation.ActionInvocationFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.invocation.ActionInvocationFacetForDomainEventFromActionAnnotation">
                     <mml:attr name="eventType">domainapp.modules.simple.dom.so.SimpleObjects.CreateActionDomainEvent</mml:attr>
                     <mml:attr name="intent.create">EXECUTE</mml:attr>
-                    <mml:attr name="methods">public domainapp.modules.simple.dom.so.SimpleObject domainapp.modules.simple.dom.so.SimpleObjects.create(java.lang.String)</mml:attr>
+                    <mml:attr name="methods">public domainapp.modules.simple.dom.so.SimpleObject
+                        domainapp.modules.simple.dom.so.SimpleObjects.create(java.lang.String)</mml:attr>
                     <mml:attr name="onType">domainapp.modules.simple.dom.so.SimpleObjects</mml:attr>
                     <mml:attr name="returnType">domainapp.modules.simple.dom.so.SimpleObject</mml:attr>
                 </mml:facet>
@@ -165,7 +166,8 @@
                 <mml:facet id="org.apache.isis.core.metamodel.facets.actions.action.invocation.ActionInvocationFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.invocation.ActionInvocationFacetForDomainEventFromActionAnnotation">
                     <mml:attr name="eventType">domainapp.modules.simple.dom.so.SimpleObjects.FindByNameActionDomainEvent</mml:attr>
                     <mml:attr name="intent.findByName">EXECUTE</mml:attr>
-                    <mml:attr name="methods">public java.util.List&lt;domainapp.modules.simple.dom.so.SimpleObject&gt; domainapp.modules.simple.dom.so.SimpleObjects.findByName(java.lang.String)</mml:attr>
+                    <mml:attr name="methods">public java.util.List&lt;domainapp.modules.simple.dom.so.SimpleObject&gt;
+                        domainapp.modules.simple.dom.so.SimpleObjects.findByName(java.lang.String)</mml:attr>
                     <mml:attr name="onType">domainapp.modules.simple.dom.so.SimpleObjects</mml:attr>
                     <mml:attr name="returnType">java.util.List</mml:attr>
                 </mml:facet>
@@ -268,7 +270,8 @@
                 <mml:facet id="org.apache.isis.core.metamodel.facets.actions.action.invocation.ActionInvocationFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.invocation.ActionInvocationFacetForDomainEventFromDefault">
                     <mml:attr name="eventType">org.apache.isis.applib.events.domain.ActionDomainEvent.Default</mml:attr>
                     <mml:attr name="intent.listAll">EXECUTE</mml:attr>
-                    <mml:attr name="methods">public java.util.List&lt;domainapp.modules.simple.dom.so.SimpleObject&gt; domainapp.modules.simple.dom.so.SimpleObjects.listAll()</mml:attr>
+                    <mml:attr name="methods">public java.util.List&lt;domainapp.modules.simple.dom.so.SimpleObject&gt;
+                        domainapp.modules.simple.dom.so.SimpleObjects.listAll()</mml:attr>
                     <mml:attr name="onType">domainapp.modules.simple.dom.so.SimpleObjects</mml:attr>
                     <mml:attr name="returnType">java.util.List</mml:attr>
                 </mml:facet>

@@ -95,7 +95,7 @@ public class SimpleObject_IntegTest extends SimpleModuleIntegTestAbstract {
         }
 
         @Test
-        public void failsValidation() {
+        public void fails_validation() {
 
             // expect
             InvalidException cause = assertThrows(InvalidException.class, ()->{
