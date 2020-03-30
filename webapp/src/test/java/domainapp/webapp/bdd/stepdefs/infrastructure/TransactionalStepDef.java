@@ -24,7 +24,7 @@ public class TransactionalStepDef {
 
     @Before(order = OrderPrecedence.EARLY)
     public void beforeScenario(){
-        IsisInteraction isisInteraction = isisInteractionFactory.openSession(new InitialisationSession());
+        val isisInteraction = isisInteractionFactory.openSession(new InitialisationSession());
         val txTemplate = new TransactionTemplate(txMan);
         val status = txTemplate.getTransactionManager().getTransaction(null);
         afterScenario = () -> {
