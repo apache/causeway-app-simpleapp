@@ -154,7 +154,7 @@
             <groupId>org.apache.isis.extensions</groupId>
             <artifactId>isis-extensions-flyway-impl</artifactId>
         </dependency>
-
+        
         <!-- TESTING -->
         <dependency>
             <groupId>org.apache.isis.mavendeps</groupId>
@@ -241,6 +241,24 @@
                 </dependency>
             </dependencies>
         </profile>
+        
+        <profile>
+            <id>jdbc-postgresql</id>
+            <activation>
+                <property>
+                    <name>spring.profiles.active</name>
+                    <value>POSTGRESQL</value>
+                </property>
+            </activation>
+            <dependencies>
+                <dependency>
+                    <groupId>org.postgresql</groupId>
+		    		<artifactId>postgresql</artifactId>
+					<!-- <version>42.2.12</version> ... version already managed -->
+                </dependency>
+            </dependencies>
+        </profile>
+        
     </profiles>
 
 </project>
