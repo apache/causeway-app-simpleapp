@@ -16,7 +16,8 @@ import org.springframework.test.context.TestPropertySource;
 import org.springframework.transaction.annotation.Transactional;
 
 @SpringBootTest(
-        classes = ApplicationIntegTestAbstract.AppManifest.class
+    // we use a slightly different AppManifest compared to the production webapp (defined below)
+    classes = ApplicationIntegTestAbstract.AppManifest.class
 )
 @TestPropertySource({
         IsisPresets.H2InMemory_withUniqueSchema,
@@ -26,6 +27,10 @@ import org.springframework.transaction.annotation.Transactional;
 @ContextConfiguration
 public abstract class ApplicationIntegTestAbstract extends IsisIntegrationTestAbstract {
 
+    /**
+     * Compared to the production app manifest <code>domainapp.webapp.AppManifest</code>,
+     * here we in effect disable security checks, and we exclude any web/UI modules.
+     */
     @Configuration
     @Import({
         IsisModuleCoreRuntimeServices.class,
@@ -33,7 +38,7 @@ public abstract class ApplicationIntegTestAbstract extends IsisIntegrationTestAb
         IsisModuleSecurityBypass.class,
         IsisModuleTestingFixturesApplib.class,
 
-        ApplicationModule.class
+        ApplicationModule.class,
     })
     public static class AppManifest {
     }
