@@ -45,4 +45,4 @@ jobs:
         mv pom.xml pom.xml~
         mv pom-ci.xml pom.xml
         mvn versions:update-parent -DallowSnapshots=true -DparentVersion=${{ env.revision }}
-        mvn install
+        mvn dependency:tree
