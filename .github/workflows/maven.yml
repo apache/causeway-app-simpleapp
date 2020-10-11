@@ -21,4 +21,9 @@ jobs:
       with:
         java-version: 1.8
     - name: Build with Maven
-      run: mvn install --file pom.xml
+      env: 
+        REVISION: 2.0.0-M2.20201011-0401-e11740f5
+      run: |
+        mvn versions:set -DnewVersion=$REVISION
+        mvn install --file pom.xml
+        mvn versions:revert
