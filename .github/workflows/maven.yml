@@ -44,7 +44,8 @@ jobs:
       run: |
         mv pom.xml pom.xml~
         mv pom-ci.xml pom.xml
-        mvn versions:update-parent -DallowSnapshots=true -DparentVersion=${{ env.revision }}
+        #skip revision update (tends to use 2.0.0-M3 release instead of 2.0.0-M2 snapshots)
+        #mvn versions:update-parent -DallowSnapshots=true -DparentVersion=${{ env.revision }}
         
     - name: Print pom.xml
       shell: bash
