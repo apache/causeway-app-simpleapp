@@ -36,8 +36,8 @@ jobs:
           ${{ runner.os }}-build-${{ env.cache-name }}-
           ${{ runner.os }}-build-
           ${{ runner.os }}-
-    
-    - name: Build with Maven
+
+    - name: Prepare Build Versions
       shell: bash
       env:
         revision: 2.0.0-M2.20201011-0401-e11740f5
@@ -45,4 +45,13 @@ jobs:
         mv pom.xml pom.xml~
         mv pom-ci.xml pom.xml
         mvn versions:update-parent -DallowSnapshots=true -DparentVersion=${{ env.revision }}
-        mvn dependency:tree
+        
+    - name: Print pom.xml
+      shell: bash
+      run: |
+        cat pom.xml
+    
+    - name: Build with Maven
+      shell: bash
+      run: |
+        mvn install
