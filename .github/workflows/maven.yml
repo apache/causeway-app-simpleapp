@@ -39,8 +39,10 @@ jobs:
     
     - name: Build with Maven
       shell: bash
+      env:
+        revision: 2.0.0-M2.20201011-0401-e11740f5
       run: |
         mv pom.xml pom.xml~
         mv pom-ci.xml pom.xml
-        mvn versions:update-parent -DallowSnapshots=true -DparentVersion=2.0.0-M2.20201011-0401-e11740f5
+        mvn versions:update-parent -DallowSnapshots=true -DparentVersion=${{ env.revision }}
         mvn install
