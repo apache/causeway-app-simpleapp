@@ -23,7 +23,7 @@ jobs:
     - name: Build with Maven
       shell: bash
       env: 
-        #REVISION: 2.0.0-M2.20201011-0401-e11740f5
+        REVISION: 2.0.0-M2.20201011-0401-e11740f5
       run: |
         mvn install --file pom-ci.xml
 
