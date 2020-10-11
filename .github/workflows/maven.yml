@@ -24,9 +24,4 @@ jobs:
       shell: bash
       run: |
         mvn versions:update-parent -DallowSnapshots=true
-        mvn install --file pom-ci.xml
-
-#      run: |
-#        mvn versions:set -DnewVersion=${{ env.REVISION }}
-#        mvn install --file pom-ci.xml
-#        mvn versions:revert
+        mvn install
