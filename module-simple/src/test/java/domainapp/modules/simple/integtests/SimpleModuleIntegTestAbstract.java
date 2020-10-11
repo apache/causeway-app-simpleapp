@@ -11,7 +11,6 @@ import org.apache.isis.persistence.jdo.datanucleus5.IsisModuleJdoDataNucleus5;
 import org.apache.isis.security.bypass.IsisModuleSecurityBypass;
 import org.apache.isis.testing.fixtures.applib.IsisIntegrationTestAbstractWithFixtures;
 import org.apache.isis.testing.fixtures.applib.IsisModuleTestingFixturesApplib;
-import org.apache.isis.testing.integtestsupport.applib.IsisIntegrationTestAbstract;
 
 import domainapp.modules.simple.SimpleModule;
 

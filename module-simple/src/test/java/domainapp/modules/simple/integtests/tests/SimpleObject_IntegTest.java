@@ -11,8 +11,6 @@ import org.springframework.context.event.EventListener;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.CoreMatchers.containsString;
-import static org.junit.Assert.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.apache.isis.applib.annotation.DomainService;
@@ -105,7 +103,7 @@ public class SimpleObject_IntegTest extends SimpleModuleIntegTestAbstract {
             });
 
             // then
-            assertThat(cause.getMessage(), containsString("Character '!' is not allowed"));
+            assertThat(cause.getMessage()).contains("Character '!' is not allowed");
         }
     }
 
