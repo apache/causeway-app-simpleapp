@@ -25,6 +25,9 @@ jobs:
       env: 
         #REVISION: 2.0.0-M2.20201011-0401-e11740f5
       run: |
-        #mvn versions:set -DnewVersion=${{ env.REVISION }}
         mvn install --file pom-ci.xml
-        #mvn versions:revert
+
+#      run: |
+#        mvn versions:set -DnewVersion=${{ env.REVISION }}
+#        mvn install --file pom-ci.xml
+#        mvn versions:revert
