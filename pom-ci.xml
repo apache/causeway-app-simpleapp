@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.apache.isis.app</groupId>
         <artifactId>isis-app-starter-parent</artifactId>
-        <version>2.0.0-M2.20201011-0401-e11740f5</version> <!-- automatically updated/replaced -->
+        <version>2.0.0-M2.20201012-0850-3d76414b</version> <!-- automatically updated/replaced -->
         <relativePath/>
     </parent>
 
