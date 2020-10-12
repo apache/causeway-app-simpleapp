@@ -54,29 +54,29 @@
             </testResource>
         </testResources>
         <plugins>
-<!--             <plugin> -->
-<!--                 <groupId>net.masterthought</groupId> -->
-<!--                 <artifactId>maven-cucumber-reporting</artifactId> -->
-<!--                 <version>${maven-cucumber-reporting.version}</version> -->
-<!--                 <executions> -->
-<!--                     <execution> -->
-<!--                         <id>default</id> -->
-<!--                         <phase>post-integration-test</phase> -->
-<!--                         <goals> -->
-<!--                             <goal>generate</goal> -->
-<!--                         </goals> -->
-<!--                         <configuration> -->
-<!--                             <projectName>SimpleApp</projectName> -->
-<!--                             <outputDirectory>${project.build.directory}</outputDirectory> -->
-<!--                             <inputDirectory>${project.build.directory}</inputDirectory> -->
-<!--                             <jsonFiles> -->
-<!--                                 <param>**/cucumber-no-clobber.json</param> -->
-<!--                             </jsonFiles> -->
-<!--                             <skip>${skipBDD}</skip> -->
-<!--                         </configuration> -->
-<!--                     </execution> -->
-<!--                 </executions> -->
-<!--             </plugin> -->
+            <plugin>
+                <groupId>net.masterthought</groupId>
+                <artifactId>maven-cucumber-reporting</artifactId>
+                <version>${maven-cucumber-reporting.version}</version>
+                <executions>
+                    <execution>
+                        <id>default</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                        <configuration>
+                            <projectName>SimpleApp</projectName>
+                            <outputDirectory>${project.build.directory}</outputDirectory>
+                            <inputDirectory>${project.build.directory}</inputDirectory>
+                            <jsonFiles>
+                                <param>**/cucumber-report.json</param>
+                            </jsonFiles>
+                            <skip>${skipBDD}</skip>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
             <!-- running: mvn spring-boot:run -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
