@@ -54,29 +54,34 @@
             </testResource>
         </testResources>
         <plugins>
-            <plugin>
-                <groupId>net.masterthought</groupId>
-                <artifactId>maven-cucumber-reporting</artifactId>
-                <version>${maven-cucumber-reporting.version}</version>
-                <executions>
-                    <execution>
-                        <id>default</id>
-                        <phase>post-integration-test</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <projectName>SimpleApp</projectName>
-                            <outputDirectory>${project.build.directory}</outputDirectory>
-                            <inputDirectory>${project.build.directory}</inputDirectory>
-                            <jsonFiles>
-                                <param>**/cucumber-report.json</param>
-                            </jsonFiles>
-                            <skip>${skipBDD}</skip>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+<!-- NOT WIRED UP CORRECTLY
+Oct 12, 2020 3:19:55 PM net.masterthought.cucumber.ReportBuilder generateErrorPage
+INFO: Unexpected error
+net.masterthought.cucumber.ValidationException: Passed files have no features! 
+-->        
+<!--             <plugin> -->
+<!--                 <groupId>net.masterthought</groupId> -->
+<!--                 <artifactId>maven-cucumber-reporting</artifactId> -->
+<!--                 <version>${maven-cucumber-reporting.version}</version> -->
+<!--                 <executions> -->
+<!--                     <execution> -->
+<!--                         <id>default</id> -->
+<!--                         <phase>post-integration-test</phase> -->
+<!--                         <goals> -->
+<!--                             <goal>generate</goal> -->
+<!--                         </goals> -->
+<!--                         <configuration> -->
+<!--                             <projectName>SimpleApp</projectName> -->
+<!--                             <outputDirectory>${project.build.directory}</outputDirectory> -->
+<!--                             <inputDirectory>${project.build.directory}</inputDirectory> -->
+<!--                             <jsonFiles> -->
+<!--                                 <param>**/cucumber-report.json</param> -->
+<!--                             </jsonFiles> -->
+<!--                             <skip>${skipBDD}</skip> -->
+<!--                         </configuration> -->
+<!--                     </execution> -->
+<!--                 </executions> -->
+<!--             </plugin> -->
             <!-- running: mvn spring-boot:run -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
