@@ -11,7 +11,10 @@
     <artifactId>simpleapp-webapp</artifactId>
     <name>SimpleApp - Webapp</name>
 
-    <description>Assembles and runs both the Wicket viewer and the Restfulobjects viewer in a single webapp configured to run using the JDO/DataNucleus object store.</description>
+    <description>
+    	Assembles and runs both the Wicket viewer and the Restfulobjects viewer 
+    	in a single webapp configured to run using the JDO/DataNucleus object store.
+    </description>
 
     <packaging>jar</packaging>
 
@@ -51,59 +54,29 @@
             </testResource>
         </testResources>
         <plugins>
-            <!-- Work around. Surefire does not use JUnit's Test Engine discovery functionality -->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-antrun-plugin</artifactId>
-                <executions>
-                    <execution>
-                        <id>cucumber-cli</id>
-                        <phase>integration-test</phase>
-                        <goals>
-                            <goal>run</goal>
-                        </goals>
-                        <configuration>
-                            <target>
-                                <!--
-                                as per
-                                https://github.com/cucumber/cucumber-jvm/blob/master/core/src/main/resources/io/cucumber/core/options/USAGE.txt
-                                -->
-                                <echo message="Running Cucumber CLI" />
-                                <java classname="io.cucumber.core.cli.Main" fork="true" failonerror="true" newenvironment="true" maxmemory="1024m" classpathref="maven.test.classpath">
-                                    <arg value="--plugin" />
-                                    <arg value="json:${project.build.directory}/cucumber-no-clobber.json" />
-                                    <arg value="--glue" />
-                                    <arg value="domainapp.webapp.bdd.stepdefs" />
-                                    <arg value="${project.build.directory}/test-classes/domainapp/webapp/bdd/specs" />
-                                </java>
-                            </target>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-            <plugin>
-                <groupId>net.masterthought</groupId>
-                <artifactId>maven-cucumber-reporting</artifactId>
-                <version>${maven-cucumber-reporting.version}</version>
-                <executions>
-                    <execution>
-                        <id>default</id>
-                        <phase>post-integration-test</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <projectName>SimpleApp</projectName>
-                            <outputDirectory>${project.build.directory}</outputDirectory>
-                            <inputDirectory>${project.build.directory}</inputDirectory>
-                            <jsonFiles>
-                                <param>**/cucumber-no-clobber.json</param>
-                            </jsonFiles>
-                            <skip>${skipBDD}</skip>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+<!--             <plugin> -->
+<!--                 <groupId>net.masterthought</groupId> -->
+<!--                 <artifactId>maven-cucumber-reporting</artifactId> -->
+<!--                 <version>${maven-cucumber-reporting.version}</version> -->
+<!--                 <executions> -->
+<!--                     <execution> -->
+<!--                         <id>default</id> -->
+<!--                         <phase>post-integration-test</phase> -->
+<!--                         <goals> -->
+<!--                             <goal>generate</goal> -->
+<!--                         </goals> -->
+<!--                         <configuration> -->
+<!--                             <projectName>SimpleApp</projectName> -->
+<!--                             <outputDirectory>${project.build.directory}</outputDirectory> -->
+<!--                             <inputDirectory>${project.build.directory}</inputDirectory> -->
+<!--                             <jsonFiles> -->
+<!--                                 <param>**/cucumber-no-clobber.json</param> -->
+<!--                             </jsonFiles> -->
+<!--                             <skip>${skipBDD}</skip> -->
+<!--                         </configuration> -->
+<!--                     </execution> -->
+<!--                 </executions> -->
+<!--             </plugin> -->
             <!-- running: mvn spring-boot:run -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>

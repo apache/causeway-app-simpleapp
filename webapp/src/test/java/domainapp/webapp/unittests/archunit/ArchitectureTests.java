@@ -56,5 +56,5 @@ public class ArchitectureTests {
             classes()
                    .that().areAnnotatedWith(ViewModel.class)
             .should().beAnnotatedWith(ViewModelLayout.class);
-
+    
 }

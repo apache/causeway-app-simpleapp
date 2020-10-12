@@ -7,11 +7,9 @@ import org.springframework.transaction.support.TransactionTemplate;
 
 import org.apache.isis.applib.annotation.OrderPrecedence;
 import org.apache.isis.core.runtime.iactn.IsisInteractionFactory;
+import org.apache.isis.core.runtime.session.init.InitialisationSession;
 
 import lombok.val;
-
-import io.cucumber.java.After;
-import io.cucumber.java.Before;
 
 /**
  * equivalent to the Spring @Transactional attribute
@@ -20,24 +18,23 @@ public class TransactionalStepDef {
 
     private Runnable afterScenario;
 
-    @Before(order = OrderPrecedence.EARLY)
+    @io.cucumber.java.Before(order = OrderPrecedence.EARLY)
     public void beforeScenario(){
         
-        isisInteractionFactory.runAnonymous(()->{
-          
-            val txTemplate = new TransactionTemplate(txMan);
-            val status = txTemplate.getTransactionManager().getTransaction(null);
-            afterScenario = () -> {
-                txTemplate.getTransactionManager().rollback(status);
-                isisInteractionFactory.closeSessionStack();
-            };
+        //open InteractionSession to be closed after scenario (see below)
+        isisInteractionFactory.openInteraction(new InitialisationSession());
         
-            status.flush();
-            
-        });
+        val txTemplate = new TransactionTemplate(txMan);
+        val status = txTemplate.getTransactionManager().getTransaction(null);
+        afterScenario = () -> {
+            txTemplate.getTransactionManager().rollback(status);
+            isisInteractionFactory.closeSessionStack();
+        };
+    
+        status.flush();
     } 
 
-    @After
+    @io.cucumber.java.After
     public void afterScenario(){
         if(afterScenario==null) {
             return;

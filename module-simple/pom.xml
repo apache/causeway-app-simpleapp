@@ -71,6 +71,12 @@
             <artifactId>isis-mavendeps-unittests</artifactId>
             <type>pom</type>
             <scope>test</scope>
+            <exclusions>
+            	<exclusion>
+            		<groupId>org.jmock</groupId>
+            		<artifactId>jmock-junit4</artifactId>
+            	</exclusion>
+            </exclusions>
         </dependency>
 
         <dependency>
