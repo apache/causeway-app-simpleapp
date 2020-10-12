@@ -1,5 +1,6 @@
 = SimpleApp
 :toc:
+:toc-placement!:
 
 image:https://github.com/apache/isis-app-simpleapp/workflows/Build%20w/%20Maven%20+%20Jdk%208/badge.svg[]
 image:https://github.com/apache/isis-app-simpleapp/workflows/Build%20w/%20Maven%20+%20Jdk%2015/badge.svg[]
@@ -10,6 +11,8 @@ This is a simple link:http://isis.apache.org[Apache Isis] application, structure
 ====
 If all you want is get a feel for what the framework is all about, then take a look at the link:https://github.com/apache/isis-app-helloworld[HelloWorld] starter app, which is even simpler.
 ====
+
+toc::[]
 
 == Quick start
 
