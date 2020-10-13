@@ -62,15 +62,11 @@
                 <mml:facet id="org.apache.isis.core.metamodel.facets.actions.action.invocation.ActionInvocationFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.invocation.ActionInvocationFacetForDomainEventFromActionAnnotation">
                     <mml:attr name="eventType">domainapp.modules.simple.dom.so.SimpleObjects.CreateActionDomainEvent</mml:attr>
                     <mml:attr name="intent.create">EXECUTE</mml:attr>
-                    <mml:attr name="methods">public domainapp.modules.simple.dom.so.SimpleObject
-                        domainapp.modules.simple.dom.so.SimpleObjects.create(java.lang.String)</mml:attr>
+                    <mml:attr name="methods">public domainapp.modules.simple.dom.so.SimpleObject domainapp.modules.simple.dom.so.SimpleObjects.create(java.lang.String)</mml:attr>
                     <mml:attr name="onType">domainapp.modules.simple.dom.so.SimpleObjects</mml:attr>
                     <mml:attr name="returnType">domainapp.modules.simple.dom.so.SimpleObject</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.actions.command.CommandFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.command.CommandFacetFromConfiguration">
-                    <mml:attr name="disabled">false</mml:attr>
-                    <mml:attr name="executeIn">FOREGROUND</mml:attr>
-                    <mml:attr name="persistence">PERSISTED</mml:attr>
                     <mml:attr name="underlyingFacet">org.apache.isis.core.metamodel.facets.actions.action.command.CommandFacetFromConfiguration</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.actions.position.ActionPositionFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.position.ActionPositionFacetFallback">
@@ -93,8 +89,8 @@
                     <mml:attr name="value">table</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.members.cssclassfa.CssClassFaFacet" fqcn="org.apache.isis.core.metamodel.facets.members.cssclassfa.annotprop.CssClassFaFacetOnMemberFromConfiguredRegex">
+                    <mml:attr name="classes">fa fa-fw fa-plus</mml:attr>
                     <mml:attr name="position">LEFT</mml:attr>
-                    <mml:attr name="value">fa fa-fw fa-plus</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.object.bookmarkpolicy.BookmarkPolicyFacet" fqcn="org.apache.isis.core.metamodel.facets.object.bookmarkpolicy.BookmarkPolicyFacetFallback">
                     <mml:attr name="bookmarkPolicy">NEVER</mml:attr>
@@ -166,16 +162,11 @@
                 <mml:facet id="org.apache.isis.core.metamodel.facets.actions.action.invocation.ActionInvocationFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.invocation.ActionInvocationFacetForDomainEventFromActionAnnotation">
                     <mml:attr name="eventType">domainapp.modules.simple.dom.so.SimpleObjects.FindByNameActionDomainEvent</mml:attr>
                     <mml:attr name="intent.findByName">EXECUTE</mml:attr>
-                    <mml:attr name="methods">public java.util.List&lt;domainapp.modules.simple.dom.so.SimpleObject&gt;
-                        domainapp.modules.simple.dom.so.SimpleObjects.findByName(java.lang.String)</mml:attr>
+                    <mml:attr name="methods">public java.util.List&lt;domainapp.modules.simple.dom.so.SimpleObject&gt; domainapp.modules.simple.dom.so.SimpleObjects.findByName(java.lang.String)</mml:attr>
                     <mml:attr name="onType">domainapp.modules.simple.dom.so.SimpleObjects</mml:attr>
                     <mml:attr name="returnType">java.util.List</mml:attr>
                 </mml:facet>
-                <mml:facet id="org.apache.isis.core.metamodel.facets.actions.command.CommandFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.command.CommandFacetFromConfiguration">
-                    <mml:attr name="disabled">false</mml:attr>
-                    <mml:attr name="executeIn">FOREGROUND</mml:attr>
-                    <mml:attr name="persistence">PERSISTED</mml:attr>
-                </mml:facet>
+                <mml:facet id="org.apache.isis.core.metamodel.facets.actions.command.CommandFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.command.CommandFacetFromConfiguration"/>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.actions.position.ActionPositionFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.position.ActionPositionFacetFallback">
                     <mml:attr name="position">BELOW</mml:attr>
                 </mml:facet>
@@ -196,8 +187,8 @@
                     <mml:attr name="value">table</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.members.cssclassfa.CssClassFaFacet" fqcn="org.apache.isis.core.metamodel.facets.members.cssclassfa.annotprop.CssClassFaFacetOnMemberFromConfiguredRegex">
+                    <mml:attr name="classes">fa fa-fw fa-search</mml:attr>
                     <mml:attr name="position">LEFT</mml:attr>
-                    <mml:attr name="value">fa fa-fw fa-search</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.object.bookmarkpolicy.BookmarkPolicyFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.layout.BookmarkPolicyFacetForActionLayoutAnnotation">
                     <mml:attr name="bookmarkPolicy">AS_ROOT</mml:attr>
@@ -270,16 +261,11 @@
                 <mml:facet id="org.apache.isis.core.metamodel.facets.actions.action.invocation.ActionInvocationFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.invocation.ActionInvocationFacetForDomainEventFromDefault">
                     <mml:attr name="eventType">org.apache.isis.applib.events.domain.ActionDomainEvent.Default</mml:attr>
                     <mml:attr name="intent.listAll">EXECUTE</mml:attr>
-                    <mml:attr name="methods">public java.util.List&lt;domainapp.modules.simple.dom.so.SimpleObject&gt;
-                        domainapp.modules.simple.dom.so.SimpleObjects.listAll()</mml:attr>
+                    <mml:attr name="methods">public java.util.List&lt;domainapp.modules.simple.dom.so.SimpleObject&gt; domainapp.modules.simple.dom.so.SimpleObjects.listAll()</mml:attr>
                     <mml:attr name="onType">domainapp.modules.simple.dom.so.SimpleObjects</mml:attr>
                     <mml:attr name="returnType">java.util.List</mml:attr>
                 </mml:facet>
-                <mml:facet id="org.apache.isis.core.metamodel.facets.actions.command.CommandFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.command.CommandFacetFromConfiguration">
-                    <mml:attr name="disabled">false</mml:attr>
-                    <mml:attr name="executeIn">FOREGROUND</mml:attr>
-                    <mml:attr name="persistence">PERSISTED</mml:attr>
-                </mml:facet>
+                <mml:facet id="org.apache.isis.core.metamodel.facets.actions.command.CommandFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.command.CommandFacetFromConfiguration"/>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.actions.position.ActionPositionFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.position.ActionPositionFacetFallback">
                     <mml:attr name="position">BELOW</mml:attr>
                 </mml:facet>
@@ -300,8 +286,8 @@
                     <mml:attr name="value">table</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.members.cssclassfa.CssClassFaFacet" fqcn="org.apache.isis.core.metamodel.facets.members.cssclassfa.annotprop.CssClassFaFacetOnMemberFromConfiguredRegex">
+                    <mml:attr name="classes">fa fa-fw fa-list</mml:attr>
                     <mml:attr name="position">LEFT</mml:attr>
-                    <mml:attr name="value">fa fa-fw fa-list</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.object.bookmarkpolicy.BookmarkPolicyFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.layout.BookmarkPolicyFacetForActionLayoutAnnotation">
                     <mml:attr name="bookmarkPolicy">AS_ROOT</mml:attr>
