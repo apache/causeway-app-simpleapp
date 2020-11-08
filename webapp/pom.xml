@@ -12,7 +12,7 @@
     <name>SimpleApp - Webapp</name>
 
     <description>
-    	Assembles and runs both the Wicket viewer and the Restfulobjects viewer 
+    	Assembles and runs both the Wicket viewer and the Restfulobjects viewer
     	in a single webapp configured to run using the JDO/DataNucleus object store.
     </description>
 
@@ -54,7 +54,7 @@
             </testResource>
         </testResources>
         <plugins>
-        
+
 			<!-- generate cucumber json result -->
 			<plugin>
 			  <groupId>org.apache.maven.plugins</groupId>
@@ -108,7 +108,7 @@
                     </execution>
                 </executions>
             </plugin>
-            
+
             <!-- running: mvn spring-boot:run -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -125,7 +125,7 @@
     </build>
 
     <dependencies>
-    
+
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>simpleapp-module-simple</artifactId>
@@ -158,7 +158,7 @@
             <groupId>org.apache.isis.extensions</groupId>
             <artifactId>isis-extensions-flyway-impl</artifactId>
         </dependency>
-        
+
         <!-- TESTING -->
         <dependency>
             <groupId>org.apache.isis.mavendeps</groupId>
@@ -245,7 +245,7 @@
                 </dependency>
             </dependencies>
         </profile>
-        
+
         <profile>
             <id>jdbc-postgresql</id>
             <activation>
@@ -262,7 +262,60 @@
                 </dependency>
             </dependencies>
         </profile>
-        
+
+        <profile>
+            <id>docker</id>
+            <activation>
+                <property>
+                    <name>docker</name>
+                </property>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>com.google.cloud.tools</groupId>
+                        <artifactId>jib-maven-plugin</artifactId>
+                        <configuration>
+                            <from>
+                                <image>openjdk:8-alpine</image>
+                            </from>
+                            <container>
+                                <jvmFlags>
+                                    <jvmFlag>-Xmx512m</jvmFlag>
+                                </jvmFlags>
+                                <mainClass>domainapp.webapp.SimpleApp</mainClass>
+                                <ports>
+                                    <port>8080</port>
+                                </ports>
+                                <workingDirectory>/run/secrets</workingDirectory>
+                            </container>
+                            <to>
+                                <image>docker.io/apacheisis/simpleapp:latest</image>
+<!--
+will use default credentials, eg in ~/.docker/config.json.
+Uncomment to override.
+
+                                <auth>
+                                    <username>${env.DOCKER_REGISTRY_USERNAME}</username>
+                                    <password>${env.DOCKER_REGISTRY_PASSWORD}</password>
+                                </auth>
+-->
+                            </to>
+                        </configuration>
+                        <executions>
+                            <execution>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>build</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+
     </profiles>
 
 </project>

@@ -54,3 +54,8 @@ jobs:
       shell: bash
       run: |
         mvn install
+
+#    - name: Build and Push Docker Image
+#      shell: bash
+#      run: |
+#        mvn -pl webapp -Ddocker jib:build
