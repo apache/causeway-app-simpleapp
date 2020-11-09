@@ -54,8 +54,24 @@ mvn -pl webapp spring-boot:run
 ** username: `sven`
 ** password: `pass`
 
++
 The app runs with H2 running in-memory, with sample data set up using fixture scripts.
 
+* Build a Docker image
++
+[source,bash]
+----
+export REVISION=...                 #<.>
+export DOCKER_REGISTRY_USERNAME     #<.>
+export DOCKER_REGISTRY_PASSWORD     #<.>
+
+mvn -pl webapp jib:build
+----
+<.> used as the image tag
+<.> Docker Hub registry username
+<.> Docker Hub registry password
+
+To push to another container registry, change the `<image>` tag in the pom.xml
 
 == Application Structure
 

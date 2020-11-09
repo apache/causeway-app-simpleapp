@@ -290,16 +290,15 @@
                                 <workingDirectory>/run/secrets</workingDirectory>
                             </container>
                             <to>
-                                <image>docker.io/apacheisis/simpleapp:latest</image>
-<!--
-will use default credentials, eg in ~/.docker/config.json.
-Uncomment to override.
-
+                                <image>docker.io/apacheisis/simpleapp</image>
+                                <tags>
+                                    <tag>latest</tag>
+                                    <tag>${env.REVISION}</tag>
+                                </tags>
                                 <auth>
                                     <username>${env.DOCKER_REGISTRY_USERNAME}</username>
                                     <password>${env.DOCKER_REGISTRY_PASSWORD}</password>
                                 </auth>
--->
                             </to>
                         </configuration>
                         <executions>
