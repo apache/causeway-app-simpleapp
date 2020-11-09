@@ -289,7 +289,7 @@
                                 </ports>
                             </container>
                             <to>
-                                <image>docker.io/apacheisis/demo-wicket</image>
+                                <image>docker.io/apacheisis/simpleapp</image>
                                 <tags>
                                     <tag>nightly</tag>
                                     <tag>${env.REVISION}</tag>

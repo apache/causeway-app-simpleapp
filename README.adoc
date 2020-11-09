@@ -70,7 +70,7 @@ mvn -pl webapp jib:build
 <.> used as the image tag
 <.> Docker Hub registry username
 <.> Docker Hub registry password
-
++
 To push to another container registry, change the `<image>` tag in the pom.xml
 
 == Application Structure

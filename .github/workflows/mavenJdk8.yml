@@ -56,8 +56,11 @@ jobs:
       run: |
         mvn install
 
-# uncomment and provide credentials to push to Docker registry
+# uncomment and set environment variables to push to Docker registry
 #    - name: Build and Push Docker Image
 #      shell: bash
 #      run: |
+#        export REVISION=...
+#        export DOCKER_REGISTRY_USERNAME
+#        export DOCKER_REGISTRY_PASSWORD
 #        mvn -pl webapp -Ddocker jib:build
