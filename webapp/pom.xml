@@ -264,7 +264,7 @@
         </profile>
 
         <profile>
-            <id>docker</id>
+            <id>deploy-to-docker-io</id>
             <activation>
                 <property>
                     <name>docker</name>
@@ -277,7 +277,7 @@
                         <artifactId>jib-maven-plugin</artifactId>
                         <configuration>
                             <from>
-                                <image>openjdk:8-alpine</image>
+                                <image>openjdk:15-alpine</image>
                             </from>
                             <container>
                                 <jvmFlags>
@@ -287,12 +287,11 @@
                                 <ports>
                                     <port>8080</port>
                                 </ports>
-                                <workingDirectory>/run/secrets</workingDirectory>
                             </container>
                             <to>
-                                <image>docker.io/apacheisis/simpleapp</image>
+                                <image>docker.io/apacheisis/demo-wicket</image>
                                 <tags>
-                                    <tag>latest</tag>
+                                    <tag>nightly</tag>
                                     <tag>${env.REVISION}</tag>
                                 </tags>
                                 <auth>
@@ -301,19 +300,10 @@
                                 </auth>
                             </to>
                         </configuration>
-                        <executions>
-                            <execution>
-                                <phase>package</phase>
-                                <goals>
-                                    <goal>build</goal>
-                                </goals>
-                            </execution>
-                        </executions>
                     </plugin>
                 </plugins>
             </build>
         </profile>
-
 
     </profiles>
 
