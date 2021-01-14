@@ -17,6 +17,7 @@ import org.apache.isis.viewer.wicket.viewer.IsisModuleViewerWicketViewer;
 
 import domainapp.webapp.application.ApplicationModule;
 import domainapp.webapp.application.fixture.scenarios.DomainAppDemo;
+import domainapp.webapp.custom.CustomModule;
 
 @Configuration
 @Import({
@@ -32,6 +33,7 @@ import domainapp.webapp.application.fixture.scenarios.DomainAppDemo;
         IsisModuleExtFlywayImpl.class,
 
         ApplicationModule.class,
+        CustomModule.class,
 
         // discoverable fixtures
         DomainAppDemo.class
