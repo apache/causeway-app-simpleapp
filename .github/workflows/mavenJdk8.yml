@@ -15,7 +15,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2.3.3
+    - name: Checkout current repo
+      uses: actions/checkout@v2.3.3
 
     - name: Set up JDK 1.8
       uses: actions/setup-java@v1
@@ -42,7 +43,7 @@ jobs:
       run: |
         BASELINE=$(cat pom.xml | grep "<version>" | head -1 | awk -F'>' '{print $2}' | awk -F'<' '{print $1}')
         SHA_ID=$(echo $GITHUB_SHA | cut -c1-8)
-        REVISION=${BASELINE}.$(date +%Y%m%d-%H%M)-${SHA_ID}
+        export REVISION=${BASELINE}.$(date +%Y%m%d-%H%M)-${SHA_ID}
         mvn versions:set -DnewVersion=$REVISION
 
     - name: Print pom.xml
@@ -55,7 +56,11 @@ jobs:
       run: |
         mvn install
 
+# uncomment and set environment variables to push to Docker registry
 #    - name: Build and Push Docker Image
 #      shell: bash
 #      run: |
+#        export REVISION=...
+#        export DOCKER_REGISTRY_USERNAME
+#        export DOCKER_REGISTRY_PASSWORD
 #        mvn -pl webapp -Ddocker jib:build
