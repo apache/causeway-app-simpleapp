@@ -7,7 +7,7 @@ import javax.jdo.JDOQLTypedQuery;
 
 import org.apache.isis.applib.annotation.*;
 import org.apache.isis.applib.services.repository.RepositoryService;
-import org.apache.isis.persistence.jdo.applib.services.IsisJdoSupport_v3_2;
+import org.apache.isis.persistence.jdo.applib.integration.JdoSupportService;
 
 import domainapp.modules.simple.SimpleModule;
 import domainapp.modules.simple.types.Name;
@@ -20,7 +20,7 @@ import domainapp.modules.simple.types.Name;
 public class SimpleObjects {
 
     private final RepositoryService repositoryService;
-    private final IsisJdoSupport_v3_2 isisJdoSupport;
+    private final JdoSupportService jdoSupportService;
 
     public static class ActionDomainEvent extends SimpleModule.ActionDomainEvent<SimpleObjects> {}
 
@@ -38,7 +38,7 @@ public class SimpleObjects {
     public List<SimpleObject> findByName(
             @Name final String name
             ) {
-        JDOQLTypedQuery<SimpleObject> q = isisJdoSupport.newTypesafeQuery(SimpleObject.class);
+        JDOQLTypedQuery<SimpleObject> q = jdoSupportService.newTypesafeQuery(SimpleObject.class);
         final QSimpleObject cand = QSimpleObject.candidate();
         q = q.filter(
                 cand.name.indexOf(q.stringParameter("name")).ne(-1)
@@ -49,7 +49,7 @@ public class SimpleObjects {
 
     @Programmatic
     public SimpleObject findByNameExact(final String name) {
-        JDOQLTypedQuery<SimpleObject> q = isisJdoSupport.newTypesafeQuery(SimpleObject.class);
+        JDOQLTypedQuery<SimpleObject> q = jdoSupportService.newTypesafeQuery(SimpleObject.class);
         final QSimpleObject cand = QSimpleObject.candidate();
         q = q.filter(
                 cand.name.eq(q.stringParameter("name"))
@@ -67,7 +67,7 @@ public class SimpleObjects {
 
     @Programmatic
     public void ping() {
-        JDOQLTypedQuery<SimpleObject> q = isisJdoSupport.newTypesafeQuery(SimpleObject.class);
+        JDOQLTypedQuery<SimpleObject> q = jdoSupportService.newTypesafeQuery(SimpleObject.class);
         final QSimpleObject candidate = QSimpleObject.candidate();
         q.range(0,2);
         q.orderBy(candidate.name.asc());

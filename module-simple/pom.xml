@@ -57,7 +57,7 @@
 
         <dependency>
             <groupId>org.apache.isis.persistence</groupId>
-            <artifactId>isis-persistence-jdo-datanucleus5</artifactId>
+            <artifactId>isis-persistence-jdo-datanucleus</artifactId>
         </dependency>
 
         <dependency>
@@ -82,6 +82,13 @@
         <dependency>
             <groupId>org.apache.isis.mavendeps</groupId>
             <artifactId>isis-mavendeps-integtests</artifactId>
+            <type>pom</type>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.isis.mavendeps</groupId>
+            <artifactId>isis-mavendeps-jdo</artifactId>
             <type>pom</type>
             <scope>test</scope>
         </dependency>

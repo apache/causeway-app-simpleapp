@@ -16,7 +16,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.apache.isis.applib.annotation.DomainService;
 import org.apache.isis.applib.services.wrapper.DisabledException;
 import org.apache.isis.applib.services.wrapper.InvalidException;
-import org.apache.isis.persistence.jdo.datanucleus5.jdosupport.mixins.Persistable_datanucleusIdLong;
+import org.apache.isis.persistence.jdo.datanucleus.mixins.Persistable_datanucleusIdLong;
 
 import lombok.Getter;
 

@@ -9,9 +9,6 @@
             <mml:attr name="escaped">true</mml:attr>
             <mml:attr name="value">Simple Objects</mml:attr>
         </mml:facet>
-        <mml:facet id="org.apache.isis.core.metamodel.facets.object.audit.AuditableFacet" fqcn="org.apache.isis.core.metamodel.facets.object.domainobject.auditing.AuditableFacetFromConfiguration">
-            <mml:attr name="enablement">ENABLED</mml:attr>
-        </mml:facet>
         <mml:facet id="org.apache.isis.core.metamodel.facets.object.bookmarkpolicy.BookmarkPolicyFacet" fqcn="org.apache.isis.core.metamodel.facets.object.bookmarkpolicy.BookmarkPolicyFacetFallback">
             <mml:attr name="bookmarkPolicy">NEVER</mml:attr>
         </mml:facet>
@@ -22,9 +19,6 @@
             <mml:attr name="menuBar">PRIMARY</mml:attr>
         </mml:facet>
         <mml:facet id="org.apache.isis.core.metamodel.facets.object.grid.GridFacet" fqcn="org.apache.isis.core.metamodel.facets.object.grid.GridFacetDefault"/>
-        <mml:facet id="org.apache.isis.core.metamodel.facets.object.icon.IconFacet" fqcn="org.apache.isis.core.metamodel.facets.object.domainservice.annotation.IconFacetDerivedFromDomainServiceAnnotation">
-            <mml:attr name="repositoryFor">java.lang.Object</mml:attr>
-        </mml:facet>
         <mml:facet id="org.apache.isis.core.metamodel.facets.object.immutable.ImmutableFacet" fqcn="org.apache.isis.core.metamodel.facets.object.domainobject.editing.ImmutableFacetFromConfiguration">
             <mml:attr name="disabling">true</mml:attr>
             <mml:attr name="reason">Disabled (by configuration defaults)</mml:attr>
@@ -43,7 +37,6 @@
             <mml:attr name="derived">true</mml:attr>
             <mml:attr name="value">Simple Objectses</mml:attr>
         </mml:facet>
-        <mml:facet id="org.apache.isis.core.metamodel.facets.object.publishedobject.PublishedObjectFacet" fqcn="org.apache.isis.core.metamodel.facets.object.domainobject.publishing.PublishedObjectFacetFromConfiguration"/>
     </mml:facets>
     <mml:actions>
         <mml:act id="create">
@@ -66,13 +59,9 @@
                     <mml:attr name="onType">domainapp.modules.simple.dom.so.SimpleObjects</mml:attr>
                     <mml:attr name="returnType">domainapp.modules.simple.dom.so.SimpleObject</mml:attr>
                 </mml:facet>
-                <mml:facet id="org.apache.isis.core.metamodel.facets.actions.command.CommandFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.command.CommandFacetFromConfiguration">
-                    <mml:attr name="underlyingFacet">org.apache.isis.core.metamodel.facets.actions.action.command.CommandFacetFromConfiguration</mml:attr>
-                </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.actions.position.ActionPositionFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.position.ActionPositionFacetFallback">
                     <mml:attr name="position">BELOW</mml:attr>
                 </mml:facet>
-                <mml:facet id="org.apache.isis.core.metamodel.facets.actions.publish.PublishedActionFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.publishing.PublishedActionFacetFromConfiguration"/>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.actions.redirect.RedirectFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.layout.RedirectFacetFromActionLayoutAnnotation">
                     <mml:attr name="redirect">AS_CONFIGURED</mml:attr>
                 </mml:facet>
@@ -98,7 +87,6 @@
                 <mml:facet id="org.apache.isis.core.metamodel.facets.object.promptStyle.PromptStyleFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.layout.PromptStyleFacetForActionLayoutAnnotation">
                     <mml:attr name="promptStyle">DIALOG_SIDEBAR</mml:attr>
                 </mml:facet>
-                <mml:facet id="org.apache.isis.core.metamodel.facets.properties.publish.PublishedPropertyFacet" fqcn="org.apache.isis.core.metamodel.facets.properties.property.publishing.PublishedPropertyFacetFromConfiguration"/>
             </mml:facets>
             <mml:returnType>domainapp.modules.simple.dom.so.SimpleObject</mml:returnType>
             <mml:params>
@@ -166,11 +154,9 @@
                     <mml:attr name="onType">domainapp.modules.simple.dom.so.SimpleObjects</mml:attr>
                     <mml:attr name="returnType">java.util.List</mml:attr>
                 </mml:facet>
-                <mml:facet id="org.apache.isis.core.metamodel.facets.actions.command.CommandFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.command.CommandFacetFromConfiguration"/>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.actions.position.ActionPositionFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.position.ActionPositionFacetFallback">
                     <mml:attr name="position">BELOW</mml:attr>
                 </mml:facet>
-                <mml:facet id="org.apache.isis.core.metamodel.facets.actions.publish.PublishedActionFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.publishing.PublishedActionFacetFromConfiguration"/>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.actions.redirect.RedirectFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.layout.RedirectFacetFromActionLayoutAnnotation">
                     <mml:attr name="redirect">AS_CONFIGURED</mml:attr>
                 </mml:facet>
@@ -197,7 +183,6 @@
                 <mml:facet id="org.apache.isis.core.metamodel.facets.object.promptStyle.PromptStyleFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.layout.PromptStyleFacetForActionLayoutAnnotation">
                     <mml:attr name="promptStyle">DIALOG_SIDEBAR</mml:attr>
                 </mml:facet>
-                <mml:facet id="org.apache.isis.core.metamodel.facets.properties.publish.PublishedPropertyFacet" fqcn="org.apache.isis.core.metamodel.facets.properties.property.publishing.PublishedPropertyFacetFromConfiguration"/>
             </mml:facets>
             <mml:returnType>java.util.List</mml:returnType>
             <mml:params>
@@ -265,11 +250,9 @@
                     <mml:attr name="onType">domainapp.modules.simple.dom.so.SimpleObjects</mml:attr>
                     <mml:attr name="returnType">java.util.List</mml:attr>
                 </mml:facet>
-                <mml:facet id="org.apache.isis.core.metamodel.facets.actions.command.CommandFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.command.CommandFacetFromConfiguration"/>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.actions.position.ActionPositionFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.position.ActionPositionFacetFallback">
                     <mml:attr name="position">BELOW</mml:attr>
                 </mml:facet>
-                <mml:facet id="org.apache.isis.core.metamodel.facets.actions.publish.PublishedActionFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.publishing.PublishedActionFacetFromConfiguration"/>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.actions.redirect.RedirectFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.layout.RedirectFacetFromActionLayoutAnnotation">
                     <mml:attr name="redirect">AS_CONFIGURED</mml:attr>
                 </mml:facet>
@@ -296,7 +279,6 @@
                 <mml:facet id="org.apache.isis.core.metamodel.facets.object.promptStyle.PromptStyleFacet" fqcn="org.apache.isis.core.metamodel.facets.object.promptStyle.PromptStyleFacetAsConfigured">
                     <mml:attr name="promptStyle">INLINE</mml:attr>
                 </mml:facet>
-                <mml:facet id="org.apache.isis.core.metamodel.facets.properties.publish.PublishedPropertyFacet" fqcn="org.apache.isis.core.metamodel.facets.properties.property.publishing.PublishedPropertyFacetFromConfiguration"/>
             </mml:facets>
             <mml:returnType>java.util.List</mml:returnType>
             <mml:params/>

@@ -9,9 +9,6 @@
             <mml:attr name="escaped">true</mml:attr>
             <mml:attr name="value">Specification</mml:attr>
         </mml:facet>
-        <mml:facet id="org.apache.isis.core.metamodel.facets.object.audit.AuditableFacet" fqcn="org.apache.isis.core.metamodel.facets.object.domainobject.auditing.AuditableFacetFromConfiguration">
-            <mml:attr name="enablement">ENABLED</mml:attr>
-        </mml:facet>
         <mml:facet id="org.apache.isis.core.metamodel.facets.object.bookmarkpolicy.BookmarkPolicyFacet" fqcn="org.apache.isis.core.metamodel.facets.object.bookmarkpolicy.BookmarkPolicyFacetFallback">
             <mml:attr name="bookmarkPolicy">NEVER</mml:attr>
         </mml:facet>
@@ -35,7 +32,6 @@
             <mml:attr name="derived">true</mml:attr>
             <mml:attr name="value">Specifications</mml:attr>
         </mml:facet>
-        <mml:facet id="org.apache.isis.core.metamodel.facets.object.publishedobject.PublishedObjectFacet" fqcn="org.apache.isis.core.metamodel.facets.object.domainobject.publishing.PublishedObjectFacetFromConfiguration"/>
     </mml:facets>
     <mml:properties/>
     <mml:collections/>

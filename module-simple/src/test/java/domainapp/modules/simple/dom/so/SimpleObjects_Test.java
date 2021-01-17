@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-import org.apache.isis.persistence.jdo.applib.services.IsisJdoSupport_v3_2;
+import org.apache.isis.persistence.jdo.applib.integration.JdoSupportService;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
@@ -25,13 +25,13 @@ import static org.mockito.Mockito.when;
 class SimpleObjects_Test {
 
     @Mock RepositoryService mockRepositoryService;
-    @Mock IsisJdoSupport_v3_2 mockIsisJdoSupport_v3_2;
+    @Mock JdoSupportService mockJdoSupportService;
 
     SimpleObjects objects;
 
     @BeforeEach
     public void setUp() {
-        objects = new SimpleObjects(mockRepositoryService, mockIsisJdoSupport_v3_2);
+        objects = new SimpleObjects(mockRepositoryService, mockJdoSupportService);
     }
 
     @Nested

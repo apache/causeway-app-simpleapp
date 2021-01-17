@@ -9,7 +9,6 @@ import javax.jdo.annotations.VersionStrategy;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import org.apache.isis.applib.annotation.Action;
-import org.apache.isis.applib.annotation.CommandReification;
 import org.apache.isis.applib.annotation.DomainObject;
 import org.apache.isis.applib.annotation.DomainObjectLayout;
 import org.apache.isis.applib.annotation.Publishing;
@@ -70,7 +69,7 @@ public class SimpleObject implements Comparable<SimpleObject> {
 
     public static class UpdateNameActionDomainEvent extends SimpleObject.ActionDomainEvent {}
     @Action(semantics = IDEMPOTENT,
-            command = CommandReification.ENABLED, publishing = Publishing.ENABLED,
+            commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED,
             associateWith = "name", domainEvent = UpdateNameActionDomainEvent.class)
     public SimpleObject updateName(
             @Name final String name) {

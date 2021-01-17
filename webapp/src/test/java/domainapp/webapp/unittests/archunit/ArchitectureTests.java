@@ -13,8 +13,6 @@ import static com.tngtech.archunit.library.Architectures.layeredArchitecture;
 
 import org.apache.isis.applib.annotation.DomainObject;
 import org.apache.isis.applib.annotation.DomainObjectLayout;
-import org.apache.isis.applib.annotation.ViewModel;
-import org.apache.isis.applib.annotation.ViewModelLayout;
 
 import domainapp.modules.simple.SimpleModule;
 import domainapp.webapp.SimpleApp;
@@ -51,10 +49,4 @@ public class ArchitectureTests {
                    .that().areAnnotatedWith(DomainObject.class)
             .should().beAnnotatedWith(DomainObjectLayout.class);
 
-    @ArchTest
-    static ArchRule classes_annotated_with_ViewModel_are_also_annotated_with_ViewModelLayout =
-            classes()
-                   .that().areAnnotatedWith(ViewModel.class)
-            .should().beAnnotatedWith(ViewModelLayout.class);
-    
 }

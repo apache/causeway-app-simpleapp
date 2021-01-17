@@ -6,8 +6,9 @@ import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.support.TransactionTemplate;
 
 import org.apache.isis.applib.annotation.OrderPrecedence;
-import org.apache.isis.core.runtime.iactn.IsisInteractionFactory;
-import org.apache.isis.core.runtime.session.init.InitialisationSession;
+import org.apache.isis.applib.services.user.UserMemento;
+import org.apache.isis.core.interaction.session.InteractionFactory;
+import org.apache.isis.core.security.authentication.standard.SimpleAuthentication;
 
 import lombok.val;
 
@@ -20,19 +21,19 @@ public class TransactionalStepDef {
 
     @io.cucumber.java.Before(order = OrderPrecedence.EARLY)
     public void beforeScenario(){
-        
+
         //open InteractionSession to be closed after scenario (see below)
-        isisInteractionFactory.openInteraction(new InitialisationSession());
-        
+        interactionFactory.openInteraction(SimpleAuthentication.validOf(UserMemento.ofName("initialization")));
+
         val txTemplate = new TransactionTemplate(txMan);
         val status = txTemplate.getTransactionManager().getTransaction(null);
         afterScenario = () -> {
             txTemplate.getTransactionManager().rollback(status);
-            isisInteractionFactory.closeSessionStack();
+            interactionFactory.closeSessionStack();
         };
-    
+
         status.flush();
-    } 
+    }
 
     @io.cucumber.java.After
     public void afterScenario(){
@@ -43,7 +44,7 @@ public class TransactionalStepDef {
         afterScenario = null;
     }
 
-    @Inject private IsisInteractionFactory isisInteractionFactory;
+    @Inject private InteractionFactory interactionFactory;
     @Inject private PlatformTransactionManager txMan;
 
 }
