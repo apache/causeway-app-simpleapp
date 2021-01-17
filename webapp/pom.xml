@@ -74,6 +74,7 @@
 			        <goal>run</goal>
 			      </goals>
 			      <configuration>
+                    <skip>${skipBDD}</skip>
 			        <target>
 			          <echo message="Running Cucumber CLI" />
 			          <java classname="io.cucumber.core.cli.Main"
