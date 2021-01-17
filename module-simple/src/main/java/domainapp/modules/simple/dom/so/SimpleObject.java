@@ -35,7 +35,7 @@ import domainapp.modules.simple.types.Notes;
         @javax.persistence.UniqueConstraint(name = "SimpleObject_name_UNQ", columnNames = {"name"})
     }
 )
-@DomainObject(objectType = "simple.SimpleObjects")
+@DomainObject(objectType = "simple.SimpleObject")
 @DomainObjectLayout()
 @NoArgsConstructor
 @XmlJavaTypeAdapter(PersistentEntityAdapter.class)
