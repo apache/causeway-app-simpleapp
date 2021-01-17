@@ -16,7 +16,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.apache.isis.applib.annotation.DomainService;
 import org.apache.isis.applib.services.wrapper.DisabledException;
 import org.apache.isis.applib.services.wrapper.InvalidException;
-import org.apache.isis.persistence.jdo.datanucleus.mixins.Persistable_datanucleusIdLong;
 
 import lombok.Getter;
 
@@ -107,16 +106,5 @@ public class SimpleObject_IntegTest extends SimpleModuleIntegTestAbstract {
         }
     }
 
-    public static class dataNucleusId extends SimpleObject_IntegTest {
-
-        @Test
-        public void should_be_populated() {
-            // when
-            final Long id = mixin(Persistable_datanucleusIdLong.class, simpleObject).prop();
-
-            // then
-            assertThat(id).isGreaterThanOrEqualTo(0);
-        }
-    }
 
 }

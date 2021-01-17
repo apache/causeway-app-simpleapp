@@ -3,10 +3,10 @@ package domainapp.modules.simple.integtests.tests;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.jdo.JDODataStoreException;
 
 import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.Test;
+import org.springframework.orm.jpa.JpaSystemException;
 import org.springframework.transaction.annotation.Transactional;
 
 import org.apache.isis.testing.integtestsupport.applib.ThrowableMatchers;
@@ -81,8 +81,8 @@ public class SimpleObjects_IntegTest extends SimpleModuleIntegTestAbstract {
             });
 
             // also expect
-            MatcherAssert.assertThat(cause, 
-                    ThrowableMatchers.causedBy(JDODataStoreException.class));
+            MatcherAssert.assertThat(cause,
+                    ThrowableMatchers.causedBy(JpaSystemException.class));
 
         }
 

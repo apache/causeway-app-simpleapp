@@ -1,6 +1,6 @@
 package domainapp.webapp.unittests.archunit;
 
-import javax.jdo.annotations.PersistenceCapable;
+import javax.persistence.Entity;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import com.tngtech.archunit.core.importer.ImportOption;
@@ -32,15 +32,15 @@ public class ArchitectureTests {
             .whereLayer("simple module").mayOnlyBeAccessedByLayers("webapp");
 
     @ArchTest
-    static ArchRule classes_annotated_with_PersistenceCapable_are_also_annotated_with_DomainObject =
+    static ArchRule classes_annotated_with_Entity_are_also_annotated_with_DomainObject =
             classes()
-                   .that().areAnnotatedWith(PersistenceCapable.class)
+                   .that().areAnnotatedWith(Entity.class)
             .should().beAnnotatedWith(DomainObject.class);
 
     @ArchTest
-    static ArchRule classes_annotated_with_PersistenceCapable_are_also_annotated_with_XmlJavaTypeAdapter =
+    static ArchRule classes_annotated_with_Entity_are_also_annotated_with_XmlJavaTypeAdapter =
             classes()
-                   .that().areAnnotatedWith(PersistenceCapable.class)
+                   .that().areAnnotatedWith(Entity.class)
             .should().beAnnotatedWith(XmlJavaTypeAdapter.class);
 
     @ArchTest

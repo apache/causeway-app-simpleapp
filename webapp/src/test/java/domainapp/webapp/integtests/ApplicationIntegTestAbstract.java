@@ -8,7 +8,7 @@ import org.springframework.test.context.TestPropertySource;
 
 import org.apache.isis.core.config.presets.IsisPresets;
 import org.apache.isis.core.runtimeservices.IsisModuleCoreRuntimeServices;
-import org.apache.isis.persistence.jdo.integration.IsisModuleJdoIntegration;
+import org.apache.isis.persistence.jpa.integration.IsisModuleJpaIntegration;
 import org.apache.isis.security.bypass.IsisModuleSecurityBypass;
 import org.apache.isis.testing.fixtures.applib.IsisModuleTestingFixturesApplib;
 import org.apache.isis.testing.integtestsupport.applib.IsisIntegrationTestAbstract;
@@ -38,7 +38,7 @@ public abstract class ApplicationIntegTestAbstract extends IsisIntegrationTestAb
     @Configuration
     @Import({
         IsisModuleCoreRuntimeServices.class,
-        IsisModuleJdoIntegration.class,
+        IsisModuleJpaIntegration.class,
         IsisModuleSecurityBypass.class,
         IsisModuleTestingFixturesApplib.class,
 

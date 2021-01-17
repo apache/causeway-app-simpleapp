@@ -6,7 +6,6 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 import javax.inject.Inject;
-import javax.jdo.annotations.Column;
 
 import org.apache.isis.applib.annotation.Parameter;
 import org.apache.isis.applib.annotation.ParameterLayout;
@@ -18,7 +17,6 @@ import lombok.val;
 
 import domainapp.modules.simple.SimpleModule;
 
-@Column(length = Name.MAX_LEN, allowsNull = "false")
 @Property(mustSatisfy = Name.Specification.class, maxLength = Name.MAX_LEN)
 @Parameter(mustSatisfy = Name.Specification.class, maxLength = Name.MAX_LEN)
 @ParameterLayout(named = "Name")

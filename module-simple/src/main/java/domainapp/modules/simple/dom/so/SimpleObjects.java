@@ -3,11 +3,18 @@ package domainapp.modules.simple.dom.so;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.jdo.JDOQLTypedQuery;
+import javax.persistence.TypedQuery;
 
-import org.apache.isis.applib.annotation.*;
+import org.apache.isis.applib.annotation.Action;
+import org.apache.isis.applib.annotation.ActionLayout;
+import org.apache.isis.applib.annotation.BookmarkPolicy;
+import org.apache.isis.applib.annotation.DomainService;
+import org.apache.isis.applib.annotation.NatureOfService;
+import org.apache.isis.applib.annotation.Programmatic;
+import org.apache.isis.applib.annotation.PromptStyle;
+import org.apache.isis.applib.annotation.SemanticsOf;
 import org.apache.isis.applib.services.repository.RepositoryService;
-import org.apache.isis.persistence.jdo.applib.integration.JdoSupportService;
+import org.apache.isis.persistence.jpa.applib.services.JpaSupportService;
 
 import domainapp.modules.simple.SimpleModule;
 import domainapp.modules.simple.types.Name;
@@ -20,7 +27,8 @@ import domainapp.modules.simple.types.Name;
 public class SimpleObjects {
 
     private final RepositoryService repositoryService;
-    private final JdoSupportService jdoSupportService;
+    private final JpaSupportService jpaSupportService;
+    private final SimpleObjectRepository simpleObjectRepository;
 
     public static class ActionDomainEvent extends SimpleModule.ActionDomainEvent<SimpleObjects> {}
 
@@ -38,41 +46,35 @@ public class SimpleObjects {
     public List<SimpleObject> findByName(
             @Name final String name
             ) {
-        JDOQLTypedQuery<SimpleObject> q = jdoSupportService.newTypesafeQuery(SimpleObject.class);
-        final QSimpleObject cand = QSimpleObject.candidate();
-        q = q.filter(
-                cand.name.indexOf(q.stringParameter("name")).ne(-1)
-                );
-        return q.setParameter("name", name)
-                .executeList();
+        return simpleObjectRepository.findByNameContaining(name);
     }
 
     @Programmatic
     public SimpleObject findByNameExact(final String name) {
-        JDOQLTypedQuery<SimpleObject> q = jdoSupportService.newTypesafeQuery(SimpleObject.class);
-        final QSimpleObject cand = QSimpleObject.candidate();
-        q = q.filter(
-                cand.name.eq(q.stringParameter("name"))
-                );
-        return q.setParameter("name", name)
-                .executeUnique();
+        return simpleObjectRepository.findByName(name);
     }
 
     public static class ListAllActionDomainEvent extends ActionDomainEvent {}
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
     public List<SimpleObject> listAll() {
-        return repositoryService.allInstances(SimpleObject.class);
+        return simpleObjectRepository.find();
     }
+
 
     @Programmatic
     public void ping() {
-        JDOQLTypedQuery<SimpleObject> q = jdoSupportService.newTypesafeQuery(SimpleObject.class);
-        final QSimpleObject candidate = QSimpleObject.candidate();
-        q.range(0,2);
-        q.orderBy(candidate.name.asc());
-        q.executeList();
+        jpaSupportService.getEntityManager(SimpleObject.class).ifSuccess(x -> {
+            final TypedQuery<SimpleObject> q = x.createQuery("SELECT p FROM SimpleObject p ORDER BY p.name",
+                    SimpleObject.class).setMaxResults(1);
+            q.getResultList();
+        });
+
+//        final TypedQuery<SimpleObject> q = entityManager.createQuery("SELECT p FROM SimpleObject p ORDER BY p.name",
+//                SimpleObject.class).setMaxResults(1);
+//        q.getResultList();
     }
 
+//    @PersistenceContext EntityManager entityManager;
 
 }
