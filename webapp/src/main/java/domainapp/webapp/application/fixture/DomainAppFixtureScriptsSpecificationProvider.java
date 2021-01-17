@@ -2,8 +2,6 @@ package domainapp.webapp.application.fixture;
 
 import org.springframework.stereotype.Service;
 
-import org.apache.isis.applib.annotation.DomainService;
-import org.apache.isis.applib.annotation.NatureOfService;
 import org.apache.isis.testing.fixtures.applib.fixturescripts.FixtureScripts;
 import org.apache.isis.testing.fixtures.applib.fixturespec.FixtureScriptsSpecification;
 import org.apache.isis.testing.fixtures.applib.fixturespec.FixtureScriptsSpecificationProvider;
