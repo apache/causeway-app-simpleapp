@@ -17,6 +17,7 @@ import org.apache.isis.viewer.wicket.viewer.IsisModuleViewerWicketViewer;
 
 import domainapp.webapp.application.ApplicationModule;
 import domainapp.webapp.application.fixture.scenarios.DomainAppDemo;
+import domainapp.webapp.application.services.health.HealthCheckServiceImpl;
 import domainapp.webapp.custom.CustomModule;
 
 @Configuration
@@ -35,6 +36,8 @@ import domainapp.webapp.custom.CustomModule;
         ApplicationModule.class,
         CustomModule.class,
 
+        HealthCheckServiceImpl.class,
+        
         // discoverable fixtures
         DomainAppDemo.class
 })

@@ -1,6 +1,5 @@
 package domainapp.modules.simple.dom.so;
 
-import java.time.LocalDateTime;
 import java.util.Comparator;
 
 import javax.inject.Inject;
@@ -31,12 +30,12 @@ import domainapp.modules.simple.types.Notes;
 
 @javax.persistence.Entity
 @javax.persistence.Table(
-    schema="simple",
+//TODO    schema="simple",
     uniqueConstraints = {
         @javax.persistence.UniqueConstraint(name = "SimpleObject_name_UNQ", columnNames = {"name"})
     }
 )
-@DomainObject()
+@DomainObject(objectType = "simple.SimpleObjects")
 @DomainObjectLayout()
 @NoArgsConstructor
 @XmlJavaTypeAdapter(PersistentEntityAdapter.class)
@@ -52,7 +51,8 @@ public class SimpleObject implements Comparable<SimpleObject> {
 
     @javax.persistence.Version
     @Programmatic
-    private LocalDateTime version;
+    @javax.persistence.Column(name = "OPTLOCK")
+    private int version;
 
     public static SimpleObject withName(String name) {
         val simpleObject = new SimpleObject();

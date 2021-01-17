@@ -10,6 +10,4 @@ public interface SimpleObjectRepository extends JpaRepository<SimpleObject, Long
 
     SimpleObject findByName(final String name);
 
-    List<SimpleObject> find();
-
 }
