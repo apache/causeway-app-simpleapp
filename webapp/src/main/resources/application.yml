@@ -9,8 +9,8 @@ isis:
     annotation:
       action:
         explicit: true
-        command: ignore_safe
-        publishing: all
+        command-publishing: ignore_safe
+        execution-publishing: all
       action-layout:
         css-class:
           patterns:
@@ -21,8 +21,8 @@ isis:
         auditing: all
         publishing: all
       property:
-        command: all
-        publishing: all
+        command-publishing: all
+        execution-publishing: all
 
   core:
     meta-model:
@@ -66,25 +66,7 @@ isis:
         show-chooser: true
         show-drop-down-on-footer: true
 
-
-  persistence:
-    jdo-datanucleus:
-      impl:
-        # note that properties under 'isis.persistence.jdo-datanucleus.impl' are passed through directly
-        # to DataNucleus, and use variously camelCase or PascalCase rather than kebab-case
-        datanucleus:
-          schema:
-            validateTables: true
-            validateConstraints: true
-
-          persistenceByReachabilityAtCommit: false
-          identifier:
-            case: MixedCase
-
-          cache:
-            level2:
-              type: none
-              mode: ENABLE_SELECTIVE
+  #persistence:
 
 resteasy:
   jaxrs:
@@ -98,6 +80,14 @@ server:
 spring:
   banner:
     location: banner.txt
+
+  quartz:
+    job-store-type: memory
+
+management:
+  endpoint:
+    health:
+      enabled: true
 
 app:
   simple-module:
