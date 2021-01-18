@@ -1,38 +1,17 @@
 package domainapp.modules.simple.integtests;
 
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
-import org.springframework.test.context.TestPropertySource;
 
-import org.apache.isis.core.config.presets.IsisPresets;
-import org.apache.isis.core.runtimeservices.IsisModuleCoreRuntimeServices;
-import org.apache.isis.persistence.jpa.eclipselink.IsisModuleJpaEclipselink;
-import org.apache.isis.security.bypass.IsisModuleSecurityBypass;
 import org.apache.isis.testing.fixtures.applib.IsisIntegrationTestAbstractWithFixtures;
-import org.apache.isis.testing.fixtures.applib.IsisModuleTestingFixturesApplib;
 
-import domainapp.modules.simple.SimpleModule;
+import domainapp.modules.simple.testing.SimpleModuleTestConfiguration_usingJpa;
 
 
 @SpringBootTest(
-        classes = SimpleModuleIntegTestAbstract.AppManifest.class
+        classes = {
+                SimpleModuleTestConfiguration_usingJpa.class
+        }
 )
-@TestPropertySource({
-        IsisPresets.H2InMemory_withUniqueSchema,
-        IsisPresets.UseLog4j2Test,
-})
 public abstract class SimpleModuleIntegTestAbstract extends IsisIntegrationTestAbstractWithFixtures {
 
-    @Configuration
-    @Import({
-        IsisModuleCoreRuntimeServices.class,
-        IsisModuleSecurityBypass.class,
-        IsisModuleJpaEclipselink.class,
-        IsisModuleTestingFixturesApplib.class,
-
-        SimpleModule.class
-    })
-    public static class AppManifest {
-    }
 }

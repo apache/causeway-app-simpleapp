@@ -1,51 +1,24 @@
 package domainapp.webapp.integtests;
 
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.TestPropertySource;
 
-import org.apache.isis.core.config.presets.IsisPresets;
-import org.apache.isis.core.runtimeservices.IsisModuleCoreRuntimeServices;
-import org.apache.isis.persistence.jpa.eclipselink.IsisModuleJpaEclipselink;
-import org.apache.isis.persistence.jpa.integration.IsisModuleJpaIntegration;
-import org.apache.isis.security.bypass.IsisModuleSecurityBypass;
-import org.apache.isis.testing.fixtures.applib.IsisModuleTestingFixturesApplib;
 import org.apache.isis.testing.integtestsupport.applib.IsisIntegrationTestAbstract;
 
+import domainapp.modules.simple.testing.SimpleModuleTestConfiguration_usingJpa;
 import domainapp.webapp.application.ApplicationModule;
 import domainapp.webapp.bdd.stepdefs.BddStepDefsModule;
 
 @SpringBootTest(
-    // we use a slightly different AppManifest compared to the production webapp (defined below)
-    classes = ApplicationIntegTestAbstract.AppManifest.class,
+    classes = {
+            // we use a slightly different confuguration compared to the production (AppManifest/webapp)
+            SimpleModuleTestConfiguration_usingJpa.class,
+            BddStepDefsModule.class,
+            ApplicationModule.class,
+    },
     properties = {
             // "logging.level.io.cucumber.core.runner.Runner=DEBUG"
     }
 )
-@TestPropertySource({
-        IsisPresets.H2InMemory_withUniqueSchema,
-        IsisPresets.UseLog4j2Test,
-})
-@ContextConfiguration
 public abstract class ApplicationIntegTestAbstract extends IsisIntegrationTestAbstract {
-
-    /**
-     * Compared to the production app manifest <code>domainapp.webapp.AppManifest</code>,
-     * here we in effect disable security checks, and we exclude any web/UI modules.
-     */
-    @Configuration
-    @Import({
-        IsisModuleCoreRuntimeServices.class,
-        IsisModuleJpaEclipselink.class,
-        IsisModuleSecurityBypass.class,
-        IsisModuleTestingFixturesApplib.class,
-
-        BddStepDefsModule.class,
-        ApplicationModule.class,
-    })
-    public static class AppManifest {
-    }
 
 }
