@@ -4,7 +4,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import org.apache.isis.testing.integtestsupport.applib.IsisIntegrationTestAbstract;
 
-import domainapp.modules.simple.testing.SimpleModuleTestConfiguration_usingJpa;
+import domainapp.modules.simple.integtests.SimpleModuleTestConfiguration_usingJpa;
 import domainapp.webapp.application.ApplicationModule;
 import domainapp.webapp.bdd.stepdefs.BddStepDefsModule;
 

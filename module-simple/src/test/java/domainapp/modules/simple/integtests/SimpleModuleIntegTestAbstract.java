@@ -4,8 +4,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import org.apache.isis.testing.fixtures.applib.IsisIntegrationTestAbstractWithFixtures;
 
-import domainapp.modules.simple.testing.SimpleModuleTestConfiguration_usingJpa;
-
 
 @SpringBootTest(
         classes = {
