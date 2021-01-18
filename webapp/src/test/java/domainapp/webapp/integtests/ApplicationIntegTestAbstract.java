@@ -8,6 +8,7 @@ import org.springframework.test.context.TestPropertySource;
 
 import org.apache.isis.core.config.presets.IsisPresets;
 import org.apache.isis.core.runtimeservices.IsisModuleCoreRuntimeServices;
+import org.apache.isis.persistence.jpa.eclipselink.IsisModuleJpaEclipselink;
 import org.apache.isis.persistence.jpa.integration.IsisModuleJpaIntegration;
 import org.apache.isis.security.bypass.IsisModuleSecurityBypass;
 import org.apache.isis.testing.fixtures.applib.IsisModuleTestingFixturesApplib;
@@ -25,7 +26,6 @@ import domainapp.webapp.bdd.stepdefs.BddStepDefsModule;
 )
 @TestPropertySource({
         IsisPresets.H2InMemory_withUniqueSchema,
-        IsisPresets.DataNucleusAutoCreate,
         IsisPresets.UseLog4j2Test,
 })
 @ContextConfiguration
@@ -38,7 +38,7 @@ public abstract class ApplicationIntegTestAbstract extends IsisIntegrationTestAb
     @Configuration
     @Import({
         IsisModuleCoreRuntimeServices.class,
-        IsisModuleJpaIntegration.class,
+        IsisModuleJpaEclipselink.class,
         IsisModuleSecurityBypass.class,
         IsisModuleTestingFixturesApplib.class,
 

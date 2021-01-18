@@ -7,7 +7,7 @@ import org.springframework.test.context.TestPropertySource;
 
 import org.apache.isis.core.config.presets.IsisPresets;
 import org.apache.isis.core.runtimeservices.IsisModuleCoreRuntimeServices;
-import org.apache.isis.persistence.jpa.integration.IsisModuleJpaIntegration;
+import org.apache.isis.persistence.jpa.eclipselink.IsisModuleJpaEclipselink;
 import org.apache.isis.security.bypass.IsisModuleSecurityBypass;
 import org.apache.isis.testing.fixtures.applib.IsisIntegrationTestAbstractWithFixtures;
 import org.apache.isis.testing.fixtures.applib.IsisModuleTestingFixturesApplib;
@@ -20,7 +20,6 @@ import domainapp.modules.simple.SimpleModule;
 )
 @TestPropertySource({
         IsisPresets.H2InMemory_withUniqueSchema,
-        IsisPresets.DataNucleusAutoCreate,
         IsisPresets.UseLog4j2Test,
 })
 public abstract class SimpleModuleIntegTestAbstract extends IsisIntegrationTestAbstractWithFixtures {
@@ -29,7 +28,7 @@ public abstract class SimpleModuleIntegTestAbstract extends IsisIntegrationTestA
     @Import({
         IsisModuleCoreRuntimeServices.class,
         IsisModuleSecurityBypass.class,
-        IsisModuleJpaIntegration.class,
+        IsisModuleJpaEclipselink.class,
         IsisModuleTestingFixturesApplib.class,
 
         SimpleModule.class
