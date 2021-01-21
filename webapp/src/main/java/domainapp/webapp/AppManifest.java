@@ -8,6 +8,7 @@ import org.springframework.context.annotation.PropertySources;
 import org.apache.isis.core.config.presets.IsisPresets;
 import org.apache.isis.core.runtimeservices.IsisModuleCoreRuntimeServices;
 import org.apache.isis.extensions.flyway.impl.IsisModuleExtFlywayImpl;
+import org.apache.isis.persistence.jdo.datanucleus.IsisModuleJdoDatanucleus;
 import org.apache.isis.persistence.jdo.integration.IsisModuleJdoIntegration;
 import org.apache.isis.security.shiro.IsisModuleSecurityShiro;
 import org.apache.isis.testing.fixtures.applib.IsisModuleTestingFixturesApplib;
@@ -23,7 +24,7 @@ import domainapp.webapp.custom.CustomModule;
 @Import({
         IsisModuleCoreRuntimeServices.class,
         IsisModuleSecurityShiro.class,
-        IsisModuleJdoIntegration.class,
+        IsisModuleJdoDatanucleus.class,
         IsisModuleViewerRestfulObjectsJaxrsResteasy4.class,
         IsisModuleViewerWicketViewer.class,
 
