@@ -7,6 +7,7 @@ import org.springframework.validation.annotation.Validated;
 
 import org.apache.isis.testing.fixtures.applib.fixturescripts.FixtureScript;
 import org.apache.isis.testing.fixtures.applib.modules.ModuleWithFixtures;
+import org.apache.isis.testing.fixtures.applib.teardown.jdo.TeardownFixtureJdoAbstract;
 
 import lombok.Data;
 
@@ -22,6 +23,7 @@ public class SimpleModule implements ModuleWithFixtures {
 
     @Override
     public FixtureScript getTeardownFixture() {
+
         return new FixtureScript() {
             @Override
             protected void execute(ExecutionContext executionContext) {
@@ -32,10 +34,10 @@ public class SimpleModule implements ModuleWithFixtures {
 
     public static class PropertyDomainEvent<S,T>
             extends org.apache.isis.applib.events.domain.PropertyDomainEvent<S,T> {}
-    
+
     public static class CollectionDomainEvent<S,T>
             extends org.apache.isis.applib.events.domain.CollectionDomainEvent<S,T> {}
-    
+
     public static class ActionDomainEvent<S>
             extends org.apache.isis.applib.events.domain.ActionDomainEvent<S> {}
 
