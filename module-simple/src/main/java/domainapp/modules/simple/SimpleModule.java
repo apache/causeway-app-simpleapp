@@ -3,11 +3,9 @@ package domainapp.modules.simple;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.ComponentScan;
-import org.springframework.context.annotation.Import;
 import org.springframework.validation.annotation.Validated;
 
 import org.apache.isis.testing.fixtures.applib.fixturescripts.FixtureScript;
-import org.apache.isis.testing.fixtures.applib.teardown.TeardownFixtureAbstract;
 import org.apache.isis.testing.fixtures.applib.modules.ModuleWithFixtures;
 
 import lombok.Data;
@@ -15,7 +13,7 @@ import lombok.Data;
 import domainapp.modules.simple.dom.so.SimpleObject;
 
 @org.springframework.context.annotation.Configuration
-@Import({})
+//@Import({})
 @ComponentScan
 @EnableConfigurationProperties({
         SimpleModule.Configuration.class,
@@ -24,10 +22,10 @@ public class SimpleModule implements ModuleWithFixtures {
 
     @Override
     public FixtureScript getTeardownFixture() {
-        return new TeardownFixtureAbstract() {
+        return new FixtureScript() {
             @Override
             protected void execute(ExecutionContext executionContext) {
-                deleteFrom(SimpleObject.class);
+                repositoryService.removeAll(SimpleObject.class);
             }
         };
     }

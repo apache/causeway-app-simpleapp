@@ -67,7 +67,7 @@ public class SimpleObject implements Comparable<SimpleObject> {
     private String notes;
 
 
-    public static class UpdateNameActionDomainEvent extends SimpleObject.ActionDomainEvent {}
+    public static class UpdateNameActionDomainEvent extends ActionDomainEvent {}
     @Action(semantics = IDEMPOTENT,
             commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED,
             associateWith = "name", domainEvent = UpdateNameActionDomainEvent.class)
@@ -81,7 +81,7 @@ public class SimpleObject implements Comparable<SimpleObject> {
         return getName();
     }
 
-    public static class DeleteActionDomainEvent extends SimpleObject.ActionDomainEvent {}
+    public static class DeleteActionDomainEvent extends ActionDomainEvent {}
     @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE, domainEvent = DeleteActionDomainEvent.class)
     public void delete() {
         final String title = titleService.titleOf(this);
