@@ -23,61 +23,61 @@
         <mb3:menu>
             <mb3:named>Prototyping</mb3:named>
             <mb3:section>
-                <mb3:serviceAction objectType="isisExtFixtures.FixtureScripts" id="runFixtureScript">
+                <mb3:serviceAction objectType="isis.ext.fixtures.FixtureScripts" id="runFixtureScript">
                     <cpt:named>Run Fixture Script</cpt:named>
                 </mb3:serviceAction>
-                <mb3:serviceAction objectType="isisExtFixtures.FixtureScripts" id="recreateObjectsAndReturnFirst">
+                <mb3:serviceAction objectType="isis.ext.fixtures.FixtureScripts" id="recreateObjectsAndReturnFirst">
                     <cpt:named>Recreate Objects And Return First</cpt:named>
                 </mb3:serviceAction>
             </mb3:section>
             <mb3:section>
-                <mb3:serviceAction objectType="isisApplib.LayoutServiceMenu" id="downloadLayouts">
+                <mb3:serviceAction objectType="isis.applib.LayoutServiceMenu" id="downloadLayouts">
                     <cpt:named>Download Object Layouts (ZIP)</cpt:named>
                 </mb3:serviceAction>
-                <mb3:serviceAction objectType="isisApplib.LayoutServiceMenu" id="downloadMenuBarsLayout">
+                <mb3:serviceAction objectType="isis.applib.LayoutServiceMenu" id="downloadMenuBarsLayout">
                     <cpt:named>Download Menu Bars Layout (XML)</cpt:named>
                 </mb3:serviceAction>
             </mb3:section>
             <mb3:section>
-                <mb3:serviceAction objectType="isisApplib.MetaModelServiceMenu" id="downloadMetaModelXml">
+                <mb3:serviceAction objectType="isis.applib.MetaModelServiceMenu" id="downloadMetaModelXml">
                     <cpt:named>Download Meta Model (XML)</cpt:named>
                 </mb3:serviceAction>
-                <mb3:serviceAction objectType="isisApplib.MetaModelServiceMenu" id="downloadMetaModelCsv">
+                <mb3:serviceAction objectType="isis.applib.MetaModelServiceMenu" id="downloadMetaModelCsv">
                     <cpt:named>Download Meta Model (CSV)</cpt:named>
                 </mb3:serviceAction>
             </mb3:section>
             <mb3:section>
-                <mb3:serviceAction objectType="isisJdoDn5.JdoMetamodelMenu" id="downloadMetamodels">
+                <mb3:serviceAction objectType="isis.persistence.jdo.JdoMetamodelMenu" id="downloadMetamodels">
                     <cpt:named>Download JDO Metamodels (ZIP)</cpt:named>
                 </mb3:serviceAction>
             </mb3:section>
             <mb3:section>
-                <mb3:serviceAction objectType="isisApplib.SwaggerServiceMenu" id="openSwaggerUi">
+                <mb3:serviceAction objectType="isis.applib.SwaggerServiceMenu" id="openSwaggerUi">
                     <cpt:named>Open Swagger Ui</cpt:named>
                 </mb3:serviceAction>
-                <mb3:serviceAction objectType="isisApplib.SwaggerServiceMenu" id="openRestApi">
+                <mb3:serviceAction objectType="isis.applib.SwaggerServiceMenu" id="openRestApi">
                     <cpt:named>Open Rest Api</cpt:named>
                 </mb3:serviceAction>
-                <mb3:serviceAction objectType="isisApplib.SwaggerServiceMenu" id="downloadSwaggerSchemaDefinition">
+                <mb3:serviceAction objectType="isis.applib.SwaggerServiceMenu" id="downloadSwaggerSchemaDefinition">
                     <cpt:named>Download Swagger Schema Definition</cpt:named>
                 </mb3:serviceAction>
             </mb3:section>
             <mb3:section>
-                <mb3:serviceAction objectType="isisApplib.TranslationServicePoMenu" id="downloadTranslations">
+                <mb3:serviceAction objectType="isis.applib.TranslationServicePoMenu" id="downloadTranslations">
                     <cpt:named>Download Translations</cpt:named>
                 </mb3:serviceAction>
-                <mb3:serviceAction objectType="isisApplib.TranslationServicePoMenu" id="resetTranslationCache">
+                <mb3:serviceAction objectType="isis.applib.TranslationServicePoMenu" id="resetTranslationCache">
                     <cpt:named>Clear translation cache</cpt:named>
                 </mb3:serviceAction>
-                <mb3:serviceAction objectType="isisApplib.TranslationServicePoMenu" id="switchToReadingTranslations">
+                <mb3:serviceAction objectType="isis.applib.TranslationServicePoMenu" id="switchToReadingTranslations">
                     <cpt:named>Switch To Reading Translations</cpt:named>
                 </mb3:serviceAction>
-                <mb3:serviceAction objectType="isisApplib.TranslationServicePoMenu" id="switchToWritingTranslations">
+                <mb3:serviceAction objectType="isis.applib.TranslationServicePoMenu" id="switchToWritingTranslations">
                     <cpt:named>Switch To Writing Translations</cpt:named>
                 </mb3:serviceAction>
             </mb3:section>
             <mb3:section>
-                <mb3:serviceAction objectType="isisExtH2Console.H2ManagerMenu" id="openH2Console">
+                <mb3:serviceAction objectType="isis.ext.h2Console.H2ManagerMenu" id="openH2Console">
                     <cpt:named>H2 Console</cpt:named>
                 </mb3:serviceAction>
             </mb3:section>
@@ -87,10 +87,10 @@
         <mb3:menu>
             <mb3:named/>
             <mb3:section>
-                <mb3:serviceAction objectType="isisApplib.ConfigurationMenu" id="configuration"/>
+                <mb3:serviceAction objectType="isis.applib.ConfigurationMenu" id="configuration"/>
             </mb3:section>
             <mb3:section>
-                <mb3:serviceAction objectType="isisSecurityApi.LogoutMenu" id="logout">
+                <mb3:serviceAction objectType="isis.security.LogoutMenu" id="logout">
                     <cpt:named>Logout</cpt:named>
                 </mb3:serviceAction>
             </mb3:section>
