@@ -8,7 +8,8 @@ import org.apache.isis.testing.fixtures.applib.IsisIntegrationTestAbstractWithFi
 @SpringBootTest(
         classes = {
                 SimpleModuleTestConfiguration_usingJpa.class
-        }
+        },
+        properties = "isis.persistence.jpa.auto-create-schemas=simple"
 )
 public abstract class SimpleModuleIntegTestAbstract extends IsisIntegrationTestAbstractWithFixtures {
 

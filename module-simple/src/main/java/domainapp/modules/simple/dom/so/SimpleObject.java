@@ -31,7 +31,7 @@ import domainapp.modules.simple.types.Notes;
 
 @javax.persistence.Entity
 @javax.persistence.Table(
-//TODO    schema="simple",
+    schema="simple",
     uniqueConstraints = {
         @javax.persistence.UniqueConstraint(name = "SimpleObject_name_UNQ", columnNames = {"name"})
     }

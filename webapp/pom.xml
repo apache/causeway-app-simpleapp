@@ -174,14 +174,7 @@
         </dependency>
 
         <!-- TESTING -->
-        
-        <dependency>
-            <groupId>${project.groupId}</groupId>
-            <artifactId>simpleapp-module-simple-jpa</artifactId>
-            <type>test-jar</type>
-            <scope>test</scope>
-        </dependency>
-        
+
         <dependency>
             <groupId>org.apache.isis.mavendeps</groupId>
             <artifactId>isis-mavendeps-integtests</artifactId>

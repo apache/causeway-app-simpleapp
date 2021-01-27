@@ -35,7 +35,6 @@ class SimpleObjects_Test {
         objects = new SimpleObjects(mockRepositoryService, mockJpaSupportService, mockSimpleObjectRepository);
     }
 
-    @Disabled("TODO - to be ported over")
     @Nested
     class create {
 
@@ -59,7 +58,6 @@ class SimpleObjects_Test {
         }
     }
 
-    @Disabled("TODO - to be ported over")
     @Nested
     class ListAll {
 
@@ -70,7 +68,7 @@ class SimpleObjects_Test {
             final List<SimpleObject> all = new ArrayList<>();
 
             // expecting
-            when(mockRepositoryService.allInstances(SimpleObject.class))
+            when(mockSimpleObjectRepository.findAll())
                 .thenReturn(all);
 
             // when

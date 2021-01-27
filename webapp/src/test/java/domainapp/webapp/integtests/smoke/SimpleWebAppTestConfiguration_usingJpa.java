@@ -16,7 +16,7 @@
  *  specific language governing permissions and limitations
  *  under the License.
  */
-package domainapp.modules.simple.integtests;
+package domainapp.webapp.integtests.smoke;
 
 import org.springframework.boot.SpringBootConfiguration;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -53,7 +53,7 @@ import domainapp.modules.simple.SimpleModule;
     @PropertySource(IsisPresets.H2InMemory_withUniqueSchema),
     @PropertySource(IsisPresets.UseLog4j2Test),
 })
-public class SimpleModuleTestConfiguration_usingJpa {
+public class SimpleWebAppTestConfiguration_usingJpa {
 
 
 }
