@@ -24,24 +24,24 @@
             <!-- this project's own modules -->
             <dependency>
                 <groupId>org.apache.isis.starters</groupId>
-                <artifactId>simpleapp-module-simple</artifactId>
+                <artifactId>simpleapp-module-simple-jpa</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.isis.starters</groupId>
-                <artifactId>simpleapp-module-simple</artifactId>
+                <artifactId>simpleapp-module-simple-jpa</artifactId>
                 <version>${project.version}</version>
                 <scope>test</scope>
                 <type>test-jar</type>
             </dependency>
             <dependency>
                 <groupId>org.apache.isis.starters</groupId>
-                <artifactId>simpleapp-application</artifactId>
+                <artifactId>simpleapp-application-jpa</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.isis.starters</groupId>
-                <artifactId>simpleapp-webapp</artifactId>
+                <artifactId>simpleapp-webapp-jpa</artifactId>
                 <version>${project.version}</version>
             </dependency>
 

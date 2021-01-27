@@ -10,7 +10,7 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>simpleapp-module-simple</artifactId>
+    <artifactId>simpleapp-module-simple-jpa</artifactId>
     <name>SimpleApp - Simple Module</name>
 
     <build>

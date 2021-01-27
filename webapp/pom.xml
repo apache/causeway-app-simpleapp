@@ -136,7 +136,7 @@
 
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>simpleapp-module-simple</artifactId>
+            <artifactId>simpleapp-module-simple-jpa</artifactId>
         </dependency>
 
         <!-- isis -->
@@ -177,7 +177,7 @@
         
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>simpleapp-module-simple</artifactId>
+            <artifactId>simpleapp-module-simple-jpa</artifactId>
             <type>test-jar</type>
             <scope>test</scope>
         </dependency>
