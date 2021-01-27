@@ -4,13 +4,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import org.apache.isis.testing.integtestsupport.applib.IsisIntegrationTestAbstract;
 
-import domainapp.modules.simple.integtests.SimpleModuleTestConfiguration_usingJdo;
 import domainapp.webapp.application.ApplicationModule;
 import domainapp.webapp.bdd.stepdefs.BddStepDefsModule;
 
 @SpringBootTest(
     classes = {
-            SimpleModuleTestConfiguration_usingJdo.class,
+            SimpleWebAppTestConfiguration_usingJdo.class,
             BddStepDefsModule.class,
             ApplicationModule.class,
     },
