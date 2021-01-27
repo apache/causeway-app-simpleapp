@@ -9,7 +9,7 @@ import domainapp.webapp.bdd.stepdefs.BddStepDefsModule;
 
 @SpringBootTest(
     classes = {
-            SimpleWebAppTestConfiguration_usingJdo.class,
+            SimpleApplicationTestConfiguration_usingJdo.class,
             BddStepDefsModule.class,
             ApplicationModule.class,
     },

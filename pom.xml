@@ -11,7 +11,7 @@
     </parent>
 
     <groupId>org.apache.isis.starters</groupId>
-    <artifactId>simpleapp</artifactId>
+    <artifactId>simpleapp-jdo</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
     <name>SimpleApp - Parent</name>
@@ -24,24 +24,24 @@
             <!-- this project's own modules -->
             <dependency>
                 <groupId>org.apache.isis.starters</groupId>
-                <artifactId>simpleapp-module-simple</artifactId>
+                <artifactId>simpleapp-module-simple-jdo</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.isis.starters</groupId>
-                <artifactId>simpleapp-module-simple</artifactId>
+                <artifactId>simpleapp-module-simple-jdo</artifactId>
                 <version>${project.version}</version>
                 <scope>test</scope>
                 <type>test-jar</type>
             </dependency>
             <dependency>
                 <groupId>org.apache.isis.starters</groupId>
-                <artifactId>simpleapp-application</artifactId>
+                <artifactId>simpleapp-application-jdo</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.isis.starters</groupId>
-                <artifactId>simpleapp-webapp</artifactId>
+                <artifactId>simpleapp-webapp-jdo</artifactId>
                 <version>${project.version}</version>
             </dependency>
 

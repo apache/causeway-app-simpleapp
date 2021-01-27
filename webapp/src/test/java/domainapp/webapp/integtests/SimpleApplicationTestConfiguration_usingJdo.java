@@ -50,7 +50,7 @@ import domainapp.modules.simple.SimpleModule;
     @PropertySource(IsisPresets.DataNucleusAutoCreate),
     @PropertySource(IsisPresets.UseLog4j2Test),
 })
-public class SimpleWebAppTestConfiguration_usingJdo {
+public class SimpleApplicationTestConfiguration_usingJdo {
 
 
 }
