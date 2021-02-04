@@ -67,7 +67,7 @@ isis:
         show-drop-down-on-footer: true
 
   persistence:
-    jpa:
+    schema:
       auto-create-schemas: simple
       create-schema-sql-template: "CREATE SCHEMA IF NOT EXISTS %S"
 
