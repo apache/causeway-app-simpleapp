@@ -47,7 +47,7 @@ import domainapp.modules.simple.SimpleModule;
 })
 @PropertySources({
     @PropertySource(IsisPresets.H2InMemory_withUniqueSchema),
-    @PropertySource(IsisPresets.DataNucleusAutoCreate),
+    @PropertySource(IsisPresets.DatanucleusAutocreateNoValidate),
     @PropertySource(IsisPresets.UseLog4j2Test),
 })
 public class SimpleModuleTestConfiguration_usingJdo {

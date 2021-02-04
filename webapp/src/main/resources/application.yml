@@ -68,23 +68,24 @@ isis:
 
 
   persistence:
-    jdo-datanucleus:
-      impl:
-        # note that properties under 'isis.persistence.jdo-datanucleus.impl' are passed through directly
-        # to DataNucleus, and use variously camelCase or PascalCase rather than kebab-case
-        datanucleus:
-          schema:
-            validateTables: true
-            validateConstraints: true
+    schema:
+      auto-create-schemas: simple
+      create-schema-sql-template: "CREATE SCHEMA IF NOT EXISTS %S"
+    
+# note that properties under 'datanucleus' must use camelCase rather than kebab-case
+datanucleus:
+  schema:
+    validateTables: true
+    validateConstraints: true
 
-          persistenceByReachabilityAtCommit: false
-          identifier:
-            case: MixedCase
+  persistenceByReachabilityAtCommit: false
+  identifier:
+    case: MixedCase
 
-          cache:
-            level2:
-              type: none
-              mode: ENABLE_SELECTIVE
+  cache:
+    level2:
+      type: none
+      mode: ENABLE_SELECTIVE
 
 resteasy:
   jaxrs:

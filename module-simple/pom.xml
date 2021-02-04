@@ -67,6 +67,7 @@
         </dependency>
 
         <!-- TESTS -->
+        
         <dependency>
             <groupId>org.apache.isis.mavendeps</groupId>
             <artifactId>isis-mavendeps-unittests</artifactId>
