@@ -1,5 +1,6 @@
 package domainapp.webapp.custom.restapi;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.Callable;
 
@@ -28,7 +29,9 @@ class CustomController {
 
   @GetMapping("/custom/simpleObjects")
   List<SimpleObject> all() {
-    return callAuthenticated(newAuthentication(), () -> repository.listAll()).orElseFail();
+    return callAuthenticated(newAuthentication(), () -> repository.listAll())
+            .optionalElseFail() // re-throws exception that has occurred, if any
+            .orElse(Collections.emptyList()); // handles null case, if required
   }
 
   private SimpleAuthentication newAuthentication() {
