@@ -21,7 +21,7 @@ import domainapp.webapp.integtests.ApplicationIntegTestAbstract;
         IsisModuleViewerRestfulObjectsJaxrsResteasy4.class
 })
 class SwaggerExport_IntegTest extends ApplicationIntegTestAbstract {
-    
+
     @Inject ServiceRegistry serviceRegistry;
 
     @Test
