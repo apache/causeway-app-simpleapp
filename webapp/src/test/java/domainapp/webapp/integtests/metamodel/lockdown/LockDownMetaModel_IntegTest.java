@@ -12,16 +12,15 @@ import org.approvaltests.reporters.UseReporter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import org.apache.isis.applib.services.jaxb.JaxbService;
-import org.apache.isis.applib.services.metamodel.MetaModelService;
-import org.apache.isis.schema.metamodel.v2.DomainClassDto;
-import org.apache.isis.schema.metamodel.v2.MetamodelDto;
-
 import static org.approvaltests.Approvals.getReporter;
 import static org.approvaltests.Approvals.verify;
 import static org.assertj.core.api.Assumptions.assumeThat;
-import static org.hamcrest.CoreMatchers.is;
-import static org.hamcrest.CoreMatchers.notNullValue;
+
+import org.apache.isis.applib.services.jaxb.JaxbService;
+import org.apache.isis.applib.services.metamodel.Config;
+import org.apache.isis.applib.services.metamodel.MetaModelService;
+import org.apache.isis.schema.metamodel.v2.DomainClassDto;
+import org.apache.isis.schema.metamodel.v2.MetamodelDto;
 
 import domainapp.webapp.integtests.ApplicationIntegTestAbstract;
 import domainapp.webapp.util.CurrentVsApprovedApprovalTextWriter;
@@ -43,7 +42,7 @@ class LockDownMetaModel_IntegTest extends ApplicationIntegTestAbstract {
         // when
         MetamodelDto metamodelDto =
                 metaModelService.exportMetaModel(
-                        new MetaModelService.Config()
+                        new Config()
                         .withIgnoreNoop()
                         .withIgnoreAbstractClasses()
                         .withIgnoreBuiltInValueTypes()
