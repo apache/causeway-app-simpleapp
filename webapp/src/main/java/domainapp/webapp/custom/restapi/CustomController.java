@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import org.apache.isis.applib.services.user.UserMemento;
-import org.apache.isis.applib.services.xactn.TransactionService;
+import org.apache.isis.applib.services.xactn.TransactionalProcessor;
 import org.apache.isis.commons.functional.Result;
 import org.apache.isis.core.interaction.session.InteractionFactory;
 import org.apache.isis.core.security.authentication.Authentication;
@@ -24,7 +24,7 @@ import domainapp.modules.simple.dom.so.SimpleObjects;
 class CustomController {
 
   private final InteractionFactory interactionFactory;
-  private final TransactionService transactionService;
+  private final TransactionalProcessor transactionalProcessor;
   private final SimpleObjects repository;
 
   @GetMapping("/custom/simpleObjects")
@@ -43,6 +43,6 @@ class CustomController {
           final Callable<T> task) {
     return interactionFactory.callAuthenticated(
             authentication,
-            () -> transactionService.callWithinCurrentTransactionElseCreateNew(task));
+            () -> transactionalProcessor.callWithinCurrentTransactionElseCreateNew(task));
   }
 }
