@@ -35,18 +35,46 @@ import lombok.ToString;
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE, schema = "simple")
 @javax.jdo.annotations.DatastoreIdentity(strategy=IdGeneratorStrategy.IDENTITY, column="id")
 @javax.jdo.annotations.Version(strategy= VersionStrategy.DATE_TIME, column="version")
+/*
+ * This unique index is making sure of the total ordering required when
+ * using a SortedSet to hold a collection of elements, in this case
+ * the SortedSet used in the SimpleObject parent entity.
+ */
 @javax.jdo.annotations.Unique(name="ChildObject_parent_name_UNQ", members = {"parent", "name"})
 @DomainObject()
+/*
+ * The fa-star icon class will be used as an icon every time
+ * when the title of a ChildObject is being displayed.
+ */
 @DomainObjectLayout(cssClassFa = "fa-star")
 @XmlJavaTypeAdapter(PersistentEntityAdapter.class)
 @ToString(onlyExplicitlyIncluded = true)
 public class ChildObject implements Comparable<ChildObject> {
 
+	/*
+	 * These dependencies are automatically injected 
+	 * into an entity when persisting it or retrieving 
+	 * it from the persistence layer.
+	 */	
     @Inject RepositoryService repositoryService;
     @Inject TitleService titleService;
     @Inject MessageService messageService;
 
+    /*
+     * The parent can't be changed or edited.
+     */
 	@Property(editing = Editing.DISABLED)
+	/*
+	 * Using navigable = Navigable.PARENT enables the bread crumb navigation
+	 * in the UI.
+	 * Using hidden = Where.REFERENCES_PARENT hides the "Parent" property in 
+	 * cases where the parent is already referenced in the context of the current
+	 * view.
+	 * 
+	 * This is the case when:
+	 * - a bread crumb navigation is showing the parent a predecessor of a child
+	 * - the child is shown as element in the table of children in the parent
+	 */
 	@PropertyLayout(navigable = Navigable.PARENT, hidden = Where.REFERENCES_PARENT)
 	@Column(allowsNull = "false")
 	@Getter @Setter
