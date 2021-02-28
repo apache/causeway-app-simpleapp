@@ -61,37 +61,6 @@ public class SimpleObject_IntegTest extends SimpleModuleIntegTestAbstract {
 
     public static class updateName extends SimpleObject_IntegTest {
 
-        @DomainService
-        public static class UpdateNameListener {
-
-            @Getter
-            List<SimpleObject.UpdateNameActionDomainEvent> events = new ArrayList<>();
-
-            @EventListener(SimpleObject.UpdateNameActionDomainEvent.class)
-            public void on(SimpleObject.UpdateNameActionDomainEvent ev) {
-                events.add(ev);
-            }
-        }
-
-        @Inject
-        UpdateNameListener updateNameListener;
-
-
-        @Test
-        public void can_be_updated_directly() {
-
-            // given
-            updateNameListener.getEvents().clear();
-
-            // when
-            wrap(simpleObject).updateName("new name");
-            transactionService.flushTransaction();
-
-            // then
-            assertThat(wrap(simpleObject).getName()).isEqualTo("new name");
-            assertThat(updateNameListener.getEvents()).hasSize(5);
-        }
-
         @Test
         public void fails_validation() {
 

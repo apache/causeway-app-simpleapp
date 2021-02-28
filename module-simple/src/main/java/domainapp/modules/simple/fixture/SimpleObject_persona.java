@@ -34,7 +34,7 @@ implements PersonaWithBuilderScript<SimpleObjectBuilder>, PersonaWithFinder<Simp
     @Override
     public SimpleObject findUsing(final ServiceRegistry serviceRegistry) {
         SimpleObjects simpleObjects = serviceRegistry.lookupService(SimpleObjects.class).orElse(null);
-        return simpleObjects.findByNameExact(name);
+        return simpleObjects.findByNameExact(name).orElse(null);
     }
 
     public static class PersistAll
