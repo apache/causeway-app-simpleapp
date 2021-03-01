@@ -61,8 +61,8 @@ public class SimpleObject implements Comparable<SimpleObject> {
 
     @Inject RepositoryService repositoryService;
     @Inject TitleService titleService;
-    @Inject MessageService messageService;    
-    
+    @Inject MessageService messageService;
+
     private SimpleObject() {
     }
 
@@ -112,7 +112,7 @@ public class SimpleObject implements Comparable<SimpleObject> {
     	child.setName(name);
     	child.setParent(this);
     	repositoryService.persist(child);
-        messageService.informUser(String.format("Child '%s' of '%s' created", name, this.getName()));
+    	messageService.informUser(String.format("Child '%s' of '%s' created", name, this.getName()));
     	return child;
     }
     
