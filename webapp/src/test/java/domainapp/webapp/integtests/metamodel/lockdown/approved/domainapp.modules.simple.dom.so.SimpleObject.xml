@@ -1024,13 +1024,14 @@
                     <mml:attr name="disabling">true</mml:attr>
                     <mml:attr name="hiding">true</mml:attr>
                     <mml:attr name="validating">true</mml:attr>
-                    <mml:attr name="value">org.apache.isis.applib.mixins.layout.Object_openRestApi.ActionDomainEvent</mml:attr>
+                    <mml:attr name="value">org.apache.isis.applib.mixins.rest.Object_openRestApi.ActionDomainEvent</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.actions.action.invocation.ActionInvocationFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.invocation.ActionInvocationFacetForDomainEventFromActionAnnotation">
-                    <mml:attr name="eventType">org.apache.isis.applib.mixins.layout.Object_openRestApi.ActionDomainEvent</mml:attr>
+                    <mml:attr name="eventType">org.apache.isis.applib.mixins.rest.Object_openRestApi.ActionDomainEvent</mml:attr>
                     <mml:attr name="intent.act">EXECUTE</mml:attr>
-                    <mml:attr name="methods">public org.apache.isis.applib.value.LocalResourcePath org.apache.isis.applib.mixins.layout.Object_openRestApi.act()</mml:attr>
-                    <mml:attr name="onType">org.apache.isis.applib.mixins.layout.Object_openRestApi</mml:attr>
+                    <mml:attr name="methods">public org.apache.isis.applib.value.LocalResourcePath
+                        org.apache.isis.applib.mixins.rest.Object_openRestApi.act()</mml:attr>
+                    <mml:attr name="onType">org.apache.isis.applib.mixins.rest.Object_openRestApi</mml:attr>
                     <mml:attr name="returnType">org.apache.isis.applib.value.LocalResourcePath</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.actions.contributing.ContributingFacet">
@@ -1088,13 +1089,14 @@
                     <mml:attr name="disabling">true</mml:attr>
                     <mml:attr name="hiding">true</mml:attr>
                     <mml:attr name="validating">true</mml:attr>
-                    <mml:attr name="value">org.apache.isis.applib.mixins.layout.Object_rebuildMetamodel.ActionDomainEvent</mml:attr>
+                    <mml:attr name="value">org.apache.isis.applib.mixins.metamodel.Object_rebuildMetamodel.ActionDomainEvent</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.actions.action.invocation.ActionInvocationFacet" fqcn="org.apache.isis.core.metamodel.facets.actions.action.invocation.ActionInvocationFacetForDomainEventFromActionAnnotation">
-                    <mml:attr name="eventType">org.apache.isis.applib.mixins.layout.Object_rebuildMetamodel.ActionDomainEvent</mml:attr>
+                    <mml:attr name="eventType">org.apache.isis.applib.mixins.metamodel.Object_rebuildMetamodel.ActionDomainEvent</mml:attr>
                     <mml:attr name="intent.act">EXECUTE</mml:attr>
-                    <mml:attr name="methods">public java.lang.Object org.apache.isis.applib.mixins.layout.Object_rebuildMetamodel.act()</mml:attr>
-                    <mml:attr name="onType">org.apache.isis.applib.mixins.layout.Object_rebuildMetamodel</mml:attr>
+                    <mml:attr name="methods">public java.lang.Object
+                        org.apache.isis.applib.mixins.metamodel.Object_rebuildMetamodel.act()</mml:attr>
+                    <mml:attr name="onType">org.apache.isis.applib.mixins.metamodel.Object_rebuildMetamodel</mml:attr>
                     <mml:attr name="returnType">java.lang.Object</mml:attr>
                 </mml:facet>
                 <mml:facet id="org.apache.isis.core.metamodel.facets.actions.contributing.ContributingFacet">
