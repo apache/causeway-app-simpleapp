@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.Test;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.orm.jpa.JpaSystemException;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -82,7 +83,7 @@ public class SimpleObjects_IntegTest extends SimpleModuleIntegTestAbstract {
 
             // also expect
             MatcherAssert.assertThat(cause,
-                    ThrowableMatchers.causedBy(JpaSystemException.class));
+                    ThrowableMatchers.causedBy(DuplicateKeyException.class));
 
         }
 

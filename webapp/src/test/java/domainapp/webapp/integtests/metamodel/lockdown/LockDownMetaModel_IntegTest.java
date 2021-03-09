@@ -22,10 +22,10 @@ import org.apache.isis.applib.services.metamodel.MetaModelService;
 import org.apache.isis.schema.metamodel.v2.DomainClassDto;
 import org.apache.isis.schema.metamodel.v2.MetamodelDto;
 
-import domainapp.webapp.integtests.ApplicationIntegTestAbstract;
+import domainapp.webapp.integtests.WebAppIntegTestAbstract;
 import domainapp.webapp.util.CurrentVsApprovedApprovalTextWriter;
 
-class LockDownMetaModel_IntegTest extends ApplicationIntegTestAbstract {
+class LockDownMetaModel_IntegTest extends WebAppIntegTestAbstract {
 
     @Inject MetaModelService metaModelService;
     @Inject JaxbService jaxbService;

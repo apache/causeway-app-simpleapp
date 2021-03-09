@@ -23,26 +23,27 @@ import domainapp.modules.simple.dom.so.SimpleObjects;
 @RequiredArgsConstructor
 class CustomController {
 
-  private final InteractionFactory interactionFactory;
-  private final TransactionalProcessor transactionalProcessor;
-  private final SimpleObjects repository;
+    private final InteractionFactory interactionFactory;
+    private final TransactionalProcessor transactionalProcessor;
+    private final SimpleObjects repository;
 
-  @GetMapping("/custom/simpleObjects")
-  List<SimpleObject> all() {
-    return callAuthenticated(newAuthentication(), () -> repository.listAll())
-            .optionalElseFail() // re-throws exception that has occurred, if any
-            .orElse(Collections.emptyList()); // handles null case, if required
-  }
+    @GetMapping("/custom/simpleObjects")
+    List<SimpleObject> all() {
+        return callAuthenticated(newAuthentication(), () -> repository.listAll())
+                .optionalElseFail() // re-throws exception that has occurred, if any
+                .orElse(Collections.emptyList()); // handles null case, if required
+    }
 
-  private SimpleAuthentication newAuthentication() {
-    return SimpleAuthentication.validOf(UserMemento.ofName("sven"));
-  }
+    private SimpleAuthentication newAuthentication() {
+        return SimpleAuthentication.validOf(UserMemento.ofName("sven"));
+    }
 
-  private <T> Result<T> callAuthenticated(
-          final Authentication authentication,
-          final Callable<T> task) {
-    return interactionFactory.callAuthenticated(
-            authentication,
-            () -> transactionalProcessor.callWithinCurrentTransactionElseCreateNew(task));
-  }
+    private <T> Result<T> callAuthenticated(
+            final Authentication authentication,
+            final Callable<T> task) {
+
+        return interactionFactory.callAuthenticated(
+                authentication,
+                () -> transactionalProcessor.callWithinCurrentTransactionElseCreateNew(task));
+    }
 }

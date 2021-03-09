@@ -53,7 +53,7 @@ import domainapp.modules.simple.SimpleModule;
     @PropertySource(IsisPresets.H2InMemory_withUniqueSchema),
     @PropertySource(IsisPresets.UseLog4j2Test),
 })
-public class SimpleModuleTestConfiguration_usingJpa {
+public class SimpleModuleTestConfiguration {
 
 
 }

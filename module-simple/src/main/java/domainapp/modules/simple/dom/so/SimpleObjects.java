@@ -64,17 +64,14 @@ public class SimpleObjects {
 
     @Programmatic
     public void ping() {
-        jpaSupportService.getEntityManager(SimpleObject.class).ifSuccess(x -> {
-            final TypedQuery<SimpleObject> q = x.createQuery("SELECT p FROM SimpleObject p ORDER BY p.name",
-                    SimpleObject.class).setMaxResults(1);
-            q.getResultList();
-        });
-
-//        final TypedQuery<SimpleObject> q = entityManager.createQuery("SELECT p FROM SimpleObject p ORDER BY p.name",
-//                SimpleObject.class).setMaxResults(1);
-//        q.getResultList();
+        jpaSupportService.getEntityManager(SimpleObject.class)
+            .ifSuccess(entityManager -> {
+                final TypedQuery<SimpleObject> q = entityManager.createQuery(
+                        "SELECT p FROM SimpleObject p ORDER BY p.name",
+                        SimpleObject.class)
+                    .setMaxResults(1);
+                q.getResultList();
+            });
     }
-
-//    @PersistenceContext EntityManager entityManager;
 
 }

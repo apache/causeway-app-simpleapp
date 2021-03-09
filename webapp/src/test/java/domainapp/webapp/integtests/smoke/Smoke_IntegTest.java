@@ -13,12 +13,12 @@ import org.apache.isis.applib.services.xactn.TransactionService;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import domainapp.webapp.integtests.ApplicationIntegTestAbstract;
+import domainapp.webapp.integtests.WebAppIntegTestAbstract;
 import domainapp.modules.simple.dom.so.SimpleObject;
 import domainapp.modules.simple.dom.so.SimpleObjects;
 
 @Transactional
-class Smoke_IntegTest extends ApplicationIntegTestAbstract {
+class Smoke_IntegTest extends WebAppIntegTestAbstract {
 
     @Inject SimpleObjects menu;
     @Inject TransactionService transactionService;
