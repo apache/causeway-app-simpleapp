@@ -7,6 +7,7 @@ import javax.jdo.JDODataStoreException;
 
 import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.Test;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.transaction.annotation.Transactional;
 
 import org.apache.isis.testing.integtestsupport.applib.ThrowableMatchers;
@@ -81,8 +82,8 @@ public class SimpleObjects_IntegTest extends SimpleModuleIntegTestAbstract {
             });
 
             // also expect
-            MatcherAssert.assertThat(cause, 
-                    ThrowableMatchers.causedBy(JDODataStoreException.class));
+            MatcherAssert.assertThat(cause,
+                    ThrowableMatchers.causedBy(DuplicateKeyException.class));
 
         }
 

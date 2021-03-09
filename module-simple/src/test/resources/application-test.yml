@@ -1,0 +1,6 @@
+isis:
+  persistence:
+    schema:
+      auto-create-schemas: "simple"
+
+

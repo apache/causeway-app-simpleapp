@@ -8,13 +8,10 @@ import org.springframework.stereotype.Service;
 import org.apache.isis.applib.services.health.Health;
 import org.apache.isis.applib.services.health.HealthCheckService;
 
-import lombok.extern.log4j.Log4j2;
-
 import domainapp.modules.simple.dom.so.SimpleObjects;
 
 @Service
 @Named("domainapp.HealthCheckServiceImpl")
-@Log4j2
 public class HealthCheckServiceImpl implements HealthCheckService {
 
     private final SimpleObjects simpleObjects;

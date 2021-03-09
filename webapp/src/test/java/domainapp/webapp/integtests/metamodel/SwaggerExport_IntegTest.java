@@ -15,13 +15,13 @@ import org.apache.isis.viewer.restfulobjects.jaxrsresteasy4.IsisModuleViewerRest
 
 import lombok.val;
 
-import domainapp.webapp.integtests.ApplicationIntegTestAbstract;
+import domainapp.webapp.integtests.WebAppIntegTestAbstract;
 
 @Import({
-    IsisModuleViewerRestfulObjectsJaxrsResteasy4.class
+        IsisModuleViewerRestfulObjectsJaxrsResteasy4.class
 })
-class SwaggerExport_IntegTest extends ApplicationIntegTestAbstract {
-    
+class SwaggerExport_IntegTest extends WebAppIntegTestAbstract {
+
     @Inject ServiceRegistry serviceRegistry;
 
     @Test

@@ -18,17 +18,17 @@
  */
 package domainapp.webapp.bdd;
 
-import domainapp.webapp.integtests.ApplicationIntegTestAbstract;
+import domainapp.webapp.integtests.WebAppIntegTestAbstract;
 import io.cucumber.spring.CucumberContextConfiguration;
 
 /**
- * 
- * Provides the App's Spring Context for testing with Cucumber. 
+ *
+ * Provides the App's Spring Context for testing with Cucumber.
  *
  */
 @CucumberContextConfiguration
-public abstract class CucumberTestAbstract extends ApplicationIntegTestAbstract {
+public abstract class CucumberTestAbstract extends WebAppIntegTestAbstract {
 
-    // any cucumber specific stuff might go here 
-    
+    // any cucumber specific stuff might go here
+
 }

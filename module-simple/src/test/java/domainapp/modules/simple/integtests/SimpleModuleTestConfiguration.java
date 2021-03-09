@@ -19,6 +19,7 @@
 package domainapp.modules.simple.integtests;
 
 import org.springframework.boot.SpringBootConfiguration;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
@@ -36,6 +37,7 @@ import domainapp.modules.simple.SimpleModule;
  * here we in effect disable security checks, and we exclude any web/UI modules.
  */
 @SpringBootConfiguration
+@EnableAutoConfiguration
 @Import({
 
     IsisModuleCoreRuntimeServices.class,
@@ -50,7 +52,7 @@ import domainapp.modules.simple.SimpleModule;
     @PropertySource(IsisPresets.DatanucleusAutocreateNoValidate),
     @PropertySource(IsisPresets.UseLog4j2Test),
 })
-public class SimpleModuleTestConfiguration_usingJdo {
+public class SimpleModuleTestConfiguration {
 
 
 }
