@@ -18,30 +18,36 @@
 
     <packaging>pom</packaging>
 
+    <properties>
+        <maven-cucumber-reporting.version>5.3.0</maven-cucumber-reporting.version>
+        <archunit.version>0.14.1</archunit.version>
+        <skipBDD>${skipTests}</skipBDD>
+    </properties>
+
     <dependencyManagement>
         <dependencies>
 
             <!-- this project's own modules -->
             <dependency>
-                <groupId>org.apache.isis.starters</groupId>
-                <artifactId>simpleapp-module-simple-jpa</artifactId>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>simpleapp-jpa-module-simple</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.isis.starters</groupId>
-                <artifactId>simpleapp-module-simple-jpa</artifactId>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>simpleapp-jpa-module-simple-tests</artifactId>
                 <version>${project.version}</version>
                 <scope>test</scope>
                 <type>test-jar</type>
             </dependency>
             <dependency>
-                <groupId>org.apache.isis.starters</groupId>
-                <artifactId>simpleapp-application-jpa</artifactId>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>simpleapp-jpa-webapp</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.isis.starters</groupId>
-                <artifactId>simpleapp-webapp-jpa</artifactId>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>simpleapp-jpa-webapp-tests</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
@@ -58,7 +64,9 @@
 
     <modules>
         <module>module-simple</module>
+        <module>module-simple-tests</module>
         <module>webapp</module>
+        <module>webapp-tests</module>
     </modules>
 
 </project>
