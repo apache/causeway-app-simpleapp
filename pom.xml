@@ -18,31 +18,39 @@
 
     <packaging>pom</packaging>
 
+    <properties>
+        <maven-cucumber-reporting.version>5.3.0</maven-cucumber-reporting.version>
+        <archunit.version>0.14.1</archunit.version>
+        <skipBDD>${skipTests}</skipBDD>
+    </properties>
+
     <dependencyManagement>
         <dependencies>
 
             <!-- this project's own modules -->
             <dependency>
-                <groupId>org.apache.isis.starters</groupId>
-                <artifactId>simpleapp-module-simple-jdo</artifactId>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>simpleapp-jdo-module-simple</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.isis.starters</groupId>
-                <artifactId>simpleapp-module-simple-jdo</artifactId>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>simpleapp-jdo-module-simple-tests</artifactId>
                 <version>${project.version}</version>
                 <scope>test</scope>
                 <type>test-jar</type>
             </dependency>
             <dependency>
-                <groupId>org.apache.isis.starters</groupId>
-                <artifactId>simpleapp-application-jdo</artifactId>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>simpleapp-jdo-webapp</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.isis.starters</groupId>
-                <artifactId>simpleapp-webapp-jdo</artifactId>
+                <groupId>${project.groupId}</groupId>
+                <artifactId>simpleapp-jdo-webapp-tests</artifactId>
                 <version>${project.version}</version>
+                <scope>test</scope>
+                <type>test-jar</type>
             </dependency>
 
         </dependencies>
@@ -58,7 +66,9 @@
 
     <modules>
         <module>module-simple</module>
+        <module>module-simple-tests</module>
         <module>webapp</module>
+        <module>webapp-tests</module>
     </modules>
 
 </project>

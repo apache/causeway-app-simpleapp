@@ -8,7 +8,7 @@
         <version>1.0.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>simpleapp-webapp-jdo</artifactId>
+    <artifactId>simpleapp-jdo-webapp</artifactId>
     <name>SimpleApp - Webapp</name>
 
     <description>
@@ -17,12 +17,6 @@
     </description>
 
     <packaging>jar</packaging>
-
-    <properties>
-        <maven-cucumber-reporting.version>5.3.0</maven-cucumber-reporting.version>
-        <archunit.version>0.14.1</archunit.version>
-        <skipBDD>${skipTests}</skipBDD>
-    </properties>
 
     <build>
         <resources>
@@ -48,75 +42,7 @@
                 </excludes>
             </resource>
         </resources>
-        <testResources>
-            <testResource>
-                <directory>src/test/resources</directory>
-            </testResource>
-            <testResource>
-                <filtering>false</filtering>
-                <directory>src/test/java</directory>
-                <excludes>
-                    <exclude>**/*.java</exclude>
-                </excludes>
-            </testResource>
-        </testResources>
         <plugins>
-
-			<!-- generate cucumber json result -->
-			<plugin>
-			  <groupId>org.apache.maven.plugins</groupId>
-			  <artifactId>maven-antrun-plugin</artifactId>
-			  <executions>
-			    <execution>
-			      <id>cucumber-cli</id>
-			      <phase>integration-test</phase>
-			      <goals>
-			        <goal>run</goal>
-			      </goals>
-			      <configuration>
-                    <skip>${skipBDD}</skip>
-			        <target>
-			          <echo message="Running Cucumber CLI" />
-			          <java classname="io.cucumber.core.cli.Main"
-			                fork="true"
-			                failonerror="true"
-			                newenvironment="true"
-			                maxmemory="1024m"
-			                classpathref="maven.test.classpath">
-			            <arg value="--plugin" />
-			            <arg value="json:${project.build.directory}/cucumber-no-clobber.json" />
-			          </java>
-			        </target>
-			      </configuration>
-			    </execution>
-			  </executions>
-			</plugin>
-
-        	<!-- generate html report from cucumber json result -->
-            <plugin>
-                <groupId>net.masterthought</groupId>
-                <artifactId>maven-cucumber-reporting</artifactId>
-                <version>${maven-cucumber-reporting.version}</version>
-                <executions>
-                    <execution>
-                        <id>default</id>
-                        <phase>post-integration-test</phase>
-                        <goals>
-                            <goal>generate</goal>
-                        </goals>
-                        <configuration>
-                            <projectName>SimpleApp</projectName>
-                            <outputDirectory>${project.build.directory}</outputDirectory>
-                            <inputDirectory>${project.build.directory}</inputDirectory>
-                            <jsonFiles>
-                                <param>**/cucumber-no-clobber.json</param>
-                            </jsonFiles>
-                            <skip>${skipBDD}</skip>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
-
             <!-- running: mvn spring-boot:run -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -136,7 +62,7 @@
 
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>simpleapp-module-simple-jdo</artifactId>
+            <artifactId>simpleapp-jdo-module-simple</artifactId>
         </dependency>
 
         <!-- isis -->
@@ -173,76 +99,10 @@
             <artifactId>isis-extensions-flyway-impl</artifactId>
         </dependency>
 
-        <!-- TESTING -->
-
-        <dependency>
-            <groupId>org.apache.isis.mavendeps</groupId>
-            <artifactId>isis-mavendeps-integtests</artifactId>
-            <type>pom</type>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.isis.mavendeps</groupId>
-            <artifactId>isis-mavendeps-integspecs</artifactId>
-            <type>pom</type>
-            <scope>test</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>com.tngtech.archunit</groupId>
-            <artifactId>archunit-junit5-api</artifactId>
-            <version>${archunit.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.tngtech.archunit</groupId>
-            <artifactId>archunit-junit5-engine</artifactId>
-            <version>${archunit.version}</version>
-            <scope>test</scope>
-        </dependency>
 
     </dependencies>
 
     <profiles>
-
-        <profile>
-            <id>mavendeps-lockdown</id>
-            <activation>
-                <property>
-                    <name>mavendeps.lockdown</name>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-dependency-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>list</id>
-                                <phase>generate-test-resources</phase>
-                                <goals>
-                                    <goal>list</goal>
-                                </goals>
-                                <configuration>
-                                    <outputFile>${project.build.directory}/test-classes/domainapp/webapp/unittests/mavendeps/lockdown/current/LockDownMavenDeps_Test.list.txt</outputFile>
-                                </configuration>
-                            </execution>
-                            <execution>
-                                <id>tree</id>
-                                <phase>generate-test-resources</phase>
-                                <goals>
-                                    <goal>tree</goal>
-                                </goals>
-                                <configuration>
-                                    <outputFile>${project.build.directory}/test-classes/domainapp/webapp/unittests/mavendeps/lockdown/current/LockDownMavenDeps_Test.tree.txt</outputFile>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
 
         <profile>
             <id>jdbc-sqlserver</id>

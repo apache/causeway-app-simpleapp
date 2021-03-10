@@ -3,6 +3,8 @@ package domainapp.modules.simple;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Configuration;
+
 import org.springframework.validation.annotation.Validated;
 
 import org.apache.isis.testing.fixtures.applib.fixturescripts.FixtureScript;
@@ -12,8 +14,7 @@ import lombok.Data;
 
 import domainapp.modules.simple.dom.so.SimpleObject;
 
-@org.springframework.context.annotation.Configuration
-//@Import({})
+@Configuration
 @ComponentScan
 @EnableConfigurationProperties({
         SimpleModule.Configuration.class,
