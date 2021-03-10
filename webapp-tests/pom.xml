@@ -94,6 +94,7 @@
         <dependency>
             <groupId>${project.groupId}</groupId>
             <artifactId>simpleapp-jdo-webapp</artifactId>
+            <scope>test</scope>
         </dependency>
 
         <!-- TESTING -->
