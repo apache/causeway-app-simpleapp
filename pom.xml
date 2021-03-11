@@ -86,6 +86,20 @@
                 </repository>
             </repositories>
         </profile>
+        <profile>
+            <id>nightly</id>
+            <activation>
+                <property>
+                    <name>!skip.nightly</name>
+                </property>
+            </activation>
+            <repositories>
+                <repository>
+                    <id>staging</id>
+                    <url>https://nexus.incode.work/repository/nightly-builds/</url>
+                </repository>
+            </repositories>
+        </profile>
     </profiles>
 
 </project>
