@@ -5,9 +5,17 @@ name: Build w/ Maven + Jdk 15
 
 on:
   push:
-    branches: [ master ]
+    branches:
+      - jdo
+      - jpa
+      - jdo-SNAPSHOT
+      - jpa-SNAPSHOT
   pull_request:
-    branches: [ master ]
+    branches:
+      - jdo
+      - jpa
+      - jdo-SNAPSHOT
+      - jpa-SNAPSHOT
 
 jobs:
   build:
