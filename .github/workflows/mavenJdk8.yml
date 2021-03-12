@@ -1,4 +1,4 @@
-name: Build w/ Maven + Jdk 8
+name: Build and Test
 
 on:
   push:
@@ -19,14 +19,20 @@ jobs:
     name: Build, Test
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        java-version:
+          - 1.8
+          - 15
+
     steps:
     - name: Checkout repo
       uses: actions/checkout@v2.3.3
 
-    - name: Set up JDK 1.8
+    - name: Set up JDK ${{ matrix.java-version }}
       uses: actions/setup-java@v1
       with:
-        java-version: 1.8
+        java-version: ${{ matrix.java-version }}
 
     - name: Print Maven Version
       run: mvn --version
