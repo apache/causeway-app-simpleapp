@@ -11,7 +11,7 @@
     </parent>
 
     <artifactId>simpleapp-jpa-module-simple</artifactId>
-    <name>SimpleApp - Simple Module</name>
+    <name>SimpleApp (JPA) - Simple Module</name>
 
     <build>
         <resources>

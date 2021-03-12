@@ -9,7 +9,7 @@
     </parent>
 
     <artifactId>simpleapp-jpa-webapp</artifactId>
-    <name>SimpleApp - Webapp</name>
+    <name>SimpleApp (JPA) - Webapp</name>
 
     <description>
     	Assembles and runs both the Wicket viewer and the Restfulobjects viewer

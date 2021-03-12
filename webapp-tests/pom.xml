@@ -9,7 +9,7 @@
     </parent>
 
     <artifactId>simpleapp-jpa-webapp-tests</artifactId>
-    <name>SimpleApp - Webapp (tests)</name>
+    <name>SimpleApp (JPA) - Webapp (tests)</name>
 
     <description>
         Integ tests and BDD specs for entire app.
