@@ -63,38 +63,42 @@ jobs:
         BASELINE=$(cat pom.xml | grep "<version>" | head -1 | awk -F'>' '{print $2}' | awk -F'<' '{print $1}')
         SHA_ID=$(echo $GITHUB_SHA | cut -c1-8)
         REVISION=${BASELINE}.$(date +%Y%m%d-%H%M)-${SHA_ID}
+        echo "REVISION  : $REVISION"
+        echo "REVISION  : $REVISION"
+        echo "REVISION  : $REVISION"
+        echo "REVISION  : $REVISION"
         echo "##[set-output name=revision;]${REVISION}"
 
-    - name: Share $REVISION as Environment Variable
-      run: echo "REVISION=${{ steps.revision.outputs.revision }}" >> $GITHUB_ENV
-
-    - name: Print $REVISION
-      shell: bash
-      run: |
-        echo ==============  ENV  =================
-        echo REVISION            \: $REVISION
-        echo ======================================
-
-    - name: Update Maven version
-      shell: bash
-      run: |
-        mvn versions:set -DnewVersion=$REVISION
-
-    - name: Print pom.xml
-      shell: bash
-      run: |
-        cat pom.xml
-
-    - name: Build with Maven
-      shell: bash
-      run: |
-        mvn install
-
-# uncomment and set environment variables to push to Docker registry
-#    - name: Build and Push Docker Image
+#    - name: Share $REVISION as Environment Variable
+#      run: echo "REVISION=${{ steps.revision.outputs.revision }}" >> $GITHUB_ENV
+#
+#    - name: Print $REVISION
 #      shell: bash
 #      run: |
-#        mvn -pl webapp -Ddocker jib:build
-#      env:
-#        DOCKER_REGISTRY_USERNAME: ${{ secrets.DOCKER_REGISTRY_USERNAME }}
-#        DOCKER_REGISTRY_PASSWORD: ${{ secrets.DOCKER_REGISTRY_PASSWORD }}
+#        echo ==============  ENV  =================
+#        echo REVISION            \: $REVISION
+#        echo ======================================
+#
+#    - name: Update Maven version
+#      shell: bash
+#      run: |
+#        mvn versions:set -DnewVersion=$REVISION
+#
+#    - name: Print pom.xml
+#      shell: bash
+#      run: |
+#        cat pom.xml
+#
+#    - name: Build with Maven
+#      shell: bash
+#      run: |
+#        mvn install
+#
+## uncomment and set environment variables to push to Docker registry
+##    - name: Build and Push Docker Image
+##      shell: bash
+##      run: |
+##        mvn -pl webapp -Ddocker jib:build
+##      env:
+##        DOCKER_REGISTRY_USERNAME: ${{ secrets.DOCKER_REGISTRY_USERNAME }}
+##        DOCKER_REGISTRY_PASSWORD: ${{ secrets.DOCKER_REGISTRY_PASSWORD }}
