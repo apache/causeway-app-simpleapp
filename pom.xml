@@ -93,7 +93,7 @@
             </activation>
             <repositories>
                 <repository>
-                    <id>staging</id>
+                    <id>nightly-builds</id>
                     <url>https://nexus.incode.work/repository/nightly-builds/</url>
                 </repository>
             </repositories>
