@@ -1,4 +1,4 @@
-name: Build w/ Maven + Jdk 15
+name: Maven Build and Test
 
 on:
   push:
@@ -16,17 +16,23 @@ on:
 
 jobs:
   build:
-
+    name: Build, Test
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        java-version:
+          - 1.8
+          - 15
 
     steps:
     - name: Checkout repo
       uses: actions/checkout@v2.3.3
 
-    - name: Set up JDK 15
+    - name: Set up JDK ${{ matrix.java-version }}
       uses: actions/setup-java@v1
       with:
-        java-version: 15
+        java-version: ${{ matrix.java-version }}
 
     - name: Print Maven Version
       run: mvn --version
@@ -57,6 +63,10 @@ jobs:
         BASELINE=$(cat pom.xml | grep "<version>" | head -1 | awk -F'>' '{print $2}' | awk -F'<' '{print $1}')
         SHA_ID=$(echo $GITHUB_SHA | cut -c1-8)
         REVISION=${BASELINE}.$(date +%Y%m%d-%H%M)-${SHA_ID}
+        echo "REVISION  : $REVISION"
+        echo "REVISION  : $REVISION"
+        echo "REVISION  : $REVISION"
+        echo "REVISION  : $REVISION"
         echo "##[set-output name=revision;]${REVISION}"
 
     - name: Share $REVISION as Environment Variable
