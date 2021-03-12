@@ -162,7 +162,6 @@
                             <to>
                                 <image>docker.io/apacheisis/simpleapp</image>
                                 <tags>
-                                    <tag>nightly</tag>
                                     <tag>${env.REVISION}</tag>
                                 </tags>
                                 <auth>
