@@ -9,7 +9,7 @@
     </parent>
 
     <artifactId>simpleapp-jdo-webapp-tests</artifactId>
-    <name>SimpleApp - Webapp (tests)</name>
+    <name>SimpleApp (JDO) - Webapp (tests)</name>
 
     <description>
         Integ tests and BDD specs for entire app.

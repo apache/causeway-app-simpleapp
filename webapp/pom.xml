@@ -9,7 +9,7 @@
     </parent>
 
     <artifactId>simpleapp-jdo-webapp</artifactId>
-    <name>SimpleApp - Webapp</name>
+    <name>SimpleApp (JDO) - Webapp</name>
 
     <description>
     	Assembles and runs both the Wicket viewer and the Restfulobjects viewer

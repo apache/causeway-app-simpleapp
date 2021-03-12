@@ -11,7 +11,7 @@
     </parent>
 
     <artifactId>simpleapp-jdo-module-simple-tests</artifactId>
-    <name>SimpleApp - Simple Module (tests)</name>
+    <name>SimpleApp (JDO) - Simple Module (tests)</name>
 
     <description>
         Integ tests for 'simple module'
