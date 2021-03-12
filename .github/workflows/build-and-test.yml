@@ -1,4 +1,4 @@
-name: Build and Test
+name: Maven Build and Test
 
 on:
   push:
@@ -69,36 +69,36 @@ jobs:
         echo "REVISION  : $REVISION"
         echo "##[set-output name=revision;]${REVISION}"
 
-#    - name: Share $REVISION as Environment Variable
-#      run: echo "REVISION=${{ steps.revision.outputs.revision }}" >> $GITHUB_ENV
-#
-#    - name: Print $REVISION
+    - name: Share $REVISION as Environment Variable
+      run: echo "REVISION=${{ steps.revision.outputs.revision }}" >> $GITHUB_ENV
+
+    - name: Print $REVISION
+      shell: bash
+      run: |
+        echo ==============  ENV  =================
+        echo REVISION            \: $REVISION
+        echo ======================================
+
+    - name: Update Maven version
+      shell: bash
+      run: |
+        mvn versions:set -DnewVersion=$REVISION
+
+    - name: Print pom.xml
+      shell: bash
+      run: |
+        cat pom.xml
+
+    - name: Build with Maven
+      shell: bash
+      run: |
+        mvn install
+
+# uncomment and set environment variables to push to Docker registry
+#    - name: Build and Push Docker Image
 #      shell: bash
 #      run: |
-#        echo ==============  ENV  =================
-#        echo REVISION            \: $REVISION
-#        echo ======================================
-#
-#    - name: Update Maven version
-#      shell: bash
-#      run: |
-#        mvn versions:set -DnewVersion=$REVISION
-#
-#    - name: Print pom.xml
-#      shell: bash
-#      run: |
-#        cat pom.xml
-#
-#    - name: Build with Maven
-#      shell: bash
-#      run: |
-#        mvn install
-#
-## uncomment and set environment variables to push to Docker registry
-##    - name: Build and Push Docker Image
-##      shell: bash
-##      run: |
-##        mvn -pl webapp -Ddocker jib:build
-##      env:
-##        DOCKER_REGISTRY_USERNAME: ${{ secrets.DOCKER_REGISTRY_USERNAME }}
-##        DOCKER_REGISTRY_PASSWORD: ${{ secrets.DOCKER_REGISTRY_PASSWORD }}
+#        mvn -pl webapp -Ddocker jib:build
+#      env:
+#        DOCKER_REGISTRY_USERNAME: ${{ secrets.DOCKER_REGISTRY_USERNAME }}
+#        DOCKER_REGISTRY_PASSWORD: ${{ secrets.DOCKER_REGISTRY_PASSWORD }}
