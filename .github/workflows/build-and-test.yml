@@ -60,15 +60,15 @@ jobs:
           echo "parentVersion = $PARENT"
           mvn versions:update-parent -DparentVersion="[$PARENT]"
         fi
-        BASELINE=$(cat pom.xml | grep "<version>" | head -1 | awk -F'>' '{print $2}' | awk -F'<' '{print $1}')
-        SHA_ID=$(echo $GITHUB_SHA | cut -c1-8)
-        REVISION=${BASELINE}.$(date +%Y%m%d-%H%M)-${SHA_ID}
-        echo "REVISION  : $REVISION"
-        echo "REVISION  : $REVISION"
-        echo "REVISION  : $REVISION"
-        echo "REVISION  : $REVISION"
-        echo "##[set-output name=revision;]${REVISION}"
-
+#        BASELINE=$(cat pom.xml | grep "<version>" | head -1 | awk -F'>' '{print $2}' | awk -F'<' '{print $1}')
+#        SHA_ID=$(echo $GITHUB_SHA | cut -c1-8)
+#        REVISION=${BASELINE}.$(date +%Y%m%d-%H%M)-${SHA_ID}
+#        echo "REVISION  : $REVISION"
+#        echo "REVISION  : $REVISION"
+#        echo "REVISION  : $REVISION"
+#        echo "REVISION  : $REVISION"
+#        echo "##[set-output name=revision;]${REVISION}"
+#
 #    - name: Share $REVISION as Environment Variable
 #      run: echo "REVISION=${{ steps.revision.outputs.revision }}" >> $GITHUB_ENV
 #
