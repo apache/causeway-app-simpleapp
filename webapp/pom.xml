@@ -148,7 +148,7 @@
                         <artifactId>jib-maven-plugin</artifactId>
                         <configuration>
                             <from>
-                                <image>openjdk:15-alpine</image>
+                                <image>adoptopenjdk/openjdk11:x86_64-alpine-jre-11.0.10_9</image>
                             </from>
                             <container>
                                 <jvmFlags>
