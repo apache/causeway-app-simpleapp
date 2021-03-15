@@ -11,23 +11,21 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.apache.isis.applib.annotation.Action;
 import org.apache.isis.applib.annotation.DomainObject;
 import org.apache.isis.applib.annotation.DomainObjectLayout;
-import org.apache.isis.applib.annotation.Publishing;
+import org.apache.isis.applib.jaxb.PersistentEntityAdapter;
 import org.apache.isis.applib.services.message.MessageService;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
-import org.apache.isis.applib.jaxb.PersistentEntityAdapter;
 
 import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
 import static org.apache.isis.applib.annotation.SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE;
-
-import domainapp.modules.simple.SimpleModule;
-import domainapp.modules.simple.types.Name;
-import domainapp.modules.simple.types.Notes;
 
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.val;
+
+import domainapp.modules.simple.types.Name;
+import domainapp.modules.simple.types.Notes;
 
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE, schema = "SIMPLE")
 @javax.jdo.annotations.DatastoreIdentity(strategy=IdGeneratorStrategy.IDENTITY, column="id")
@@ -47,7 +45,7 @@ import lombok.val;
 })
 @javax.jdo.annotations.Version(strategy= VersionStrategy.DATE_TIME, column="version")
 @javax.jdo.annotations.Unique(name="SimpleObject_name_UNQ", members = {"name"})
-@DomainObject()
+@DomainObject(objectType = "simple.SimpleObject")
 @DomainObjectLayout()
 @XmlJavaTypeAdapter(PersistentEntityAdapter.class)
 @ToString(onlyExplicitlyIncluded = true)

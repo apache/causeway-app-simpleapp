@@ -38,6 +38,7 @@ public class SimpleObjects {
         return repositoryService.persist(SimpleObject.withName(name));
     }
 
+
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT, promptStyle = PromptStyle.DIALOG_SIDEBAR)
     public List<SimpleObject> findByName(
@@ -47,6 +48,7 @@ public class SimpleObjects {
                     Query.named(SimpleObject.class, "findByName")
                         .withParameter("name", name));
     }
+
 
     @Programmatic
     public SimpleObject findByNameExact(final String name) {

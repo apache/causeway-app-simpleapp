@@ -95,7 +95,6 @@
             <artifactId>isis-extensions-flyway-impl</artifactId>
         </dependency>
 
-
     </dependencies>
 
     <profiles>
@@ -174,7 +173,6 @@
                 </plugins>
             </build>
         </profile>
-
     </profiles>
 
 </project>
