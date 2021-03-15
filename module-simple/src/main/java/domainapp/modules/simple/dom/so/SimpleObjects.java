@@ -13,6 +13,7 @@ import org.apache.isis.applib.annotation.NatureOfService;
 import org.apache.isis.applib.annotation.Programmatic;
 import org.apache.isis.applib.annotation.PromptStyle;
 import org.apache.isis.applib.annotation.SemanticsOf;
+import org.apache.isis.applib.query.Query;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.persistence.jdo.applib.services.JdoSupportService;
 
@@ -29,48 +30,42 @@ public class SimpleObjects {
     private final RepositoryService repositoryService;
     private final JdoSupportService jdoSupportService;
 
-    public static class ActionDomainEvent extends SimpleModule.ActionDomainEvent<SimpleObjects> {}
 
-    public static class CreateActionDomainEvent extends ActionDomainEvent {}
-    @Action(semantics = SemanticsOf.NON_IDEMPOTENT, domainEvent = CreateActionDomainEvent.class)
+    @Action(semantics = SemanticsOf.NON_IDEMPOTENT)
     @ActionLayout(promptStyle = PromptStyle.DIALOG_SIDEBAR)
     public SimpleObject create(
             @Name final String name) {
         return repositoryService.persist(SimpleObject.withName(name));
     }
 
-    public static class FindByNameActionDomainEvent extends ActionDomainEvent {}
-    @Action(semantics = SemanticsOf.SAFE, domainEvent = FindByNameActionDomainEvent.class)
+    @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT, promptStyle = PromptStyle.DIALOG_SIDEBAR)
     public List<SimpleObject> findByName(
             @Name final String name
             ) {
-        JDOQLTypedQuery<SimpleObject> q = jdoSupportService.newTypesafeQuery(SimpleObject.class);
-        final QSimpleObject cand = QSimpleObject.candidate();
-        q = q.filter(
-                cand.name.indexOf(q.stringParameter("name")).ne(-1)
-                );
-        return q.setParameter("name", name)
-                .executeList();
+        return repositoryService.allMatches(
+                    Query.named(SimpleObject.class, "findByName")
+                        .withParameter("name", name));
     }
 
     @Programmatic
     public SimpleObject findByNameExact(final String name) {
-        JDOQLTypedQuery<SimpleObject> q = jdoSupportService.newTypesafeQuery(SimpleObject.class);
-        final QSimpleObject cand = QSimpleObject.candidate();
-        q = q.filter(
-                cand.name.eq(q.stringParameter("name"))
-                );
-        return q.setParameter("name", name)
-                .executeUnique();
+        return repositoryService.firstMatch(
+                    Query.named(SimpleObject.class, "findByNameExact")
+                        .withParameter("name", name))
+                .orElse(null);
     }
 
-    public static class ListAllActionDomainEvent extends ActionDomainEvent {}
+
+
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
     public List<SimpleObject> listAll() {
         return repositoryService.allInstances(SimpleObject.class);
     }
+
+
+
 
     @Programmatic
     public void ping() {

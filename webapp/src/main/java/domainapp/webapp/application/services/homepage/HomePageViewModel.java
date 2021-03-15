@@ -21,8 +21,8 @@ import domainapp.modules.simple.dom.so.SimpleObjects;
 @DomainObjectLayout()
 public class HomePageViewModel {
 
-    public TranslatableString title() {
-        return TranslatableString.tr("{num} objects", "num", getObjects().size());
+    public String title() {
+        return getObjects().size() + " objects";
     }
 
     public List<SimpleObject> getObjects() {

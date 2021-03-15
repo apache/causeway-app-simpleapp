@@ -31,6 +31,20 @@ import lombok.val;
 
 @javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE, schema = "simple")
 @javax.jdo.annotations.DatastoreIdentity(strategy=IdGeneratorStrategy.IDENTITY, column="id")
+@javax.jdo.annotations.Queries({
+        @javax.jdo.annotations.Query(
+                name = "findByName",
+                value = "SELECT " +
+                        "FROM domainapp.modules.simple.dom.so.SimpleObject " +
+                        "WHERE name.indexOf(:name) >= 0"
+        ),
+        @javax.jdo.annotations.Query(
+                name = "findByNameExact",
+                value = "SELECT " +
+                        "FROM domainapp.modules.simple.dom.so.SimpleObject " +
+                        "WHERE name == :name"
+        )
+})
 @javax.jdo.annotations.Version(strategy= VersionStrategy.DATE_TIME, column="version")
 @javax.jdo.annotations.Unique(name="SimpleObject_name_UNQ", members = {"name"})
 @DomainObject()
@@ -45,8 +59,6 @@ public class SimpleObject implements Comparable<SimpleObject> {
         return simpleObject;
     }
 
-    public static class ActionDomainEvent extends SimpleModule.ActionDomainEvent<SimpleObject> {}
-
     @Inject RepositoryService repositoryService;
     @Inject TitleService titleService;
     @Inject MessageService messageService;
@@ -58,6 +70,7 @@ public class SimpleObject implements Comparable<SimpleObject> {
         return "Object: " + getName();
     }
 
+
     @Name
     @Getter @Setter @ToString.Include
     private String name;
@@ -67,27 +80,25 @@ public class SimpleObject implements Comparable<SimpleObject> {
     private String notes;
 
 
-    public static class UpdateNameActionDomainEvent extends ActionDomainEvent {}
-    @Action(semantics = IDEMPOTENT,
-            commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED,
-            associateWith = "name", domainEvent = UpdateNameActionDomainEvent.class)
+    @Action(semantics = IDEMPOTENT)
     public SimpleObject updateName(
             @Name final String name) {
         setName(name);
         return this;
     }
-
     public String default0UpdateName() {
         return getName();
     }
 
-    public static class DeleteActionDomainEvent extends ActionDomainEvent {}
-    @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE, domainEvent = DeleteActionDomainEvent.class)
+
+    @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE)
     public void delete() {
         final String title = titleService.titleOf(this);
         messageService.informUser(String.format("'%s' deleted", title));
         repositoryService.removeAndFlush(this);
     }
+
+
 
     private final static Comparator<SimpleObject> comparator =
             Comparator.comparing(SimpleObject::getName);
