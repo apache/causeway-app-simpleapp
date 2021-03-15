@@ -5,10 +5,10 @@ SET QUOTED_IDENTIFIER ON
 GO
 
 CREATE TABLE [simple].[SimpleObject](
-    [id]      [bigint]        IDENTITY(1,1) NOT NULL,
-    [name]    [varchar](40)                 NOT NULL,
-    [notes]   [varchar](4000)               NULL,
-    [version] [datetime2](7)                NOT NULL,
+    [id]      [bigint]        NOT NULL,
+    [name]    [varchar](40)   NOT NULL,
+    [notes]   [varchar](4000) NULL,
+    [version] [bigint]        NOT NULL,
 
     CONSTRAINT [SimpleObject_PK] PRIMARY KEY CLUSTERED
         ([id] ASC)

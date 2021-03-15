@@ -8,6 +8,7 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.apache.isis.applib.annotation.Action;
 import org.apache.isis.applib.annotation.DomainObject;
 import org.apache.isis.applib.annotation.DomainObjectLayout;
+import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.Programmatic;
 import org.apache.isis.applib.jaxb.PersistentEntityAdapter;
 import org.apache.isis.applib.services.message.MessageService;
@@ -44,15 +45,14 @@ public class SimpleObject implements Comparable<SimpleObject> {
 
     @javax.persistence.Id
     @javax.persistence.GeneratedValue(strategy = javax.persistence.GenerationType.AUTO)
-    @javax.persistence.Column(nullable = false)
-    @Programmatic
-    @Getter @Setter
+    @javax.persistence.Column(name = "id", nullable = false)
     private Long id;
 
     @javax.persistence.Version
-    @Programmatic
-    @javax.persistence.Column(name = "OPTLOCK")
-    private int version;
+    @javax.persistence.Column(name = "version", nullable = false)
+    @MemberOrder(name = "Metadata", sequence = "999")
+    @Getter @Setter
+    private long version;
 
     public static SimpleObject withName(String name) {
         val simpleObject = new SimpleObject();
