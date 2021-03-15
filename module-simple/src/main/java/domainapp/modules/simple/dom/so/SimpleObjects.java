@@ -32,16 +32,15 @@ public class SimpleObjects {
 
     public static class ActionDomainEvent extends SimpleModule.ActionDomainEvent<SimpleObjects> {}
 
-    public static class CreateActionDomainEvent extends ActionDomainEvent {}
-    @Action(semantics = SemanticsOf.NON_IDEMPOTENT, domainEvent = CreateActionDomainEvent.class)
+    @Action(semantics = SemanticsOf.NON_IDEMPOTENT)
     @ActionLayout(promptStyle = PromptStyle.DIALOG_SIDEBAR)
     public SimpleObject create(
             @Name final String name) {
         return repositoryService.persist(SimpleObject.withName(name));
     }
 
-    public static class FindByNameActionDomainEvent extends ActionDomainEvent {}
-    @Action(semantics = SemanticsOf.SAFE, domainEvent = FindByNameActionDomainEvent.class)
+
+    @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT, promptStyle = PromptStyle.DIALOG_SIDEBAR)
     public List<SimpleObject> findByName(
             @Name final String name
@@ -49,12 +48,13 @@ public class SimpleObjects {
         return simpleObjectRepository.findByNameContaining(name);
     }
 
+
     @Programmatic
     public SimpleObject findByNameExact(final String name) {
         return simpleObjectRepository.findByName(name);
     }
 
-    public static class ListAllActionDomainEvent extends ActionDomainEvent {}
+
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
     public List<SimpleObject> listAll() {

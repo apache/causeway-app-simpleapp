@@ -36,8 +36,6 @@ import domainapp.webapp.custom.CustomModule;
         ApplicationModule.class,
         CustomModule.class,
 
-        HealthCheckServiceImpl.class,
-        
         // discoverable fixtures
         DomainAppDemo.class
 })

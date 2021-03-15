@@ -66,6 +66,7 @@ isis:
         show-chooser: true
         show-drop-down-on-footer: true
 
+
   persistence:
     schema:
       auto-create-schemas: simple
@@ -99,3 +100,4 @@ app:
         validation:
           message: "'{character}' is invalid."
           prohibited-characters: "&%$!"
+

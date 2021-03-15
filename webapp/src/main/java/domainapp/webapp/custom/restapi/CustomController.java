@@ -25,11 +25,11 @@ class CustomController {
 
     private final InteractionFactory interactionFactory;
     private final TransactionalProcessor transactionalProcessor;
-    private final SimpleObjects repository;
+    private final SimpleObjects simpleObjects;
 
     @GetMapping("/custom/simpleObjects")
     List<SimpleObject> all() {
-        return callAuthenticated(newAuthentication(), () -> repository.listAll())
+        return callAuthenticated(newAuthentication(), () -> simpleObjects.listAll())
                 .optionalElseFail() // re-throws exception that has occurred, if any
                 .orElse(Collections.emptyList()); // handles null case, if required
     }

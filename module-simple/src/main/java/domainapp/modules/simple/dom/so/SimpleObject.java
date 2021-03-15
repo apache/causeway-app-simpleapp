@@ -9,7 +9,6 @@ import org.apache.isis.applib.annotation.Action;
 import org.apache.isis.applib.annotation.DomainObject;
 import org.apache.isis.applib.annotation.DomainObjectLayout;
 import org.apache.isis.applib.annotation.Programmatic;
-import org.apache.isis.applib.annotation.Publishing;
 import org.apache.isis.applib.jaxb.PersistentEntityAdapter;
 import org.apache.isis.applib.services.message.MessageService;
 import org.apache.isis.applib.services.repository.RepositoryService;
@@ -19,15 +18,14 @@ import org.apache.isis.persistence.jpa.applib.integration.JpaEntityInjectionPoin
 import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
 import static org.apache.isis.applib.annotation.SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE;
 
+import domainapp.modules.simple.types.Name;
+import domainapp.modules.simple.types.Notes;
+
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.val;
-
-import domainapp.modules.simple.SimpleModule;
-import domainapp.modules.simple.types.Name;
-import domainapp.modules.simple.types.Notes;
 
 @javax.persistence.Entity
 @javax.persistence.Table(
@@ -62,8 +60,6 @@ public class SimpleObject implements Comparable<SimpleObject> {
         return simpleObject;
     }
 
-    public static class ActionDomainEvent extends SimpleModule.ActionDomainEvent<SimpleObject> {}
-
     @Inject @javax.persistence.Transient RepositoryService repositoryService;
     @Inject @javax.persistence.Transient TitleService titleService;
     @Inject @javax.persistence.Transient MessageService messageService;
@@ -84,27 +80,25 @@ public class SimpleObject implements Comparable<SimpleObject> {
     private String notes;
 
 
-    public static class UpdateNameActionDomainEvent extends ActionDomainEvent {}
-    @Action(semantics = IDEMPOTENT,
-            commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED,
-            associateWith = "name", domainEvent = UpdateNameActionDomainEvent.class)
+    @Action(semantics = IDEMPOTENT)
     public SimpleObject updateName(
             @Name final String name) {
         setName(name);
         return this;
     }
-
     public String default0UpdateName() {
         return getName();
     }
 
-    public static class DeleteActionDomainEvent extends ActionDomainEvent {}
-    @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE, domainEvent = DeleteActionDomainEvent.class)
+
+    @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE)
     public void delete() {
         final String title = titleService.titleOf(this);
         messageService.informUser(String.format("'%s' deleted", title));
         repositoryService.removeAndFlush(this);
     }
+
+
 
     private final static Comparator<SimpleObject> comparator =
             Comparator.comparing(SimpleObject::getName);
