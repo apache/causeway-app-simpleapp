@@ -17,11 +17,11 @@ import domainapp.modules.simple.dom.so.SimpleObject;
 
 @Configuration
 @ComponentScan
-@EnableJpaRepositories
-@EntityScan(basePackageClasses = {SimpleModule.class})
 @EnableConfigurationProperties({
         SimpleModule.Configuration.class,
 })
+@EnableJpaRepositories
+@EntityScan(basePackageClasses = {SimpleModule.class})
 public class SimpleModule implements ModuleWithFixtures {
 
     @Override
