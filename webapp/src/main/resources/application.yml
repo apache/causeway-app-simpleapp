@@ -67,6 +67,11 @@ isis:
         show-drop-down-on-footer: true
 
 
+  persistence:
+    schema:
+      auto-create-schemas: SIMPLE
+      create-schema-sql-template: "CREATE SCHEMA IF NOT EXISTS %S"
+
 
 resteasy:
   jaxrs:
