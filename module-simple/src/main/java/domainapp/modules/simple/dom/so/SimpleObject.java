@@ -19,18 +19,19 @@ import org.apache.isis.persistence.jpa.applib.integration.JpaEntityInjectionPoin
 import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
 import static org.apache.isis.applib.annotation.SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE;
 
-import domainapp.modules.simple.types.Name;
-import domainapp.modules.simple.types.Notes;
-
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.val;
 
+import domainapp.modules.simple.types.Name;
+import domainapp.modules.simple.types.Notes;
+
+
 @javax.persistence.Entity
 @javax.persistence.Table(
-    schema="simple",
+    schema="SIMPLE",
     uniqueConstraints = {
         @javax.persistence.UniqueConstraint(name = "SimpleObject_name_UNQ", columnNames = {"name"})
     }
@@ -68,6 +69,7 @@ public class SimpleObject implements Comparable<SimpleObject> {
     public String title() {
         return "Object: " + getName();
     }
+
 
     @Name
     @javax.persistence.Column(length = Name.MAX_LEN, nullable = false)

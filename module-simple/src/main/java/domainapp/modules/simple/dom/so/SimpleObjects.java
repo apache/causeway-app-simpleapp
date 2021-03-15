@@ -55,11 +55,14 @@ public class SimpleObjects {
     }
 
 
+
     @Action(semantics = SemanticsOf.SAFE)
     @ActionLayout(bookmarking = BookmarkPolicy.AS_ROOT)
     public List<SimpleObject> listAll() {
         return simpleObjectRepository.findAll();
     }
+
+
 
 
     @Programmatic
@@ -73,5 +76,6 @@ public class SimpleObjects {
                 q.getResultList();
             });
     }
+
 
 }

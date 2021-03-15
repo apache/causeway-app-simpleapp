@@ -21,7 +21,7 @@ import domainapp.modules.simple.dom.so.SimpleObject;
         SimpleModule.Configuration.class,
 })
 @EnableJpaRepositories
-@EntityScan(basePackageClasses = {SimpleObject.class})
+@EntityScan(basePackageClasses = {SimpleModule.class})
 public class SimpleModule implements ModuleWithFixtures {
 
     @Override

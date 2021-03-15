@@ -50,6 +50,8 @@
                 <groupId>${project.groupId}</groupId>
                 <artifactId>simpleapp-jpa-webapp-tests</artifactId>
                 <version>${project.version}</version>
+                <scope>test</scope>
+                <type>test-jar</type>
             </dependency>
 
         </dependencies>

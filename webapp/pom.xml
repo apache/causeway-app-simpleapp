@@ -43,7 +43,6 @@
             </resource>
         </resources>
         <plugins>
-
             <!-- running: mvn spring-boot:run -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
