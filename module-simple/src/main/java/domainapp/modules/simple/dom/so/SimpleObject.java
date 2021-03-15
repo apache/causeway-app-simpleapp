@@ -29,7 +29,7 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.val;
 
-@javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE, schema = "simple")
+@javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE, schema = "SIMPLE")
 @javax.jdo.annotations.DatastoreIdentity(strategy=IdGeneratorStrategy.IDENTITY, column="id")
 @javax.jdo.annotations.Queries({
         @javax.jdo.annotations.Query(

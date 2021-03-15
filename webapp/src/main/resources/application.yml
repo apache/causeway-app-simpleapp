@@ -67,11 +67,6 @@ isis:
         show-drop-down-on-footer: true
 
 
-  persistence:
-    schema:
-      auto-create-schemas: simple
-      create-schema-sql-template: "CREATE SCHEMA IF NOT EXISTS %S"
-
 # note that properties under 'datanucleus' must use camelCase rather than kebab-case
 datanucleus:
   schema:
