@@ -36,6 +36,12 @@ import domainapp.modules.simple.types.Notes;
         @javax.persistence.UniqueConstraint(name = "SimpleObject_name_UNQ", columnNames = {"name"})
     }
 )
+@javax.persistence.NamedQueries({
+        @javax.persistence.NamedQuery(
+                name = "SimpleObject.findByNameLike",
+                query = "SELECT so FROM SimpleObject so WHERE so.name LIKE :name"
+        )
+})
 @javax.persistence.EntityListeners(JpaEntityInjectionPointResolver.class) // injection support
 @DomainObject(objectType = "simple.SimpleObject")
 @DomainObjectLayout()

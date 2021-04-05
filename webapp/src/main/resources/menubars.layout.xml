@@ -10,6 +10,9 @@
                 <mb3:serviceAction objectType="simple.SimpleObjects" id="findByName">
                     <cpt:named>Find By Name</cpt:named>
                 </mb3:serviceAction>
+                <mb3:serviceAction objectType="simple.SimpleObjects" id="findByNameLike">
+                    <cpt:named>Find By Name Like</cpt:named>
+                </mb3:serviceAction>
                 <mb3:serviceAction objectType="simple.SimpleObjects" id="listAll">
                     <cpt:named>List All</cpt:named>
                 </mb3:serviceAction>
