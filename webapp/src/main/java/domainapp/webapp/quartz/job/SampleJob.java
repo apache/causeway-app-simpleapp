@@ -37,6 +37,7 @@ public class SampleJob implements Job {
     private final TransactionalProcessor transactionalProcessor;
     private final SimpleObjects simpleObjects;
 
+    @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
         final List<SimpleObject> all = all();
         log.info("{} objects in the database", all.size());
