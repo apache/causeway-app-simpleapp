@@ -13,6 +13,7 @@ import org.apache.isis.applib.annotation.NatureOfService;
 import org.apache.isis.applib.annotation.Programmatic;
 import org.apache.isis.applib.annotation.PromptStyle;
 import org.apache.isis.applib.annotation.SemanticsOf;
+import org.apache.isis.applib.query.Query;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.persistence.jpa.applib.services.JpaSupportService;
 
@@ -37,6 +38,16 @@ public class SimpleObjects {
     public SimpleObject create(
             @Name final String name) {
         return repositoryService.persist(SimpleObject.withName(name));
+    }
+
+
+    @Action(semantics = SemanticsOf.NON_IDEMPOTENT)
+    @ActionLayout(promptStyle = PromptStyle.DIALOG_SIDEBAR)
+    public List<SimpleObject> findByNameLike(
+            @Name final String name) {
+        return repositoryService.allMatches(
+                Query.named(SimpleObject.class, "SimpleObject.findByNameLike")
+                     .withParameter("name", "%" + name + "%"));
     }
 
 
