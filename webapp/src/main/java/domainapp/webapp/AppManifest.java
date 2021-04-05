@@ -18,6 +18,7 @@ import org.apache.isis.viewer.wicket.viewer.IsisModuleViewerWicketViewer;
 import domainapp.webapp.application.ApplicationModule;
 import domainapp.webapp.application.fixture.scenarios.DomainAppDemo;
 import domainapp.webapp.custom.CustomModule;
+import domainapp.webapp.quartz.QuartzModule;
 
 @Configuration
 @Import({
@@ -34,6 +35,7 @@ import domainapp.webapp.custom.CustomModule;
 
         ApplicationModule.class,
         CustomModule.class,
+        QuartzModule.class,
 
         // discoverable fixtures
         DomainAppDemo.class
