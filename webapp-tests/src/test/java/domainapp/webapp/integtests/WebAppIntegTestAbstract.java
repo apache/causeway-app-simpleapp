@@ -17,13 +17,11 @@ import org.apache.isis.testing.integtestsupport.applib.IsisIntegrationTestAbstra
 
 import domainapp.modules.simple.SimpleModule;
 import domainapp.webapp.application.ApplicationModule;
-import domainapp.webapp.bdd.stepdefs.BddStepDefsModule;
 
 @SpringBootTest(
     classes = {
             // we use a slightly different configuration compared to the production (AppManifest/webapp)
             WebAppIntegTestAbstract.TestApp.class,
-            BddStepDefsModule.class,
             ApplicationModule.class,
     }
 )
