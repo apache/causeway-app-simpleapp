@@ -101,14 +101,6 @@ management:
     health:
       enabled: true
 
-app:
-  simple-module:
-    types:
-      name:
-        validation:
-          message: "'{character}' is invalid."
-          prohibited-characters: "&%$!"
-
 # workaround for https://issues.apache.org/jira/browse/ISIS-2583: not used, but needed to prevent NPE
 datanucleus:
   cache:

@@ -102,6 +102,14 @@ public class SimpleObject implements Comparable<SimpleObject> {
     public String default0UpdateName() {
         return getName();
     }
+    public String validate0UpdateName(String newName) {
+        for (char prohibitedCharacter : "&%$!".toCharArray()) {
+            if( newName.contains(""+prohibitedCharacter)) {
+                return "Character '" + prohibitedCharacter + "' is not allowed.";
+            }
+        }
+        return null;
+    }
 
 
     @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE, associateWith = "name")
