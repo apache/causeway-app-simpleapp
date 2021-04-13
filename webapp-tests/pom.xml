@@ -113,60 +113,6 @@
             <scope>test</scope>
         </dependency>
 
-        <dependency>
-            <groupId>com.tngtech.archunit</groupId>
-            <artifactId>archunit-junit5-api</artifactId>
-            <version>${archunit.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>com.tngtech.archunit</groupId>
-            <artifactId>archunit-junit5-engine</artifactId>
-            <version>${archunit.version}</version>
-            <scope>test</scope>
-        </dependency>
-
     </dependencies>
-
-    <profiles>
-
-        <profile>
-            <id>mavendeps-lockdown</id>
-            <activation>
-                <property>
-                    <name>mavendeps.lockdown</name>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <artifactId>maven-dependency-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>list</id>
-                                <phase>generate-test-resources</phase>
-                                <goals>
-                                    <goal>list</goal>
-                                </goals>
-                                <configuration>
-                                    <outputFile>${project.build.directory}/test-classes/domainapp/webapp/unittests/mavendeps/lockdown/current/LockDownMavenDeps_Test.list.txt</outputFile>
-                                </configuration>
-                            </execution>
-                            <execution>
-                                <id>tree</id>
-                                <phase>generate-test-resources</phase>
-                                <goals>
-                                    <goal>tree</goal>
-                                </goals>
-                                <configuration>
-                                    <outputFile>${project.build.directory}/test-classes/domainapp/webapp/unittests/mavendeps/lockdown/current/LockDownMavenDeps_Test.tree.txt</outputFile>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
-    </profiles>
 
 </project>
