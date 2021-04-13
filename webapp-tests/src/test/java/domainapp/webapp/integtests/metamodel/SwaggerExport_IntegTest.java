@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.context.annotation.Import;
+import org.springframework.test.annotation.DirtiesContext;
 
 import org.apache.isis.applib.services.registry.ServiceRegistry;
 import org.apache.isis.applib.services.swagger.Format;
@@ -20,6 +21,7 @@ import domainapp.webapp.integtests.WebAppIntegTestAbstract;
 @Import({
         IsisModuleViewerRestfulObjectsJaxrsResteasy4.class
 })
+@DirtiesContext
 class SwaggerExport_IntegTest extends WebAppIntegTestAbstract {
 
     @Inject ServiceRegistry serviceRegistry;
