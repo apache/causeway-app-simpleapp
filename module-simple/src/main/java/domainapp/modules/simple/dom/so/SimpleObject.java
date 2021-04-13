@@ -12,8 +12,8 @@ import org.apache.isis.applib.annotation.Action;
 import org.apache.isis.applib.annotation.ActionLayout;
 import org.apache.isis.applib.annotation.DomainObject;
 import org.apache.isis.applib.annotation.DomainObjectLayout;
-import org.apache.isis.applib.annotation.MemberOrder;
 import org.apache.isis.applib.annotation.PromptStyle;
+import org.apache.isis.applib.annotation.PropertyLayout;
 import org.apache.isis.applib.jaxb.PersistentEntityAdapter;
 import org.apache.isis.applib.services.message.MessageService;
 import org.apache.isis.applib.services.repository.RepositoryService;
@@ -74,12 +74,12 @@ public class SimpleObject implements Comparable<SimpleObject> {
 
     @Name
     @Getter @Setter @ToString.Include
-    @MemberOrder(name = "Name", sequence = "1")
+    @PropertyLayout(fieldSetId = "name", sequence = "1")
     private String name;
 
     @Notes
     @Getter @Setter
-    @MemberOrder(name = "Name", sequence = "2")
+    @PropertyLayout(fieldSetId = "name", sequence = "2")
     private String notes;
 
 
