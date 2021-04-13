@@ -103,11 +103,3 @@ management:
     health:
       enabled: true
 
-app:
-  simple-module:
-    types:
-      name:
-        validation:
-          message: "'{character}' is invalid."
-          prohibited-characters: "&%$!"
-
