@@ -9,8 +9,11 @@ import javax.jdo.annotations.VersionStrategy;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import org.apache.isis.applib.annotation.Action;
+import org.apache.isis.applib.annotation.ActionLayout;
 import org.apache.isis.applib.annotation.DomainObject;
 import org.apache.isis.applib.annotation.DomainObjectLayout;
+import org.apache.isis.applib.annotation.MemberOrder;
+import org.apache.isis.applib.annotation.PromptStyle;
 import org.apache.isis.applib.jaxb.PersistentEntityAdapter;
 import org.apache.isis.applib.services.message.MessageService;
 import org.apache.isis.applib.services.repository.RepositoryService;
@@ -71,14 +74,17 @@ public class SimpleObject implements Comparable<SimpleObject> {
 
     @Name
     @Getter @Setter @ToString.Include
+    @MemberOrder(name = "Name", sequence = "1")
     private String name;
 
     @Notes
     @Getter @Setter
+    @MemberOrder(name = "Name", sequence = "2")
     private String notes;
 
 
-    @Action(semantics = IDEMPOTENT)
+    @Action(semantics = IDEMPOTENT, associateWith = "name")
+    @ActionLayout(promptStyle = PromptStyle.INLINE)
     public SimpleObject updateName(
             @Name final String name) {
         setName(name);
@@ -89,7 +95,11 @@ public class SimpleObject implements Comparable<SimpleObject> {
     }
 
 
-    @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE)
+    @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE, associateWith = "name")
+    @ActionLayout(
+            position = ActionLayout.Position.PANEL,
+            describedAs = "Deletes this object from the persistent datastore"
+    )
     public void delete() {
         final String title = titleService.titleOf(this);
         messageService.informUser(String.format("'%s' deleted", title));
