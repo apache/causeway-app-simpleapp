@@ -58,7 +58,7 @@ public class SimpleObject implements Comparable<SimpleObject> {
 
     @javax.persistence.Version
     @javax.persistence.Column(name = "version", nullable = false)
-    @MemberOrder(name = "Metadata", sequence = "999")
+    @PropertyLayout(fieldSetId = "metadata", sequence = "999")
     @Getter @Setter
     private long version;
 
