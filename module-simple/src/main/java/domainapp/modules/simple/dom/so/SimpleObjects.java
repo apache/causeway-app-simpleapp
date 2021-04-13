@@ -31,7 +31,6 @@ public class SimpleObjects {
     private final JpaSupportService jpaSupportService;
     private final SimpleObjectRepository simpleObjectRepository;
 
-    public static class ActionDomainEvent extends SimpleModule.ActionDomainEvent<SimpleObjects> {}
 
     @Action(semantics = SemanticsOf.NON_IDEMPOTENT)
     @ActionLayout(promptStyle = PromptStyle.DIALOG_SIDEBAR)
