@@ -1,17 +1,12 @@
 package domainapp.modules.simple;
 
 import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.validation.annotation.Validated;
 
 import org.apache.isis.testing.fixtures.applib.fixturescripts.FixtureScript;
 import org.apache.isis.testing.fixtures.applib.modules.ModuleWithFixtures;
-
-import lombok.Data;
 
 import domainapp.modules.simple.dom.so.SimpleObject;
 
