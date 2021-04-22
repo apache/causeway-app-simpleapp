@@ -17,7 +17,6 @@ import org.apache.isis.applib.query.Query;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.persistence.jdo.applib.services.JdoSupportService;
 
-import domainapp.modules.simple.SimpleModule;
 import domainapp.modules.simple.types.Name;
 
 @DomainService(
