@@ -23,6 +23,12 @@
                 <mb3:serviceAction objectType="isis.ext.fixtures.FixtureScripts" id="recreateObjectsAndReturnFirst"/>
             </mb3:section>
             <mb3:section>
+                <mb3:named>Impersonate</mb3:named>
+                <mb3:serviceAction objectType="isis.sudo.ImpersonateMenu" id="impersonate"/>
+                <mb3:serviceAction objectType="isis.sudo.ImpersonateMenu" id="impersonateWithRoles"/>
+                <mb3:serviceAction objectType="isis.sudo.ImpersonateMenu" id="stopImpersonating"/>
+            </mb3:section>
+            <mb3:section>
                 <mb3:named>Layouts</mb3:named>
                 <mb3:serviceAction objectType="isis.applib.LayoutServiceMenu" id="downloadLayouts"/>
                 <mb3:serviceAction objectType="isis.applib.LayoutServiceMenu" id="downloadMenuBarsLayout"/>
@@ -39,9 +45,9 @@
             </mb3:section>
             <mb3:section>
                 <mb3:named>REST API</mb3:named>
-                <mb3:serviceAction objectType="isis.applib.SwaggerServiceMenu" id="openSwaggerUi"/>
-                <mb3:serviceAction objectType="isis.applib.SwaggerServiceMenu" id="openRestApi"/>
-                <mb3:serviceAction objectType="isis.applib.SwaggerServiceMenu" id="downloadSwaggerSchemaDefinition"/>
+                <mb3:serviceAction objectType="isis.viewer.restfulobjects.SwaggerServiceMenu" id="openSwaggerUi"/>
+                <mb3:serviceAction objectType="isis.viewer.restfulobjects.SwaggerServiceMenu" id="openRestApi"/>
+                <mb3:serviceAction objectType="isis.viewer.restfulobjects.SwaggerServiceMenu" id="downloadSwaggerSchemaDefinition"/>
             </mb3:section>
             <mb3:section>
                 <mb3:named>i18n</mb3:named>
@@ -57,7 +63,7 @@
             <mb3:named/>
             <mb3:section>
                 <mb3:named>Configuration</mb3:named>
-                <mb3:serviceAction objectType="isis.applib.ConfigurationMenu" id="configuration"/>
+                <mb3:serviceAction objectType="isis.conf.ConfigurationMenu" id="configuration"/>
             </mb3:section>
             <mb3:section>
                 <mb3:serviceAction objectType="isis.security.LogoutMenu" id="logout"/>

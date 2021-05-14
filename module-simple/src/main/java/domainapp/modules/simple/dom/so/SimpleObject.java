@@ -91,8 +91,8 @@ public class SimpleObject implements Comparable<SimpleObject> {
     private String notes;
 
 
-    @Action(semantics = IDEMPOTENT, associateWith = "name")
-    @ActionLayout(promptStyle = PromptStyle.INLINE)
+    @Action(semantics = IDEMPOTENT)
+    @ActionLayout(associateWith = "name", promptStyle = PromptStyle.INLINE)
     public SimpleObject updateName(
             @Name final String name) {
         setName(name);
