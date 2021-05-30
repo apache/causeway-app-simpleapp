@@ -33,9 +33,14 @@
                 <mb3:serviceAction objectType="isis.applib.LayoutServiceMenu" id="downloadMenuBarsLayout"/>
             </mb3:section>
             <mb3:section>
-                <mb3:named>Meta Model</mb3:named>
+                <mb3:named>Meta Model and Features</mb3:named>
                 <mb3:serviceAction objectType="isis.applib.MetaModelServiceMenu" id="downloadMetaModelXml"/>
                 <mb3:serviceAction objectType="isis.applib.MetaModelServiceMenu" id="downloadMetaModelCsv"/>
+                <mb3:serviceAction objectType="isis.feat.ApplicationFeatureMenu" id="allNamespaces"/>
+                <mb3:serviceAction objectType="isis.feat.ApplicationFeatureMenu" id="allTypes"/>
+                <mb3:serviceAction objectType="isis.feat.ApplicationFeatureMenu" id="allActions"/>
+                <mb3:serviceAction objectType="isis.feat.ApplicationFeatureMenu" id="allProperties"/>
+                <mb3:serviceAction objectType="isis.feat.ApplicationFeatureMenu" id="allCollections"/>
             </mb3:section>
             <mb3:section>
                 <mb3:named>Persistence</mb3:named>
