@@ -5,7 +5,10 @@
             <bs3:row>
                 <bs3:col span="12" unreferencedActions="true">
                     <domainObject/>
-                    <action id="clearHints"/>
+                    <action id="clearHints" hidden="EVERYWHERE"/>
+                    <action id="impersonate" hidden="EVERYWHERE"/>
+                    <action id="impersonateWithRoles" hidden="EVERYWHERE"/>
+                    <action id="stopImpersonating" hidden="EVERYWHERE"/>
                     <action id="downloadLayoutXml" hidden="EVERYWHERE"/>
                     <action id="inspectMetamodel" hidden="EVERYWHERE"/>
                     <action id="rebuildMetamodel" hidden="EVERYWHERE"/>
