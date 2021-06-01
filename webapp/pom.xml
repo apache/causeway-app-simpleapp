@@ -69,6 +69,11 @@
         </dependency>
 
         <dependency>
+            <groupId>org.apache.isis.security</groupId>
+            <artifactId>isis-security-shiro</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>org.apache.isis.mavendeps</groupId>
             <artifactId>isis-mavendeps-jpa</artifactId>
             <type>pom</type>
