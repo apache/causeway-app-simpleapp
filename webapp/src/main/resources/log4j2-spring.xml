@@ -41,13 +41,13 @@
         <!-- request scoped -->
         <logger name="org.apache.isis.viewer.restfulobjects.rendering.service.acceptheader.AcceptHeaderServiceForRest" level="debug"/>
         <logger name="org.apache.isis.applib.services.command.CommandContext" level="debug"/>
-        <logger name="org.apache.isis.applib.services.iactn.InteractionContext" level="debug"/>
+        <logger name="org.apache.isis.applib.services.iactn.InteractionProvider" level="debug"/>
         <logger name="org.apache.isis.applib.services.scratchpad.Scratchpad" level="debug"/>
         <logger name="org.apache.isis.core.runtimeservices.publish.PublisherDispatchServiceDefault" level="debug"/>
 
         <!-- transaction scoped -->
         <logger name="org.apache.isis.persistence.jdo.datanucleus5.metrics.MetricsServiceDefault" level="debug"/>
-        <logger name="org.apache.isis.core.runtimeservices.queryresultscache.QueryResultsCacheDefault" level="debug"/>
+        <logger name="org.apache.isis.applib.services.queryresultscache.QueryResultsCache" level="debug"/>
         <logger name="org.apache.isis.core.runtime.persistence.transaction.ChangedObjectsService" level="debug"/>
 
         <Root level="info">
