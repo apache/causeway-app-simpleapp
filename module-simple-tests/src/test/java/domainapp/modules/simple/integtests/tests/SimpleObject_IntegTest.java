@@ -1,23 +1,16 @@
 package domainapp.modules.simple.integtests.tests;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.inject.Inject;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.springframework.context.event.EventListener;
 import org.springframework.transaction.annotation.Transactional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.apache.isis.applib.annotation.DomainService;
 import org.apache.isis.applib.services.wrapper.DisabledException;
 import org.apache.isis.applib.services.wrapper.InvalidException;
-
-import lombok.Getter;
 
 import domainapp.modules.simple.dom.so.SimpleObject;
 import domainapp.modules.simple.fixture.SimpleObject_persona;

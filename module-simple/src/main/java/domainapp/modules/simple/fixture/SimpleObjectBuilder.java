@@ -2,7 +2,7 @@ package domainapp.modules.simple.fixture;
 
 import javax.inject.Inject;
 
-import org.apache.isis.testing.fixtures.applib.fixturescripts.BuilderScriptWithResult;
+import org.apache.isis.testing.fixtures.applib.personas.BuilderScriptWithResult;
 
 import domainapp.modules.simple.dom.so.SimpleObject;
 import domainapp.modules.simple.dom.so.SimpleObjects;
@@ -18,12 +18,12 @@ public class SimpleObjectBuilder extends BuilderScriptWithResult<SimpleObject> {
 
     @Override
     protected SimpleObject buildResult(final ExecutionContext ec) {
-        
+
         checkParam("name", ec, String.class);
-        
+
         return wrap(simpleObjects).create(name);
     }
-    
+
     // -- DEPENDENCIES
 
     @Inject SimpleObjects simpleObjects;

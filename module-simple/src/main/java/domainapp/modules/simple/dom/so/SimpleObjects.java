@@ -44,7 +44,7 @@ public class SimpleObjects {
             @Name final String name
             ) {
         return repositoryService.allMatches(
-                    Query.named(SimpleObject.class, "findByName")
+                    Query.named(SimpleObject.class, SimpleObject.NAMED_QUERY__FIND_BY_NAME_LIKE)
                         .withParameter("name", name));
     }
 
@@ -52,7 +52,7 @@ public class SimpleObjects {
     @Programmatic
     public SimpleObject findByNameExact(final String name) {
         return repositoryService.firstMatch(
-                    Query.named(SimpleObject.class, "findByNameExact")
+                    Query.named(SimpleObject.class, SimpleObject.NAMED_QUERY__FIND_BY_NAME_EXACT)
                         .withParameter("name", name))
                 .orElse(null);
     }

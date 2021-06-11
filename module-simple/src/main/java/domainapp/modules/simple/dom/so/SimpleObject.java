@@ -22,7 +22,9 @@ import org.apache.isis.applib.services.title.TitleService;
 import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
 import static org.apache.isis.applib.annotation.SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE;
 
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.val;
@@ -30,29 +32,38 @@ import lombok.val;
 import domainapp.modules.simple.types.Name;
 import domainapp.modules.simple.types.Notes;
 
-@javax.jdo.annotations.PersistenceCapable(identityType=IdentityType.DATASTORE, schema = "SIMPLE")
-@javax.jdo.annotations.DatastoreIdentity(strategy=IdGeneratorStrategy.IDENTITY, column="id")
+
+@javax.jdo.annotations.PersistenceCapable(
+    schema = "SIMPLE",
+    identityType=IdentityType.DATASTORE)
+@javax.jdo.annotations.Unique(
+        name = "SimpleObject_name_UNQ", members = {"name"}
+)
 @javax.jdo.annotations.Queries({
         @javax.jdo.annotations.Query(
-                name = "findByName",
+                name = SimpleObject.NAMED_QUERY__FIND_BY_NAME_LIKE,
                 value = "SELECT " +
                         "FROM domainapp.modules.simple.dom.so.SimpleObject " +
                         "WHERE name.indexOf(:name) >= 0"
         ),
         @javax.jdo.annotations.Query(
-                name = "findByNameExact",
+                name = SimpleObject.NAMED_QUERY__FIND_BY_NAME_EXACT,
                 value = "SELECT " +
                         "FROM domainapp.modules.simple.dom.so.SimpleObject " +
                         "WHERE name == :name"
         )
 })
+@javax.jdo.annotations.DatastoreIdentity(strategy=IdGeneratorStrategy.IDENTITY, column="id")
 @javax.jdo.annotations.Version(strategy= VersionStrategy.DATE_TIME, column="version")
-@javax.jdo.annotations.Unique(name="SimpleObject_name_UNQ", members = {"name"})
 @DomainObject(objectType = "simple.SimpleObject")
 @DomainObjectLayout()
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 @XmlJavaTypeAdapter(PersistentEntityAdapter.class)
 @ToString(onlyExplicitlyIncluded = true)
 public class SimpleObject implements Comparable<SimpleObject> {
+
+    static final String NAMED_QUERY__FIND_BY_NAME_LIKE = "SimpleObject.findByNameLike";
+    static final String NAMED_QUERY__FIND_BY_NAME_EXACT = "SimpleObject.findByNameExact";
 
     public static SimpleObject withName(String name) {
         val simpleObject = new SimpleObject();
@@ -64,8 +75,6 @@ public class SimpleObject implements Comparable<SimpleObject> {
     @Inject TitleService titleService;
     @Inject MessageService messageService;
 
-    private SimpleObject() {
-    }
 
     public String title() {
         return "Object: " + getName();
