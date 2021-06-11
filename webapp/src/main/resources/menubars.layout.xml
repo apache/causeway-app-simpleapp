@@ -19,14 +19,8 @@
             <mb3:named>Prototyping</mb3:named>
             <mb3:section>
                 <mb3:named>Fixtures</mb3:named>
-                <mb3:serviceAction objectType="isis.ext.fixtures.FixtureScripts" id="runFixtureScript"/>
-                <mb3:serviceAction objectType="isis.ext.fixtures.FixtureScripts" id="recreateObjectsAndReturnFirst"/>
-            </mb3:section>
-            <mb3:section>
-                <mb3:named>Impersonate</mb3:named>
-                <mb3:serviceAction objectType="isis.sudo.ImpersonateMenu" id="impersonate"/>
-                <mb3:serviceAction objectType="isis.sudo.ImpersonateMenu" id="impersonateWithRoles"/>
-                <mb3:serviceAction objectType="isis.sudo.ImpersonateMenu" id="stopImpersonating"/>
+                <mb3:serviceAction objectType="isis.testing.fixtures.FixtureScripts" id="runFixtureScript"/>
+                <mb3:serviceAction objectType="isis.testing.fixtures.FixtureScripts" id="recreateObjectsAndReturnFirst"/>
             </mb3:section>
             <mb3:section>
                 <mb3:named>Layouts</mb3:named>
@@ -69,6 +63,12 @@
             <mb3:section>
                 <mb3:named>Configuration</mb3:named>
                 <mb3:serviceAction objectType="isis.conf.ConfigurationMenu" id="configuration"/>
+            </mb3:section>
+            <mb3:section>
+                <mb3:named>Impersonate</mb3:named>
+                <mb3:serviceAction objectType="isis.sudo.ImpersonateMenu" id="impersonate"/>
+                <mb3:serviceAction objectType="isis.sudo.ImpersonateMenu" id="impersonateWithRoles"/>
+                <mb3:serviceAction objectType="isis.sudo.ImpersonateMenu" id="stopImpersonating"/>
             </mb3:section>
             <mb3:section>
                 <mb3:serviceAction objectType="isis.security.LogoutMenu" id="logout"/>

@@ -39,7 +39,7 @@ import domainapp.modules.simple.types.Notes;
 )
 @javax.persistence.NamedQueries({
         @javax.persistence.NamedQuery(
-                name = "SimpleObject.findByNameLike",
+                name = SimpleObject.NAMED_QUERY__FIND_BY_NAME_LIKE,
                 query = "SELECT so FROM SimpleObject so WHERE so.name LIKE :name"
         )
 })
@@ -50,6 +50,8 @@ import domainapp.modules.simple.types.Notes;
 @XmlJavaTypeAdapter(PersistentEntityAdapter.class)
 @ToString(onlyExplicitlyIncluded = true)
 public class SimpleObject implements Comparable<SimpleObject> {
+
+    static final String NAMED_QUERY__FIND_BY_NAME_LIKE = "SimpleObject.findByNameLike";
 
     @javax.persistence.Id
     @javax.persistence.GeneratedValue(strategy = javax.persistence.GenerationType.AUTO)

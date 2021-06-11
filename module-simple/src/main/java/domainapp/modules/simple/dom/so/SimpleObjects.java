@@ -44,7 +44,7 @@ public class SimpleObjects {
     public List<SimpleObject> findByNameLike(
             @Name final String name) {
         return repositoryService.allMatches(
-                Query.named(SimpleObject.class, "SimpleObject.findByNameLike")
+                Query.named(SimpleObject.class, SimpleObject.NAMED_QUERY__FIND_BY_NAME_LIKE)
                      .withParameter("name", "%" + name + "%"));
     }
 
