@@ -20,6 +20,7 @@ import org.apache.isis.persistence.jpa.applib.integration.JpaEntityInjectionPoin
 import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
 import static org.apache.isis.applib.annotation.SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE;
 
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -40,13 +41,15 @@ import domainapp.modules.simple.types.Notes;
 @javax.persistence.NamedQueries({
         @javax.persistence.NamedQuery(
                 name = SimpleObject.NAMED_QUERY__FIND_BY_NAME_LIKE,
-                query = "SELECT so FROM SimpleObject so WHERE so.name LIKE :name"
+                query = "SELECT so " +
+                        "FROM SimpleObject so " +
+                        "WHERE so.name LIKE :name"
         )
 })
 @javax.persistence.EntityListeners(JpaEntityInjectionPointResolver.class) // injection support
 @DomainObject(objectType = "simple.SimpleObject")
 @DomainObjectLayout()
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
 @XmlJavaTypeAdapter(PersistentEntityAdapter.class)
 @ToString(onlyExplicitlyIncluded = true)
 public class SimpleObject implements Comparable<SimpleObject> {

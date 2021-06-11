@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.apache.isis.applib.services.sudo.SudoService;
 import org.apache.isis.applib.services.wrapper.DisabledException;
 import org.apache.isis.applib.services.wrapper.InvalidException;
 
@@ -21,7 +20,6 @@ import domainapp.modules.simple.integtests.SimpleModuleIntegTestAbstract;
 public class SimpleObject_IntegTest extends SimpleModuleIntegTestAbstract {
 
     SimpleObject simpleObject;
-    @Inject SudoService sudoService;
 
     @BeforeEach
     public void setUp() {

@@ -29,7 +29,6 @@ import domainapp.webapp.application.ApplicationModule;
 @ActiveProfiles("test")
 public abstract class WebAppIntegTestAbstract extends IsisIntegrationTestAbstract {
 
-
     /**
      * Compared to the production app manifest <code>domainapp.webapp.AppManifest</code>,
      * here we in effect disable security checks, and we exclude any web/UI modules.
