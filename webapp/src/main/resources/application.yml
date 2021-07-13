@@ -77,11 +77,11 @@ isis:
 
 eclipselink:
   # if enabled, then must be run with JVM arg:
-  # -javaagent:lib/spring-instrument-5.3.5.jar
+  # -javaagent:lib/spring-instrument-5.3.8.jar
   weaving: false
   # if weaving subproperties are required, then specify all eclipselink.weaving
   # properties using application.properties instead (it's not possible to
-  # specify both eclipselink.weaving property and its subsproperties using yaml syntax)
+  # specify both eclipselink.weaving property and its subproperties using yaml syntax)
 
 resteasy:
   jaxrs:

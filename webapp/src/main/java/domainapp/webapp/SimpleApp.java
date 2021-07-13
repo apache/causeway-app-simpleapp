@@ -9,7 +9,8 @@ import org.apache.isis.core.config.presets.IsisPresets;
 
 @SpringBootApplication
 @Import({
-    AppManifest.class,
+    AppManifest.class
+//    , XrayEnable.class
 })
 public class SimpleApp extends SpringBootServletInitializer {
 

@@ -18,6 +18,11 @@
         <!-- silence Wicket -->
         <Logger name="org.apache.wicket.page.PartialPageUpdate" level="error" />
 
+        <Logger name="org.apache.isis.applib.services.publishing.log.CommandLogger" level="debug" />
+        <Logger name="org.apache.isis.applib.services.publishing.log.ExecutionLogger" level="debug" />
+        <Logger name="org.apache.isis.applib.services.publishing.log.EntityChangesLogger" level="debug" />
+        <Logger name="org.apache.isis.applib.services.publishing.log.EntityPropertyChangeLogger" level="debug" />
+
         <Logger name="org.apache.catalina.startup.DigesterFactory" level="error" />
         <Logger name="org.apache.catalina.util.LifecycleBase" level="error" />
         <Logger name="org.apache.coyote.http11.Http11NioProtocol" level="warn" />

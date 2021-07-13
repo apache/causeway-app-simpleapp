@@ -10,12 +10,14 @@ import org.apache.isis.applib.annotation.ActionLayout;
 import org.apache.isis.applib.annotation.DomainObject;
 import org.apache.isis.applib.annotation.DomainObjectLayout;
 import org.apache.isis.applib.annotation.PromptStyle;
+import org.apache.isis.applib.annotation.Property;
 import org.apache.isis.applib.annotation.PropertyLayout;
+import org.apache.isis.applib.annotation.Publishing;
 import org.apache.isis.applib.jaxb.PersistentEntityAdapter;
 import org.apache.isis.applib.services.message.MessageService;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
-import org.apache.isis.persistence.jpa.applib.integration.JpaEntityInjectionPointResolver;
+import org.apache.isis.persistence.jpa.applib.integration.IsisEntityListener;
 
 import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
 import static org.apache.isis.applib.annotation.SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE;
@@ -33,7 +35,7 @@ import domainapp.modules.simple.types.Notes;
 
 @javax.persistence.Entity
 @javax.persistence.Table(
-    schema="SIMPLE",
+    schema="simple",
     uniqueConstraints = {
         @javax.persistence.UniqueConstraint(name = "SimpleObject_name_UNQ", columnNames = {"name"})
     }
@@ -46,8 +48,8 @@ import domainapp.modules.simple.types.Notes;
                         "WHERE so.name LIKE :name"
         )
 })
-@javax.persistence.EntityListeners(JpaEntityInjectionPointResolver.class) // injection support
-@DomainObject(objectType = "simple.SimpleObject")
+@javax.persistence.EntityListeners(IsisEntityListener.class)
+@DomainObject(logicalTypeName = "simple.SimpleObject", entityChangePublishing = Publishing.ENABLED)
 @DomainObjectLayout()
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @XmlJavaTypeAdapter(PersistentEntityAdapter.class)
@@ -92,11 +94,12 @@ public class SimpleObject implements Comparable<SimpleObject> {
     @Notes
     @javax.persistence.Column(length = Notes.MAX_LEN, nullable = true)
     @Getter @Setter
+    @Property(commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
     @PropertyLayout(fieldSetId = "name", sequence = "2")
     private String notes;
 
 
-    @Action(semantics = IDEMPOTENT)
+    @Action(semantics = IDEMPOTENT, commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
     @ActionLayout(associateWith = "name", promptStyle = PromptStyle.INLINE)
     public SimpleObject updateName(
             @Name final String name) {
@@ -116,11 +119,10 @@ public class SimpleObject implements Comparable<SimpleObject> {
     }
 
 
-    @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE, associateWith = "name")
+    @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE)
     @ActionLayout(
-            position = ActionLayout.Position.PANEL,
-            describedAs = "Deletes this object from the persistent datastore"
-    )
+            associateWith = "name", position = ActionLayout.Position.PANEL,
+            describedAs = "Deletes this object from the persistent datastore")
     public void delete() {
         final String title = titleService.titleOf(this);
         messageService.informUser(String.format("'%s' deleted", title));

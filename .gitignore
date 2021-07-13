@@ -41,3 +41,5 @@ rebel.xml
 translations.pot
 
 .flattened-pom.xml
+
+create-db-schema.sql

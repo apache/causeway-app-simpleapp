@@ -10,6 +10,7 @@ import org.apache.isis.applib.annotation.ActionLayout;
 import org.apache.isis.applib.annotation.BookmarkPolicy;
 import org.apache.isis.applib.annotation.DomainService;
 import org.apache.isis.applib.annotation.NatureOfService;
+import org.apache.isis.applib.annotation.PriorityPrecedence;
 import org.apache.isis.applib.annotation.Programmatic;
 import org.apache.isis.applib.annotation.PromptStyle;
 import org.apache.isis.applib.annotation.SemanticsOf;
@@ -22,13 +23,14 @@ import domainapp.modules.simple.types.Name;
 @DomainService(
         nature = NatureOfService.VIEW,
         objectType = "simple.SimpleObjects"
-        )
+)
+@javax.annotation.Priority(PriorityPrecedence.EARLY)
 @lombok.RequiredArgsConstructor(onConstructor_ = {@Inject} )
 public class SimpleObjects {
 
-    private final RepositoryService repositoryService;
-    private final JpaSupportService jpaSupportService;
-    private final SimpleObjectRepository simpleObjectRepository;
+    final RepositoryService repositoryService;
+    final JpaSupportService jpaSupportService;
+    final SimpleObjectRepository simpleObjectRepository;
 
 
     @Action(semantics = SemanticsOf.NON_IDEMPOTENT)
