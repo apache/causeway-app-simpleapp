@@ -242,3 +242,41 @@ The Spring Boot profile is also used to add the dependency to the SQL Server dri
 
 The prerequisites to try this out are a SQL Server database running on `localhost` and with the credentials as specified in `config/application-SQLSERVER.properties`; adjust as necessary.
 
+
+== Example Restful Objects invoke
+
+This branch includes the following service:
+
+[source,java]
+.SimpleObjectRestApi.java
+----
+@DomainService(
+        nature = NatureOfService.REST,
+        objectType = "simple.SimpleObjectRestApi"
+        )
+@lombok.RequiredArgsConstructor(onConstructor_ = {@Inject} )
+public class SimpleObjectRestApi {
+
+    private final SimpleObjects simpleObjects;
+
+    @Action(semantics = SemanticsOf.NON_IDEMPOTENT)
+    public SimpleObject copy(
+            final SimpleObject original
+            ) {
+        return simpleObjects.create(original.getName() + " (copy)");
+    }
+}
+----
+
+Run up the app; the following _curl_ script will invoke the above endopint:
+
+[source,bash]
+----
+curl --location --request POST 'http://localhost:8080/restful/services/simple.SimpleObjectRestApi/actions/copy/invoke' \
+--header 'Authorization: Basic c3ZlbjpwYXNz' \
+--data-raw '{
+  "original": {
+    "value": {"href": "http://localhost:8080/restful/objects/simple.SimpleObject/1"}
+  }
+}'
+----
