@@ -6,7 +6,7 @@
     <parent>
         <groupId>org.apache.isis.app</groupId>
         <artifactId>isis-app-starter-parent</artifactId>
-        <version>2.0.0-M5.20210713-0226-85ec9782</version>
+        <version>2.0.0-M5.20210724-1447-cdcc665b</version>
         <relativePath/>
     </parent>
 
@@ -19,7 +19,7 @@
     <packaging>pom</packaging>
 
     <properties>
-        <isis.version>2.0.0-SNAPSHOT</isis.version>
+        <isis.version>2.0.0-M5.20210724-1447-cdcc665b</isis.version>
         <java.version>11</java.version>
         <maven-cucumber-reporting.version>5.3.0</maven-cucumber-reporting.version>
         <archunit.version>0.14.1</archunit.version>

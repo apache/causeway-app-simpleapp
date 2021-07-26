@@ -13,6 +13,7 @@ import org.apache.isis.applib.annotation.PromptStyle;
 import org.apache.isis.applib.annotation.Property;
 import org.apache.isis.applib.annotation.PropertyLayout;
 import org.apache.isis.applib.annotation.Publishing;
+import org.apache.isis.applib.annotation.Title;
 import org.apache.isis.applib.jaxb.PersistentEntityAdapter;
 import org.apache.isis.applib.services.message.MessageService;
 import org.apache.isis.applib.services.repository.RepositoryService;
@@ -80,11 +81,8 @@ public class SimpleObject implements Comparable<SimpleObject> {
     @Inject @javax.persistence.Transient MessageService messageService;
 
 
-    public String title() {
-        return "Object: " + getName();
-    }
 
-
+    @Title
     @Name
     @javax.persistence.Column(length = Name.MAX_LEN, nullable = false)
     @Getter @Setter @ToString.Include
