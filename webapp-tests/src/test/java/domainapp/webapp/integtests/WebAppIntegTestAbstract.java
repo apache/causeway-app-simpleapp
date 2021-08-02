@@ -11,7 +11,7 @@ import org.springframework.test.context.ActiveProfiles;
 
 import org.apache.isis.core.config.presets.IsisPresets;
 import org.apache.isis.core.runtimeservices.IsisModuleCoreRuntimeServices;
-import org.apache.isis.persistence.jpa.eclipselink.IsisModuleJpaEclipselink;
+import org.apache.isis.persistence.jpa.eclipselink.IsisModulePersistenceJpaEclipselink;
 import org.apache.isis.security.bypass.IsisModuleSecurityBypass;
 import org.apache.isis.testing.fixtures.applib.IsisModuleTestingFixturesApplib;
 import org.apache.isis.testing.integtestsupport.applib.IsisIntegrationTestAbstract;
@@ -40,7 +40,7 @@ public abstract class WebAppIntegTestAbstract extends IsisIntegrationTestAbstrac
 
             IsisModuleCoreRuntimeServices.class,
             IsisModuleSecurityBypass.class,
-            IsisModuleJpaEclipselink.class,
+            IsisModulePersistenceJpaEclipselink.class,
             IsisModuleTestingFixturesApplib.class,
 
             SimpleModule.class
