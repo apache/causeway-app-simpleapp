@@ -27,7 +27,7 @@ public class SimpleObjects_IntegTest extends SimpleModuleIntegTestAbstract {
     SimpleObjects menu;
 
     @Nested
-    public class listAll {
+    public static class listAll extends SimpleObjects_IntegTest {
 
         @Test
         public void happyCase() {
@@ -55,7 +55,7 @@ public class SimpleObjects_IntegTest extends SimpleModuleIntegTestAbstract {
     }
 
     @Nested
-    public class create{
+    public static class create extends SimpleObjects_IntegTest {
 
         @Test
         public void happyCase() {

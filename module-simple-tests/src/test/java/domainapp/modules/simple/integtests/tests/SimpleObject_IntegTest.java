@@ -26,8 +26,9 @@ public class SimpleObject_IntegTest extends SimpleModuleIntegTestAbstract {
         simpleObject = fixtureScripts.runPersona(SimpleObject_persona.FOO);
     }
 
+
     @Nested
-    public class name {
+    public static class name extends SimpleObject_IntegTest {
 
         @Test
         public void accessible() {
@@ -52,7 +53,7 @@ public class SimpleObject_IntegTest extends SimpleModuleIntegTestAbstract {
     }
 
     @Nested
-    public class updateName {
+    public static class updateName extends SimpleObject_IntegTest {
 
 
         @Test
