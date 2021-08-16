@@ -13,7 +13,7 @@
 
     <description>
     	Assembles and runs both the Wicket viewer and the Restfulobjects viewer
-    	in a single webapp configured to run using the JDO/DataNucleus object store.
+    	in a single webapp configured to run using the JPA/EclipseLink object store.
     </description>
 
     <packaging>jar</packaging>

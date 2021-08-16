@@ -1,8 +1,7 @@
 package domainapp.modules.simple.integtests.tests;
 
-import javax.inject.Inject;
-
 import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,6 +26,8 @@ public class SimpleObject_IntegTest extends SimpleModuleIntegTestAbstract {
         simpleObject = fixtureScripts.runPersona(SimpleObject_persona.FOO);
     }
 
+
+    @Nested
     public static class name extends SimpleObject_IntegTest {
 
         @Test
@@ -51,6 +52,7 @@ public class SimpleObject_IntegTest extends SimpleModuleIntegTestAbstract {
 
     }
 
+    @Nested
     public static class updateName extends SimpleObject_IntegTest {
 
 

@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.hamcrest.MatcherAssert;
+import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,6 +26,7 @@ public class SimpleObjects_IntegTest extends SimpleModuleIntegTestAbstract {
     @Inject
     SimpleObjects menu;
 
+    @Nested
     public static class listAll extends SimpleObjects_IntegTest {
 
         @Test
@@ -52,6 +54,7 @@ public class SimpleObjects_IntegTest extends SimpleModuleIntegTestAbstract {
         }
     }
 
+    @Nested
     public static class create extends SimpleObjects_IntegTest {
 
         @Test

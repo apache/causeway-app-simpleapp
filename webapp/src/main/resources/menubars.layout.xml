@@ -30,6 +30,8 @@
                 <mb3:named>Meta Model and Features</mb3:named>
                 <mb3:serviceAction objectType="isis.applib.MetaModelServiceMenu" id="downloadMetaModelXml"/>
                 <mb3:serviceAction objectType="isis.applib.MetaModelServiceMenu" id="downloadMetaModelCsv"/>
+                <mb3:serviceAction objectType="isis.applib.MetaModelServiceMenu" id="downloadMetaModelAscii"/>
+                <mb3:serviceAction objectType="isis.applib.MetaModelServiceMenu" id="downloadMetaModelDiff"/>
                 <mb3:serviceAction objectType="isis.feat.ApplicationFeatureMenu" id="allNamespaces"/>
                 <mb3:serviceAction objectType="isis.feat.ApplicationFeatureMenu" id="allTypes"/>
                 <mb3:serviceAction objectType="isis.feat.ApplicationFeatureMenu" id="allActions"/>
@@ -70,6 +72,13 @@
                 <mb3:serviceAction objectType="isis.applib.ImpersonateStopMenu" id="stopImpersonating"/>
             </mb3:section>
             <mb3:section>
+                <mb3:named>Security</mb3:named>
+                <mb3:serviceAction objectType="isis.applib.UserMenu" id="me">
+                    <cpt:named>Me (basic)</cpt:named>
+                </mb3:serviceAction>
+                <mb3:serviceAction objectType="isis.ext.secman.MeService" id="me">
+                    <cpt:named>Me (secman)</cpt:named>
+                </mb3:serviceAction>
                 <mb3:serviceAction objectType="isis.security.LogoutMenu" id="logout"/>
             </mb3:section>
         </mb3:menu>

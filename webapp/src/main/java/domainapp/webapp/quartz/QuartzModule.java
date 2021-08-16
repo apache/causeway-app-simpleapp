@@ -2,15 +2,11 @@ package domainapp.webapp.quartz;
 
 import org.quartz.JobDetail;
 import org.quartz.SimpleTrigger;
-import org.quartz.Trigger;
-import org.quartz.TriggerBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.quartz.JobDetailFactoryBean;
 import org.springframework.scheduling.quartz.SimpleTriggerFactoryBean;
-
-import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
 
 import lombok.val;
 
