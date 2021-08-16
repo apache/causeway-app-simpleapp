@@ -75,6 +75,23 @@ isis:
         non-persisted-objects-strategy: persist
         multiple-execution-strategy: execute
 
+  extensions:
+    secman:
+      seed:
+        admin:
+          user-name: "secman-admin"
+          password: "pass"
+          role-name: "isis-ext-secman-admin"
+          namespace-permissions:
+#            sticky: ...
+            additional: simple
+        regular-user:
+          role-name: "isis-ext-secman-user"
+      permissions-evaluation-policy: ALLOW_BEATS_VETO
+      user-menu-me-action-policy: ENABLE
+#      user-registration:
+#        initial-role-names: ...
+
 eclipselink:
   # if enabled, then must be run with JVM arg:
   # -javaagent:lib/spring-instrument-5.3.8.jar

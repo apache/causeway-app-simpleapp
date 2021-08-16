@@ -28,6 +28,13 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.apache.isis.extensions</groupId>
+                <artifactId>isis-extensions-secman</artifactId>
+                <scope>import</scope>
+                <type>pom</type>
+                <version>2.0.0-SNAPSHOT</version>
+            </dependency>
 
             <!-- this project's own modules -->
             <dependency>
