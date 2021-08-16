@@ -17,12 +17,12 @@ isis:
             delete.*:btn-danger,
             discard.*:btn-warning,
             remove.*:btn-warning
-      domain-object:
-        auditing: all
-        publishing: all
       property:
         command-publishing: all
         execution-publishing: all
+      domain-object:
+        editing: false
+        entity-change-publishing: all
 
   core:
     meta-model:

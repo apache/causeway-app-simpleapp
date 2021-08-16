@@ -22,7 +22,7 @@ import domainapp.modules.simple.types.Name;
 
 @DomainService(
         nature = NatureOfService.VIEW,
-        objectType = "simple.SimpleObjects"
+        logicalTypeName = "simple.SimpleObjects"
 )
 @javax.annotation.Priority(PriorityPrecedence.EARLY)
 @lombok.RequiredArgsConstructor(onConstructor_ = {@Inject} )

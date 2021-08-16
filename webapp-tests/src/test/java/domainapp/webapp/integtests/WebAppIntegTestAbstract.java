@@ -38,16 +38,16 @@ public abstract class WebAppIntegTestAbstract extends IsisIntegrationTestAbstrac
     @EnableJpaRepositories
     @Import({
 
-            IsisModuleCoreRuntimeServices.class,
-            IsisModuleSecurityBypass.class,
-            IsisModulePersistenceJpaEclipselink.class,
-            IsisModuleTestingFixturesApplib.class,
+        IsisModuleCoreRuntimeServices.class,
+        IsisModuleSecurityBypass.class,
+        IsisModulePersistenceJpaEclipselink.class,
+        IsisModuleTestingFixturesApplib.class,
 
-            SimpleModule.class
+        SimpleModule.class
     })
     @PropertySources({
-            @PropertySource(IsisPresets.H2InMemory_withUniqueSchema),
-            @PropertySource(IsisPresets.UseLog4j2Test),
+        @PropertySource(IsisPresets.H2InMemory_withUniqueSchema),
+        @PropertySource(IsisPresets.UseLog4j2Test),
     })
     public static class TestApp {
 
