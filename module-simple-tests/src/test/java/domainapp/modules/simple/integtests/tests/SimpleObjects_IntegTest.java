@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.apache.isis.testing.integtestsupport.applib.ThrowableMatchers;
+import org.apache.isis.testing.unittestsupport.applib.matchers.ThrowableMatchers;
 
 import domainapp.modules.simple.dom.so.SimpleObject;
 import domainapp.modules.simple.dom.so.SimpleObjects;
