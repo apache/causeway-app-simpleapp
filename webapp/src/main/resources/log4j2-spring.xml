@@ -47,7 +47,10 @@
 
         <!-- request scoped -->
         <logger name="org.apache.isis.viewer.restfulobjects.rendering.service.acceptheader.AcceptHeaderServiceForRest" level="debug"/>
-        <logger name="org.apache.isis.applib.services.iactnlayer.InteractionContext" level="debug"/>
+        <logger name="org.apache.isis.applib.services.command.CommandContext" level="debug"/>
+        <logger name="org.apache.isis.applib.services.iactn.InteractionProvider" level="debug"/>
+        <logger name="org.apache.isis.applib.services.scratchpad.Scratchpad" level="debug"/>
+        <logger name="org.apache.isis.core.runtimeservices.publish.PublisherDispatchServiceDefault" level="debug"/>
 
         <!-- transaction scoped -->
         <logger name="org.apache.isis.core.transaction.changetracking.EntityChangeTrackerDefault" level="debug"/>

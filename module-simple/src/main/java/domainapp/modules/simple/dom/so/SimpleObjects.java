@@ -25,7 +25,6 @@ import domainapp.modules.simple.types.Name;
         logicalTypeName = "simple.SimpleObjects"
 )
 @javax.annotation.Priority(PriorityPrecedence.EARLY)
-@javax.annotation.Priority(PriorityPrecedence.EARLY)
 @lombok.RequiredArgsConstructor(onConstructor_ = {@Inject} )
 public class SimpleObjects {
 
