@@ -56,15 +56,15 @@ isis:
           image: images/apache-isis/logo-48x48.png
           name: Apache Isis
 
-      themes:
+      bookmarked-pages:
         show-chooser: true
+        show-drop-down-on-footer: true
 
       max-title-length-in-standalone-tables: 0
       max-title-length-in-parented-tables: 0
 
-      bookmarked-pages:
+      themes:
         show-chooser: true
-        show-drop-down-on-footer: true
 
   testing:
     fixtures:

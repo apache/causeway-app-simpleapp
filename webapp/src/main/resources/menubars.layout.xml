@@ -74,12 +74,7 @@
             </mb3:section>
             <mb3:section>
                 <mb3:named>Security</mb3:named>
-                <mb3:serviceAction objectType="isis.applib.UserMenu" id="me">
-                    <cpt:named>Me (basic)</cpt:named>
-                </mb3:serviceAction>
-                <mb3:serviceAction objectType="isis.ext.secman.MeService" id="me">
-                    <cpt:named>Me (secman)</cpt:named>
-                </mb3:serviceAction>
+                <mb3:serviceAction objectType="isis.applib.UserMenu" id="me"/>
                 <mb3:serviceAction objectType="isis.security.LogoutMenu" id="logout"/>
             </mb3:section>
         </mb3:menu>
