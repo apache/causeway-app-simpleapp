@@ -93,7 +93,7 @@ Larger applications should consist of multiple modules; each such module can be 
 
 |`webapp`
 |Holds the bootstrapping classes, along with application-level scoped services and home page.
-It also contains application-wide integration tests/BDD specs, and lockdown tests.
+It also contains application-wide integration tests.
 
 The `pom.xml` also provides goals to run the app from the command line, or to be assembled into a Docker image.
 
@@ -118,8 +118,7 @@ TIP: You can also use `enhance-all.sh`
 
 == Testing
 
-The application has three types of tests.
-Each of these generates its own set of tests, and each can be disabled through a system property.
+The application has both unit tests and integration tests.
 
 .Testing types
 [cols="5a,12a,6a,3a", options="header"]
@@ -129,7 +128,6 @@ Each of these generates its own set of tests, and each can be disabled through a
 | Report
 | Phase
 | Skip using
-
 
 | Unit test
 | `target/surefire-unittest-reports`
@@ -141,56 +139,11 @@ Each of these generates its own set of tests, and each can be disabled through a
 | `integration-test`
 | `-DskipITs`
 
-| BDD (Cucumber) specs
-| `target/surefire-integbddspecs-reports` and +
-`target/cucumber-html-reports/overview-features.html`
-
-| `integration-test`
-| `-DskipBS`
-
 
 |===
 
 
-These outputs can for example be processed within/published by a continuous pipeline pipeline.
-
-
-=== Lockdown Tests
-
-Lockdown tests capture the state of the system, so that changes to that system can be captured and confirmed.
-There are two lockdown tests:
-
-* the metamodel (serialized as XML)
-+
-This is expected to change whenever the domain logic is changed, but generally should _not_ change when the Apache Isis framework is upgraded.
-
-* Maven dependencies (serialized as flat files)
-+
-This should only change when dependencies are bumped or new dependencies added.
-
-The lockdown tests are implemented as link:https://approvaltests.com/[approval test]s, meaning that the current state is compared to an "approved" state.
-If there are no differences then the test passes.
-If there are differences then the test fails, and a diff is shown using any available `diff` tool.
-
-The lockdown tests are disabled by default, and are enabled with system properties.
-
-* to compare the current metamodel with the previously approved metamodel:
-+
-[source,bash]
-----
-mvn integration-test -Dmetamodel.lockdown
-----
-
-* to compare the current Maven dependencies with the previously approved dependencies:
-+
-[source,bash]
-----
-mvn test -Dmavendeps.lockdown
-----
-
-When there are differences, the current state is written to the `current` subdirectory.
-If the current state is approved, it should be copied over to the corresponding `approved` subdirectory.
-
+These outputs can for example be processed within/published by a continuous pipeline.
 
 
 
