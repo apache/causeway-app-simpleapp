@@ -119,7 +119,7 @@ public class SimpleObject implements Comparable<SimpleObject> {
 
     @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE)
     @ActionLayout(
-            associateWith = "name", position = ActionLayout.Position.PANEL,
+            position = ActionLayout.Position.PANEL,
             describedAs = "Deletes this object from the persistent datastore")
     public void delete() {
         final String title = titleService.titleOf(this);
