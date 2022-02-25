@@ -28,6 +28,8 @@ import static org.apache.isis.applib.annotation.SemanticsOf.NON_IDEMPOTENT_ARE_Y
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.val;
@@ -61,6 +63,7 @@ import domainapp.modules.simple.types.Notes;
 @DomainObject(logicalTypeName = "simple.SimpleObject", entityChangePublishing = Publishing.ENABLED)
 @DomainObjectLayout()
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
+@RequiredArgsConstructor
 @XmlJavaTypeAdapter(PersistentEntityAdapter.class)
 @ToString(onlyExplicitlyIncluded = true)
 public class SimpleObject implements Comparable<SimpleObject> {
@@ -82,12 +85,12 @@ public class SimpleObject implements Comparable<SimpleObject> {
 
     @Title
     @Name
-    @Getter @Setter @ToString.Include
+    @Getter @Setter @ToString.Include @NonNull
     @PropertyLayout(fieldSetId = "name", sequence = "1")
     private String name;
 
     @Notes
-    @Getter @Setter
+    @Getter @Setter @NonNull
     @Property(commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
     @PropertyLayout(fieldSetId = "name", sequence = "2")
     private String notes;
