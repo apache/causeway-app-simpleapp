@@ -79,5 +79,4 @@ public class SimpleObjects {
         q.executeList();
     }
 
-
 }
