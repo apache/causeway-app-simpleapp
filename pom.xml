@@ -96,10 +96,9 @@
             <repositories>
                 <repository>
                     <id>nightly-builds</id>
-                    <url>https://nexus.incode.work/repository/nightly-builds/</url>
+                    <url>https://raw.githubusercontent.com/apache-isis-committers/isis-nightly/master/mvn-snapshots</url>
                 </repository>
             </repositories>
         </profile>
     </profiles>
-
 </project>
