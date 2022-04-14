@@ -3,6 +3,7 @@ package domainapp.modules.simple.dom.so;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 import org.apache.isis.applib.annotation.Action;
@@ -16,6 +17,7 @@ import org.apache.isis.applib.annotation.PromptStyle;
 import org.apache.isis.applib.annotation.SemanticsOf;
 import org.apache.isis.applib.query.Query;
 import org.apache.isis.applib.services.repository.RepositoryService;
+import org.apache.isis.commons.functional.Try;
 import org.apache.isis.persistence.jpa.applib.services.JpaSupportService;
 
 import domainapp.modules.simple.types.Name;
@@ -79,14 +81,14 @@ public class SimpleObjects {
     @Programmatic
     public void ping() {
         jpaSupportService.getEntityManager(SimpleObject.class)
-            .ifSuccess(entityManager -> {
+            .mapSuccess(entityManager -> {
                 final TypedQuery<SimpleObject> q = entityManager.createQuery(
                         "SELECT p FROM SimpleObject p ORDER BY p.name",
                         SimpleObject.class)
                     .setMaxResults(1);
-                q.getResultList();
-            });
+                return q.getResultList();
+            })
+            .ifFailureFail();
     }
-
 
 }

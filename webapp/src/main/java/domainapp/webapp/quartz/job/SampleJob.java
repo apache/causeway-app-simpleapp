@@ -50,6 +50,7 @@ public class SampleJob implements Job {
         return interactionService.call(
                 InteractionContext.ofUserWithSystemDefaults(UserMemento.ofName(username)),
                 () -> transactionalProcessor.callWithinCurrentTransactionElseCreateNew(callable))
-                .optionalElseFail(); // re-throws exception that has occurred, if any
+                .ifFailureFail()
+                .getValue();
     }
 }
