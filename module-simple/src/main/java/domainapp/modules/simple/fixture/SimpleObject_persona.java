@@ -1,17 +1,17 @@
 package domainapp.modules.simple.fixture;
 
 import org.apache.isis.applib.services.registry.ServiceRegistry;
-import org.apache.isis.testing.fixtures.applib.personas.PersonaWithBuilderScript;
-import org.apache.isis.testing.fixtures.applib.personas.PersonaWithFinder;
+import org.apache.isis.testing.fixtures.applib.personas.Persona;
 import org.apache.isis.testing.fixtures.applib.setup.PersonaEnumPersistAll;
+
+import lombok.AllArgsConstructor;
 
 import domainapp.modules.simple.dom.so.SimpleObject;
 import domainapp.modules.simple.dom.so.SimpleObjects;
-import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public enum SimpleObject_persona
-implements PersonaWithBuilderScript<SimpleObjectBuilder>, PersonaWithFinder<SimpleObject> {
+implements Persona<SimpleObject, SimpleObjectBuilder> {
 
     FOO("Foo"),
     BAR("Bar"),
@@ -38,7 +38,7 @@ implements PersonaWithBuilderScript<SimpleObjectBuilder>, PersonaWithFinder<Simp
     }
 
     public static class PersistAll
-    extends PersonaEnumPersistAll<SimpleObject_persona, SimpleObject> {
+    extends PersonaEnumPersistAll<SimpleObject, SimpleObject_persona, SimpleObjectBuilder> {
 
         public PersistAll() {
             super(SimpleObject_persona.class);
