@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import javax.inject.Inject;
+import javax.jdo.JDOFatalDataStoreException;
 import javax.persistence.RollbackException;
 
 import org.assertj.core.api.Assertions;
@@ -23,6 +24,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.apache.isis.applib.services.iactnlayer.InteractionService;
 import org.apache.isis.applib.services.xactn.TransactionService;
 import org.apache.isis.commons.functional.Try;
+import org.apache.isis.persistence.jdo.spring.exceptions.JdoResourceFailureException;
 import org.apache.isis.testing.unittestsupport.applib.matchers.ThrowableMatchers;
 
 import lombok.val;
@@ -106,8 +108,8 @@ public class SimpleObjects_IntegTest extends SimpleModuleIntegTestAbstract {
             assertThat(attempt.isFailure()).isTrue();
             val failureIfAny = attempt.getFailure();
             assertThat(failureIfAny).isPresent();
-            assertThat(failureIfAny.get()).isInstanceOf(TransactionSystemException.class);
-            assertThat(failureIfAny.get().getCause()).isInstanceOf(RollbackException.class);
+            assertThat(failureIfAny.get()).isInstanceOf(JdoResourceFailureException.class);
+            assertThat(failureIfAny.get()).hasMessageContaining("rollback-only");
 
         }
 
