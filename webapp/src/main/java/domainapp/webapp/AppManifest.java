@@ -5,6 +5,8 @@ import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
 
+import org.apache.isis.applib.IsisModuleApplibChangeAndExecutionLoggers;
+import org.apache.isis.applib.IsisModuleApplibMixins;
 import org.apache.isis.core.config.presets.IsisPresets;
 import org.apache.isis.core.runtimeservices.IsisModuleCoreRuntimeServices;
 import org.apache.isis.extensions.flyway.impl.IsisModuleExtFlywayImpl;
@@ -22,6 +24,9 @@ import domainapp.webapp.quartz.QuartzModule;
 
 @Configuration
 @Import({
+        IsisModuleApplibMixins.class,
+        IsisModuleApplibChangeAndExecutionLoggers.class,
+
         IsisModuleCoreRuntimeServices.class,
         IsisModuleSecurityShiro.class,
         IsisModulePersistenceJdoDatanucleus.class,

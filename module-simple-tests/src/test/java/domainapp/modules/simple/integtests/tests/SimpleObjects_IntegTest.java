@@ -1,19 +1,31 @@
 package domainapp.modules.simple.integtests.tests;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.inject.Inject;
+import javax.persistence.RollbackException;
 
+import org.assertj.core.api.Assertions;
 import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.dao.DuplicateKeyException;
+import org.springframework.transaction.TransactionDefinition;
+import org.springframework.transaction.TransactionSystemException;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import static org.assertj.core.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import org.apache.isis.applib.services.iactnlayer.InteractionService;
+import org.apache.isis.applib.services.xactn.TransactionService;
+import org.apache.isis.commons.functional.Try;
 import org.apache.isis.testing.unittestsupport.applib.matchers.ThrowableMatchers;
+
+import lombok.val;
 
 import domainapp.modules.simple.dom.so.SimpleObject;
 import domainapp.modules.simple.dom.so.SimpleObjects;
@@ -72,24 +84,34 @@ public class SimpleObjects_IntegTest extends SimpleModuleIntegTestAbstract {
 
             // given
             fixtureScripts.runPersona(SimpleObject_persona.FIZZ);
-            transactionService.flushTransaction();
+            interactionService.nextInteraction();
 
-            // expect
-            Throwable cause = assertThrows(Throwable.class, ()->{
+            // we execute this in its own transaction so that it can be discarded
+            Try<Void> attempt = transactionService.runTransactional(Propagation.REQUIRES_NEW, () -> {
 
-                // when
-                wrap(menu).create("Fizz");
-                transactionService.flushTransaction();
+                // expect
+                Throwable cause = assertThrows(Throwable.class, () -> {
+                    // when
+                    wrap(menu).create("Fizz");
+                    transactionService.flushTransaction();
+                });
 
+                // also expect
+                MatcherAssert.assertThat(cause,
+                        ThrowableMatchers.causedBy(DuplicateKeyException.class));
             });
 
-            // also expect
-            MatcherAssert.assertThat(cause,
-                    ThrowableMatchers.causedBy(DuplicateKeyException.class));
+
+            // then
+            assertThat(attempt.isFailure()).isTrue();
+            val failureIfAny = attempt.getFailure();
+            assertThat(failureIfAny).isPresent();
+            assertThat(failureIfAny.get()).isInstanceOf(TransactionSystemException.class);
+            assertThat(failureIfAny.get().getCause()).isInstanceOf(RollbackException.class);
 
         }
 
     }
 
-
+    @Inject protected InteractionService interactionService;
 }
