@@ -8,31 +8,36 @@
     </bs3:row>
     <bs3:row>
         <bs3:col span="6">
-            <bs3:tabGroup>
-                <bs3:tab name="General">
-                    <bs3:row>
-                        <bs3:col span="12">
-                            <c:fieldSet id="name"/>
-                        </bs3:col>
-                    </bs3:row>
-                </bs3:tab>
-                <bs3:tab name="Metadata">
-                    <bs3:row>
-                        <bs3:col span="12">
-                            <c:fieldSet name="Metadata" id="metadata"/>
-                        </bs3:col>
-                    </bs3:row>
-                </bs3:tab>
-                <bs3:tab name="Other">
-                    <bs3:row>
-                        <bs3:col span="12">
-                            <c:fieldSet id="other" unreferencedProperties="true"/>
-                        </bs3:col>
-                    </bs3:row>
-                </bs3:tab>
-            </bs3:tabGroup>
-            <bs3:tabGroup>
-            </bs3:tabGroup>
+            <bs3:row>
+                <bs3:col span="12">
+                    <bs3:tabGroup>
+                        <bs3:tab name="Identity">
+                            <bs3:row>
+                                <bs3:col span="12">
+                                    <c:fieldSet name="Identity" id="identity"/>
+                                </bs3:col>
+                            </bs3:row>
+                        </bs3:tab>
+                        <bs3:tab name="Other">
+                            <bs3:row>
+                                <bs3:col span="12">
+                                    <c:fieldSet name="Other" id="other" unreferencedProperties="true"/>
+                                </bs3:col>
+                            </bs3:row>
+                        </bs3:tab>
+                        <bs3:tab name="Metadata">
+                            <bs3:row>
+                                <bs3:col span="12">
+                                    <c:fieldSet name="Metadata" id="metadata"/>
+                                </bs3:col>
+                            </bs3:row>
+                        </bs3:tab>
+                    </bs3:tabGroup>
+                </bs3:col>
+                <bs3:col span="12">
+                    <c:fieldSet name="Details" id="details"/>
+                </bs3:col>
+            </bs3:row>
         </bs3:col>
         <bs3:col span="6">
             <bs3:tabGroup  unreferencedCollections="true">
