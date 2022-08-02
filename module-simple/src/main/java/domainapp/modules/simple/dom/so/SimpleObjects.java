@@ -2,7 +2,9 @@ package domainapp.modules.simple.dom.so;
 
 import java.util.List;
 
+import javax.annotation.Priority;
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.jdo.JDOQLTypedQuery;
 
 import org.apache.isis.applib.annotation.Action;
@@ -18,14 +20,15 @@ import org.apache.isis.applib.query.Query;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.persistence.jdo.applib.services.JdoSupportService;
 
+import lombok.RequiredArgsConstructor;
+
+import domainapp.modules.simple.SimpleModule;
 import domainapp.modules.simple.types.Name;
 
-@DomainService(
-        nature = NatureOfService.VIEW,
-        logicalTypeName = "simple.SimpleObjects"
-)
-@javax.annotation.Priority(PriorityPrecedence.EARLY)
-@lombok.RequiredArgsConstructor(onConstructor_ = {@Inject} )
+@Named(SimpleModule.NAMESPACE + ".SimpleObjects")
+@DomainService(nature = NatureOfService.VIEW)
+@Priority(PriorityPrecedence.EARLY)
+@RequiredArgsConstructor(onConstructor_ = {@Inject} )
 public class SimpleObjects {
 
     final RepositoryService repositoryService;
