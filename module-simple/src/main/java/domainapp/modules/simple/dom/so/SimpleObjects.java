@@ -3,6 +3,7 @@ package domainapp.modules.simple.dom.so;
 import java.util.List;
 
 import javax.inject.Inject;
+import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
@@ -20,12 +21,11 @@ import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.commons.functional.Try;
 import org.apache.isis.persistence.jpa.applib.services.JpaSupportService;
 
+import domainapp.modules.simple.SimpleModule;
 import domainapp.modules.simple.types.Name;
 
-@DomainService(
-        nature = NatureOfService.VIEW,
-        logicalTypeName = "simple.SimpleObjects"
-)
+@Named(SimpleModule.NAMESPACE + ".SimpleObjects")
+@DomainService(nature = NatureOfService.VIEW)
 @javax.annotation.Priority(PriorityPrecedence.EARLY)
 @lombok.RequiredArgsConstructor(onConstructor_ = {@Inject} )
 public class SimpleObjects {
