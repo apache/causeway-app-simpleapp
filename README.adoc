@@ -65,7 +65,7 @@ export REVISION=...                 #<.>
 export DOCKER_REGISTRY_USERNAME     #<.>
 export DOCKER_REGISTRY_PASSWORD     #<.>
 
-mvn -pl webapp jib:build
+mvn -pl webapp -Ddocker jib:build
 ----
 <.> used as the image tag
 <.> Docker Hub registry username
