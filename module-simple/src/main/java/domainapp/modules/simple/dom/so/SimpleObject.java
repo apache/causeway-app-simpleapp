@@ -53,7 +53,7 @@ import domainapp.modules.simple.types.Notes;
 @Table(
     schema= SimpleModule.SCHEMA,
     uniqueConstraints = {
-        @UniqueConstraint(name = "SimpleObject__name__UNQ", columnNames = {"NAME"})
+        @UniqueConstraint(name = "SimpleObject__name__UNQ", columnNames = {"name"})
     }
 )
 @NamedQueries({
@@ -101,7 +101,7 @@ public class SimpleObject implements Comparable<SimpleObject> {
 
     @Title
     @Name
-    @Column(length = Name.MAX_LEN, nullable = false)
+    @Column(length = Name.MAX_LEN, nullable = false, name = "name")
     @Getter @Setter @ToString.Include
     @PropertyLayout(fieldSetId = LayoutConstants.FieldSetId.IDENTITY, sequence = "1")
     private String name;
