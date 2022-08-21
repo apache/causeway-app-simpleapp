@@ -9,11 +9,18 @@ import org.apache.isis.applib.IsisModuleApplibChangeAndExecutionLoggers;
 import org.apache.isis.applib.IsisModuleApplibMixins;
 import org.apache.isis.core.config.presets.IsisPresets;
 import org.apache.isis.core.runtimeservices.IsisModuleCoreRuntimeServices;
+import org.apache.isis.extensions.audittrail.jpa.IsisModuleExtAuditTrailPersistenceJpa;
+import org.apache.isis.extensions.commandlog.jpa.IsisModuleExtCommandLogPersistenceJpa;
+import org.apache.isis.extensions.executionlog.jpa.IsisModuleExtExecutionLogPersistenceJpa;
+import org.apache.isis.extensions.executionoutbox.jpa.IsisModuleExtExecutionOutboxPersistenceJpa;
 import org.apache.isis.extensions.flyway.impl.IsisModuleExtFlywayImpl;
+import org.apache.isis.extensions.sessionlog.jpa.IsisModuleExtSessionLogPersistenceJpa;
 import org.apache.isis.persistence.jpa.eclipselink.IsisModulePersistenceJpaEclipselink;
 import org.apache.isis.security.shiro.IsisModuleSecurityShiro;
 import org.apache.isis.testing.fixtures.applib.IsisModuleTestingFixturesApplib;
 import org.apache.isis.testing.h2console.ui.IsisModuleTestingH2ConsoleUi;
+import org.apache.isis.valuetypes.asciidoc.metamodel.IsisModuleValAsciidocMetaModel;
+import org.apache.isis.valuetypes.asciidoc.ui.wkt.IsisModuleValAsciidocUiWkt;
 import org.apache.isis.viewer.restfulobjects.jaxrsresteasy4.IsisModuleViewerRestfulObjectsJaxrsResteasy4;
 import org.apache.isis.viewer.wicket.viewer.IsisModuleViewerWicketViewer;
 
@@ -37,6 +44,16 @@ import domainapp.webapp.quartz.QuartzModule;
         IsisModuleTestingH2ConsoleUi.class,
 
         IsisModuleExtFlywayImpl.class,
+
+        IsisModuleExtSessionLogPersistenceJpa.class,
+        IsisModuleExtAuditTrailPersistenceJpa.class,
+        IsisModuleExtCommandLogPersistenceJpa.class,
+        IsisModuleExtExecutionLogPersistenceJpa.class,
+        IsisModuleExtExecutionOutboxPersistenceJpa.class,
+
+        IsisModuleValAsciidocMetaModel.class, // for pretty rendering of DTO objects such as CommandDto, InteractionDto
+        IsisModuleValAsciidocUiWkt.class,
+
 
         ApplicationModule.class,
         CustomModule.class,
