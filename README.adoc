@@ -84,36 +84,57 @@ The following table explains the contents of each of the directories:
 
 |`module-simple`
 |Holds the "simple" module, consisting of the `SimpleObject` entity and supporting services.
-It also contains module-specific unit- and integration tests.
 
 [TIP]
 ====
 Larger applications should consist of multiple modules; each such module can be copied from this starter module.
 ====
 
+|`module-simple-tests`
+|Holds the unit- and integration tests for `module-simple`.
+
+
 |`webapp`
 |Holds the bootstrapping classes, along with application-level scoped services and home page.
-It also contains application-wide integration tests.
 
 The `pom.xml` also provides goals to run the app from the command line, or to be assembled into a Docker image.
 
+|`webapp-tests`
+|Contains application-wide integration tests.
+
 |====================
 
+It's more common for tests to reside within the same module, but we moved them into their own Maven modules because it makes them easier to be temporarily excluded, eg during initial explorations/prototyping.
 
-== Development
 
-Apache Isis uses DataNucleus as its ORM, which requires that any entities are "enhanced", a post-compile process.
+== ORM Support
 
-Normally this is done as part of a "mvn clean install", but the entities can also be enhanced explicity using:
+This version of the application uses EclipseLink JPA as its ORM, configured with load-time weaving.
+This requires that the application be run with a Java agent.
+
+The spring-boot plugin is configured to run with this agent already.
+If you want to run from an IDE, you will also need to specify the agent as a VM option:
 
 [source,bash]
 ----
-mvn -pl module-simple datanucleus:enhance -o
+-javaagent:${env.HOME}/.m2/repository/org/springframework/spring-instrument-${spring-framework.version}.jar
 ----
 
-This is useful to know if the application or integration test fails to bootstrap, complaining of "unenhanced entities".
+Substitute the two variables appropriately (with `${spring-framework.version}` obtained from the `pom.xml` file).
 
-TIP: You can also use `enhance-all.sh`
+
+//This version of the application uses DataNucleus as its ORM, which requires that any entities are "enhanced", a post-compile process.
+//
+//Normally this is done as part of a "mvn clean install", but the entities can also be enhanced explicity using:
+//
+//[source,bash]
+//----
+//mvn -pl module-simple datanucleus:enhance -o
+//----
+//
+//This is useful to know if the application or integration test fails to bootstrap, complaining of "unenhanced entities".
+//
+//TIP: You can also use `enhance-all.sh`
 
 
 == Testing

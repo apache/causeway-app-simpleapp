@@ -65,7 +65,6 @@ public class SimpleObjects {
     }
 
 
-    @Programmatic
     public SimpleObject findByNameExact(final String name) {
         return simpleObjectRepository.findByName(name);
     }
@@ -80,8 +79,6 @@ public class SimpleObjects {
 
 
 
-
-    @Programmatic
     public void ping() {
         jpaSupportService.getEntityManager(SimpleObject.class)
             .mapSuccess(entityManager -> {

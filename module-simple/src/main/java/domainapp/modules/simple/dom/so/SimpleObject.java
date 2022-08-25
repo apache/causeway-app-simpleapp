@@ -20,8 +20,10 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import org.apache.isis.applib.annotation.Action;
 import org.apache.isis.applib.annotation.ActionLayout;
+import org.apache.isis.applib.annotation.Domain;
 import org.apache.isis.applib.annotation.DomainObject;
 import org.apache.isis.applib.annotation.DomainObjectLayout;
+import org.apache.isis.applib.annotation.MemberSupport;
 import org.apache.isis.applib.annotation.PromptStyle;
 import org.apache.isis.applib.annotation.Property;
 import org.apache.isis.applib.annotation.PropertyLayout;
@@ -65,8 +67,7 @@ import domainapp.modules.simple.types.Notes;
         )
 })
 @EntityListeners(IsisEntityListener.class)
-@Named(SimpleModule.NAMESPACE +
-        ".SimpleObject")
+@Named(SimpleModule.NAMESPACE + ".SimpleObject")
 @DomainObject(entityChangePublishing = Publishing.ENABLED)
 @DomainObjectLayout()
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
@@ -123,10 +124,10 @@ public class SimpleObject implements Comparable<SimpleObject> {
         setName(name);
         return this;
     }
-    public String default0UpdateName() {
+    @MemberSupport public String default0UpdateName() {
         return getName();
     }
-    public String validate0UpdateName(String newName) {
+    @MemberSupport public String validate0UpdateName(String newName) {
         for (char prohibitedCharacter : PROHIBITED_CHARACTERS.toCharArray()) {
             if( newName.contains(""+prohibitedCharacter)) {
                 return "Character '" + prohibitedCharacter + "' is not allowed.";
