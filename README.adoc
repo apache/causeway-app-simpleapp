@@ -40,10 +40,20 @@ cd $REPO
 mvn clean install
 ----
 
+* Download the `spring-instrument.jar` for load-time weaving (discussed in more detail xref:#orm-support[below]):
++
+[source,bash]
+----
+mvn dependency:get -DgroupId=org.springframework -DartifactId=spring-instrument -Dversion=XXX
+----
++
+Change "XXX" to the value that `${spring-framework.version}` resolves to in the webapp `pom.xml`
+
 * Run using Maven:
 +
 [source,bash]
 ----
+mvn
 mvn -pl webapp spring-boot:run
 ----
 
@@ -113,14 +123,24 @@ This version of the application uses EclipseLink JPA as its ORM, configured with
 This requires that the application be run with a Java agent.
 
 The spring-boot plugin is configured to run with this agent already.
-If you want to run from an IDE, you will also need to specify the agent as a VM option:
+If you want to run from an IDE:
 
+* first, you might wish to copy the file locally:
++
 [source,bash]
 ----
--javaagent:${env.HOME}/.m2/repository/org/springframework/spring-instrument-${spring-framework.version}.jar
+cp ~/.m2/repository/org/springframework/spring-instrument/XXX/spring-instrument-XXX.jar lib/spring-instrument.jar
+----
++
+Change "XXX" to the value that `${spring-framework.version}` resolves to in the webapp `pom.xml`
+
+* Then specify the agent as a VM option:
++
+[source,bash]
+----
+-javaagent:lib/spring-instrument.jar
 ----
 
-Substitute the two variables appropriately (with `${spring-framework.version}` obtained from the `pom.xml` file).
 
 
 //This version of the application uses DataNucleus as its ORM, which requires that any entities are "enhanced", a post-compile process.
