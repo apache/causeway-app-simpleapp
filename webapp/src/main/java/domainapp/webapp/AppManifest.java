@@ -1,9 +1,13 @@
 package domainapp.webapp;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
+import org.springframework.instrument.classloading.InstrumentationLoadTimeWeaver;
+import org.springframework.orm.jpa.LocalEntityManagerFactoryBean;
+import org.springframework.orm.jpa.persistenceunit.DefaultPersistenceUnitManager;
 
 import org.apache.isis.applib.IsisModuleApplibChangeAndExecutionLoggers;
 import org.apache.isis.applib.IsisModuleApplibMixins;
@@ -24,6 +28,7 @@ import org.apache.isis.valuetypes.asciidoc.ui.wkt.IsisModuleValAsciidocUiWkt;
 import org.apache.isis.viewer.restfulobjects.jaxrsresteasy4.IsisModuleViewerRestfulObjectsJaxrsResteasy4;
 import org.apache.isis.viewer.wicket.viewer.IsisModuleViewerWicketViewer;
 
+import domainapp.modules.simple.dom.so.SimpleObject;
 import domainapp.webapp.application.ApplicationModule;
 import domainapp.webapp.application.fixture.scenarios.DomainAppDemo;
 import domainapp.webapp.custom.CustomModule;
@@ -66,4 +71,23 @@ import domainapp.webapp.quartz.QuartzModule;
         @PropertySource(IsisPresets.DebugDiscovery),
 })
 public class AppManifest {
+
+//    @Bean
+//    public LocalEntityManagerFactoryBean localEntityManagerFactoryBean() {
+//        return new LocalEntityManagerFactoryBean();
+//    }
+
+//    @Bean
+//    public DefaultPersistenceUnitManager defaultPersistenceUnitManager() {
+//        return new DefaultPersistenceUnitManager() {
+//            @Override
+//            public void afterPropertiesSet() {
+//                if (getLoadTimeWeaver() == null && InstrumentationLoadTimeWeaver.isInstrumentationAvailable()) {
+//                    setLoadTimeWeaver(new InstrumentationLoadTimeWeaver(SimpleObject.class.getClassLoader()));
+//                }
+//                preparePersistenceUnitInfos();
+////                super.afterPropertiesSet();
+//            }
+//        };
+//    }
 }
