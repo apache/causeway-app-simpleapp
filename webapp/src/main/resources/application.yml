@@ -38,6 +38,10 @@ isis:
         po:
           mode: disabled
 
+  extensions:
+    command-log:
+      publish-policy: only_if_system_changed
+
   viewer:
     wicket:
       application:

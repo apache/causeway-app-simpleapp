@@ -40,10 +40,20 @@ cd $REPO
 mvn clean install
 ----
 
+//* Download the `spring-instrument.jar` for load-time weaving (discussed in more detail xref:#orm-support[below]):
+//+
+//[source,bash]
+//----
+//mvn dependency:get -DgroupId=org.springframework -DartifactId=spring-instrument -Dversion=XXX
+//----
+//+
+//Change "XXX" to the value that `${spring-framework.version}` resolves to in the webapp `pom.xml`
+//
 * Run using Maven:
 +
 [source,bash]
 ----
+mvn
 mvn -pl webapp spring-boot:run
 ----
 
@@ -84,25 +94,56 @@ The following table explains the contents of each of the directories:
 
 |`module-simple`
 |Holds the "simple" module, consisting of the `SimpleObject` entity and supporting services.
-It also contains module-specific unit- and integration tests.
 
 [TIP]
 ====
 Larger applications should consist of multiple modules; each such module can be copied from this starter module.
 ====
 
+|`module-simple-tests`
+|Holds the unit- and integration tests for `module-simple`.
+
+
 |`webapp`
 |Holds the bootstrapping classes, along with application-level scoped services and home page.
-It also contains application-wide integration tests.
 
 The `pom.xml` also provides goals to run the app from the command line, or to be assembled into a Docker image.
 
+|`webapp-tests`
+|Contains application-wide integration tests.
+
 |====================
 
+It's more common for tests to reside within the same module, but we moved them into their own Maven modules because it makes them easier to be temporarily excluded, eg during initial explorations/prototyping.
 
-== Development
 
-Apache Isis uses DataNucleus as its ORM, which requires that any entities are "enhanced", a post-compile process.
+== ORM Support
+
+//This version of the application uses EclipseLink JPA as its ORM, configured with load-time weaving.
+//This requires that the application be run with a Java agent.
+//
+//The spring-boot plugin is configured to run with this agent already.
+//If you want to run from an IDE:
+//
+//* first, you might wish to copy the file locally:
+//+
+//[source,bash]
+//----
+//cp ~/.m2/repository/org/springframework/spring-instrument/XXX/spring-instrument-XXX.jar lib/spring-instrument.jar
+//----
+//+
+//Change "XXX" to the value that `${spring-framework.version}` resolves to in the webapp `pom.xml`
+//
+//* Then specify the agent as a VM option:
+//+
+//[source,bash]
+//----
+//-javaagent:lib/spring-instrument.jar
+//----
+
+
+
+This version of the application uses DataNucleus as its ORM, which requires that any entities are "enhanced", a post-compile process.
 
 Normally this is done as part of a "mvn clean install", but the entities can also be enhanced explicity using:
 

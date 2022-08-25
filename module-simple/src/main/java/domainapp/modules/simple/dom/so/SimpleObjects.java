@@ -54,7 +54,6 @@ public class SimpleObjects {
     }
 
 
-    @Programmatic
     public SimpleObject findByNameExact(final String name) {
         return repositoryService.firstMatch(
                     Query.named(SimpleObject.class, SimpleObject.NAMED_QUERY__FIND_BY_NAME_EXACT)
@@ -72,8 +71,6 @@ public class SimpleObjects {
 
 
 
-
-    @Programmatic
     public void ping() {
         JDOQLTypedQuery<SimpleObject> q = jdoSupportService.newTypesafeQuery(SimpleObject.class);
         final QSimpleObject candidate = QSimpleObject.candidate();
