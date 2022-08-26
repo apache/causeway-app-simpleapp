@@ -5,7 +5,7 @@
 image:https://github.com/apache/isis-app-simpleapp/workflows/Build%20w/%20Maven%20+%20Jdk%208/badge.svg[]
 image:https://github.com/apache/isis-app-simpleapp/workflows/Build%20w/%20Maven%20+%20Jdk%2015/badge.svg[]
 
-This is a simple link:http://isis.apache.org[Apache Isis] application, structured so it can be used as a starting point for developing your own applications.
+This is a simple link:http://isis.apache.org[Apache Isis] application, structured so that it can be used as a starting point for developing your own applications.
 
 [TIP]
 ====
@@ -53,13 +53,12 @@ mvn clean install
 +
 [source,bash]
 ----
-mvn
 mvn -pl webapp spring-boot:run
 ----
 
 * Browse to http://localhost:8080.
 
-* Login to using:
+* Login using:
 
 ** username: `sven`
 ** password: `pass`
@@ -117,6 +116,7 @@ The `pom.xml` also provides goals to run the app from the command line, or to be
 It's more common for tests to reside within the same module, but we moved them into their own Maven modules because it makes them easier to be temporarily excluded, eg during initial explorations/prototyping.
 
 
+[#orm-support]
 == ORM Support
 
 //This version of the application uses EclipseLink JPA as its ORM, configured with load-time weaving.

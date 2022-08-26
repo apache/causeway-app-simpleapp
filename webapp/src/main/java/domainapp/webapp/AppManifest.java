@@ -16,12 +16,14 @@ import org.apache.isis.extensions.executionoutbox.jdo.IsisModuleExtExecutionOutb
 import org.apache.isis.extensions.flyway.impl.IsisModuleExtFlywayImpl;
 import org.apache.isis.extensions.sessionlog.jdo.IsisModuleExtSessionLogPersistenceJdo;
 import org.apache.isis.persistence.jdo.datanucleus.IsisModulePersistenceJdoDatanucleus;
+import org.apache.isis.persistence.jdo.datanucleus.IsisModulePersistenceJdoDatanucleusMixins;
 import org.apache.isis.security.shiro.IsisModuleSecurityShiro;
 import org.apache.isis.testing.fixtures.applib.IsisModuleTestingFixturesApplib;
 import org.apache.isis.testing.h2console.ui.IsisModuleTestingH2ConsoleUi;
 import org.apache.isis.valuetypes.asciidoc.metamodel.IsisModuleValAsciidocMetaModel;
 import org.apache.isis.valuetypes.asciidoc.ui.wkt.IsisModuleValAsciidocUiWkt;
 import org.apache.isis.viewer.restfulobjects.jaxrsresteasy4.IsisModuleViewerRestfulObjectsJaxrsResteasy4;
+import org.apache.isis.viewer.wicket.applib.IsisModuleViewerWicketApplibMixins;
 import org.apache.isis.viewer.wicket.viewer.IsisModuleViewerWicketViewer;
 
 import domainapp.webapp.application.ApplicationModule;
@@ -37,7 +39,9 @@ import domainapp.webapp.quartz.QuartzModule;
         IsisModuleCoreRuntimeServices.class,
         IsisModuleSecurityShiro.class,
         IsisModulePersistenceJdoDatanucleus.class,
+        IsisModulePersistenceJdoDatanucleusMixins.class,
         IsisModuleViewerRestfulObjectsJaxrsResteasy4.class,
+        IsisModuleViewerWicketApplibMixins.class,
         IsisModuleViewerWicketViewer.class,
 
         IsisModuleTestingFixturesApplib.class,
