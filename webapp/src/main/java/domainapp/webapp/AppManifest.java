@@ -14,9 +14,10 @@ import org.apache.isis.extensions.commandlog.jpa.IsisModuleExtCommandLogPersiste
 import org.apache.isis.extensions.executionlog.jpa.IsisModuleExtExecutionLogPersistenceJpa;
 import org.apache.isis.extensions.executionoutbox.jpa.IsisModuleExtExecutionOutboxPersistenceJpa;
 import org.apache.isis.extensions.flyway.impl.IsisModuleExtFlywayImpl;
+import org.apache.isis.extensions.secman.encryption.jbcrypt.IsisModuleExtSecmanEncryptionJbcrypt;
+import org.apache.isis.extensions.secman.jpa.IsisModuleExtSecmanPersistenceJpa;
 import org.apache.isis.extensions.sessionlog.jpa.IsisModuleExtSessionLogPersistenceJpa;
 import org.apache.isis.persistence.jpa.eclipselink.IsisModulePersistenceJpaEclipselink;
-import org.apache.isis.security.shiro.IsisModuleSecurityShiro;
 import org.apache.isis.testing.fixtures.applib.IsisModuleTestingFixturesApplib;
 import org.apache.isis.testing.h2console.ui.IsisModuleTestingH2ConsoleUi;
 import org.apache.isis.valuetypes.asciidoc.metamodel.IsisModuleValAsciidocMetaModel;
@@ -36,7 +37,6 @@ import domainapp.webapp.quartz.QuartzModule;
         IsisModuleApplibChangeAndExecutionLoggers.class,
 
         IsisModuleCoreRuntimeServices.class,
-        IsisModuleSecurityShiro.class,
         IsisModulePersistenceJpaEclipselink.class,
         IsisModuleViewerRestfulObjectsJaxrsResteasy4.class,
         IsisModuleViewerWicketApplibMixins.class,
@@ -47,6 +47,8 @@ import domainapp.webapp.quartz.QuartzModule;
 
         IsisModuleExtFlywayImpl.class,
 
+        IsisModuleExtSecmanPersistenceJpa.class,
+        IsisModuleExtSecmanEncryptionJbcrypt.class,
         IsisModuleExtSessionLogPersistenceJpa.class,
         IsisModuleExtAuditTrailPersistenceJpa.class,
         IsisModuleExtCommandLogPersistenceJpa.class,

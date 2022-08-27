@@ -42,6 +42,20 @@ isis:
     command-log:
       publish-policy: only_if_system_changed
 
+    secman:
+      seed:
+        admin:
+          user-name: "secman-admin"
+          password: "pass"
+          role-name: "isis-ext-secman-admin"
+          namespace-permissions:
+            sticky: "simple"
+#            additional: ...
+        regular-user:
+          role-name: "isis-ext-secman-user"
+      permissions-evaluation-policy: allow_beats_veto
+      user-menu-me-action-policy: hide
+
   viewer:
     wicket:
       application:
