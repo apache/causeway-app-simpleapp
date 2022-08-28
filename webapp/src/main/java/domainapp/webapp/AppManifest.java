@@ -14,10 +14,11 @@ import org.apache.isis.extensions.commandlog.jdo.IsisModuleExtCommandLogPersiste
 import org.apache.isis.extensions.executionlog.jdo.IsisModuleExtExecutionLogPersistenceJdo;
 import org.apache.isis.extensions.executionoutbox.jdo.IsisModuleExtExecutionOutboxPersistenceJdo;
 import org.apache.isis.extensions.flyway.impl.IsisModuleExtFlywayImpl;
+import org.apache.isis.extensions.secman.encryption.jbcrypt.IsisModuleExtSecmanEncryptionJbcrypt;
+import org.apache.isis.extensions.secman.jdo.IsisModuleExtSecmanPersistenceJdo;
 import org.apache.isis.extensions.sessionlog.jdo.IsisModuleExtSessionLogPersistenceJdo;
 import org.apache.isis.persistence.jdo.datanucleus.IsisModulePersistenceJdoDatanucleus;
 import org.apache.isis.persistence.jdo.datanucleus.IsisModulePersistenceJdoDatanucleusMixins;
-import org.apache.isis.security.shiro.IsisModuleSecurityShiro;
 import org.apache.isis.testing.fixtures.applib.IsisModuleTestingFixturesApplib;
 import org.apache.isis.testing.h2console.ui.IsisModuleTestingH2ConsoleUi;
 import org.apache.isis.valuetypes.asciidoc.metamodel.IsisModuleValAsciidocMetaModel;
@@ -37,7 +38,6 @@ import domainapp.webapp.quartz.QuartzModule;
         IsisModuleApplibChangeAndExecutionLoggers.class,
 
         IsisModuleCoreRuntimeServices.class,
-        IsisModuleSecurityShiro.class,
         IsisModulePersistenceJdoDatanucleus.class,
         IsisModulePersistenceJdoDatanucleusMixins.class,
         IsisModuleViewerRestfulObjectsJaxrsResteasy4.class,
@@ -49,6 +49,8 @@ import domainapp.webapp.quartz.QuartzModule;
 
         IsisModuleExtFlywayImpl.class,
 
+        IsisModuleExtSecmanPersistenceJdo.class,
+        IsisModuleExtSecmanEncryptionJbcrypt.class,
         IsisModuleExtSessionLogPersistenceJdo.class,
         IsisModuleExtAuditTrailPersistenceJdo.class,
         IsisModuleExtCommandLogPersistenceJdo.class,
