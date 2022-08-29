@@ -60,7 +60,6 @@
             <mb3:section>
                 <mb3:named>Manual Testing</mb3:named>
                 <mb3:serviceAction id="downloadSitemap" objectType="isis.applib.SitemapServiceMenu">
-                    <cpt:logicalTypeName>isis.applib.SitemapServiceMenu</cpt:logicalTypeName>
                     <cpt:named>Download Site-Map Template (Adoc)</cpt:named>
                 </mb3:serviceAction>
             </mb3:section>
@@ -69,85 +68,52 @@
             <mb3:named>Activity</mb3:named>
             <mb3:section>
                 <mb3:named>Sessions</mb3:named>
-                <mb3:serviceAction id="activeSessions" objectType="isis.ext.sessionlog.SessionLogMenu">
-                    <cpt:logicalTypeName>isis.ext.sessionlog.SessionLogMenu</cpt:logicalTypeName>
-                </mb3:serviceAction>
-                <mb3:serviceAction id="findSessions" objectType="isis.ext.sessionlog.SessionLogMenu">
-                    <cpt:logicalTypeName>isis.ext.sessionlog.SessionLogMenu</cpt:logicalTypeName>
-                </mb3:serviceAction>
+                <mb3:serviceAction id="activeSessions" objectType="isis.ext.sessionLog.SessionLogMenu"/>
+                <mb3:serviceAction id="findSessions" objectType="isis.ext.sessionLog.SessionLogMenu"/>
             </mb3:section>
             <mb3:section>
                 <mb3:named>Commands</mb3:named>
-                <mb3:serviceAction id="findCommandById" objectType="isis.ext.commandLog.CommandLogMenu">
-                    <cpt:logicalTypeName>isis.ext.commandLog.CommandLogMenu</cpt:logicalTypeName>
-                    <cpt:named>Find Command By Id</cpt:named>
-                </mb3:serviceAction>
-                <mb3:serviceAction id="activeCommands" objectType="isis.ext.commandLog.CommandLogMenu">
-                    <cpt:logicalTypeName>isis.ext.commandLog.CommandLogMenu</cpt:logicalTypeName>
-                    <cpt:named>Active Commands</cpt:named>
-                </mb3:serviceAction>
-                <mb3:serviceAction id="findCommands" objectType="isis.ext.commandLog.CommandLogMenu">
-                    <cpt:logicalTypeName>isis.ext.commandLog.CommandLogMenu</cpt:logicalTypeName>
-                    <cpt:named>Find Commands</cpt:named>
-                </mb3:serviceAction>
-                <mb3:serviceAction id="truncateLog" objectType="isis.ext.commandLog.CommandLogMenu">
-                    <cpt:logicalTypeName>isis.ext.commandLog.CommandLogMenu</cpt:logicalTypeName>
-                    <cpt:named>Truncate Log</cpt:named>
-                </mb3:serviceAction>
+                <mb3:serviceAction id="findCommandById" objectType="isis.ext.commandLog.CommandLogMenu"/>
+                <mb3:serviceAction id="activeCommands" objectType="isis.ext.commandLog.CommandLogMenu"/>
+                <mb3:serviceAction id="findCommands" objectType="isis.ext.commandLog.CommandLogMenu"/>
+                <mb3:serviceAction id="truncateLog" objectType="isis.ext.commandLog.CommandLogMenu"/>
             </mb3:section>
             <mb3:section>
                 <mb3:named>Execution Log</mb3:named>
-                <mb3:serviceAction id="findMostRecent" objectType="isis.ext.executionLog.ExecutionLogMenu">
-                    <cpt:logicalTypeName>isis.ext.executionLog.ExecutionLogMenu</cpt:logicalTypeName>
-                    <cpt:named>Find Most Recent</cpt:named>
-                </mb3:serviceAction>
-                <mb3:serviceAction id="findAll" objectType="isis.ext.executionLog.ExecutionLogMenu">
-                    <cpt:logicalTypeName>isis.ext.executionLog.ExecutionLogMenu</cpt:logicalTypeName>
-                    <cpt:named>Find All</cpt:named>
-                </mb3:serviceAction>
+                <mb3:serviceAction id="findMostRecent" objectType="isis.ext.executionLog.ExecutionLogMenu"/>
+                <mb3:serviceAction id="findAll" objectType="isis.ext.executionLog.ExecutionLogMenu"/>
             </mb3:section>
             <mb3:section>
                 <mb3:named>Audit Trail</mb3:named>
-                <mb3:serviceAction id="findAuditEntries" objectType="isis.ext.audittrail.AuditTrailMenu">
-                    <cpt:logicalTypeName>isis.ext.audittrail.AuditTrailMenu</cpt:logicalTypeName>
-                    <cpt:named>Find Audit Entries</cpt:named>
-                </mb3:serviceAction>
+                <mb3:serviceAction id="findAuditEntries" objectType="isis.ext.audittrail.AuditTrailMenu"/>
             </mb3:section>
             <mb3:section>
                 <mb3:named>Execution Outbox</mb3:named>
-                <mb3:serviceAction id="findOldest" objectType="isis.ext.executionOutbox.ExecutionOutboxMenu">
-                    <cpt:logicalTypeName>isis.ext.executionOutbox.ExecutionOutboxMenu</cpt:logicalTypeName>
-                    <cpt:named>Find Oldest</cpt:named>
-                </mb3:serviceAction>
-                <mb3:serviceAction id="findAll" objectType="isis.ext.executionOutbox.ExecutionOutboxMenu">
-                    <cpt:logicalTypeName>isis.ext.executionOutbox.ExecutionOutboxMenu</cpt:logicalTypeName>
-                    <cpt:named>Find All</cpt:named>
-                </mb3:serviceAction>
+                <mb3:serviceAction id="findOldest" objectType="isis.ext.executionOutbox.ExecutionOutboxMenu"/>
+                <mb3:serviceAction id="findAll" objectType="isis.ext.executionOutbox.ExecutionOutboxMenu"/>
             </mb3:section>
         </mb3:menu>
         <mb3:menu>
             <mb3:named>Security</mb3:named>
             <mb3:section>
                 <mb3:named>Users</mb3:named>
-                <mb3:serviceAction objectType="isis.ext.secman.ApplicationUserMenu" id="userManager"/>
-                <mb3:serviceAction objectType="isis.ext.secman.ApplicationUserMenu" id="findUsers"/>
+                <mb3:serviceAction id="userManager" objectType="isis.ext.secman.ApplicationUserMenu"/>
+                <mb3:serviceAction id="findUsers" objectType="isis.ext.secman.ApplicationUserMenu"/>
             </mb3:section>
             <mb3:section>
                 <mb3:named>Roles</mb3:named>
-                <mb3:serviceAction objectType="isis.ext.secman.ApplicationRoleMenu" id="findRoles"/>
-                <mb3:serviceAction objectType="isis.ext.secman.ApplicationRoleMenu" id="newRole"/>
-                <mb3:serviceAction objectType="isis.ext.secman.ApplicationRoleMenu" id="allRoles"/>
+                <mb3:serviceAction id="roleManager" objectType="isis.ext.secman.ApplicationRoleMenu"/>
+                <mb3:serviceAction id="findRoles" objectType="isis.ext.secman.ApplicationRoleMenu"/>
             </mb3:section>
             <mb3:section>
                 <mb3:named>Permissions</mb3:named>
-                <mb3:serviceAction objectType="isis.ext.secman.ApplicationPermissionMenu" id="allPermissions"/>
-                <mb3:serviceAction objectType="isis.ext.secman.ApplicationPermissionMenu" id="findOrphanedPermissions"/>
+                <mb3:serviceAction id="allPermissions" objectType="isis.ext.secman.ApplicationPermissionMenu"/>
+                <mb3:serviceAction id="findOrphanedPermissions" objectType="isis.ext.secman.ApplicationPermissionMenu"/>
             </mb3:section>
             <mb3:section>
                 <mb3:named>Tenancies</mb3:named>
-                <mb3:serviceAction objectType="isis.ext.secman.ApplicationTenancyMenu" id="findTenancies"/>
-                <mb3:serviceAction objectType="isis.ext.secman.ApplicationTenancyMenu" id="newTenancy"/>
-                <mb3:serviceAction objectType="isis.ext.secman.ApplicationTenancyMenu" id="allTenancies"/>
+                <mb3:serviceAction id="tenancyManager" objectType="isis.ext.secman.ApplicationTenancyMenu"/>
+                <mb3:serviceAction id="findTenancies" objectType="isis.ext.secman.ApplicationTenancyMenu"/>
             </mb3:section>
         </mb3:menu>
     </mb3:secondary>
