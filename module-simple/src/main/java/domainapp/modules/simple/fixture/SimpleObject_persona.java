@@ -13,22 +13,23 @@ import domainapp.modules.simple.dom.so.SimpleObjects;
 public enum SimpleObject_persona
 implements Persona<SimpleObject, SimpleObjectBuilder> {
 
-    FOO("Foo"),
-    BAR("Bar"),
-    BAZ("Baz"),
-    FRODO("Frodo"),
-    FROYO("Froyo"),
-    FIZZ("Fizz"),
-    BIP("Bip"),
-    BOP("Bop"),
-    BANG("Bang"),
-    BOO("Boo");
+    FOO("Foo", "Foo.pdf"),
+    BAR("Bar", "Bar.pdf"),
+    BAZ("Baz", null),
+    FRODO("Frodo", "Frodo.pdf"),
+    FROYO("Froyo", null),
+    FIZZ("Fizz", "Fizz.pdf"),
+    BIP("Bip", null),
+    BOP("Bop", null),
+    BANG("Bang", "Bang.pdf"),
+    BOO("Boo", null);
 
     private final String name;
+    private final String contentFileName;
 
     @Override
     public SimpleObjectBuilder builder() {
-        return new SimpleObjectBuilder().setName(name);
+        return new SimpleObjectBuilder().setName(name).setContentFileName(contentFileName);
     }
 
     @Override

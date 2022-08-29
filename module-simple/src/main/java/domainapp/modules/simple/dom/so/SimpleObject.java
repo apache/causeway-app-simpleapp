@@ -4,7 +4,10 @@ import java.util.Comparator;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
@@ -18,11 +21,13 @@ import javax.persistence.UniqueConstraint;
 import javax.persistence.Version;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import org.springframework.lang.Nullable;
+
 import org.apache.isis.applib.annotation.Action;
 import org.apache.isis.applib.annotation.ActionLayout;
-import org.apache.isis.applib.annotation.Domain;
 import org.apache.isis.applib.annotation.DomainObject;
 import org.apache.isis.applib.annotation.DomainObjectLayout;
+import org.apache.isis.applib.annotation.Editing;
 import org.apache.isis.applib.annotation.MemberSupport;
 import org.apache.isis.applib.annotation.PromptStyle;
 import org.apache.isis.applib.annotation.Property;
@@ -34,7 +39,10 @@ import org.apache.isis.applib.layout.LayoutConstants;
 import org.apache.isis.applib.services.message.MessageService;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
+import org.apache.isis.applib.value.Blob;
+import org.apache.isis.extensions.pdfjs.applib.annotations.PdfJsViewer;
 import org.apache.isis.persistence.jpa.applib.integration.IsisEntityListener;
+import org.apache.isis.persistence.jpa.applib.types.BlobJpaEmbeddable;
 
 import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
 import static org.apache.isis.applib.annotation.SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE;
@@ -114,6 +122,25 @@ public class SimpleObject implements Comparable<SimpleObject> {
     @PropertyLayout(fieldSetId = LayoutConstants.FieldSetId.DETAILS, sequence = "2")
     private String notes;
 
+    private org.apache.isis.applib.value.Blob attachment;
+
+    @AttributeOverrides({
+            @AttributeOverride(name="name",    column=@Column(name="readOnlyProperty_name")),
+            @AttributeOverride(name="mimeType",column=@Column(name="readOnlyProperty_mimeType")),
+            @AttributeOverride(name="bytes",   column=@Column(name="readOnlyProperty_bytes"))
+    })
+    @Embedded
+    private BlobJpaEmbeddable attachmentEmbedded;
+
+    @PdfJsViewer
+    @Property()
+    @PropertyLayout(fieldSetId = "content", sequence = "1")
+    public Blob getAttachment() {
+        return BlobJpaEmbeddable.toBlob(attachmentEmbedded);
+    }
+    public void setAttachment(final Blob attachment) {
+        this.attachmentEmbedded = BlobJpaEmbeddable.fromBlob(attachment);
+    }
 
     @Action(semantics = IDEMPOTENT, commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
     @ActionLayout(
@@ -136,6 +163,19 @@ public class SimpleObject implements Comparable<SimpleObject> {
         return null;
     }
     static final String PROHIBITED_CHARACTERS = "&%$!";
+
+
+
+    @Action(semantics = IDEMPOTENT, commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
+    @ActionLayout(associateWith = "attachment", position = ActionLayout.Position.PANEL)
+    public SimpleObject updateAttachment(
+            @Nullable final Blob attachment) {
+        setAttachment(attachment);
+        return this;
+    }
+    @MemberSupport public Blob default0UpdateAttachment() {
+        return getAttachment();
+    }
 
 
 
