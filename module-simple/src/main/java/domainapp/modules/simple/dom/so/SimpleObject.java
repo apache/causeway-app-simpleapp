@@ -4,20 +4,23 @@ import java.util.Comparator;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.jdo.annotations.Column;
 import javax.jdo.annotations.DatastoreIdentity;
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.IdentityType;
+import javax.jdo.annotations.PersistenceCapable;
+import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.Queries;
 import javax.jdo.annotations.Query;
-import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Unique;
 import javax.jdo.annotations.Version;
 import javax.jdo.annotations.VersionStrategy;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import org.springframework.lang.Nullable;
+
 import org.apache.isis.applib.annotation.Action;
 import org.apache.isis.applib.annotation.ActionLayout;
-import org.apache.isis.applib.annotation.Domain;
 import org.apache.isis.applib.annotation.DomainObject;
 import org.apache.isis.applib.annotation.DomainObjectLayout;
 import org.apache.isis.applib.annotation.MemberSupport;
@@ -31,6 +34,8 @@ import org.apache.isis.applib.layout.LayoutConstants;
 import org.apache.isis.applib.services.message.MessageService;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
+import org.apache.isis.applib.value.Blob;
+import org.apache.isis.extensions.pdfjs.applib.annotations.PdfJsViewer;
 
 import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
 import static org.apache.isis.applib.annotation.SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE;
@@ -42,7 +47,6 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.val;
 
-import domainapp.modules.simple.SimpleModule;
 import domainapp.modules.simple.SimpleModule;
 import domainapp.modules.simple.types.Name;
 import domainapp.modules.simple.types.Notes;
@@ -106,6 +110,18 @@ public class SimpleObject implements Comparable<SimpleObject> {
     private String notes;
 
 
+    @PdfJsViewer
+    @Getter @Setter
+    @Persistent(defaultFetchGroup="false", columns = {
+            @Column(name = "attachment_name"),
+            @Column(name = "attachment_mimetype"),
+            @Column(name = "attachment_bytes")
+    })
+    @Property()
+    @PropertyLayout(fieldSetId = "content", sequence = "1")
+    private Blob attachment;
+
+
     @Action(semantics = IDEMPOTENT, commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
     @ActionLayout(
             associateWith = "name", promptStyle = PromptStyle.INLINE,
@@ -127,6 +143,19 @@ public class SimpleObject implements Comparable<SimpleObject> {
         return null;
     }
     static final String PROHIBITED_CHARACTERS = "&%$!";
+
+
+
+    @Action(semantics = IDEMPOTENT, commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
+    @ActionLayout(associateWith = "attachment", position = ActionLayout.Position.PANEL)
+    public SimpleObject updateAttachment(
+            @Nullable final Blob attachment) {
+        setAttachment(attachment);
+        return this;
+    }
+    @MemberSupport public Blob default0UpdateAttachment() {
+        return getAttachment();
+    }
 
 
 

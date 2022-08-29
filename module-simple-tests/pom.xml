@@ -64,13 +64,13 @@
 
         <dependency>
             <groupId>org.apache.isis.testing</groupId>
-            <artifactId>isis-testing-fakedata-applib</artifactId>
+            <artifactId>isis-testing-fixtures-applib</artifactId>
             <scope>test</scope>
         </dependency>
 
         <dependency>
-            <groupId>org.apache.isis.testing</groupId>
-            <artifactId>isis-testing-fixtures-applib</artifactId>
+            <groupId>org.apache.isis.persistence</groupId>
+            <artifactId>isis-persistence-jdo-datanucleus</artifactId>
             <scope>test</scope>
         </dependency>
 

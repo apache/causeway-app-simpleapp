@@ -41,6 +41,11 @@
         </dependency>
 
         <dependency>
+            <groupId>org.apache.isis.extensions</groupId>
+            <artifactId>isis-extensions-pdfjs-applib</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>org.apache.isis.persistence</groupId>
             <artifactId>isis-persistence-jdo-datanucleus</artifactId>
         </dependency>
