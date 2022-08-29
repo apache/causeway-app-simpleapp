@@ -5,7 +5,6 @@ import java.util.List;
 import javax.annotation.Priority;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
 import org.apache.isis.applib.annotation.Action;
@@ -14,12 +13,10 @@ import org.apache.isis.applib.annotation.BookmarkPolicy;
 import org.apache.isis.applib.annotation.DomainService;
 import org.apache.isis.applib.annotation.NatureOfService;
 import org.apache.isis.applib.annotation.PriorityPrecedence;
-import org.apache.isis.applib.annotation.Programmatic;
 import org.apache.isis.applib.annotation.PromptStyle;
 import org.apache.isis.applib.annotation.SemanticsOf;
 import org.apache.isis.applib.query.Query;
 import org.apache.isis.applib.services.repository.RepositoryService;
-import org.apache.isis.commons.functional.Try;
 import org.apache.isis.persistence.jpa.applib.services.JpaSupportService;
 
 import lombok.RequiredArgsConstructor;
