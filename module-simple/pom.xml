@@ -41,6 +41,16 @@
         </dependency>
 
         <dependency>
+            <groupId>org.apache.isis.testing</groupId>
+            <artifactId>isis-testing-fakedata-applib</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.isis.extensions</groupId>
+            <artifactId>isis-extensions-fullcalendar-applib</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>org.apache.isis.extensions</groupId>
             <artifactId>isis-extensions-pdfjs-applib</artifactId>
         </dependency>

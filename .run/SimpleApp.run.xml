@@ -2,6 +2,7 @@
   <configuration default="false" name="SimpleApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
     <option name="ACTIVE_PROFILES" />
     <module name="simpleapp-jpa-webapp" />
+    <option name="SHORTEN_COMMAND_LINE" value="ARGS_FILE" />
     <option name="SPRING_BOOT_MAIN_CLASS" value="domainapp.webapp.SimpleApp" />
     <option name="VM_PARAMETERS" value="-javaagent:lib/spring-instrument.jar" />
     <method v="2">
