@@ -7,7 +7,9 @@ import javax.inject.Inject;
 
 import org.springframework.core.io.ClassPathResource;
 
+import org.apache.isis.applib.services.clock.ClockService;
 import org.apache.isis.applib.value.Blob;
+import org.apache.isis.testing.fakedata.applib.services.FakeDataService;
 import org.apache.isis.testing.fixtures.applib.personas.BuilderScriptWithResult;
 
 import domainapp.modules.simple.dom.so.SimpleObject;
@@ -21,10 +23,8 @@ import lombok.experimental.Accessors;
 @Accessors(chain = true)
 public class SimpleObjectBuilder extends BuilderScriptWithResult<SimpleObject> {
 
-    @Getter @Setter
-    private String name;
-    @Getter @Setter
-    private String contentFileName;
+    @Getter @Setter private String name;
+    @Getter @Setter private String contentFileName;
 
     @Override
     protected SimpleObject buildResult(final ExecutionContext ec) {
@@ -38,6 +38,9 @@ public class SimpleObjectBuilder extends BuilderScriptWithResult<SimpleObject> {
             val attachment = new Blob(contentFileName, "application/pdf", bytes);
             simpleObject.updateAttachment(attachment);
         }
+
+        simpleObject.setLastCheckedIn(clockService.getClock().nowAsLocalDate().plusDays(fakeDataService.ints().between(-10, +10)));
+
         return simpleObject;
     }
 
@@ -59,5 +62,8 @@ public class SimpleObjectBuilder extends BuilderScriptWithResult<SimpleObject> {
     // -- DEPENDENCIES
 
     @Inject SimpleObjects simpleObjects;
+    @Inject ClockService clockService;
+    @Inject FakeDataService fakeDataService;
+
 
 }

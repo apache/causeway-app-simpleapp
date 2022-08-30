@@ -14,6 +14,7 @@ import org.apache.isis.extensions.commandlog.jdo.IsisModuleExtCommandLogPersiste
 import org.apache.isis.extensions.executionlog.jdo.IsisModuleExtExecutionLogPersistenceJdo;
 import org.apache.isis.extensions.executionoutbox.jdo.IsisModuleExtExecutionOutboxPersistenceJdo;
 import org.apache.isis.extensions.flyway.impl.IsisModuleExtFlywayImpl;
+import org.apache.isis.extensions.fullcalendar.wkt.viewer.IsisModuleExtFullCalendarWicketUi;
 import org.apache.isis.extensions.pdfjs.wkt.ui.IsisModuleExtPdfjsWicketUi;
 import org.apache.isis.extensions.secman.encryption.jbcrypt.IsisModuleExtSecmanEncryptionJbcrypt;
 import org.apache.isis.extensions.secman.jdo.IsisModuleExtSecmanPersistenceJdo;
@@ -60,6 +61,7 @@ import domainapp.webapp.quartz.QuartzModule;
         IsisModuleExtExecutionOutboxPersistenceJdo.class,
 
         IsisModuleExtExcelDownloadWicketUi.class,
+        IsisModuleExtFullCalendarWicketUi.class,
         IsisModuleExtPdfjsWicketUi.class,
 
         IsisModuleValAsciidocMetaModel.class, // for pretty rendering of DTO objects such as CommandDto, InteractionDto

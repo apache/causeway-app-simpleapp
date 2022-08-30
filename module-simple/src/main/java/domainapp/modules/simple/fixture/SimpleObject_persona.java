@@ -1,15 +1,23 @@
 package domainapp.modules.simple.fixture;
 
+import java.time.LocalDate;
+
+import javax.inject.Inject;
+
+import org.apache.isis.applib.services.clock.ClockService;
 import org.apache.isis.applib.services.registry.ServiceRegistry;
+import org.apache.isis.testing.fakedata.applib.services.FakeDataService;
 import org.apache.isis.testing.fixtures.applib.personas.Persona;
 import org.apache.isis.testing.fixtures.applib.setup.PersonaEnumPersistAll;
 
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import lombok.val;
 
 import domainapp.modules.simple.dom.so.SimpleObject;
 import domainapp.modules.simple.dom.so.SimpleObjects;
 
-@AllArgsConstructor
+@RequiredArgsConstructor
 public enum SimpleObject_persona
 implements Persona<SimpleObject, SimpleObjectBuilder> {
 
@@ -29,7 +37,9 @@ implements Persona<SimpleObject, SimpleObjectBuilder> {
 
     @Override
     public SimpleObjectBuilder builder() {
-        return new SimpleObjectBuilder().setName(name).setContentFileName(contentFileName);
+                return new SimpleObjectBuilder()
+                    .setName(name)
+                    .setContentFileName(contentFileName);
     }
 
     @Override
@@ -45,4 +55,5 @@ implements Persona<SimpleObject, SimpleObjectBuilder> {
             super(SimpleObject_persona.class);
         }
     }
+
 }

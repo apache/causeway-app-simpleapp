@@ -1,3 +1,8 @@
 body > nav > div > a > img {
     height: 32px;
 }
+
+
+td.fc-day a.fc-daygrid-event {
+    cursor: pointer;
+}

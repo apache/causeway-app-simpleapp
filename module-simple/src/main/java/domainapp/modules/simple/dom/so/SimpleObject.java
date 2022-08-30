@@ -1,6 +1,11 @@
 package domainapp.modules.simple.dom.so;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
 import java.util.Comparator;
+import java.util.Optional;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -23,7 +28,9 @@ import org.apache.isis.applib.annotation.Action;
 import org.apache.isis.applib.annotation.ActionLayout;
 import org.apache.isis.applib.annotation.DomainObject;
 import org.apache.isis.applib.annotation.DomainObjectLayout;
+import org.apache.isis.applib.annotation.Editing;
 import org.apache.isis.applib.annotation.MemberSupport;
+import org.apache.isis.applib.annotation.Optionality;
 import org.apache.isis.applib.annotation.PromptStyle;
 import org.apache.isis.applib.annotation.Property;
 import org.apache.isis.applib.annotation.PropertyLayout;
@@ -31,10 +38,17 @@ import org.apache.isis.applib.annotation.Publishing;
 import org.apache.isis.applib.annotation.Title;
 import org.apache.isis.applib.jaxb.PersistentEntityAdapter;
 import org.apache.isis.applib.layout.LayoutConstants;
+import org.apache.isis.applib.services.clock.ClockService;
+import org.apache.isis.applib.services.iactnlayer.InteractionContext;
+import org.apache.isis.applib.services.iactnlayer.InteractionService;
 import org.apache.isis.applib.services.message.MessageService;
 import org.apache.isis.applib.services.repository.RepositoryService;
 import org.apache.isis.applib.services.title.TitleService;
+import org.apache.isis.applib.services.user.UserCurrentSessionTimeZoneHolder;
+import org.apache.isis.applib.services.user.UserService;
 import org.apache.isis.applib.value.Blob;
+import org.apache.isis.extensions.fullcalendar.applib.CalendarEventable;
+import org.apache.isis.extensions.fullcalendar.applib.value.CalendarEvent;
 import org.apache.isis.extensions.pdfjs.applib.annotations.PdfJsViewer;
 
 import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
@@ -80,7 +94,7 @@ import domainapp.modules.simple.types.Notes;
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @XmlJavaTypeAdapter(PersistentEntityAdapter.class)
 @ToString(onlyExplicitlyIncluded = true)
-public class SimpleObject implements Comparable<SimpleObject> {
+public class SimpleObject implements Comparable<SimpleObject>, CalendarEventable {
 
     static final String NAMED_QUERY__FIND_BY_NAME_LIKE = "SimpleObject.findByNameLike";
     static final String NAMED_QUERY__FIND_BY_NAME_EXACT = "SimpleObject.findByNameExact";
@@ -120,6 +134,31 @@ public class SimpleObject implements Comparable<SimpleObject> {
     @Property()
     @PropertyLayout(fieldSetId = "content", sequence = "1")
     private Blob attachment;
+
+
+
+
+    @Property(optionality = Optionality.OPTIONAL, editing = Editing.ENABLED)
+    @PropertyLayout(fieldSetId = LayoutConstants.FieldSetId.DETAILS, sequence = "3")
+    @Column(allowsNull = "true")
+    @Getter @Setter
+    private java.time.LocalDate lastCheckedIn;
+
+
+    @Override
+    public String getCalendarName() {
+        return "Last checked-in";
+    }
+
+    @Override
+    public CalendarEvent toCalendarEvent() {
+        if (getLastCheckedIn() != null) {
+            long epochMillis = getLastCheckedIn().toEpochSecond(LocalTime.MIDNIGHT, ZoneOffset.systemDefault().getRules().getOffset(getLastCheckedIn().atStartOfDay())) * 1000L;
+            return new CalendarEvent(epochMillis, getCalendarName(), titleService.titleOf(this), getNotes());
+        } else {
+            return null;
+        }
+    }
 
 
     @Action(semantics = IDEMPOTENT, commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
