@@ -27,7 +27,6 @@ import org.apache.isis.applib.annotation.Action;
 import org.apache.isis.applib.annotation.ActionLayout;
 import org.apache.isis.applib.annotation.DomainObject;
 import org.apache.isis.applib.annotation.DomainObjectLayout;
-import org.apache.isis.applib.annotation.Editing;
 import org.apache.isis.applib.annotation.MemberSupport;
 import org.apache.isis.applib.annotation.PromptStyle;
 import org.apache.isis.applib.annotation.Property;
@@ -123,21 +122,21 @@ public class SimpleObject implements Comparable<SimpleObject> {
     private String notes;
 
     @AttributeOverrides({
-            @AttributeOverride(name="name",    column=@Column(name="readOnlyProperty_name")),
-            @AttributeOverride(name="mimeType",column=@Column(name="readOnlyProperty_mimeType")),
-            @AttributeOverride(name="bytes",   column=@Column(name="readOnlyProperty_bytes"))
+            @AttributeOverride(name="name",    column=@Column(name="attachment_name")),
+            @AttributeOverride(name="mimeType",column=@Column(name="attachment_mimeType")),
+            @AttributeOverride(name="bytes",   column=@Column(name="attachment_bytes"))
     })
     @Embedded
-    private BlobJpaEmbeddable attachmentEmbedded;
+    private BlobJpaEmbeddable attachment;
 
     @PdfJsViewer
     @Property()
     @PropertyLayout(fieldSetId = "content", sequence = "1")
     public Blob getAttachment() {
-        return BlobJpaEmbeddable.toBlob(attachmentEmbedded);
+        return BlobJpaEmbeddable.toBlob(attachment);
     }
     public void setAttachment(final Blob attachment) {
-        this.attachmentEmbedded = BlobJpaEmbeddable.fromBlob(attachment);
+        this.attachment = BlobJpaEmbeddable.fromBlob(attachment);
     }
 
     @Action(semantics = IDEMPOTENT, commandPublishing = Publishing.ENABLED, executionPublishing = Publishing.ENABLED)
