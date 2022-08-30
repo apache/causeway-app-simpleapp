@@ -122,8 +122,6 @@ public class SimpleObject implements Comparable<SimpleObject> {
     @PropertyLayout(fieldSetId = LayoutConstants.FieldSetId.DETAILS, sequence = "2")
     private String notes;
 
-    private org.apache.isis.applib.value.Blob attachment;
-
     @AttributeOverrides({
             @AttributeOverride(name="name",    column=@Column(name="readOnlyProperty_name")),
             @AttributeOverride(name="mimeType",column=@Column(name="readOnlyProperty_mimeType")),
