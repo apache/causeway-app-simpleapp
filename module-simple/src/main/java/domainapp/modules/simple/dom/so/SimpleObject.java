@@ -35,6 +35,7 @@ import org.apache.isis.applib.annotation.PromptStyle;
 import org.apache.isis.applib.annotation.Property;
 import org.apache.isis.applib.annotation.PropertyLayout;
 import org.apache.isis.applib.annotation.Publishing;
+import org.apache.isis.applib.annotation.TableDecoration;
 import org.apache.isis.applib.annotation.Title;
 import org.apache.isis.applib.jaxb.PersistentEntityAdapter;
 import org.apache.isis.applib.layout.LayoutConstants;
@@ -90,7 +91,7 @@ import domainapp.modules.simple.types.Notes;
 @Version(strategy= VersionStrategy.DATE_TIME, column="version")
 @Named(SimpleModule.NAMESPACE + ".SimpleObject")
 @DomainObject(entityChangePublishing = Publishing.ENABLED)
-@DomainObjectLayout()
+@DomainObjectLayout(tableDecoration = TableDecoration.DATATABLES_NET)
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @XmlJavaTypeAdapter(PersistentEntityAdapter.class)
 @ToString(onlyExplicitlyIncluded = true)
