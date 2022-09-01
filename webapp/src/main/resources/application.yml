@@ -23,7 +23,10 @@ isis:
       domain-object:
         editing: false
         entity-change-publishing: all
-
+      domain-object-layout:
+        table-decoration: none
+      collection-layout:
+        table-decoration: none
   core:
     meta-model:
       introspector:
@@ -83,6 +86,11 @@ isis:
 
       themes:
         show-chooser: true
+
+      table:
+        decoration:
+          data-tables-net:
+            options: "info: false, pagingType: 'numbers'"
 
   testing:
     fixtures:
