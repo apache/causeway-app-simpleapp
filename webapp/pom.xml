@@ -3,8 +3,8 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.apache.isis.starters</groupId>
         <artifactId>simpleapp-jpa</artifactId>
+        <groupId>org.apache.isis.starters</groupId>
         <version>2.0.0-M8</version>
     </parent>
 
