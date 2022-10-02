@@ -10,8 +10,8 @@
         <relativePath/>
     </parent>
 
-    <groupId>org.apache.isis.starters</groupId>
     <artifactId>simpleapp-jdo</artifactId>
+    <groupId>org.apache.isis.starters</groupId>
     <version>2.0.0-M8</version>
 
     <name>SimpleApp (JDO) - Parent</name>
