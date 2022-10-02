@@ -81,13 +81,14 @@
             <mb3:section>
                 <mb3:named>Execution Log</mb3:named>
                 <mb3:serviceAction id="findMostRecent" objectType="isis.ext.executionLog.ExecutionLogMenu"/>
+                <mb3:serviceAction id="findExecutions" objectType="isis.ext.executionLog.ExecutionLogMenu"/>
                 <mb3:serviceAction id="findAll" objectType="isis.ext.executionLog.ExecutionLogMenu"/>
             </mb3:section>
             <mb3:section>
                 <mb3:named>Audit Trail</mb3:named>
-                <mb3:serviceAction id="findMostRecent" objectType="isis.ext.audittrail.AuditTrailMenu"/>
-                <mb3:serviceAction id="findAuditEntries" objectType="isis.ext.audittrail.AuditTrailMenu"/>
-                <mb3:serviceAction id="findAll" objectType="isis.ext.audittrail.AuditTrailMenu"/>
+                <mb3:serviceAction id="findMostRecent" objectType="isis.ext.auditTrail.AuditTrailMenu"/>
+                <mb3:serviceAction id="findAuditEntries" objectType="isis.ext.auditTrail.AuditTrailMenu"/>
+                <mb3:serviceAction id="findAll" objectType="isis.ext.auditTrail.AuditTrailMenu"/>
             </mb3:section>
             <mb3:section>
                 <mb3:named>Execution Outbox</mb3:named>
