@@ -1,5 +1,6 @@
 package domainapp.webapp;
 
+import domainapp.webapp.resource.CustomResourceInitializer;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
@@ -67,6 +68,7 @@ import domainapp.webapp.quartz.QuartzModule;
 
         ApplicationModule.class,
         CustomModule.class,
+        CustomResourceInitializer.class,
         QuartzModule.class,
 
         // discoverable fixtures
