@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Import;
 
-import org.apache.isis.core.config.presets.IsisPresets;
+import org.apache.causeway.core.config.presets.CausewayPresets;
 
 @SpringBootApplication
 @Import({
@@ -19,7 +19,7 @@ public class SimpleApp extends SpringBootServletInitializer {
      * entry point by searching for classes having a {@code main(...)}
      */
     public static void main(String[] args) {
-        IsisPresets.prototyping();
+        CausewayPresets.prototyping();
         SpringApplication.run(new Class[] { SimpleApp.class }, args);
     }
 

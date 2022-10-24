@@ -5,8 +5,8 @@ import javax.inject.Named;
 
 import org.springframework.stereotype.Service;
 
-import org.apache.isis.applib.services.health.Health;
-import org.apache.isis.applib.services.health.HealthCheckService;
+import org.apache.causeway.applib.services.health.Health;
+import org.apache.causeway.applib.services.health.HealthCheckService;
 
 import domainapp.modules.simple.dom.so.SimpleObjects;
 

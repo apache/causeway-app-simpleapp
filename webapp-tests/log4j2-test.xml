@@ -40,7 +40,7 @@
             <AppenderRef ref="Console" />
         </Root>
 
-        <logger name="org.apache.isis.core.runtimeservices.i18n.po.PoWriter" level="info">
+        <logger name="org.apache.causeway.core.runtimeservices.i18n.po.PoWriter" level="info">
             <AppenderRef ref="TranslationsPoFile"/>
         </logger>
 

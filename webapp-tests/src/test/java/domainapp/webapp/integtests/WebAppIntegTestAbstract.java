@@ -9,12 +9,12 @@ import org.springframework.context.annotation.PropertySources;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.test.context.ActiveProfiles;
 
-import org.apache.isis.core.config.presets.IsisPresets;
-import org.apache.isis.core.runtimeservices.IsisModuleCoreRuntimeServices;
-import org.apache.isis.persistence.jpa.eclipselink.IsisModulePersistenceJpaEclipselink;
-import org.apache.isis.security.bypass.IsisModuleSecurityBypass;
-import org.apache.isis.testing.fixtures.applib.IsisModuleTestingFixturesApplib;
-import org.apache.isis.testing.integtestsupport.applib.IsisIntegrationTestAbstract;
+import org.apache.causeway.core.config.presets.CausewayPresets;
+import org.apache.causeway.core.runtimeservices.CausewayModuleCoreRuntimeServices;
+import org.apache.causeway.persistence.jpa.eclipselink.CausewayModulePersistenceJpaEclipselink;
+import org.apache.causeway.security.bypass.CausewayModuleSecurityBypass;
+import org.apache.causeway.testing.fixtures.applib.CausewayModuleTestingFixturesApplib;
+import org.apache.causeway.testing.integtestsupport.applib.CausewayIntegrationTestAbstract;
 
 import domainapp.modules.simple.SimpleModule;
 import domainapp.webapp.application.ApplicationModule;
@@ -27,7 +27,7 @@ import domainapp.webapp.application.ApplicationModule;
     }
 )
 @ActiveProfiles("test")
-public abstract class WebAppIntegTestAbstract extends IsisIntegrationTestAbstract {
+public abstract class WebAppIntegTestAbstract extends CausewayIntegrationTestAbstract {
 
     /**
      * Compared to the production app manifest <code>domainapp.webapp.AppManifest</code>,
@@ -38,16 +38,16 @@ public abstract class WebAppIntegTestAbstract extends IsisIntegrationTestAbstrac
     @EnableJpaRepositories
     @Import({
 
-        IsisModuleCoreRuntimeServices.class,
-        IsisModuleSecurityBypass.class,
-        IsisModulePersistenceJpaEclipselink.class,
-        IsisModuleTestingFixturesApplib.class,
+        CausewayModuleCoreRuntimeServices.class,
+        CausewayModuleSecurityBypass.class,
+        CausewayModulePersistenceJpaEclipselink.class,
+        CausewayModuleTestingFixturesApplib.class,
 
         SimpleModule.class
     })
     @PropertySources({
-        @PropertySource(IsisPresets.H2InMemory_withUniqueSchema),
-        @PropertySource(IsisPresets.UseLog4j2Test),
+        @PropertySource(CausewayPresets.H2InMemory_withUniqueSchema),
+        @PropertySource(CausewayPresets.UseLog4j2Test),
     })
     public static class TestApp {
 

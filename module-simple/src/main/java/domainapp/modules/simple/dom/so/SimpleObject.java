@@ -28,38 +28,38 @@ import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 import org.springframework.lang.Nullable;
 
-import org.apache.isis.applib.annotation.Action;
-import org.apache.isis.applib.annotation.ActionLayout;
-import org.apache.isis.applib.annotation.DomainObject;
-import org.apache.isis.applib.annotation.DomainObjectLayout;
-import org.apache.isis.applib.annotation.Editing;
-import org.apache.isis.applib.annotation.MemberSupport;
-import org.apache.isis.applib.annotation.Optionality;
-import org.apache.isis.applib.annotation.PromptStyle;
-import org.apache.isis.applib.annotation.Property;
-import org.apache.isis.applib.annotation.PropertyLayout;
-import org.apache.isis.applib.annotation.Publishing;
-import org.apache.isis.applib.annotation.TableDecoration;
-import org.apache.isis.applib.annotation.Title;
-import org.apache.isis.applib.jaxb.PersistentEntityAdapter;
-import org.apache.isis.applib.layout.LayoutConstants;
-import org.apache.isis.applib.services.clock.ClockService;
-import org.apache.isis.applib.services.iactnlayer.InteractionContext;
-import org.apache.isis.applib.services.iactnlayer.InteractionService;
-import org.apache.isis.applib.services.message.MessageService;
-import org.apache.isis.applib.services.repository.RepositoryService;
-import org.apache.isis.applib.services.title.TitleService;
-import org.apache.isis.applib.services.user.UserCurrentSessionTimeZoneHolder;
-import org.apache.isis.applib.services.user.UserService;
-import org.apache.isis.applib.value.Blob;
-import org.apache.isis.extensions.fullcalendar.applib.CalendarEventable;
-import org.apache.isis.extensions.fullcalendar.applib.value.CalendarEvent;
-import org.apache.isis.extensions.pdfjs.applib.annotations.PdfJsViewer;
-import org.apache.isis.persistence.jpa.applib.integration.IsisEntityListener;
-import org.apache.isis.persistence.jpa.applib.types.BlobJpaEmbeddable;
+import org.apache.causeway.applib.annotation.Action;
+import org.apache.causeway.applib.annotation.ActionLayout;
+import org.apache.causeway.applib.annotation.DomainObject;
+import org.apache.causeway.applib.annotation.DomainObjectLayout;
+import org.apache.causeway.applib.annotation.Editing;
+import org.apache.causeway.applib.annotation.MemberSupport;
+import org.apache.causeway.applib.annotation.Optionality;
+import org.apache.causeway.applib.annotation.PromptStyle;
+import org.apache.causeway.applib.annotation.Property;
+import org.apache.causeway.applib.annotation.PropertyLayout;
+import org.apache.causeway.applib.annotation.Publishing;
+import org.apache.causeway.applib.annotation.TableDecoration;
+import org.apache.causeway.applib.annotation.Title;
+import org.apache.causeway.applib.jaxb.PersistentEntityAdapter;
+import org.apache.causeway.applib.layout.LayoutConstants;
+import org.apache.causeway.applib.services.clock.ClockService;
+import org.apache.causeway.applib.services.iactnlayer.InteractionContext;
+import org.apache.causeway.applib.services.iactnlayer.InteractionService;
+import org.apache.causeway.applib.services.message.MessageService;
+import org.apache.causeway.applib.services.repository.RepositoryService;
+import org.apache.causeway.applib.services.title.TitleService;
+import org.apache.causeway.applib.services.user.UserCurrentSessionTimeZoneHolder;
+import org.apache.causeway.applib.services.user.UserService;
+import org.apache.causeway.applib.value.Blob;
+import org.apache.causeway.extensions.fullcalendar.applib.CalendarEventable;
+import org.apache.causeway.extensions.fullcalendar.applib.value.CalendarEvent;
+import org.apache.causeway.extensions.pdfjs.applib.annotations.PdfJsViewer;
+import org.apache.causeway.persistence.jpa.applib.integration.CausewayEntityListener;
+import org.apache.causeway.persistence.jpa.applib.types.BlobJpaEmbeddable;
 
-import static org.apache.isis.applib.annotation.SemanticsOf.IDEMPOTENT;
-import static org.apache.isis.applib.annotation.SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE;
+import static org.apache.causeway.applib.annotation.SemanticsOf.IDEMPOTENT;
+import static org.apache.causeway.applib.annotation.SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE;
 
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -88,7 +88,7 @@ import domainapp.modules.simple.types.Notes;
                         "WHERE so.name LIKE :name"
         )
 })
-@EntityListeners(IsisEntityListener.class)
+@EntityListeners(CausewayEntityListener.class)
 @Named(SimpleModule.NAMESPACE + ".SimpleObject")
 @DomainObject(entityChangePublishing = Publishing.ENABLED)
 @DomainObjectLayout(tableDecoration = TableDecoration.DATATABLES_NET)

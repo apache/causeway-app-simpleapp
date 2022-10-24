@@ -6,22 +6,22 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-import org.apache.isis.extensions.fullcalendar.applib.IsisModuleExtFullCalendarApplib;
-import org.apache.isis.extensions.pdfjs.applib.IsisModuleExtPdfjsApplibModel;
-import org.apache.isis.persistence.jpa.applib.IsisModulePersistenceJpaApplib;
-import org.apache.isis.testing.fakedata.applib.IsisModuleTestingFakeDataApplib;
-import org.apache.isis.testing.fixtures.applib.fixturescripts.FixtureScript;
-import org.apache.isis.testing.fixtures.applib.modules.ModuleWithFixtures;
-import org.apache.isis.testing.fixtures.applib.teardown.jpa.TeardownFixtureJpaAbstract;
+import org.apache.causeway.extensions.fullcalendar.applib.CausewayModuleExtFullCalendarApplib;
+import org.apache.causeway.extensions.pdfjs.applib.CausewayModuleExtPdfjsApplibModel;
+import org.apache.causeway.persistence.jpa.applib.CausewayModulePersistenceJpaApplib;
+import org.apache.causeway.testing.fakedata.applib.CausewayModuleTestingFakeDataApplib;
+import org.apache.causeway.testing.fixtures.applib.fixturescripts.FixtureScript;
+import org.apache.causeway.testing.fixtures.applib.modules.ModuleWithFixtures;
+import org.apache.causeway.testing.fixtures.applib.teardown.jpa.TeardownFixtureJpaAbstract;
 
 import domainapp.modules.simple.dom.so.SimpleObject;
 
 @Configuration
 @Import({
-        IsisModuleExtPdfjsApplibModel.class,
-        IsisModuleExtFullCalendarApplib.class,
-        IsisModuleTestingFakeDataApplib.class,
-        IsisModulePersistenceJpaApplib.class,
+        CausewayModuleExtPdfjsApplibModel.class,
+        CausewayModuleExtFullCalendarApplib.class,
+        CausewayModuleTestingFakeDataApplib.class,
+        CausewayModulePersistenceJpaApplib.class,
 })
 @ComponentScan
 @EnableJpaRepositories

@@ -17,8 +17,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.argThat;
 import static org.mockito.Mockito.when;
 
-import org.apache.isis.applib.services.repository.RepositoryService;
-import org.apache.isis.persistence.jpa.applib.services.JpaSupportService;
+import org.apache.causeway.applib.services.repository.RepositoryService;
+import org.apache.causeway.persistence.jpa.applib.services.JpaSupportService;
 
 @ExtendWith(MockitoExtension.class)
 class SimpleObjects_Test {

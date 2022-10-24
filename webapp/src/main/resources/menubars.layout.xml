@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<mb3:menuBars xsi:schemaLocation="http://isis.apache.org/applib/layout/menubars/bootstrap3 http://isis.apache.org/applib/layout/menubars/bootstrap3/menubars.xsd http://isis.apache.org/applib/layout/component http://isis.apache.org/applib/layout/component/component.xsd http://isis.apache.org/applib/layout/links http://isis.apache.org/applib/layout/links/links.xsd" xmlns:cpt="http://isis.apache.org/applib/layout/component" xmlns:lnk="http://isis.apache.org/applib/layout/links" xmlns:mb3="http://isis.apache.org/applib/layout/menubars/bootstrap3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<mb3:menuBars xsi:schemaLocation="http://causeway.apache.org/applib/layout/menubars/bootstrap3 http://causeway.apache.org/applib/layout/menubars/bootstrap3/menubars.xsd http://causeway.apache.org/applib/layout/component http://causeway.apache.org/applib/layout/component/component.xsd http://causeway.apache.org/applib/layout/links http://causeway.apache.org/applib/layout/links/links.xsd" xmlns:cpt="http://causeway.apache.org/applib/layout/component" xmlns:lnk="http://causeway.apache.org/applib/layout/links" xmlns:mb3="http://causeway.apache.org/applib/layout/menubars/bootstrap3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <mb3:primary>
         <mb3:menu>
             <mb3:named>Simple Objects</mb3:named>
@@ -19,47 +19,47 @@
             <mb3:named>Prototyping</mb3:named>
             <mb3:section>
                 <mb3:named>Fixtures</mb3:named>
-                <mb3:serviceAction objectType="isis.testing.fixtures.FixtureScripts" id="runFixtureScript"/>
-                <mb3:serviceAction objectType="isis.testing.fixtures.FixtureScripts" id="recreateObjectsAndReturnFirst"/>
+                <mb3:serviceAction objectType="causeway.testing.fixtures.FixtureScripts" id="runFixtureScript"/>
+                <mb3:serviceAction objectType="causeway.testing.fixtures.FixtureScripts" id="recreateObjectsAndReturnFirst"/>
             </mb3:section>
             <mb3:section>
                 <mb3:named>Layouts</mb3:named>
-                <mb3:serviceAction objectType="isis.applib.LayoutServiceMenu" id="downloadLayouts"/>
-                <mb3:serviceAction objectType="isis.applib.LayoutServiceMenu" id="downloadMenuBarsLayout"/>
+                <mb3:serviceAction objectType="causeway.applib.LayoutServiceMenu" id="downloadLayouts"/>
+                <mb3:serviceAction objectType="causeway.applib.LayoutServiceMenu" id="downloadMenuBarsLayout"/>
             </mb3:section>
             <mb3:section>
                 <mb3:named>Meta Model and Features</mb3:named>
-                <mb3:serviceAction objectType="isis.applib.MetaModelServiceMenu" id="downloadMetaModelXml"/>
-                <mb3:serviceAction objectType="isis.applib.MetaModelServiceMenu" id="downloadMetaModelCsv"/>
-                <mb3:serviceAction objectType="isis.applib.MetaModelServiceMenu" id="downloadMetaModelAscii"/>
-                <mb3:serviceAction objectType="isis.applib.MetaModelServiceMenu" id="downloadMetaModelDiff"/>
-                <mb3:serviceAction objectType="isis.feat.ApplicationFeatureMenu" id="allNamespaces"/>
-                <mb3:serviceAction objectType="isis.feat.ApplicationFeatureMenu" id="allTypes"/>
-                <mb3:serviceAction objectType="isis.feat.ApplicationFeatureMenu" id="allActions"/>
-                <mb3:serviceAction objectType="isis.feat.ApplicationFeatureMenu" id="allProperties"/>
-                <mb3:serviceAction objectType="isis.feat.ApplicationFeatureMenu" id="allCollections"/>
+                <mb3:serviceAction objectType="causeway.applib.MetaModelServiceMenu" id="downloadMetaModelXml"/>
+                <mb3:serviceAction objectType="causeway.applib.MetaModelServiceMenu" id="downloadMetaModelCsv"/>
+                <mb3:serviceAction objectType="causeway.applib.MetaModelServiceMenu" id="downloadMetaModelAscii"/>
+                <mb3:serviceAction objectType="causeway.applib.MetaModelServiceMenu" id="downloadMetaModelDiff"/>
+                <mb3:serviceAction objectType="causeway.feat.ApplicationFeatureMenu" id="allNamespaces"/>
+                <mb3:serviceAction objectType="causeway.feat.ApplicationFeatureMenu" id="allTypes"/>
+                <mb3:serviceAction objectType="causeway.feat.ApplicationFeatureMenu" id="allActions"/>
+                <mb3:serviceAction objectType="causeway.feat.ApplicationFeatureMenu" id="allProperties"/>
+                <mb3:serviceAction objectType="causeway.feat.ApplicationFeatureMenu" id="allCollections"/>
             </mb3:section>
             <mb3:section>
                 <mb3:named>Persistence</mb3:named>
-                <mb3:serviceAction objectType="isis.persistence.jdo.JdoMetamodelMenu" id="downloadMetamodels"/>
-                <mb3:serviceAction objectType="isis.ext.h2Console.H2ManagerMenu" id="openH2Console"/>
+                <mb3:serviceAction objectType="causeway.persistence.jdo.JdoMetamodelMenu" id="downloadMetamodels"/>
+                <mb3:serviceAction objectType="causeway.ext.h2Console.H2ManagerMenu" id="openH2Console"/>
             </mb3:section>
             <mb3:section>
                 <mb3:named>REST API</mb3:named>
-                <mb3:serviceAction objectType="isis.viewer.restfulobjects.SwaggerServiceMenu" id="openSwaggerUi"/>
-                <mb3:serviceAction objectType="isis.viewer.restfulobjects.SwaggerServiceMenu" id="openRestApi"/>
-                <mb3:serviceAction objectType="isis.viewer.restfulobjects.SwaggerServiceMenu" id="downloadSwaggerSchemaDefinition"/>
+                <mb3:serviceAction objectType="causeway.viewer.restfulobjects.SwaggerServiceMenu" id="openSwaggerUi"/>
+                <mb3:serviceAction objectType="causeway.viewer.restfulobjects.SwaggerServiceMenu" id="openRestApi"/>
+                <mb3:serviceAction objectType="causeway.viewer.restfulobjects.SwaggerServiceMenu" id="downloadSwaggerSchemaDefinition"/>
             </mb3:section>
             <mb3:section>
                 <mb3:named>i18n</mb3:named>
-                <mb3:serviceAction objectType="isis.applib.TranslationServicePoMenu" id="downloadTranslations"/>
-                <mb3:serviceAction objectType="isis.applib.TranslationServicePoMenu" id="resetTranslationCache"/>
-                <mb3:serviceAction objectType="isis.applib.TranslationServicePoMenu" id="switchToReadingTranslations"/>
-                <mb3:serviceAction objectType="isis.applib.TranslationServicePoMenu" id="switchToWritingTranslations"/>
+                <mb3:serviceAction objectType="causeway.applib.TranslationServicePoMenu" id="downloadTranslations"/>
+                <mb3:serviceAction objectType="causeway.applib.TranslationServicePoMenu" id="resetTranslationCache"/>
+                <mb3:serviceAction objectType="causeway.applib.TranslationServicePoMenu" id="switchToReadingTranslations"/>
+                <mb3:serviceAction objectType="causeway.applib.TranslationServicePoMenu" id="switchToWritingTranslations"/>
             </mb3:section>
             <mb3:section>
                 <mb3:named>Manual Testing</mb3:named>
-                <mb3:serviceAction id="downloadSitemap" objectType="isis.applib.SitemapServiceMenu">
+                <mb3:serviceAction id="downloadSitemap" objectType="causeway.applib.SitemapServiceMenu">
                     <cpt:named>Download Site-Map Template (Adoc)</cpt:named>
                 </mb3:serviceAction>
             </mb3:section>
@@ -68,55 +68,55 @@
             <mb3:named>Activity</mb3:named>
             <mb3:section>
                 <mb3:named>Sessions</mb3:named>
-                <mb3:serviceAction id="activeSessions" objectType="isis.ext.sessionLog.SessionLogMenu"/>
-                <mb3:serviceAction id="findSessions" objectType="isis.ext.sessionLog.SessionLogMenu"/>
+                <mb3:serviceAction id="activeSessions" objectType="causeway.ext.sessionLog.SessionLogMenu"/>
+                <mb3:serviceAction id="findSessions" objectType="causeway.ext.sessionLog.SessionLogMenu"/>
             </mb3:section>
             <mb3:section>
                 <mb3:named>Commands</mb3:named>
-                <mb3:serviceAction id="activeCommands" objectType="isis.ext.commandLog.CommandLogMenu"/>
-                <mb3:serviceAction id="findMostRecent" objectType="isis.ext.commandLog.CommandLogMenu"/>
-                <mb3:serviceAction id="findCommands" objectType="isis.ext.commandLog.CommandLogMenu"/>
-                <mb3:serviceAction id="findAll" objectType="isis.ext.commandLog.CommandLogMenu"/>
+                <mb3:serviceAction id="activeCommands" objectType="causeway.ext.commandLog.CommandLogMenu"/>
+                <mb3:serviceAction id="findMostRecent" objectType="causeway.ext.commandLog.CommandLogMenu"/>
+                <mb3:serviceAction id="findCommands" objectType="causeway.ext.commandLog.CommandLogMenu"/>
+                <mb3:serviceAction id="findAll" objectType="causeway.ext.commandLog.CommandLogMenu"/>
             </mb3:section>
             <mb3:section>
                 <mb3:named>Execution Log</mb3:named>
-                <mb3:serviceAction id="findMostRecent" objectType="isis.ext.executionLog.ExecutionLogMenu"/>
-                <mb3:serviceAction id="findExecutions" objectType="isis.ext.executionLog.ExecutionLogMenu"/>
-                <mb3:serviceAction id="findAll" objectType="isis.ext.executionLog.ExecutionLogMenu"/>
+                <mb3:serviceAction id="findMostRecent" objectType="causeway.ext.executionLog.ExecutionLogMenu"/>
+                <mb3:serviceAction id="findExecutions" objectType="causeway.ext.executionLog.ExecutionLogMenu"/>
+                <mb3:serviceAction id="findAll" objectType="causeway.ext.executionLog.ExecutionLogMenu"/>
             </mb3:section>
             <mb3:section>
                 <mb3:named>Audit Trail</mb3:named>
-                <mb3:serviceAction id="findMostRecent" objectType="isis.ext.auditTrail.AuditTrailMenu"/>
-                <mb3:serviceAction id="findAuditEntries" objectType="isis.ext.auditTrail.AuditTrailMenu"/>
-                <mb3:serviceAction id="findAll" objectType="isis.ext.auditTrail.AuditTrailMenu"/>
+                <mb3:serviceAction id="findMostRecent" objectType="causeway.ext.auditTrail.AuditTrailMenu"/>
+                <mb3:serviceAction id="findAuditEntries" objectType="causeway.ext.auditTrail.AuditTrailMenu"/>
+                <mb3:serviceAction id="findAll" objectType="causeway.ext.auditTrail.AuditTrailMenu"/>
             </mb3:section>
             <mb3:section>
                 <mb3:named>Execution Outbox</mb3:named>
-                <mb3:serviceAction id="findOldest" objectType="isis.ext.executionOutbox.ExecutionOutboxMenu"/>
-                <mb3:serviceAction id="findAll" objectType="isis.ext.executionOutbox.ExecutionOutboxMenu"/>
+                <mb3:serviceAction id="findOldest" objectType="causeway.ext.executionOutbox.ExecutionOutboxMenu"/>
+                <mb3:serviceAction id="findAll" objectType="causeway.ext.executionOutbox.ExecutionOutboxMenu"/>
             </mb3:section>
         </mb3:menu>
         <mb3:menu>
             <mb3:named>Security</mb3:named>
             <mb3:section>
                 <mb3:named>Users</mb3:named>
-                <mb3:serviceAction id="userManager" objectType="isis.ext.secman.ApplicationUserMenu"/>
-                <mb3:serviceAction id="findUsers" objectType="isis.ext.secman.ApplicationUserMenu"/>
+                <mb3:serviceAction id="userManager" objectType="causeway.ext.secman.ApplicationUserMenu"/>
+                <mb3:serviceAction id="findUsers" objectType="causeway.ext.secman.ApplicationUserMenu"/>
             </mb3:section>
             <mb3:section>
                 <mb3:named>Roles</mb3:named>
-                <mb3:serviceAction id="roleManager" objectType="isis.ext.secman.ApplicationRoleMenu"/>
-                <mb3:serviceAction id="findRoles" objectType="isis.ext.secman.ApplicationRoleMenu"/>
+                <mb3:serviceAction id="roleManager" objectType="causeway.ext.secman.ApplicationRoleMenu"/>
+                <mb3:serviceAction id="findRoles" objectType="causeway.ext.secman.ApplicationRoleMenu"/>
             </mb3:section>
             <mb3:section>
                 <mb3:named>Permissions</mb3:named>
-                <mb3:serviceAction id="allPermissions" objectType="isis.ext.secman.ApplicationPermissionMenu"/>
-                <mb3:serviceAction id="findOrphanedPermissions" objectType="isis.ext.secman.ApplicationPermissionMenu"/>
+                <mb3:serviceAction id="allPermissions" objectType="causeway.ext.secman.ApplicationPermissionMenu"/>
+                <mb3:serviceAction id="findOrphanedPermissions" objectType="causeway.ext.secman.ApplicationPermissionMenu"/>
             </mb3:section>
             <mb3:section>
                 <mb3:named>Tenancies</mb3:named>
-                <mb3:serviceAction id="tenancyManager" objectType="isis.ext.secman.ApplicationTenancyMenu"/>
-                <mb3:serviceAction id="findTenancies" objectType="isis.ext.secman.ApplicationTenancyMenu"/>
+                <mb3:serviceAction id="tenancyManager" objectType="causeway.ext.secman.ApplicationTenancyMenu"/>
+                <mb3:serviceAction id="findTenancies" objectType="causeway.ext.secman.ApplicationTenancyMenu"/>
             </mb3:section>
         </mb3:menu>
     </mb3:secondary>
@@ -125,19 +125,19 @@
             <mb3:named/>
             <mb3:section>
                 <mb3:named>Configuration</mb3:named>
-                <mb3:serviceAction objectType="isis.conf.ConfigurationMenu" id="configuration"/>
+                <mb3:serviceAction objectType="causeway.conf.ConfigurationMenu" id="configuration"/>
             </mb3:section>
             <mb3:section>
                 <mb3:named>Impersonate</mb3:named>
-                <mb3:serviceAction objectType="isis.sudo.ImpersonateMenu" id="impersonate"/>
-                <mb3:serviceAction objectType="isis.sudo.ImpersonateMenu" id="impersonateWithRoles"/>
-                <mb3:serviceAction objectType="isis.applib.ImpersonateStopMenu" id="stopImpersonating"/>
+                <mb3:serviceAction objectType="causeway.sudo.ImpersonateMenu" id="impersonate"/>
+                <mb3:serviceAction objectType="causeway.sudo.ImpersonateMenu" id="impersonateWithRoles"/>
+                <mb3:serviceAction objectType="causeway.applib.ImpersonateStopMenu" id="stopImpersonating"/>
             </mb3:section>
             <mb3:section>
                 <mb3:named>Security</mb3:named>
-                <mb3:serviceAction objectType="isis.applib.UserMenu" id="me"/>  <!-- this is hidden by secman -->
-                <mb3:serviceAction objectType="isis.ext.secman.MeService" id="me"/>
-                <mb3:serviceAction objectType="isis.security.LogoutMenu" id="logout"/>
+                <mb3:serviceAction objectType="causeway.applib.UserMenu" id="me"/>  <!-- this is hidden by secman -->
+                <mb3:serviceAction objectType="causeway.ext.secman.MeService" id="me"/>
+                <mb3:serviceAction objectType="causeway.security.LogoutMenu" id="logout"/>
             </mb3:section>
         </mb3:menu>
     </mb3:tertiary>

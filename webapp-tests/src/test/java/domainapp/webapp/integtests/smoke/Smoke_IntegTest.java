@@ -4,12 +4,12 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import org.apache.isis.applib.services.wrapper.InvalidException;
+import org.apache.causeway.applib.services.wrapper.InvalidException;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.transaction.annotation.Transactional;
 
-import org.apache.isis.applib.services.xactn.TransactionService;
+import org.apache.causeway.applib.services.xactn.TransactionService;
 
 import static org.assertj.core.api.Assertions.assertThat;
 

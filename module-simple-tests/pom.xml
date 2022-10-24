@@ -6,7 +6,7 @@
 
     <parent>
         <artifactId>simpleapp-jpa</artifactId>
-        <groupId>org.apache.isis.starters</groupId>
+        <groupId>org.apache.causeway.starters</groupId>
         <version>2.0.0-SNAPSHOT</version>
     </parent>
 
@@ -45,32 +45,32 @@
         <!-- TESTS -->
 
         <dependency>
-            <groupId>org.apache.isis.testing</groupId>
-            <artifactId>isis-testing-unittestsupport-applib</artifactId>
+            <groupId>org.apache.causeway.testing</groupId>
+            <artifactId>causeway-testing-unittestsupport-applib</artifactId>
             <scope>test</scope>
         </dependency>
 
         <dependency>
-            <groupId>org.apache.isis.testing</groupId>
-            <artifactId>isis-testing-fakedata-applib</artifactId>
+            <groupId>org.apache.causeway.testing</groupId>
+            <artifactId>causeway-testing-fakedata-applib</artifactId>
             <scope>test</scope>
         </dependency>
 
         <dependency>
-            <groupId>org.apache.isis.testing</groupId>
-            <artifactId>isis-testing-integtestsupport-applib</artifactId>
+            <groupId>org.apache.causeway.testing</groupId>
+            <artifactId>causeway-testing-integtestsupport-applib</artifactId>
             <scope>test</scope>
         </dependency>
 
         <dependency>
-            <groupId>org.apache.isis.testing</groupId>
-            <artifactId>isis-testing-fixtures-applib</artifactId>
+            <groupId>org.apache.causeway.testing</groupId>
+            <artifactId>causeway-testing-fixtures-applib</artifactId>
             <scope>test</scope>
         </dependency>
 
         <dependency>
-            <groupId>org.apache.isis.persistence</groupId>
-            <artifactId>isis-persistence-jpa-eclipselink</artifactId>
+            <groupId>org.apache.causeway.persistence</groupId>
+            <artifactId>causeway-persistence-jpa-eclipselink</artifactId>
             <scope>test</scope>
         </dependency>
 

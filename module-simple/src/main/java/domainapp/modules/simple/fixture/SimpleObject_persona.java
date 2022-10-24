@@ -5,13 +5,13 @@ import java.io.InputStream;
 
 import javax.inject.Inject;
 
-import org.apache.isis.applib.services.clock.ClockService;
-import org.apache.isis.applib.services.registry.ServiceRegistry;
-import org.apache.isis.applib.value.Blob;
-import org.apache.isis.testing.fakedata.applib.services.FakeDataService;
-import org.apache.isis.testing.fixtures.applib.personas.BuilderScriptWithResult;
-import org.apache.isis.testing.fixtures.applib.personas.Persona;
-import org.apache.isis.testing.fixtures.applib.setup.PersonaEnumPersistAll;
+import org.apache.causeway.applib.services.clock.ClockService;
+import org.apache.causeway.applib.services.registry.ServiceRegistry;
+import org.apache.causeway.applib.value.Blob;
+import org.apache.causeway.testing.fakedata.applib.services.FakeDataService;
+import org.apache.causeway.testing.fixtures.applib.personas.BuilderScriptWithResult;
+import org.apache.causeway.testing.fixtures.applib.personas.Persona;
+import org.apache.causeway.testing.fixtures.applib.setup.PersonaEnumPersistAll;
 import org.springframework.core.io.ClassPathResource;
 
 import lombok.*;
