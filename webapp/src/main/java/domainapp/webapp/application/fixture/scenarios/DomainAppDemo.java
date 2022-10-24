@@ -2,8 +2,8 @@ package domainapp.webapp.application.fixture.scenarios;
 
 import javax.inject.Inject;
 
-import org.apache.isis.testing.fixtures.applib.fixturescripts.FixtureScript;
-import org.apache.isis.testing.fixtures.applib.modules.ModuleWithFixturesService;
+import org.apache.causeway.testing.fixtures.applib.fixturescripts.FixtureScript;
+import org.apache.causeway.testing.fixtures.applib.modules.ModuleWithFixturesService;
 
 import domainapp.modules.simple.fixture.SimpleObject_persona;
 

@@ -4,22 +4,22 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
-import org.apache.isis.extensions.fullcalendar.applib.IsisModuleExtFullCalendarApplib;
-import org.apache.isis.extensions.pdfjs.applib.IsisModuleExtPdfjsApplibModel;
-import org.apache.isis.persistence.jdo.applib.IsisModulePersistenceJdoApplib;
-import org.apache.isis.testing.fakedata.applib.IsisModuleTestingFakeDataApplib;
-import org.apache.isis.testing.fixtures.applib.fixturescripts.FixtureScript;
-import org.apache.isis.testing.fixtures.applib.modules.ModuleWithFixtures;
-import org.apache.isis.testing.fixtures.applib.teardown.jdo.TeardownFixtureJdoAbstract;
+import org.apache.causeway.extensions.fullcalendar.applib.CausewayModuleExtFullCalendarApplib;
+import org.apache.causeway.extensions.pdfjs.applib.CausewayModuleExtPdfjsApplibModel;
+import org.apache.causeway.persistence.jdo.applib.CausewayModulePersistenceJdoApplib;
+import org.apache.causeway.testing.fakedata.applib.CausewayModuleTestingFakeDataApplib;
+import org.apache.causeway.testing.fixtures.applib.fixturescripts.FixtureScript;
+import org.apache.causeway.testing.fixtures.applib.modules.ModuleWithFixtures;
+import org.apache.causeway.testing.fixtures.applib.teardown.jdo.TeardownFixtureJdoAbstract;
 
 import domainapp.modules.simple.dom.so.SimpleObject;
 
 @Configuration
 @Import({
-        IsisModuleExtPdfjsApplibModel.class,
-        IsisModuleExtFullCalendarApplib.class,
-        IsisModuleTestingFakeDataApplib.class,
-        IsisModulePersistenceJdoApplib.class
+        CausewayModuleExtPdfjsApplibModel.class,
+        CausewayModuleExtFullCalendarApplib.class,
+        CausewayModuleTestingFakeDataApplib.class,
+        CausewayModulePersistenceJdoApplib.class
 })
 @ComponentScan
 public class SimpleModule implements ModuleWithFixtures {

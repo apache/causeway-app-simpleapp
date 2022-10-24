@@ -3,7 +3,7 @@
 #
 # See also config/application.properties
 #
-isis:
+causeway:
 
   applib:
     annotation:
@@ -50,12 +50,12 @@ isis:
         admin:
           user-name: "secman-admin"
           password: "pass"
-          role-name: "isis-ext-secman-admin"
+          role-name: "causeway-ext-secman-admin"
           namespace-permissions:
             sticky: "simple"
 #            additional: ...
         regular-user:
-          role-name: "isis-ext-secman-user"
+          role-name: "causeway-ext-secman-user"
       permissions-evaluation-policy: allow_beats_veto
       user-menu-me-action-policy: hide
 
@@ -63,7 +63,7 @@ isis:
     wicket:
       application:
         about: Simple App
-        brand-logo-header: images/apache-isis/logo-48x48.png
+        brand-logo-header: images/apache-causeway/logo-48x48.png
         css: css/application.css
         favicon-url: images/favicon.png
         js: scripts/application.js
@@ -73,9 +73,9 @@ isis:
         version: @project.version@
 
       credit:
-        - url:  http://isis.apache.org
-          image: images/apache-isis/logo-48x48.png
-          name: Apache Isis
+        - url:  http://causeway.apache.org
+          image: images/apache-causeway/logo-48x48.png
+          name: Apache Causeway
 
       bookmarked-pages:
         show-chooser: true

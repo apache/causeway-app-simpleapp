@@ -6,12 +6,12 @@ import javax.inject.Inject;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;
 
-import org.apache.isis.applib.annotation.PriorityPrecedence;
-import org.apache.isis.applib.events.metamodel.MetamodelEvent;
-import org.apache.isis.applib.services.xactn.TransactionService;
-import org.apache.isis.core.config.IsisConfiguration;
-import org.apache.isis.core.config.environment.IsisSystemEnvironment;
-import org.apache.isis.testing.fixtures.applib.fixturescripts.FixtureScripts;
+import org.apache.causeway.applib.annotation.PriorityPrecedence;
+import org.apache.causeway.applib.events.metamodel.MetamodelEvent;
+import org.apache.causeway.applib.services.xactn.TransactionService;
+import org.apache.causeway.core.config.CausewayConfiguration;
+import org.apache.causeway.core.config.environment.CausewaySystemEnvironment;
+import org.apache.causeway.testing.fixtures.applib.fixturescripts.FixtureScripts;
 
 import lombok.RequiredArgsConstructor;
 
@@ -22,11 +22,11 @@ public class SeedSecurityService {
 
     private final FixtureScripts fixtureScripts;
     private final TransactionService transactionService;
-    private final IsisSystemEnvironment isisSystemEnvironment;
+    private final CausewaySystemEnvironment causewaySystemEnvironment;
 
     @EventListener(MetamodelEvent.class)
     public void onMetamodelEvent(final MetamodelEvent event) {
-        if (event.isPostMetamodel() && isisSystemEnvironment.isPrototyping()) {
+        if (event.isPostMetamodel() && causewaySystemEnvironment.isPrototyping()) {
             runScripts();
             transactionService.flushTransaction();
         }

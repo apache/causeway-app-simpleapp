@@ -7,9 +7,9 @@ import java.lang.annotation.Target;
 
 import javax.jdo.annotations.Column;
 
-import org.apache.isis.applib.annotation.Parameter;
-import org.apache.isis.applib.annotation.ParameterLayout;
-import org.apache.isis.applib.annotation.Property;
+import org.apache.causeway.applib.annotation.Parameter;
+import org.apache.causeway.applib.annotation.ParameterLayout;
+import org.apache.causeway.applib.annotation.Property;
 
 @Column(length = Name.MAX_LEN, allowsNull = "false")
 @Property(maxLength = Name.MAX_LEN)

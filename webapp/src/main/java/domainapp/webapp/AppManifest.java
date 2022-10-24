@@ -5,30 +5,30 @@ import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
 
-import org.apache.isis.applib.IsisModuleApplibChangeAndExecutionLoggers;
-import org.apache.isis.applib.IsisModuleApplibMixins;
-import org.apache.isis.core.config.presets.IsisPresets;
-import org.apache.isis.core.runtimeservices.IsisModuleCoreRuntimeServices;
-import org.apache.isis.extensions.audittrail.jdo.IsisModuleExtAuditTrailPersistenceJdo;
-import org.apache.isis.extensions.commandlog.jdo.IsisModuleExtCommandLogPersistenceJdo;
-import org.apache.isis.extensions.executionlog.jdo.IsisModuleExtExecutionLogPersistenceJdo;
-import org.apache.isis.extensions.executionoutbox.jdo.IsisModuleExtExecutionOutboxPersistenceJdo;
-import org.apache.isis.extensions.flyway.impl.IsisModuleExtFlywayImpl;
-import org.apache.isis.extensions.fullcalendar.wkt.viewer.IsisModuleExtFullCalendarWicketUi;
-import org.apache.isis.extensions.pdfjs.wkt.ui.IsisModuleExtPdfjsWicketUi;
-import org.apache.isis.extensions.secman.encryption.jbcrypt.IsisModuleExtSecmanEncryptionJbcrypt;
-import org.apache.isis.extensions.secman.jdo.IsisModuleExtSecmanPersistenceJdo;
-import org.apache.isis.extensions.sessionlog.jdo.IsisModuleExtSessionLogPersistenceJdo;
-import org.apache.isis.persistence.jdo.datanucleus.IsisModulePersistenceJdoDatanucleus;
-import org.apache.isis.extensions.viewer.wicket.exceldownload.ui.IsisModuleExtExcelDownloadWicketUi;
-import org.apache.isis.persistence.jdo.datanucleus.IsisModulePersistenceJdoDatanucleusMixins;
-import org.apache.isis.testing.fixtures.applib.IsisModuleTestingFixturesApplib;
-import org.apache.isis.testing.h2console.ui.IsisModuleTestingH2ConsoleUi;
-import org.apache.isis.valuetypes.asciidoc.metamodel.IsisModuleValAsciidocMetaModel;
-import org.apache.isis.valuetypes.asciidoc.ui.wkt.IsisModuleValAsciidocUiWkt;
-import org.apache.isis.viewer.restfulobjects.jaxrsresteasy4.IsisModuleViewerRestfulObjectsJaxrsResteasy4;
-import org.apache.isis.viewer.wicket.applib.IsisModuleViewerWicketApplibMixins;
-import org.apache.isis.viewer.wicket.viewer.IsisModuleViewerWicketViewer;
+import org.apache.causeway.applib.CausewayModuleApplibChangeAndExecutionLoggers;
+import org.apache.causeway.applib.CausewayModuleApplibMixins;
+import org.apache.causeway.core.config.presets.CausewayPresets;
+import org.apache.causeway.core.runtimeservices.CausewayModuleCoreRuntimeServices;
+import org.apache.causeway.extensions.audittrail.jdo.CausewayModuleExtAuditTrailPersistenceJdo;
+import org.apache.causeway.extensions.commandlog.jdo.CausewayModuleExtCommandLogPersistenceJdo;
+import org.apache.causeway.extensions.executionlog.jdo.CausewayModuleExtExecutionLogPersistenceJdo;
+import org.apache.causeway.extensions.executionoutbox.jdo.CausewayModuleExtExecutionOutboxPersistenceJdo;
+import org.apache.causeway.extensions.flyway.impl.CausewayModuleExtFlywayImpl;
+import org.apache.causeway.extensions.fullcalendar.wkt.viewer.CausewayModuleExtFullCalendarWicketUi;
+import org.apache.causeway.extensions.pdfjs.wkt.ui.CausewayModuleExtPdfjsWicketUi;
+import org.apache.causeway.extensions.secman.encryption.jbcrypt.CausewayModuleExtSecmanEncryptionJbcrypt;
+import org.apache.causeway.extensions.secman.jdo.CausewayModuleExtSecmanPersistenceJdo;
+import org.apache.causeway.extensions.sessionlog.jdo.CausewayModuleExtSessionLogPersistenceJdo;
+import org.apache.causeway.persistence.jdo.datanucleus.CausewayModulePersistenceJdoDatanucleus;
+import org.apache.causeway.extensions.viewer.wicket.exceldownload.ui.CausewayModuleExtExcelDownloadWicketUi;
+import org.apache.causeway.persistence.jdo.datanucleus.CausewayModulePersistenceJdoDatanucleusMixins;
+import org.apache.causeway.testing.fixtures.applib.CausewayModuleTestingFixturesApplib;
+import org.apache.causeway.testing.h2console.ui.CausewayModuleTestingH2ConsoleUi;
+import org.apache.causeway.valuetypes.asciidoc.metamodel.CausewayModuleValAsciidocMetaModel;
+import org.apache.causeway.valuetypes.asciidoc.ui.wkt.CausewayModuleValAsciidocUiWkt;
+import org.apache.causeway.viewer.restfulobjects.jaxrsresteasy4.CausewayModuleViewerRestfulObjectsJaxrsResteasy4;
+import org.apache.causeway.viewer.wicket.applib.CausewayModuleViewerWicketApplibMixins;
+import org.apache.causeway.viewer.wicket.viewer.CausewayModuleViewerWicketViewer;
 
 import domainapp.webapp.application.ApplicationModule;
 import domainapp.webapp.application.fixture.scenarios.DomainAppDemo;
@@ -37,35 +37,35 @@ import domainapp.webapp.quartz.QuartzModule;
 
 @Configuration
 @Import({
-        IsisModuleApplibMixins.class,
-        IsisModuleApplibChangeAndExecutionLoggers.class,
+        CausewayModuleApplibMixins.class,
+        CausewayModuleApplibChangeAndExecutionLoggers.class,
 
-        IsisModuleCoreRuntimeServices.class,
-        IsisModulePersistenceJdoDatanucleus.class,
-        IsisModulePersistenceJdoDatanucleusMixins.class,
-        IsisModuleViewerRestfulObjectsJaxrsResteasy4.class,
-        IsisModuleViewerWicketApplibMixins.class,
-        IsisModuleViewerWicketViewer.class,
+        CausewayModuleCoreRuntimeServices.class,
+        CausewayModulePersistenceJdoDatanucleus.class,
+        CausewayModulePersistenceJdoDatanucleusMixins.class,
+        CausewayModuleViewerRestfulObjectsJaxrsResteasy4.class,
+        CausewayModuleViewerWicketApplibMixins.class,
+        CausewayModuleViewerWicketViewer.class,
 
-        IsisModuleTestingFixturesApplib.class,
-        IsisModuleTestingH2ConsoleUi.class,
+        CausewayModuleTestingFixturesApplib.class,
+        CausewayModuleTestingH2ConsoleUi.class,
 
-        IsisModuleExtFlywayImpl.class,
+        CausewayModuleExtFlywayImpl.class,
 
-        IsisModuleExtSecmanPersistenceJdo.class,
-        IsisModuleExtSecmanEncryptionJbcrypt.class,
-        IsisModuleExtSessionLogPersistenceJdo.class,
-        IsisModuleExtAuditTrailPersistenceJdo.class,
-        IsisModuleExtCommandLogPersistenceJdo.class,
-        IsisModuleExtExecutionLogPersistenceJdo.class,
-        IsisModuleExtExecutionOutboxPersistenceJdo.class,
+        CausewayModuleExtSecmanPersistenceJdo.class,
+        CausewayModuleExtSecmanEncryptionJbcrypt.class,
+        CausewayModuleExtSessionLogPersistenceJdo.class,
+        CausewayModuleExtAuditTrailPersistenceJdo.class,
+        CausewayModuleExtCommandLogPersistenceJdo.class,
+        CausewayModuleExtExecutionLogPersistenceJdo.class,
+        CausewayModuleExtExecutionOutboxPersistenceJdo.class,
 
-        IsisModuleExtExcelDownloadWicketUi.class,
-        IsisModuleExtFullCalendarWicketUi.class,
-        IsisModuleExtPdfjsWicketUi.class,
+        CausewayModuleExtExcelDownloadWicketUi.class,
+        CausewayModuleExtFullCalendarWicketUi.class,
+        CausewayModuleExtPdfjsWicketUi.class,
 
-        IsisModuleValAsciidocMetaModel.class, // for pretty rendering of DTO objects such as CommandDto, InteractionDto
-        IsisModuleValAsciidocUiWkt.class,
+        CausewayModuleValAsciidocMetaModel.class, // for pretty rendering of DTO objects such as CommandDto, InteractionDto
+        CausewayModuleValAsciidocUiWkt.class,
 
         ApplicationModule.class,
         CustomModule.class,
@@ -75,7 +75,7 @@ import domainapp.webapp.quartz.QuartzModule;
         DomainAppDemo.class
 })
 @PropertySources({
-        @PropertySource(IsisPresets.DebugDiscovery),
+        @PropertySource(CausewayPresets.DebugDiscovery),
 })
 public class AppManifest {
 

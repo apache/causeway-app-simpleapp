@@ -4,8 +4,8 @@ import javax.inject.Inject;
 
 import org.junit.jupiter.api.Test;
 
-import org.apache.isis.applib.services.registry.ServiceRegistry;
-import org.apache.isis.testing.integtestsupport.applib.validate.DomainModelValidator;
+import org.apache.causeway.applib.services.registry.ServiceRegistry;
+import org.apache.causeway.testing.integtestsupport.applib.validate.DomainModelValidator;
 
 import domainapp.webapp.integtests.WebAppIntegTestAbstract;
 

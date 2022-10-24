@@ -21,11 +21,11 @@ import static org.assertj.core.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.apache.isis.applib.services.iactnlayer.InteractionService;
-import org.apache.isis.applib.services.xactn.TransactionService;
-import org.apache.isis.commons.functional.Try;
-import org.apache.isis.persistence.jdo.spring.exceptions.JdoResourceFailureException;
-import org.apache.isis.testing.unittestsupport.applib.matchers.ThrowableMatchers;
+import org.apache.causeway.applib.services.iactnlayer.InteractionService;
+import org.apache.causeway.applib.services.xactn.TransactionService;
+import org.apache.causeway.commons.functional.Try;
+import org.apache.causeway.persistence.jdo.spring.exceptions.JdoResourceFailureException;
+import org.apache.causeway.testing.unittestsupport.applib.matchers.ThrowableMatchers;
 
 import lombok.val;
 

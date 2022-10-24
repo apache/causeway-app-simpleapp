@@ -4,15 +4,15 @@ import java.util.function.Supplier;
 
 import javax.inject.Inject;
 
-import org.apache.isis.applib.services.appfeat.ApplicationFeatureId;
-import org.apache.isis.commons.collections.Can;
-import org.apache.isis.core.config.IsisConfiguration;
-import org.apache.isis.extensions.secman.applib.permission.dom.ApplicationPermissionMode;
-import org.apache.isis.extensions.secman.applib.permission.dom.ApplicationPermissionRule;
-import org.apache.isis.extensions.secman.applib.role.fixtures.AbstractRoleAndPermissionsFixtureScript;
-import org.apache.isis.extensions.secman.applib.user.dom.AccountType;
-import org.apache.isis.extensions.secman.applib.user.fixtures.AbstractUserAndRolesFixtureScript;
-import org.apache.isis.testing.fixtures.applib.fixturescripts.FixtureScript;
+import org.apache.causeway.applib.services.appfeat.ApplicationFeatureId;
+import org.apache.causeway.commons.collections.Can;
+import org.apache.causeway.core.config.CausewayConfiguration;
+import org.apache.causeway.extensions.secman.applib.permission.dom.ApplicationPermissionMode;
+import org.apache.causeway.extensions.secman.applib.permission.dom.ApplicationPermissionRule;
+import org.apache.causeway.extensions.secman.applib.role.fixtures.AbstractRoleAndPermissionsFixtureScript;
+import org.apache.causeway.extensions.secman.applib.user.dom.AccountType;
+import org.apache.causeway.extensions.secman.applib.user.fixtures.AbstractUserAndRolesFixtureScript;
+import org.apache.causeway.testing.fixtures.applib.fixturescripts.FixtureScript;
 
 public class CustomRolesAndUsers extends FixtureScript {
 
@@ -50,11 +50,11 @@ public class CustomRolesAndUsers extends FixtureScript {
             @Override
             public Can<String> get() {
                 return Can.of(
-                        isisConfiguration.getExtensions().getSecman().getSeed().getRegularUser().getRoleName(), // built-in stuff
+                        causewayConfiguration.getExtensions().getSecman().getSeed().getRegularUser().getRoleName(), // built-in stuff
                         SimpleModuleSuperuserRole.ROLE_NAME
                         );
             }
-            @Inject IsisConfiguration isisConfiguration;
+            @Inject CausewayConfiguration causewayConfiguration;
         }
     }
 

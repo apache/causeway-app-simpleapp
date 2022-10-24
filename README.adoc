@@ -2,10 +2,10 @@
 :toc:
 :toc-placement!:
 
-image:https://github.com/apache/isis-app-simpleapp/workflows/Build%20w/%20Maven%20+%20Jdk%208/badge.svg[]
-image:https://github.com/apache/isis-app-simpleapp/workflows/Build%20w/%20Maven%20+%20Jdk%2015/badge.svg[]
+image:https://github.com/apache/causeway-app-simpleapp/workflows/Build%20w/%20Maven%20+%20Jdk%208/badge.svg[]
+image:https://github.com/apache/causeway-app-simpleapp/workflows/Build%20w/%20Maven%20+%20Jdk%2015/badge.svg[]
 
-This is a simple link:http://isis.apache.org[Apache Isis] application, structured so that it can be used as a starting point for developing your own applications.
+This is a simple link:http://causeway.apache.org[Apache Causeway] application, structured so that it can be used as a starting point for developing your own applications.
 
 It consists of:
 
@@ -16,7 +16,7 @@ You can easily remove these extensions (or add others) in the `AppManifest`.
 
 [TIP]
 ====
-If all you want is get a feel for what the framework is all about, then take a look at the link:https://github.com/apache/isis-app-helloworld[HelloWorld] starter app, which has the bare minimum of configuration.
+If all you want is get a feel for what the framework is all about, then take a look at the link:https://github.com/apache/causeway-app-helloworld[HelloWorld] starter app, which has the bare minimum of configuration.
 ====
 
 toc::[]
@@ -34,7 +34,7 @@ toc::[]
 APP=simpleapp
 BRANCH=master
 
-REPO=isis-app-$APP
+REPO=causeway-app-$APP
 curl "https://codeload.github.com/apache/$REPO/zip/$BRANCH" | jar xv
 mv $REPO-$BRANCH $REPO
 cd $REPO
@@ -204,7 +204,7 @@ These outputs can for example be processed within/published by a continuous pipe
 
 == Translations
 
-Apache Isis supports i18n using link:https://www.gnu.org/software/gettext/manual/html_node/PO-Files.html[GNU .po file]s.
+Apache Causeway supports i18n using link:https://www.gnu.org/software/gettext/manual/html_node/PO-Files.html[GNU .po file]s.
 The `WEB-INF/translations.po` is the fallback (an empty value means that the key is used "as-is"), while `WEB-INF/translations-XX.po` files provide translations for each "XX" locale.
 
 Translations are required for all domain classes and all members (actions, properties and collections) of all classes.
@@ -241,7 +241,7 @@ The presence of these is enough to enable the Flyway integration
 +
 This is explicitly set to `true`, to override the value in the default `config/application.properties`.
 
-* `isis.persistence.jdo-datanucleus.impl.datanucleus.schema.autoCreateAll`
+* `causeway.persistence.jdo-datanucleus.impl.datanucleus.schema.autoCreateAll`
 +
 This is set to `false`, also overriding the value in the default `config/application.properties`.
 It instructs the JDO/DataNucleus object store not to automatically create any tables etc.

@@ -18,10 +18,10 @@
         <!-- silence Wicket -->
         <Logger name="org.apache.wicket.page.PartialPageUpdate" level="error" />
 
-        <Logger name="org.apache.isis.applib.services.publishing.log.CommandLogger" level="debug" />
-        <Logger name="org.apache.isis.applib.services.publishing.log.ExecutionLogger" level="debug" />
-        <Logger name="org.apache.isis.applib.services.publishing.log.EntityChangesLogger" level="debug" />
-        <Logger name="org.apache.isis.applib.services.publishing.log.EntityPropertyChangeLogger" level="debug" />
+        <Logger name="org.apache.causeway.applib.services.publishing.log.CommandLogger" level="debug" />
+        <Logger name="org.apache.causeway.applib.services.publishing.log.ExecutionLogger" level="debug" />
+        <Logger name="org.apache.causeway.applib.services.publishing.log.EntityChangesLogger" level="debug" />
+        <Logger name="org.apache.causeway.applib.services.publishing.log.EntityPropertyChangeLogger" level="debug" />
 
         <Logger name="org.apache.catalina.startup.DigesterFactory" level="error" />
         <Logger name="org.apache.catalina.util.LifecycleBase" level="error" />
@@ -40,22 +40,22 @@
         <logger name="DataNucleus.Datastore.Schema" level="info"/>
         <logger name="DataNucleus.Datastore.Native" level="info"/>
 
-        <logger name="org.apache.isis.applib.services.publishing.log.CommandLogger" level="debug"/>
-        <logger name="org.apache.isis.applib.services.publishing.log.EntityChangesLogger" level="debug"/>
-        <logger name="org.apache.isis.applib.services.publishing.log.EntityPropertyChangeLogger" level="debug"/>
-        <logger name="org.apache.isis.applib.services.publishing.log.ExecutionLogger" level="debug"/>
+        <logger name="org.apache.causeway.applib.services.publishing.log.CommandLogger" level="debug"/>
+        <logger name="org.apache.causeway.applib.services.publishing.log.EntityChangesLogger" level="debug"/>
+        <logger name="org.apache.causeway.applib.services.publishing.log.EntityPropertyChangeLogger" level="debug"/>
+        <logger name="org.apache.causeway.applib.services.publishing.log.ExecutionLogger" level="debug"/>
 
         <!-- request scoped -->
-        <logger name="org.apache.isis.viewer.restfulobjects.rendering.service.acceptheader.AcceptHeaderServiceForRest" level="debug"/>
-        <logger name="org.apache.isis.applib.services.command.CommandContext" level="debug"/>
-        <logger name="org.apache.isis.applib.services.iactn.InteractionProvider" level="debug"/>
-        <logger name="org.apache.isis.applib.services.scratchpad.Scratchpad" level="debug"/>
-        <logger name="org.apache.isis.core.runtimeservices.publish.PublisherDispatchServiceDefault" level="debug"/>
+        <logger name="org.apache.causeway.viewer.restfulobjects.rendering.service.acceptheader.AcceptHeaderServiceForRest" level="debug"/>
+        <logger name="org.apache.causeway.applib.services.command.CommandContext" level="debug"/>
+        <logger name="org.apache.causeway.applib.services.iactn.InteractionProvider" level="debug"/>
+        <logger name="org.apache.causeway.applib.services.scratchpad.Scratchpad" level="debug"/>
+        <logger name="org.apache.causeway.core.runtimeservices.publish.PublisherDispatchServiceDefault" level="debug"/>
 
         <!-- transaction scoped -->
-        <logger name="org.apache.isis.core.transaction.changetracking.EntityChangeTrackerDefault" level="debug"/>
-        <logger name="org.apache.isis.core.runtimeservices.publish.ExecutionPublisherDefault" level="debug"/>
-        <logger name="org.apache.isis.applib.services.queryresultscache.QueryResultsCache" level="debug"/>
+        <logger name="org.apache.causeway.core.transaction.changetracking.EntityChangeTrackerDefault" level="debug"/>
+        <logger name="org.apache.causeway.core.runtimeservices.publish.ExecutionPublisherDefault" level="debug"/>
+        <logger name="org.apache.causeway.applib.services.queryresultscache.QueryResultsCache" level="debug"/>
 
         <Root level="info">
             <AppenderRef ref="Console" />
