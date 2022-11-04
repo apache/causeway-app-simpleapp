@@ -60,23 +60,23 @@ causeway:
       user-menu-me-action-policy: hide
 
   viewer:
-    wicket:
+    common:
       application:
         about: Simple App
         brand-logo-header: images/apache-causeway/logo-48x48.png
-        css: css/application.css
         favicon-url: images/favicon.png
-        js: scripts/application.js
-        menubars-layout-xml: menubars.layout.xml
+        menubars-layout-file: menubars.layout.xml
         name: Simple App
         # https://stackoverflow.com/a/38983935/56880
         version: @project.version@
-
       credit:
         - url:  http://causeway.apache.org
           image: images/apache-causeway/logo-48x48.png
           name: Apache Causeway
-
+    wicket:
+      css: css/application.css
+      js: scripts/application.js
+      
       bookmarked-pages:
         show-chooser: true
         show-drop-down-on-footer: true
