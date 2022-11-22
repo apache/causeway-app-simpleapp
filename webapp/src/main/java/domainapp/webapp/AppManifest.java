@@ -19,8 +19,8 @@ import org.apache.causeway.extensions.pdfjs.wkt.ui.CausewayModuleExtPdfjsWicketU
 import org.apache.causeway.extensions.secman.encryption.jbcrypt.CausewayModuleExtSecmanEncryptionJbcrypt;
 import org.apache.causeway.extensions.secman.jdo.CausewayModuleExtSecmanPersistenceJdo;
 import org.apache.causeway.extensions.sessionlog.jdo.CausewayModuleExtSessionLogPersistenceJdo;
-import org.apache.causeway.persistence.jdo.datanucleus.CausewayModulePersistenceJdoDatanucleus;
 import org.apache.causeway.extensions.viewer.wicket.exceldownload.ui.CausewayModuleExtExcelDownloadWicketUi;
+import org.apache.causeway.persistence.jdo.datanucleus.CausewayModulePersistenceJdoDatanucleus;
 import org.apache.causeway.persistence.jdo.datanucleus.CausewayModulePersistenceJdoDatanucleusMixins;
 import org.apache.causeway.testing.fixtures.applib.CausewayModuleTestingFixturesApplib;
 import org.apache.causeway.testing.h2console.ui.CausewayModuleTestingH2ConsoleUi;
@@ -41,14 +41,10 @@ import domainapp.webapp.quartz.QuartzModule;
         CausewayModuleApplibChangeAndExecutionLoggers.class,
 
         CausewayModuleCoreRuntimeServices.class,
-<<<<<<< HEAD
         CausewayModulePersistenceJdoDatanucleus.class,
         CausewayModulePersistenceJdoDatanucleusMixins.class,
-        CausewayModuleViewerRestfulObjectsJaxrsResteasy4.class,
-=======
-        CausewayModulePersistenceJpaEclipselink.class,
+
         CausewayModuleViewerRestfulObjectsJaxrsResteasy.class,
->>>>>>> refs/remotes/origin/jpa-SNAPSHOT
         CausewayModuleViewerWicketApplibMixins.class,
         CausewayModuleViewerWicketViewer.class,
 
