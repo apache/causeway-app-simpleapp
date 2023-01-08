@@ -98,22 +98,5 @@
                 </repository>
             </repositories>
         </profile>
-        <profile>
-            <id>causeway-app-starter-datanucleusenhance</id>
-            <activation>
-                <file>
-                    <exists>${basedir}/logging-dn-enhance.properties</exists>
-                </file>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.datanucleus</groupId>
-                        <artifactId>datanucleus-maven-plugin</artifactId>
-                        <version>${datanucleus-maven-plugin.version}</version>
-                        <inherited>true</inherited>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>    </profiles>
+    </profiles>
 </project>
