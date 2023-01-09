@@ -29,6 +29,14 @@
                 </excludes>
             </resource>
         </resources>
+        <plugins>
+            <!-- TODO: workaround, for some reason this isn't being picked up from the inherited profile -->
+            <plugin>
+                <groupId>org.datanucleus</groupId>
+                <artifactId>datanucleus-maven-plugin</artifactId>
+                <version>${datanucleus-maven-plugin.version}</version>
+            </plugin>
+        </plugins>
     </build>
 
     <dependencies>
