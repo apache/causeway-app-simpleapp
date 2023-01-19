@@ -23,10 +23,6 @@ causeway:
       domain-object:
         editing: false
         entity-change-publishing: all
-      domain-object-layout:
-        table-decoration: none
-      collection-layout:
-        table-decoration: none
   core:
     meta-model:
       introspector:
