@@ -1,11 +1,8 @@
 package domainapp.modules.simple.dom.so;
 
-import java.time.LocalDate;
 import java.time.LocalTime;
-import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.util.Comparator;
-import java.util.Optional;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -35,18 +32,13 @@ import org.apache.causeway.applib.annotation.PromptStyle;
 import org.apache.causeway.applib.annotation.Property;
 import org.apache.causeway.applib.annotation.PropertyLayout;
 import org.apache.causeway.applib.annotation.Publishing;
-import org.apache.causeway.applib.annotation.TableDecoration;
+import org.apache.causeway.applib.annotation.TableDecorator;
 import org.apache.causeway.applib.annotation.Title;
 import org.apache.causeway.applib.jaxb.PersistentEntityAdapter;
 import org.apache.causeway.applib.layout.LayoutConstants;
-import org.apache.causeway.applib.services.clock.ClockService;
-import org.apache.causeway.applib.services.iactnlayer.InteractionContext;
-import org.apache.causeway.applib.services.iactnlayer.InteractionService;
 import org.apache.causeway.applib.services.message.MessageService;
 import org.apache.causeway.applib.services.repository.RepositoryService;
 import org.apache.causeway.applib.services.title.TitleService;
-import org.apache.causeway.applib.services.user.UserCurrentSessionTimeZoneHolder;
-import org.apache.causeway.applib.services.user.UserService;
 import org.apache.causeway.applib.value.Blob;
 import org.apache.causeway.extensions.fullcalendar.applib.CalendarEventable;
 import org.apache.causeway.extensions.fullcalendar.applib.value.CalendarEvent;
@@ -55,16 +47,15 @@ import org.apache.causeway.extensions.pdfjs.applib.annotations.PdfJsViewer;
 import static org.apache.causeway.applib.annotation.SemanticsOf.IDEMPOTENT;
 import static org.apache.causeway.applib.annotation.SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE;
 
+import domainapp.modules.simple.SimpleModule;
+import domainapp.modules.simple.types.Name;
+import domainapp.modules.simple.types.Notes;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.val;
-
-import domainapp.modules.simple.SimpleModule;
-import domainapp.modules.simple.types.Name;
-import domainapp.modules.simple.types.Notes;
 
 
 @PersistenceCapable(
@@ -91,7 +82,7 @@ import domainapp.modules.simple.types.Notes;
 @Version(strategy= VersionStrategy.DATE_TIME, column="version")
 @Named(SimpleModule.NAMESPACE + ".SimpleObject")
 @DomainObject(entityChangePublishing = Publishing.ENABLED)
-@DomainObjectLayout(tableDecoration = TableDecoration.DATATABLES_NET)
+@DomainObjectLayout(tableDecorator = TableDecorator.DatatablesNet.class)
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @XmlJavaTypeAdapter(PersistentEntityAdapter.class)
 @ToString(onlyExplicitlyIncluded = true)
@@ -100,7 +91,7 @@ public class SimpleObject implements Comparable<SimpleObject>, CalendarEventable
     static final String NAMED_QUERY__FIND_BY_NAME_LIKE = "SimpleObject.findByNameLike";
     static final String NAMED_QUERY__FIND_BY_NAME_EXACT = "SimpleObject.findByNameExact";
 
-    public static SimpleObject withName(String name) {
+    public static SimpleObject withName(final String name) {
         val simpleObject = new SimpleObject();
         simpleObject.setName(name);
         return simpleObject;
@@ -174,7 +165,7 @@ public class SimpleObject implements Comparable<SimpleObject>, CalendarEventable
     @MemberSupport public String default0UpdateName() {
         return getName();
     }
-    @MemberSupport public String validate0UpdateName(String newName) {
+    @MemberSupport public String validate0UpdateName(final String newName) {
         for (char prohibitedCharacter : PROHIBITED_CHARACTERS.toCharArray()) {
             if( newName.contains(""+prohibitedCharacter)) {
                 return "Character '" + prohibitedCharacter + "' is not allowed.";

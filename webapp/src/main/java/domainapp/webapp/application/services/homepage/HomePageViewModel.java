@@ -7,14 +7,12 @@ import javax.inject.Named;
 
 import org.apache.causeway.applib.annotation.Collection;
 import org.apache.causeway.applib.annotation.CollectionLayout;
-import org.apache.causeway.applib.annotation.Domain;
 import org.apache.causeway.applib.annotation.DomainObject;
 import org.apache.causeway.applib.annotation.DomainObjectLayout;
 import org.apache.causeway.applib.annotation.HomePage;
-import org.apache.causeway.applib.annotation.MemberSupport;
 import org.apache.causeway.applib.annotation.Nature;
 import org.apache.causeway.applib.annotation.ObjectSupport;
-import org.apache.causeway.applib.annotation.TableDecoration;
+import org.apache.causeway.applib.annotation.TableDecorator;
 
 import domainapp.modules.simple.SimpleModule;
 import domainapp.modules.simple.dom.so.SimpleObject;
@@ -31,7 +29,7 @@ public class HomePageViewModel {
     }
 
     @Collection
-    @CollectionLayout(tableDecoration = TableDecoration.DATATABLES_NET)
+    @CollectionLayout(tableDecorator = TableDecorator.DatatablesNet.class)
     public List<SimpleObject> getObjects() {
         return simpleObjects.listAll();
     }
