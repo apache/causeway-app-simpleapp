@@ -28,7 +28,7 @@
             </mb3:section>
             <mb3:section>
                 <mb3:named>Meta Model and Features</mb3:named>
-                <mb3:serviceAction objectType="causeway.applib.MetaModelServiceMenu" id="downloadMetaModelXml"/>
+                <mb3:serviceAction objectType="causeway.applib.MetaModelServiceMenu" id="downloadMetaModel"/>
                 <mb3:serviceAction objectType="causeway.applib.MetaModelServiceMenu" id="downloadMetaModelCsv"/>
                 <mb3:serviceAction objectType="causeway.applib.MetaModelServiceMenu" id="downloadMetaModelAscii"/>
                 <mb3:serviceAction objectType="causeway.applib.MetaModelServiceMenu" id="downloadMetaModelDiff"/>
