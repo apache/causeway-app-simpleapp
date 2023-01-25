@@ -125,7 +125,7 @@
             <mb3:named/>
             <mb3:section>
                 <mb3:named>Documentation</mb3:named>
-                <mb3:serviceAction objectType="causeway.runtimeservices.DocumentationMenu" id="help"/>
+                <mb3:serviceAction objectType="causeway.ext.docgen.DocumentationMenu" id="help"/>
             </mb3:section>
             <mb3:section>
                 <mb3:named>Configuration</mb3:named>
