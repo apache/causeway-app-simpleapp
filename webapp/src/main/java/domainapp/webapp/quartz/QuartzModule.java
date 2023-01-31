@@ -2,6 +2,7 @@ package domainapp.webapp.quartz;
 
 import org.quartz.JobDetail;
 import org.quartz.SimpleTrigger;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
