@@ -99,8 +99,7 @@ public class SimpleObject implements Comparable<SimpleObject>, CalendarEventable
         return simpleObject;
     }
 
-    @Inject @NotPersistent
-    RepositoryService repositoryService;
+    @Inject @NotPersistent RepositoryService repositoryService;
     @Inject @NotPersistent TitleService titleService;
     @Inject @NotPersistent MessageService messageService;
 
