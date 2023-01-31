@@ -1,39 +1,20 @@
 package domainapp.modules.simple.dom.so;
 
+import domainapp.modules.simple.SimpleModule;
+import domainapp.modules.simple.types.Name;
+import domainapp.modules.simple.types.Notes;
+import lombok.*;
+
 import java.time.LocalTime;
 import java.time.ZoneOffset;
 import java.util.Comparator;
 
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.jdo.annotations.Column;
-import javax.jdo.annotations.DatastoreIdentity;
-import javax.jdo.annotations.IdGeneratorStrategy;
-import javax.jdo.annotations.IdentityType;
-import javax.jdo.annotations.PersistenceCapable;
-import javax.jdo.annotations.Persistent;
-import javax.jdo.annotations.Queries;
-import javax.jdo.annotations.Query;
-import javax.jdo.annotations.Unique;
-import javax.jdo.annotations.Version;
-import javax.jdo.annotations.VersionStrategy;
+import javax.jdo.annotations.*;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
-import org.springframework.lang.Nullable;
-
-import org.apache.causeway.applib.annotation.Action;
-import org.apache.causeway.applib.annotation.ActionLayout;
-import org.apache.causeway.applib.annotation.DomainObject;
-import org.apache.causeway.applib.annotation.DomainObjectLayout;
-import org.apache.causeway.applib.annotation.Editing;
-import org.apache.causeway.applib.annotation.MemberSupport;
-import org.apache.causeway.applib.annotation.Optionality;
-import org.apache.causeway.applib.annotation.PromptStyle;
-import org.apache.causeway.applib.annotation.Property;
-import org.apache.causeway.applib.annotation.PropertyLayout;
-import org.apache.causeway.applib.annotation.Publishing;
-import org.apache.causeway.applib.annotation.TableDecorator;
-import org.apache.causeway.applib.annotation.Title;
+import org.apache.causeway.applib.annotation.*;
 import org.apache.causeway.applib.jaxb.PersistentEntityAdapter;
 import org.apache.causeway.applib.layout.LayoutConstants;
 import org.apache.causeway.applib.services.message.MessageService;
@@ -43,19 +24,10 @@ import org.apache.causeway.applib.value.Blob;
 import org.apache.causeway.extensions.fullcalendar.applib.CalendarEventable;
 import org.apache.causeway.extensions.fullcalendar.applib.value.CalendarEvent;
 import org.apache.causeway.extensions.pdfjs.applib.annotations.PdfJsViewer;
+import org.springframework.lang.Nullable;
 
 import static org.apache.causeway.applib.annotation.SemanticsOf.IDEMPOTENT;
 import static org.apache.causeway.applib.annotation.SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE;
-
-import domainapp.modules.simple.SimpleModule;
-import domainapp.modules.simple.types.Name;
-import domainapp.modules.simple.types.Notes;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
-import lombok.val;
 
 
 @PersistenceCapable(
@@ -97,9 +69,10 @@ public class SimpleObject implements Comparable<SimpleObject>, CalendarEventable
         return simpleObject;
     }
 
-    @Inject RepositoryService repositoryService;
-    @Inject TitleService titleService;
-    @Inject MessageService messageService;
+    @Inject @NotPersistent
+    RepositoryService repositoryService;
+    @Inject @NotPersistent TitleService titleService;
+    @Inject @NotPersistent MessageService messageService;
 
 
 

@@ -5,6 +5,7 @@ import java.io.IOException;
 import javax.inject.Inject;
 
 import org.junit.jupiter.api.Test;
+
 import org.springframework.context.annotation.Import;
 import org.springframework.test.annotation.DirtiesContext;
 
@@ -14,8 +15,9 @@ import org.apache.causeway.applib.services.swagger.Visibility;
 import org.apache.causeway.testing.integtestsupport.applib.swagger.SwaggerExporter;
 import org.apache.causeway.viewer.restfulobjects.jaxrsresteasy.CausewayModuleViewerRestfulObjectsJaxrsResteasy;
 
-import domainapp.webapp.integtests.WebAppIntegTestAbstract;
 import lombok.val;
+
+import domainapp.webapp.integtests.WebAppIntegTestAbstract;
 
 @Import({
         CausewayModuleViewerRestfulObjectsJaxrsResteasy.class

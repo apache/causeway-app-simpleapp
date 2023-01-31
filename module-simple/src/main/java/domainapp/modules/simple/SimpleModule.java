@@ -19,7 +19,7 @@ import domainapp.modules.simple.dom.so.SimpleObject;
         CausewayModuleExtPdfjsApplibModel.class,
         CausewayModuleExtFullCalendarApplib.class,
         CausewayModuleTestingFakeDataApplib.class,
-        CausewayModulePersistenceJdoApplib.class
+        CausewayModulePersistenceJdoApplib.class,
 })
 @ComponentScan
 public class SimpleModule implements ModuleWithFixtures {

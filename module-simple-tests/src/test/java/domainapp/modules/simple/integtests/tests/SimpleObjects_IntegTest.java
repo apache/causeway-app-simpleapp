@@ -1,28 +1,21 @@
 package domainapp.modules.simple.integtests.tests;
 
 import java.util.List;
-import java.util.Optional;
 
 import javax.inject.Inject;
-import javax.jdo.JDOFatalDataStoreException;
-import javax.persistence.RollbackException;
 
-import org.assertj.core.api.Assertions;
 import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
-import org.springframework.dao.DuplicateKeyException;
-import org.springframework.transaction.TransactionDefinition;
-import org.springframework.transaction.TransactionSystemException;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
-import static org.assertj.core.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
+import org.springframework.dao.DuplicateKeyException;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
+
 import org.apache.causeway.applib.services.iactnlayer.InteractionService;
-import org.apache.causeway.applib.services.xactn.TransactionService;
 import org.apache.causeway.commons.functional.Try;
 import org.apache.causeway.persistence.jdo.spring.exceptions.JdoResourceFailureException;
 import org.apache.causeway.testing.unittestsupport.applib.matchers.ThrowableMatchers;
