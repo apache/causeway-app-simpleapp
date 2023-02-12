@@ -241,7 +241,7 @@
                                 </ports>
                             </container>
                             <to>
-                                <image>docker.io/apacheisis/simpleapp</image>
+                                <image>docker.io/apache/causeway-app-simpleapp</image>
                                 <tags>
                                     <tag>${env.REVISION}</tag>
                                 </tags>
@@ -256,5 +256,5 @@
             </build>
         </profile>
     </profiles>
-
+p
 </project>
