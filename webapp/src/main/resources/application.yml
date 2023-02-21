@@ -66,7 +66,7 @@ causeway:
         # https://stackoverflow.com/a/38983935/56880
         version: @project.version@
       credit:
-        - url:  http://causeway.apache.org
+        - url:  https://causeway.apache.org
           image: images/apache-causeway/logo-65x48.png
           name: Apache Causeway
     wicket:
