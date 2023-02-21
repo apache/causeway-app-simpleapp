@@ -5,7 +5,7 @@
 image:https://github.com/apache/causeway-app-simpleapp/workflows/Build%20w/%20Maven%20+%20Jdk%208/badge.svg[]
 image:https://github.com/apache/causeway-app-simpleapp/workflows/Build%20w/%20Maven%20+%20Jdk%2015/badge.svg[]
 
-This is a simple link:http://causeway.apache.org[Apache Causeway] application, structured so that it can be used as a starting point for developing your own applications.
+This is a simple link:https://causeway.apache.org[Apache Causeway] application, structured so that it can be used as a starting point for developing your own applications.
 
 It consists of:
 
