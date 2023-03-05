@@ -5,7 +5,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
 import org.apache.causeway.extensions.fullcalendar.applib.CausewayModuleExtFullCalendarApplib;
-import org.apache.causeway.extensions.pdfjs.applib.CausewayModuleExtPdfjsApplibModel;
+import org.apache.causeway.extensions.pdfjs.applib.CausewayModuleExtPdfjsApplib;
 import org.apache.causeway.persistence.jdo.applib.CausewayModulePersistenceJdoApplib;
 import org.apache.causeway.testing.fakedata.applib.CausewayModuleTestingFakeDataApplib;
 import org.apache.causeway.testing.fixtures.applib.fixturescripts.FixtureScript;
@@ -16,7 +16,7 @@ import domainapp.modules.simple.dom.so.SimpleObject;
 
 @Configuration
 @Import({
-        CausewayModuleExtPdfjsApplibModel.class,
+        CausewayModuleExtPdfjsApplib.class,
         CausewayModuleExtFullCalendarApplib.class,
         CausewayModuleTestingFakeDataApplib.class,
         CausewayModulePersistenceJdoApplib.class,
