@@ -49,9 +49,9 @@
             </mb3:section>
             <mb3:section>
                 <mb3:named>REST API</mb3:named>
-                <mb3:serviceAction objectType="causeway.viewer.restfulobjects.SwaggerServiceMenu" id="openSwaggerUi"/>
-                <mb3:serviceAction objectType="causeway.viewer.restfulobjects.SwaggerServiceMenu" id="openRestApi"/>
-                <mb3:serviceAction objectType="causeway.viewer.restfulobjects.SwaggerServiceMenu" id="downloadSwaggerSchemaDefinition"/>
+                <mb3:serviceAction objectType="causeway.viewer.roRendering.SwaggerServiceMenu" id="openSwaggerUi"/>
+                <mb3:serviceAction objectType="causeway.viewer.roRendering.SwaggerServiceMenu" id="openRestApi"/>
+                <mb3:serviceAction objectType="causeway.viewer.roRendering.SwaggerServiceMenu" id="downloadSwaggerSchemaDefinition"/>
             </mb3:section>
             <mb3:section>
                 <mb3:named>i18n</mb3:named>
