@@ -44,6 +44,7 @@
         <logger name="org.apache.causeway.applib.services.publishing.log.EntityChangesLogger" level="debug"/>
         <logger name="org.apache.causeway.applib.services.publishing.log.EntityPropertyChangeLogger" level="debug"/>
         <logger name="org.apache.causeway.applib.services.publishing.log.ExecutionLogger" level="debug"/>
+        <logger name="org.apache.causeway.applib.services.publishing.log.PageRenderLogger" level="debug"/>
 
         <!-- request scoped -->
         <logger name="org.apache.causeway.viewer.restfulobjects.rendering.service.acceptheader.AcceptHeaderServiceForRest" level="debug"/>
