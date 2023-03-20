@@ -14,7 +14,7 @@ import org.apache.causeway.extensions.commandlog.jdo.CausewayModuleExtCommandLog
 import org.apache.causeway.extensions.executionlog.jdo.CausewayModuleExtExecutionLogPersistenceJdo;
 import org.apache.causeway.extensions.executionoutbox.jdo.CausewayModuleExtExecutionOutboxPersistenceJdo;
 import org.apache.causeway.extensions.flyway.impl.CausewayModuleExtFlywayImpl;
-import org.apache.causeway.extensions.fullcalendar.wkt.viewer.CausewayModuleExtFullCalendarWicketUi;
+import org.apache.causeway.extensions.fullcalendar.wkt.ui.viewer.CausewayModuleExtFullCalendarWicketUi;
 import org.apache.causeway.extensions.pdfjs.wkt.ui.CausewayModuleExtPdfjsWicketUi;
 import org.apache.causeway.extensions.secman.encryption.jbcrypt.CausewayModuleExtSecmanEncryptionJbcrypt;
 import org.apache.causeway.extensions.secman.jdo.CausewayModuleExtSecmanPersistenceJdo;
