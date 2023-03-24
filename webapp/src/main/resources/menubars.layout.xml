@@ -33,8 +33,6 @@
             <mb3:section>
                 <mb3:named>Meta Model and Features</mb3:named>
                 <mb3:serviceAction objectType="causeway.applib.MetaModelServiceMenu" id="downloadMetaModel"/>
-                <mb3:serviceAction objectType="causeway.applib.MetaModelServiceMenu" id="downloadMetaModelCsv"/>
-                <mb3:serviceAction objectType="causeway.applib.MetaModelServiceMenu" id="downloadMetaModelAscii"/>
                 <mb3:serviceAction objectType="causeway.applib.MetaModelServiceMenu" id="downloadMetaModelDiff"/>
                 <mb3:serviceAction objectType="causeway.feat.ApplicationFeatureMenu" id="allNamespaces"/>
                 <mb3:serviceAction objectType="causeway.feat.ApplicationFeatureMenu" id="allTypes"/>
@@ -62,7 +60,7 @@
             </mb3:section>
             <mb3:section>
                 <mb3:named>Manual Testing</mb3:named>
-                <mb3:serviceAction id="downloadSitemap" objectType="causeway.applib.SitemapServiceMenu">
+                <mb3:serviceAction objectType="causeway.applib.SitemapServiceMenu" id="downloadSitemap" >
                     <cpt:named>Download Site-Map Template (Adoc)</cpt:named>
                 </mb3:serviceAction>
             </mb3:section>
@@ -103,23 +101,23 @@
             <mb3:named>Security</mb3:named>
             <mb3:section>
                 <mb3:named>Users</mb3:named>
-                <mb3:serviceAction id="userManager" objectType="causeway.ext.secman.ApplicationUserMenu"/>
-                <mb3:serviceAction id="findUsers" objectType="causeway.ext.secman.ApplicationUserMenu"/>
+                <mb3:serviceAction objectType="causeway.ext.secman.ApplicationUserMenu" id="userManager"/>
+                <mb3:serviceAction objectType="causeway.ext.secman.ApplicationUserMenu" id="findUsers"/>
             </mb3:section>
             <mb3:section>
                 <mb3:named>Roles</mb3:named>
-                <mb3:serviceAction id="roleManager" objectType="causeway.ext.secman.ApplicationRoleMenu"/>
-                <mb3:serviceAction id="findRoles" objectType="causeway.ext.secman.ApplicationRoleMenu"/>
+                <mb3:serviceAction objectType="causeway.ext.secman.ApplicationRoleMenu" id="roleManager"/>
+                <mb3:serviceAction objectType="causeway.ext.secman.ApplicationRoleMenu" id="findRoles"/>
             </mb3:section>
             <mb3:section>
                 <mb3:named>Permissions</mb3:named>
-                <mb3:serviceAction id="allPermissions" objectType="causeway.ext.secman.ApplicationPermissionMenu"/>
-                <mb3:serviceAction id="findOrphanedPermissions" objectType="causeway.ext.secman.ApplicationPermissionMenu"/>
+                <mb3:serviceAction objectType="causeway.ext.secman.ApplicationPermissionMenu" id="allPermissions" />
+                <mb3:serviceAction objectType="causeway.ext.secman.ApplicationPermissionMenu" id="findOrphanedPermissions" />
             </mb3:section>
             <mb3:section>
                 <mb3:named>Tenancies</mb3:named>
-                <mb3:serviceAction id="tenancyManager" objectType="causeway.ext.secman.ApplicationTenancyMenu"/>
-                <mb3:serviceAction id="findTenancies" objectType="causeway.ext.secman.ApplicationTenancyMenu"/>
+                <mb3:serviceAction objectType="causeway.ext.secman.ApplicationTenancyMenu" id="tenancyManager"/>
+                <mb3:serviceAction objectType="causeway.ext.secman.ApplicationTenancyMenu" id="findTenancies"/>
             </mb3:section>
         </mb3:menu>
     </mb3:secondary>
