@@ -49,6 +49,12 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <classifier>exec</classifier>
+                    <requiresUnpack>
+                        <dependency>
+                            <groupId>org.asciidoctor</groupId>
+                            <artifactId>asciidoctorj</artifactId>
+                        </dependency>
+                    </requiresUnpack>
                 </configuration>
             </plugin>
         </plugins>
