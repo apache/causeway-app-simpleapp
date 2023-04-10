@@ -52,6 +52,12 @@
                     <agents>
                         <agent>${env.HOME}/.m2/repository/org/springframework/spring-instrument/${spring-framework.version}/spring-instrument-${spring-framework.version}.jar</agent>
                     </agents>
+                    <requiresUnpack>
+                        <dependency>
+                            <groupId>org.asciidoctor</groupId>
+                            <artifactId>asciidoctorj</artifactId>
+                        </dependency>
+                    </requiresUnpack>
                 </configuration>
             </plugin>
         </plugins>
