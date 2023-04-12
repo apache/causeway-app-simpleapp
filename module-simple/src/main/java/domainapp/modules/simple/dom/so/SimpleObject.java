@@ -27,6 +27,7 @@ import org.springframework.lang.Nullable;
 
 import org.apache.causeway.applib.annotation.Action;
 import org.apache.causeway.applib.annotation.ActionLayout;
+import org.apache.causeway.applib.annotation.BookmarkPolicy;
 import org.apache.causeway.applib.annotation.DomainObject;
 import org.apache.causeway.applib.annotation.DomainObjectLayout;
 import org.apache.causeway.applib.annotation.Editing;
@@ -53,16 +54,15 @@ import org.apache.causeway.persistence.jpa.applib.types.BlobJpaEmbeddable;
 import static org.apache.causeway.applib.annotation.SemanticsOf.IDEMPOTENT;
 import static org.apache.causeway.applib.annotation.SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE;
 
+import domainapp.modules.simple.SimpleModule;
+import domainapp.modules.simple.types.Name;
+import domainapp.modules.simple.types.Notes;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.val;
-
-import domainapp.modules.simple.SimpleModule;
-import domainapp.modules.simple.types.Name;
-import domainapp.modules.simple.types.Notes;
 
 
 @Entity
@@ -83,7 +83,9 @@ import domainapp.modules.simple.types.Notes;
 @EntityListeners(CausewayEntityListener.class)
 @Named(SimpleModule.NAMESPACE + ".SimpleObject")
 @DomainObject(entityChangePublishing = Publishing.ENABLED)
-@DomainObjectLayout(tableDecorator = TableDecorator.DatatablesNet.class)
+@DomainObjectLayout(
+        tableDecorator = TableDecorator.DatatablesNet.class,
+        bookmarking = BookmarkPolicy.AS_ROOT)
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @XmlJavaTypeAdapter(PersistentEntityAdapter.class)
 @ToString(onlyExplicitlyIncluded = true)
