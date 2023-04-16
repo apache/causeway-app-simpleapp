@@ -49,15 +49,16 @@ import org.apache.causeway.extensions.pdfjs.applib.annotations.PdfJsViewer;
 import static org.apache.causeway.applib.annotation.SemanticsOf.IDEMPOTENT;
 import static org.apache.causeway.applib.annotation.SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE;
 
-import domainapp.modules.simple.SimpleModule;
-import domainapp.modules.simple.types.Name;
-import domainapp.modules.simple.types.Notes;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.val;
+
+import domainapp.modules.simple.SimpleModule;
+import domainapp.modules.simple.types.Name;
+import domainapp.modules.simple.types.Notes;
 
 
 @PersistenceCapable(
