@@ -16,7 +16,7 @@ import org.apache.causeway.extensions.executionoutbox.jpa.CausewayModuleExtExecu
 import org.apache.causeway.extensions.flyway.impl.CausewayModuleExtFlywayImpl;
 import org.apache.causeway.extensions.fullcalendar.wkt.ui.viewer.CausewayModuleExtFullCalendarWicketUi;
 import org.apache.causeway.extensions.pdfjs.wkt.ui.CausewayModuleExtPdfjsWicketUi;
-import org.apache.causeway.extensions.secman.encryption.jbcrypt.CausewayModuleExtSecmanEncryptionJbcrypt;
+import org.apache.causeway.extensions.secman.encryption.spring.CausewayModuleExtSecmanEncryptionSpring;
 import org.apache.causeway.extensions.secman.jpa.CausewayModuleExtSecmanPersistenceJpa;
 import org.apache.causeway.extensions.sessionlog.jpa.CausewayModuleExtSessionLogPersistenceJpa;
 import org.apache.causeway.extensions.viewer.wicket.exceldownload.ui.CausewayModuleExtExcelDownloadWicketUi;
@@ -51,7 +51,7 @@ import domainapp.webapp.quartz.QuartzModule;
         CausewayModuleExtFlywayImpl.class,
 
         CausewayModuleExtSecmanPersistenceJpa.class,
-        CausewayModuleExtSecmanEncryptionJbcrypt.class,
+        CausewayModuleExtSecmanEncryptionSpring.class,
         CausewayModuleExtSessionLogPersistenceJpa.class,
         CausewayModuleExtAuditTrailPersistenceJpa.class,
         CausewayModuleExtCommandLogPersistenceJpa.class,
