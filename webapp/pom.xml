@@ -17,6 +17,11 @@
     </description>
 
     <packaging>jar</packaging>
+    
+    <properties>
+		<!-- https://stackoverflow.com/questions/38983934/cannot-get-maven-project-version-property-in-a-spring-application-with-value/38983935#38983935 -->
+		<resource.delimiter>^</resource.delimiter>
+	</properties>
 
     <build>
         <resources>

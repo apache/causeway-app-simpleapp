@@ -62,7 +62,7 @@ causeway:
         menubars-layout-file: menubars.layout.xml
         name: Simple App
         # https://stackoverflow.com/a/38983935/56880
-        version: @project.version@
+        version: ^project.version^
       credit:
         - url:  https://causeway.apache.org
           image: images/apache-causeway/logo-65x48.png
