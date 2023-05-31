@@ -55,7 +55,7 @@
                 <configuration>
                     <classifier>exec</classifier>
                     <agents>
-                        <agent>${env.HOME}/.m2/repository/org/springframework/spring-instrument/${spring-framework.version}/spring-instrument-${spring-framework.version}.jar</agent>
+                        <agent>${settings.localRepository}/org/springframework/spring-instrument/${spring-framework.version}/spring-instrument-${spring-framework.version}.jar</agent>
                     </agents>
                     <requiresUnpack>
                         <dependency>
