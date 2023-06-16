@@ -1,0 +1,13 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="integtests in simpleapp-jdo-module-simple-tests" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+    <module name="simpleapp-jdo-module-simple-tests" />
+    <option name="MAIN_CLASS_NAME" value="" />
+    <option name="METHOD_NAME" value="" />
+    <option name="TEST_OBJECT" value="directory" />
+    <dir value="$PROJECT_DIR$/module-simple-tests/src/test/java/domainapp/modules/simple/integtests" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+      <option name="RunConfigurationTask" enabled="true" run_configuration_name="simpleapp-jdo-module-simple [datanucleus:enhance]" run_configuration_type="MavenRunConfiguration" />
+    </method>
+  </configuration>
+</component>
