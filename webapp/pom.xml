@@ -17,7 +17,7 @@
     </description>
 
     <packaging>jar</packaging>
-    
+
     <properties>
 		<!-- https://stackoverflow.com/questions/38983934/cannot-get-maven-project-version-property-in-a-spring-application-with-value/38983935#38983935 -->
 		<resource.delimiter>^</resource.delimiter>
@@ -80,6 +80,12 @@
             <groupId>org.apache.causeway.mavendeps</groupId>
             <artifactId>causeway-mavendeps-webapp</artifactId>
             <type>pom</type>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.causeway.security</groupId>
+                    <artifactId>causeway-security-bypass</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
 			<groupId>org.apache.causeway.viewer</groupId>
@@ -203,6 +209,11 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-instrument</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.causeway.extensions</groupId>
+            <artifactId>causeway-extensions-shiro-realm-ldap-impl</artifactId>
         </dependency>
 
     </dependencies>

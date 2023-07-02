@@ -51,6 +51,14 @@
                 <type>test-jar</type>
             </dependency>
 
+            <dependency>
+                <groupId>org.apache.causeway.extensions</groupId>
+                <artifactId>causeway-extensions-shiro-realm-ldap</artifactId>
+                <scope>import</scope>
+                <type>pom</type>
+                <version>${project.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

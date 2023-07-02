@@ -19,6 +19,7 @@ import org.apache.causeway.extensions.pdfjs.wkt.ui.CausewayModuleExtPdfjsWicketU
 import org.apache.causeway.extensions.secman.encryption.spring.CausewayModuleExtSecmanEncryptionSpring;
 import org.apache.causeway.extensions.secman.jpa.CausewayModuleExtSecmanPersistenceJpa;
 import org.apache.causeway.extensions.sessionlog.jpa.CausewayModuleExtSessionLogPersistenceJpa;
+import org.apache.causeway.extensions.shirorealmldap.realm.impl.CausewayModuleExtShiroRealmLdapImpl;
 import org.apache.causeway.extensions.viewer.wicket.exceldownload.ui.CausewayModuleExtExcelDownloadWicketUi;
 import org.apache.causeway.persistence.jpa.eclipselink.CausewayModulePersistenceJpaEclipselink;
 import org.apache.causeway.testing.fixtures.applib.CausewayModuleTestingFixturesApplib;
@@ -49,6 +50,8 @@ import domainapp.webapp.quartz.QuartzModule;
         CausewayModuleTestingH2ConsoleUi.class,
 
         CausewayModuleExtFlywayImpl.class,
+
+        CausewayModuleExtShiroRealmLdapImpl.class,
 
         CausewayModuleExtSecmanPersistenceJpa.class,
         CausewayModuleExtSecmanEncryptionSpring.class,
