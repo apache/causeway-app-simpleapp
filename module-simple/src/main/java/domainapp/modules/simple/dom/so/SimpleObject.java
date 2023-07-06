@@ -29,19 +29,21 @@ import org.apache.causeway.applib.annotation.DomainObject;
 import org.apache.causeway.applib.annotation.DomainObjectLayout;
 import org.apache.causeway.applib.annotation.Editing;
 import org.apache.causeway.applib.annotation.MemberSupport;
+import org.apache.causeway.applib.annotation.ObjectSupport;
 import org.apache.causeway.applib.annotation.Optionality;
 import org.apache.causeway.applib.annotation.PromptStyle;
 import org.apache.causeway.applib.annotation.Property;
 import org.apache.causeway.applib.annotation.PropertyLayout;
 import org.apache.causeway.applib.annotation.Publishing;
 import org.apache.causeway.applib.annotation.TableDecorator;
-import org.apache.causeway.applib.annotation.Title;
 import org.apache.causeway.applib.jaxb.PersistentEntityAdapter;
 import org.apache.causeway.applib.layout.LayoutConstants;
 import org.apache.causeway.applib.services.message.MessageService;
 import org.apache.causeway.applib.services.repository.RepositoryService;
 import org.apache.causeway.applib.services.title.TitleService;
 import org.apache.causeway.applib.value.Blob;
+import org.apache.causeway.commons.collections.Can;
+import org.apache.causeway.core.metamodel.specloader.SpecificationLoader;
 import org.apache.causeway.extensions.fullcalendar.applib.CalendarEventable;
 import org.apache.causeway.extensions.fullcalendar.applib.value.CalendarEvent;
 import org.apache.causeway.extensions.pdfjs.applib.annotations.PdfJsViewer;
@@ -49,16 +51,15 @@ import org.apache.causeway.extensions.pdfjs.applib.annotations.PdfJsViewer;
 import static org.apache.causeway.applib.annotation.SemanticsOf.IDEMPOTENT;
 import static org.apache.causeway.applib.annotation.SemanticsOf.NON_IDEMPOTENT_ARE_YOU_SURE;
 
+import domainapp.modules.simple.SimpleModule;
+import domainapp.modules.simple.types.Name;
+import domainapp.modules.simple.types.Notes;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.val;
-
-import domainapp.modules.simple.SimpleModule;
-import domainapp.modules.simple.types.Name;
-import domainapp.modules.simple.types.Notes;
 
 
 @PersistenceCapable(
@@ -105,10 +106,16 @@ public class SimpleObject implements Comparable<SimpleObject>, CalendarEventable
     @Inject @NotPersistent RepositoryService repositoryService;
     @Inject @NotPersistent TitleService titleService;
     @Inject @NotPersistent MessageService messageService;
+    @Inject @NotPersistent SpecificationLoader specLoader ;
 
+    @ObjectSupport
+    public String title() {
+        var spec = specLoader.specForTypeElseFail(getClass());
+        var entityFacet = spec.entityFacetElseFail();
+        var entityState = entityFacet.getEntityState(this);
+        return String.format("%s (%s)", getName(), entityState.name());
+    }
 
-
-    @Title
     @Name
     @Getter @Setter @ToString.Include
     @PropertyLayout(fieldSetId = LayoutConstants.FieldSetId.IDENTITY, sequence = "1")
@@ -214,6 +221,12 @@ public class SimpleObject implements Comparable<SimpleObject>, CalendarEventable
     @Override
     public int compareTo(final SimpleObject other) {
         return comparator.compare(this, other);
+    }
+
+    Can<SimpleObject> allInstances() {
+        final Can<SimpleObject> allInstances =
+                Can.ofCollection(repositoryService.allInstances(SimpleObject.class));
+        return allInstances;
     }
 
 }

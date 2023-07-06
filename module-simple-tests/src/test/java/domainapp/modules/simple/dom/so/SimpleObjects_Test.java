@@ -25,12 +25,13 @@ class SimpleObjects_Test {
 
     @Mock RepositoryService mockRepositoryService;
     @Mock JdoSupportService mockJdoSupportService;
+    @Mock SimpleObjectTreeService mockSimpleObjectTreeService;
 
     SimpleObjects objects;
 
     @BeforeEach
     public void setUp() {
-        objects = new SimpleObjects(mockRepositoryService, mockJdoSupportService);
+        objects = new SimpleObjects(mockRepositoryService, mockJdoSupportService, mockSimpleObjectTreeService);
     }
 
     @Nested

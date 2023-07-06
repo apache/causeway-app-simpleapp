@@ -14,14 +14,14 @@ import org.apache.causeway.applib.annotation.NatureOfService;
 import org.apache.causeway.applib.annotation.PriorityPrecedence;
 import org.apache.causeway.applib.annotation.PromptStyle;
 import org.apache.causeway.applib.annotation.SemanticsOf;
+import org.apache.causeway.applib.graph.tree.TreeNode;
 import org.apache.causeway.applib.query.Query;
 import org.apache.causeway.applib.services.repository.RepositoryService;
 import org.apache.causeway.persistence.jdo.applib.services.JdoSupportService;
 
-import lombok.RequiredArgsConstructor;
-
 import domainapp.modules.simple.SimpleModule;
 import domainapp.modules.simple.types.Name;
+import lombok.RequiredArgsConstructor;
 
 @Named(SimpleModule.NAMESPACE + ".SimpleObjects")
 @DomainService(nature = NatureOfService.VIEW)
@@ -31,6 +31,7 @@ public class SimpleObjects {
 
     final RepositoryService repositoryService;
     final JdoSupportService jdoSupportService;
+    final SimpleObjectTreeService treeService;
 
 
     @Action(semantics = SemanticsOf.NON_IDEMPOTENT)
@@ -66,7 +67,10 @@ public class SimpleObjects {
         return repositoryService.allInstances(SimpleObject.class);
     }
 
-
+    @Action(semantics = SemanticsOf.SAFE)
+    public TreeNode<SimpleObject> tree() {
+        return treeService.getTree();
+    }
 
     public void ping() {
         JDOQLTypedQuery<SimpleObject> q = jdoSupportService.newTypesafeQuery(SimpleObject.class);
