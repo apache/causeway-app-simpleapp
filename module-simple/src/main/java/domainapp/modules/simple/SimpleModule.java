@@ -4,6 +4,8 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 
+import com.github.javafaker.Book;
+
 import org.apache.causeway.extensions.fullcalendar.applib.CausewayModuleExtFullCalendarApplib;
 import org.apache.causeway.extensions.pdfjs.applib.CausewayModuleExtPdfjsApplib;
 import org.apache.causeway.persistence.jdo.applib.CausewayModulePersistenceJdoApplib;
@@ -13,6 +15,8 @@ import org.apache.causeway.testing.fixtures.applib.modules.ModuleWithFixtures;
 import org.apache.causeway.testing.fixtures.applib.teardown.jdo.TeardownFixtureJdoAbstract;
 
 import domainapp.modules.simple.dom.so.SimpleObject;
+import domainapp.modules.simple.dom.tree.Author;
+import domainapp.modules.simple.dom.tree.Authors;
 
 @Configuration
 @Import({
