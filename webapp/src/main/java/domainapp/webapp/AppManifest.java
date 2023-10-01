@@ -1,5 +1,8 @@
 package domainapp.webapp;
 
+import org.apache.causeway.core.metamodel.inspect.CausewayModuleCoreMetamodelMixins;
+import org.apache.causeway.extensions.exceldownload.wkt.ui.CausewayModuleExtExcelDownloadWicketUi;
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
@@ -17,11 +20,12 @@ import org.apache.causeway.extensions.flyway.impl.CausewayModuleExtFlywayImpl;
 import org.apache.causeway.extensions.fullcalendar.wkt.ui.viewer.CausewayModuleExtFullCalendarWicketUi;
 import org.apache.causeway.extensions.pdfjs.wkt.ui.CausewayModuleExtPdfjsWicketUi;
 import org.apache.causeway.extensions.secman.encryption.spring.CausewayModuleExtSecmanEncryptionSpring;
+
 import org.apache.causeway.extensions.secman.jdo.CausewayModuleExtSecmanPersistenceJdo;
 import org.apache.causeway.extensions.sessionlog.jdo.CausewayModuleExtSessionLogPersistenceJdo;
-import org.apache.causeway.extensions.viewer.wicket.exceldownload.ui.CausewayModuleExtExcelDownloadWicketUi;
 import org.apache.causeway.persistence.jdo.datanucleus.CausewayModulePersistenceJdoDatanucleus;
 import org.apache.causeway.persistence.jdo.datanucleus.CausewayModulePersistenceJdoDatanucleusMixins;
+
 import org.apache.causeway.testing.fixtures.applib.CausewayModuleTestingFixturesApplib;
 import org.apache.causeway.testing.h2console.ui.CausewayModuleTestingH2ConsoleUi;
 import org.apache.causeway.valuetypes.asciidoc.metamodel.CausewayModuleValAsciidocMetaModel;
@@ -29,6 +33,7 @@ import org.apache.causeway.valuetypes.asciidoc.ui.wkt.CausewayModuleValAsciidocU
 import org.apache.causeway.viewer.restfulobjects.jaxrsresteasy.CausewayModuleViewerRestfulObjectsJaxrsResteasy;
 import org.apache.causeway.viewer.wicket.applib.CausewayModuleViewerWicketApplibMixins;
 import org.apache.causeway.viewer.wicket.viewer.CausewayModuleViewerWicketViewer;
+import org.apache.causeway.extensions.exceldownload.wkt.ui.CausewayModuleExtExcelDownloadWicketUi;
 
 import domainapp.webapp.application.ApplicationModule;
 import domainapp.webapp.application.fixture.scenarios.DomainAppDemo;
@@ -38,6 +43,9 @@ import domainapp.webapp.quartz.QuartzModule;
 @Configuration
 @Import({
         CausewayModuleApplibMixins.class,
+        CausewayModuleCoreMetamodelMixins.class,
+        CausewayModuleViewerWicketApplibMixins.class,
+
         CausewayModuleApplibChangeAndExecutionLoggers.class,
 
         CausewayModuleCoreRuntimeServices.class,
@@ -45,7 +53,6 @@ import domainapp.webapp.quartz.QuartzModule;
         CausewayModulePersistenceJdoDatanucleusMixins.class,
 
         CausewayModuleViewerRestfulObjectsJaxrsResteasy.class,
-        CausewayModuleViewerWicketApplibMixins.class,
         CausewayModuleViewerWicketViewer.class,
 
         CausewayModuleTestingFixturesApplib.class,
