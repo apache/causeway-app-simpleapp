@@ -1,8 +1,5 @@
 package domainapp.webapp;
 
-import org.apache.causeway.core.metamodel.inspect.CausewayModuleCoreMetamodelMixins;
-import org.apache.causeway.extensions.exceldownload.wkt.ui.CausewayModuleExtExcelDownloadWicketUi;
-
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
@@ -11,9 +8,11 @@ import org.springframework.context.annotation.PropertySources;
 import org.apache.causeway.applib.CausewayModuleApplibChangeAndExecutionLoggers;
 import org.apache.causeway.applib.CausewayModuleApplibMixins;
 import org.apache.causeway.core.config.presets.CausewayPresets;
+import org.apache.causeway.core.metamodel.inspect.CausewayModuleCoreMetamodelMixins;
 import org.apache.causeway.core.runtimeservices.CausewayModuleCoreRuntimeServices;
 import org.apache.causeway.extensions.audittrail.jpa.CausewayModuleExtAuditTrailPersistenceJpa;
 import org.apache.causeway.extensions.commandlog.jpa.CausewayModuleExtCommandLogPersistenceJpa;
+import org.apache.causeway.extensions.exceldownload.wkt.ui.CausewayModuleExtExcelDownloadWicketUi;
 import org.apache.causeway.extensions.executionlog.jpa.CausewayModuleExtExecutionLogPersistenceJpa;
 import org.apache.causeway.extensions.executionoutbox.jpa.CausewayModuleExtExecutionOutboxPersistenceJpa;
 import org.apache.causeway.extensions.flyway.impl.CausewayModuleExtFlywayImpl;
