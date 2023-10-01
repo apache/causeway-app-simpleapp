@@ -1,5 +1,8 @@
 package domainapp.webapp;
 
+import org.apache.causeway.core.metamodel.inspect.CausewayModuleCoreMetamodelMixins;
+import org.apache.causeway.extensions.exceldownload.wkt.ui.CausewayModuleExtExcelDownloadWicketUi;
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
@@ -19,7 +22,6 @@ import org.apache.causeway.extensions.pdfjs.wkt.ui.CausewayModuleExtPdfjsWicketU
 import org.apache.causeway.extensions.secman.encryption.spring.CausewayModuleExtSecmanEncryptionSpring;
 import org.apache.causeway.extensions.secman.jpa.CausewayModuleExtSecmanPersistenceJpa;
 import org.apache.causeway.extensions.sessionlog.jpa.CausewayModuleExtSessionLogPersistenceJpa;
-import org.apache.causeway.extensions.viewer.wicket.exceldownload.ui.CausewayModuleExtExcelDownloadWicketUi;
 import org.apache.causeway.persistence.jpa.eclipselink.CausewayModulePersistenceJpaEclipselink;
 import org.apache.causeway.testing.fixtures.applib.CausewayModuleTestingFixturesApplib;
 import org.apache.causeway.testing.h2console.ui.CausewayModuleTestingH2ConsoleUi;
@@ -37,12 +39,14 @@ import domainapp.webapp.quartz.QuartzModule;
 @Configuration
 @Import({
         CausewayModuleApplibMixins.class,
+        CausewayModuleCoreMetamodelMixins.class,
+        CausewayModuleViewerWicketApplibMixins.class,
+
         CausewayModuleApplibChangeAndExecutionLoggers.class,
 
         CausewayModuleCoreRuntimeServices.class,
         CausewayModulePersistenceJpaEclipselink.class,
         CausewayModuleViewerRestfulObjectsJaxrsResteasy.class,
-        CausewayModuleViewerWicketApplibMixins.class,
         CausewayModuleViewerWicketViewer.class,
 
         CausewayModuleTestingFixturesApplib.class,
