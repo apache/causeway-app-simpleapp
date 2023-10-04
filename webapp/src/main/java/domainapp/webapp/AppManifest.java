@@ -8,9 +8,11 @@ import org.springframework.context.annotation.PropertySources;
 import org.apache.causeway.applib.CausewayModuleApplibChangeAndExecutionLoggers;
 import org.apache.causeway.applib.CausewayModuleApplibMixins;
 import org.apache.causeway.core.config.presets.CausewayPresets;
+import org.apache.causeway.core.metamodel.inspect.CausewayModuleCoreMetamodelMixins;
 import org.apache.causeway.core.runtimeservices.CausewayModuleCoreRuntimeServices;
 import org.apache.causeway.extensions.audittrail.jdo.CausewayModuleExtAuditTrailPersistenceJdo;
 import org.apache.causeway.extensions.commandlog.jdo.CausewayModuleExtCommandLogPersistenceJdo;
+import org.apache.causeway.extensions.exceldownload.wkt.ui.CausewayModuleExtExcelDownloadWicketUi;
 import org.apache.causeway.extensions.executionlog.jdo.CausewayModuleExtExecutionLogPersistenceJdo;
 import org.apache.causeway.extensions.executionoutbox.jdo.CausewayModuleExtExecutionOutboxPersistenceJdo;
 import org.apache.causeway.extensions.flyway.impl.CausewayModuleExtFlywayImpl;
@@ -19,7 +21,6 @@ import org.apache.causeway.extensions.pdfjs.wkt.ui.CausewayModuleExtPdfjsWicketU
 import org.apache.causeway.extensions.secman.encryption.spring.CausewayModuleExtSecmanEncryptionSpring;
 import org.apache.causeway.extensions.secman.jdo.CausewayModuleExtSecmanPersistenceJdo;
 import org.apache.causeway.extensions.sessionlog.jdo.CausewayModuleExtSessionLogPersistenceJdo;
-import org.apache.causeway.extensions.viewer.wicket.exceldownload.ui.CausewayModuleExtExcelDownloadWicketUi;
 import org.apache.causeway.persistence.jdo.datanucleus.CausewayModulePersistenceJdoDatanucleus;
 import org.apache.causeway.persistence.jdo.datanucleus.CausewayModulePersistenceJdoDatanucleusMixins;
 import org.apache.causeway.testing.fixtures.applib.CausewayModuleTestingFixturesApplib;
@@ -38,14 +39,15 @@ import domainapp.webapp.quartz.QuartzModule;
 @Configuration
 @Import({
         CausewayModuleApplibMixins.class,
+        CausewayModuleCoreMetamodelMixins.class,
+        CausewayModulePersistenceJdoDatanucleusMixins.class,
+        CausewayModuleViewerWicketApplibMixins.class,
+
         CausewayModuleApplibChangeAndExecutionLoggers.class,
 
         CausewayModuleCoreRuntimeServices.class,
         CausewayModulePersistenceJdoDatanucleus.class,
-        CausewayModulePersistenceJdoDatanucleusMixins.class,
-
         CausewayModuleViewerRestfulObjectsJaxrsResteasy.class,
-        CausewayModuleViewerWicketApplibMixins.class,
         CausewayModuleViewerWicketViewer.class,
 
         CausewayModuleTestingFixturesApplib.class,
@@ -79,6 +81,5 @@ import domainapp.webapp.quartz.QuartzModule;
         @PropertySource(CausewayPresets.DebugDiscovery),
 })
 public class AppManifest {
-
 
 }
