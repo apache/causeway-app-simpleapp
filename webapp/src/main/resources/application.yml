@@ -51,7 +51,6 @@ causeway:
           role-name: "causeway-ext-secman-user"
       permissions-evaluation-policy: allow_beats_veto
       user-menu-me-action-policy: hide
-
   viewer:
     common:
       application:
@@ -64,9 +63,9 @@ causeway:
         # https://stackoverflow.com/a/38983935/56880
         version: ^project.version^
       credit:
-        - url:  https://causeway.apache.org
-          image: images/apache-causeway/logo-65x48.png
+        - image: images/apache-causeway/logo-65x48.png
           name: Apache Causeway
+          url: https://causeway.apache.org
     wicket:
       css: css/application.css
       js: scripts/application.js
@@ -80,6 +79,23 @@ causeway:
 
       themes:
         show-chooser: true
+        initial: Flatly
+        enabled:
+          - Cerulean
+          - Cosmo
+          - Cyborg
+          - Darkly
+          - Flatly
+          - Journal
+          - Litera
+          - Lumen
+          - Sandstone
+          - Simplex
+          - Slate
+          - Spacelab
+          - Superhero
+          - United
+          - Yeti
 
       table:
         decoration:
