@@ -12,15 +12,14 @@ import org.apache.causeway.core.metamodel.inspect.CausewayModuleCoreMetamodelMix
 import org.apache.causeway.core.runtimeservices.CausewayModuleCoreRuntimeServices;
 import org.apache.causeway.extensions.audittrail.jpa.CausewayModuleExtAuditTrailPersistenceJpa;
 import org.apache.causeway.extensions.commandlog.jpa.CausewayModuleExtCommandLogPersistenceJpa;
-import org.apache.causeway.extensions.exceldownload.wkt.ui.CausewayModuleExtExcelDownloadWicketUi;
 import org.apache.causeway.extensions.executionlog.jpa.CausewayModuleExtExecutionLogPersistenceJpa;
 import org.apache.causeway.extensions.executionoutbox.jpa.CausewayModuleExtExecutionOutboxPersistenceJpa;
 import org.apache.causeway.extensions.flyway.impl.CausewayModuleExtFlywayImpl;
-import org.apache.causeway.extensions.fullcalendar.wkt.ui.viewer.CausewayModuleExtFullCalendarWicketUi;
 import org.apache.causeway.extensions.pdfjs.wkt.ui.CausewayModuleExtPdfjsWicketUi;
 import org.apache.causeway.extensions.secman.encryption.spring.CausewayModuleExtSecmanEncryptionSpring;
 import org.apache.causeway.extensions.secman.jpa.CausewayModuleExtSecmanPersistenceJpa;
 import org.apache.causeway.extensions.sessionlog.jpa.CausewayModuleExtSessionLogPersistenceJpa;
+import org.apache.causeway.extensions.tabular.excel.CausewayModuleExtTabularExcel;
 import org.apache.causeway.persistence.jpa.eclipselink.CausewayModulePersistenceJpaEclipselink;
 import org.apache.causeway.testing.fixtures.applib.CausewayModuleTestingFixturesApplib;
 import org.apache.causeway.testing.h2console.ui.CausewayModuleTestingH2ConsoleUi;
@@ -61,8 +60,7 @@ import domainapp.webapp.quartz.QuartzModule;
         CausewayModuleExtExecutionLogPersistenceJpa.class,
         CausewayModuleExtExecutionOutboxPersistenceJpa.class,
 
-        CausewayModuleExtExcelDownloadWicketUi.class,
-        CausewayModuleExtFullCalendarWicketUi.class,
+        CausewayModuleExtTabularExcel.class,
         CausewayModuleExtPdfjsWicketUi.class,
 
         CausewayModuleValAsciidocMetaModel.class, // for pretty rendering of DTO objects such as CommandDto, InteractionDto
