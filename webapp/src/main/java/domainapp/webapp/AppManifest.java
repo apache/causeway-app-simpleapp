@@ -1,5 +1,7 @@
 package domainapp.webapp;
 
+import org.apache.causeway.extensions.layoutloaders.github.CausewayModuleExtLayoutLoadersGithub;
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
@@ -63,6 +65,7 @@ import domainapp.webapp.quartz.QuartzModule;
         CausewayModuleExtExecutionLogPersistenceJdo.class,
         CausewayModuleExtExecutionOutboxPersistenceJdo.class,
 
+        CausewayModuleExtLayoutLoadersGithub.class,
         CausewayModuleExtTabularExcel.class,
         CausewayModuleExtFullCalendarWicketUi.class,
         CausewayModuleExtPdfjsWicketUi.class,

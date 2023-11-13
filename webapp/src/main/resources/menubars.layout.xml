@@ -29,6 +29,8 @@
                 <mb3:named>Layouts</mb3:named>
                 <mb3:serviceAction objectType="causeway.applib.LayoutServiceMenu" id="downloadLayouts"/>
                 <mb3:serviceAction objectType="causeway.applib.LayoutServiceMenu" id="downloadMenuBarsLayout"/>
+                <mb3:serviceAction objectType="causeway.ext.layoutGithub.LayoutLoaderMenu" id="enableDynamicLayoutLoading"/>
+                <mb3:serviceAction objectType="causeway.ext.layoutGithub.LayoutLoaderMenu" id="disableDynamicLayoutLoading"/>
             </mb3:section>
             <mb3:section>
                 <mb3:named>Meta Model and Features</mb3:named>
