@@ -9,6 +9,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.transaction.annotation.Transactional;
 
 import org.apache.causeway.applib.services.wrapper.InvalidException;
@@ -18,6 +19,7 @@ import domainapp.modules.simple.dom.so.SimpleObject;
 import domainapp.modules.simple.dom.so.SimpleObjects;
 import domainapp.webapp.integtests.WebAppIntegTestAbstract;
 
+@DirtiesContext
 @Transactional
 class Smoke_IntegTest extends WebAppIntegTestAbstract {
 
