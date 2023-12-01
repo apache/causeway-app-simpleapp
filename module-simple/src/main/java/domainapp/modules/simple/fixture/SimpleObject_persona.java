@@ -69,6 +69,7 @@ implements Persona<SimpleObject, SimpleObject_persona.Builder> {
                 simpleObject.updateAttachment(attachment);
             }
 
+            simpleObject.setNumber(fakeDataService.ints().any());
             simpleObject.setLastCheckedIn(clockService.getClock().nowAsLocalDate().plusDays(fakeDataService.ints().between(-10, +10)));
 
             return simpleObject;

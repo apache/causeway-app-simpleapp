@@ -131,6 +131,10 @@ public class SimpleObject implements Comparable<SimpleObject>, CalendarEventable
     @PropertyLayout(fieldSetId = LayoutConstants.FieldSetId.DETAILS, sequence = "2")
     private String notes;
 
+    @Getter @Setter
+    @PropertyLayout(fieldSetId = LayoutConstants.FieldSetId.DETAILS, sequence = "2.1")
+    private Integer number;
+
     @AttributeOverrides({
             @AttributeOverride(name="name",    column=@Column(name="attachment_name")),
             @AttributeOverride(name="mimeType",column=@Column(name="attachment_mimeType")),
