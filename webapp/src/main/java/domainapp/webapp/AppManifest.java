@@ -1,5 +1,6 @@
 package domainapp.webapp;
 
+import org.apache.causeway.extensions.fullcalendar.wkt.ui.viewer.CausewayModuleExtFullCalendarWicketUi;
 import org.apache.causeway.extensions.layoutloaders.github.CausewayModuleExtLayoutLoadersGithub;
 
 import org.springframework.context.annotation.Configuration;
