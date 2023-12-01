@@ -1,5 +1,6 @@
 package domainapp.webapp;
 
+import org.apache.causeway.extensions.fullcalendar.wkt.ui.viewer.CausewayModuleExtFullCalendarWicketUi;
 import org.apache.causeway.extensions.layoutloaders.github.CausewayModuleExtLayoutLoadersGithub;
 
 import org.springframework.context.annotation.Configuration;
@@ -64,6 +65,7 @@ import domainapp.webapp.quartz.QuartzModule;
 
         CausewayModuleExtLayoutLoadersGithub.class,
         CausewayModuleExtTabularExcel.class,
+        CausewayModuleExtFullCalendarWicketUi.class,
         CausewayModuleExtPdfjsWicketUi.class,
 
         CausewayModuleValAsciidocMetaModel.class, // for pretty rendering of DTO objects such as CommandDto, InteractionDto
