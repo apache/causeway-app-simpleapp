@@ -1,5 +1,6 @@
 package domainapp.modules.simple.dom.so;
 
+import java.math.BigDecimal;
 import java.time.LocalTime;
 import java.time.ZoneOffset;
 import java.util.Comparator;
@@ -133,7 +134,7 @@ public class SimpleObject implements Comparable<SimpleObject>, CalendarEventable
 
     @Getter @Setter
     @PropertyLayout(fieldSetId = LayoutConstants.FieldSetId.DETAILS, sequence = "2.1")
-    private Integer number;
+    private BigDecimal number;
 
     @AttributeOverrides({
             @AttributeOverride(name="name",    column=@Column(name="attachment_name")),
