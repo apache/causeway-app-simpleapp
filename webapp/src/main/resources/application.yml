@@ -136,6 +136,61 @@ spring:
 
 management:
   endpoint:
+    auditevents:
+      enabled: false
+    beans:
+      enabled: false
+    caches:
+      enabled: false
+    configprops:
+      enabled: false
+    conditions:
+      enabled: false
+    env:
+      enabled: false
+    flyway:
+      enabled: false
+    heapdump:
+      enabled: false
     health:
       enabled: true
+      probes:
+        enabled: false
+    httptrace:
+      enabled: false
+    info:
+      enabled: false
+    integrationgraph:
+      enabled: false
+    jolokia:
+      enabled: false
+    liquibase:
+      enabled: false
+    logfile:
+      enabled: false
+    loggers:
+      enabled: false
+    metrics:
+      enabled: false
+    prometheus:
+      enabled: false
+    quartz:
+      enabled: false
+    sessions:
+      enabled: false
+    shutdown:
+      enabled: false
+    startup:
+      enabled: false
+    scheduledtasks:
+      enabled: false
+    threaddump:
+      enabled: false
+  endpoints:
+    web:
+      exposure:
+        include:
+          - health
+      discovery:
+        enabled: false
 
