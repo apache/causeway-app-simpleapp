@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 import javax.persistence.RollbackException;
 
+import org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException;
 import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -13,7 +14,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.springframework.dao.DuplicateKeyException;
-import org.springframework.transaction.TransactionSystemException;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -102,8 +102,8 @@ public class SimpleObjects_IntegTest extends SimpleModuleIntegTestAbstract {
             assertThat(attempt.isFailure()).isTrue();
             val failureIfAny = attempt.getFailure();
             assertThat(failureIfAny).isPresent();
-            assertThat(failureIfAny.get()).isInstanceOf(TransactionSystemException.class);
-            assertThat(failureIfAny.get().getCause()).isInstanceOf(RollbackException.class);
+            assertThat(failureIfAny.get()).isInstanceOf(DuplicateKeyException.class);
+            assertThat(failureIfAny.get().getCause()).isInstanceOf(JdbcSQLIntegrityConstraintViolationException.class);
 
         }
 
