@@ -27,6 +27,7 @@ causeway:
     meta-model:
       introspector:
         lock-after-full-introspection: true
+        mode: full
       validator:
         allow-deprecated: false
         no-params-only: true
@@ -100,6 +101,15 @@ causeway:
         decoration:
           data-tables-net:
             options: "info: false, pagingType: 'numbers'"
+    graphql:
+      api-variant: query_with_mutations_non_spec_compliant
+      authentication:
+        fallback:
+          username: sven
+          roles:
+            - simple-superuser
+            - foo
+            - bar
 
   testing:
     fixtures:
@@ -140,6 +150,10 @@ spring:
 
   quartz:
     job-store-type: memory
+  graphql:
+    graphiql:
+      enabled: true
+      path: "/graphiql"
 
 management:
   endpoint:

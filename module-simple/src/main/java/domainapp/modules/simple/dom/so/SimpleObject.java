@@ -128,7 +128,7 @@ public class SimpleObject implements Comparable<SimpleObject>, CalendarEventable
             @Column(name = "attachment_mimetype"),
             @Column(name = "attachment_bytes")
     })
-    @Property()
+    @Property(optionality = Optionality.OPTIONAL)
     @PropertyLayout(fieldSetId = "content", sequence = "1")
     private Blob attachment;
 
