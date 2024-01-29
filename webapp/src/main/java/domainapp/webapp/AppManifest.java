@@ -3,6 +3,9 @@ package domainapp.webapp;
 import org.apache.causeway.extensions.fullcalendar.wkt.ui.viewer.CausewayModuleExtFullCalendarWicketUi;
 import org.apache.causeway.extensions.layoutloaders.github.CausewayModuleExtLayoutLoadersGithub;
 
+
+import org.apache.causeway.viewer.graphql.viewer.CausewayModuleViewerGraphqlViewer;
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.context.annotation.PropertySource;
@@ -50,6 +53,8 @@ import domainapp.webapp.quartz.QuartzModule;
         CausewayModuleViewerRestfulObjectsJaxrsResteasy.class,
         CausewayModuleViewerWicketViewer.class,
 
+        CausewayModuleViewerGraphqlViewer.class,
+
         CausewayModuleTestingFixturesApplib.class,
         CausewayModuleTestingH2ConsoleUi.class,
 
@@ -74,6 +79,7 @@ import domainapp.webapp.quartz.QuartzModule;
         ApplicationModule.class,
         CustomModule.class,
         QuartzModule.class,
+
 
         // discoverable fixtures
         DomainAppDemo.class

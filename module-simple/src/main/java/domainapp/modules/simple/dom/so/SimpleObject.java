@@ -140,7 +140,7 @@ public class SimpleObject implements Comparable<SimpleObject>, CalendarEventable
     private BlobJpaEmbeddable attachment;
 
     @PdfJsViewer
-    @Property()
+    @Property(optionality = Optionality.OPTIONAL)
     @PropertyLayout(fieldSetId = "content", sequence = "1")
     public Blob getAttachment() {
         return BlobJpaEmbeddable.toBlob(attachment);
