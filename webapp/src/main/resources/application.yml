@@ -8,7 +8,6 @@ causeway:
   applib:
     annotation:
       action:
-        explicit: true
         command-publishing: all
         execution-publishing: all
       action-layout:
