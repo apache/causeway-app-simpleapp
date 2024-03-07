@@ -118,6 +118,9 @@ causeway:
         recreate: domainapp.webapp.application.fixture.scenarios.DomainAppDemo
         non-persisted-objects-strategy: persist
         multiple-execution-strategy: execute
+  value-types:
+    big-decimal:
+      allow-grouping-separator-when-parse: false
 
 eclipselink:
   # if enabled, then must be run with JVM arg:
@@ -139,13 +142,15 @@ server:
 spring:
   banner:
     location: banner.txt
-
   quartz:
     job-store-type: memory
   graphql:
     graphiql:
       enabled: true
       path: "/graphiql"
+    schema:
+      printer:
+        enabled: true
 
 management:
   endpoint:
@@ -206,4 +211,3 @@ management:
           - health
       discovery:
         enabled: false
-

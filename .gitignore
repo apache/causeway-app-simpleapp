@@ -45,3 +45,4 @@ translations.pot
 create-db-schema.sql
 
 test.http
+node_modules
