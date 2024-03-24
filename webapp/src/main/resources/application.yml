@@ -29,8 +29,6 @@ causeway:
         mode: full
       validator:
         allow-deprecated: false
-        no-params-only: true
-        explicit-object-type: true
 
     runtime-services:
       translation:
