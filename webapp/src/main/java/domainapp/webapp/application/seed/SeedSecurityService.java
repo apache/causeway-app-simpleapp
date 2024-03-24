@@ -1,7 +1,7 @@
 package domainapp.webapp.application.seed;
 
-import javax.annotation.Priority;
-import javax.inject.Inject;
+import jakarta.annotation.Priority;
+import jakarta.inject.Inject;
 
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Service;

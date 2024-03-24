@@ -2,7 +2,7 @@ package domainapp.modules.simple.integtests.tests;
 
 import java.util.List;
 
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 
 import org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException;
 import org.hamcrest.MatcherAssert;
