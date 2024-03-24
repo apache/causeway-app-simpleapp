@@ -8,7 +8,6 @@ causeway:
   applib:
     annotation:
       action:
-        explicit: true
         command-publishing: all
         execution-publishing: all
       action-layout:
@@ -30,8 +29,6 @@ causeway:
         mode: full
       validator:
         allow-deprecated: false
-        no-params-only: true
-        explicit-object-type: true
 
     runtime-services:
       translation:
@@ -119,6 +116,9 @@ causeway:
         recreate: domainapp.webapp.application.fixture.scenarios.DomainAppDemo
         non-persisted-objects-strategy: persist
         multiple-execution-strategy: execute
+  value-types:
+    big-decimal:
+      allow-grouping-separator-when-parse: false
 
 # note that properties under 'datanucleus' must use camelCase rather than kebab-case
 datanucleus:
@@ -147,13 +147,15 @@ server:
 spring:
   banner:
     location: banner.txt
-
   quartz:
     job-store-type: memory
   graphql:
     graphiql:
       enabled: true
       path: "/graphiql"
+    schema:
+      printer:
+        enabled: true
 
 management:
   endpoint:
@@ -214,4 +216,3 @@ management:
           - health
       discovery:
         enabled: false
-

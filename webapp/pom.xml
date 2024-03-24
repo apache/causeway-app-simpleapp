@@ -217,9 +217,13 @@
 
         <dependency>
             <groupId>com.github.gavlyukovskiy</groupId>
-            <artifactId>p6spy-spring-boot-starter</artifactId>
-            <version>1.8.0</version>
+            <artifactId>datasource-proxy-spring-boot-starter</artifactId>
         </dependency>
+        <dependency>
+            <groupId>com.github.vertical-blank</groupId>
+            <artifactId>sql-formatter</artifactId>
+        </dependency>
+
     </dependencies>
 
     <profiles>
