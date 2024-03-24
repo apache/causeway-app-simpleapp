@@ -2,7 +2,7 @@ package domainapp.webapp.application.seed;
 
 import java.util.function.Supplier;
 
-import javax.inject.Inject;
+import jakarta.inject.Inject;
 
 import org.apache.causeway.applib.services.appfeat.ApplicationFeatureId;
 import org.apache.causeway.commons.collections.Can;

@@ -2,8 +2,8 @@ package domainapp.modules.simple.integtests.tests;
 
 import java.util.List;
 
-import javax.inject.Inject;
-import javax.persistence.RollbackException;
+import jakarta.inject.Inject;
+import jakarta.persistence.RollbackException;
 
 import org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException;
 import org.hamcrest.MatcherAssert;

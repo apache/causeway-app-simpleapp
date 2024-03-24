@@ -1,7 +1,7 @@
 package domainapp.webapp.application.services.health;
 
-import javax.inject.Inject;
-import javax.inject.Named;
+import jakarta.inject.Inject;
+import jakarta.inject.Named;
 
 import org.springframework.stereotype.Service;
 
