@@ -6,13 +6,13 @@
     <parent>
         <groupId>org.apache.causeway.app</groupId>
         <artifactId>causeway-app-starter-parent</artifactId>
-        <version>3.0.0-SNAPSHOT</version>
+        <version>3.0.0</version>
         <relativePath/>
     </parent>
 
     <artifactId>simpleapp-jdo</artifactId>
     <groupId>org.apache.causeway.starters</groupId>
-    <version>3.0.0-SNAPSHOT</version>
+    <version>3.0.0</version>
 
     <name>SimpleApp (JDO) - Parent</name>
 
