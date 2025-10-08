@@ -41,7 +41,6 @@ public abstract class SimpleModuleIntegTestAbstract extends CausewayIntegrationT
     })
     @PropertySources({
             @PropertySource(CausewayPresets.H2InMemory_withUniqueSchema),
-            @PropertySource(CausewayPresets.UseLog4j2Test),
     })
     public static class TestApp {
 

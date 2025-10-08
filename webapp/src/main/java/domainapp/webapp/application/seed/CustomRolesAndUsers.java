@@ -50,7 +50,7 @@ public class CustomRolesAndUsers extends FixtureScript {
             @Override
             public Can<String> get() {
                 return Can.of(
-                        causewayConfiguration.getExtensions().getSecman().getSeed().getRegularUser().getRoleName(), // built-in stuff
+                        causewayConfiguration.extensions().secman().seed().regularUser().roleName(), // built-in stuff
                         SimpleModuleSuperuserRole.ROLE_NAME
                         );
             }

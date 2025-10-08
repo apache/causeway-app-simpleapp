@@ -107,6 +107,9 @@ causeway:
             - simple-superuser
             - foo
             - bar
+    restfulobjects:
+      basePath: /restful
+
 
   testing:
     fixtures:
@@ -128,11 +131,6 @@ eclipselink:
   # properties using application.properties instead (it's not possible to
   # specify both eclipselink.weaving property and its subproperties using yaml syntax)
 
-resteasy:
-  jaxrs:
-    app:
-      registration: beans
-    defaultPath: "/restful"
 
 server:
   max-http-header-size: 16KB

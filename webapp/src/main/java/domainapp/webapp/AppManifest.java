@@ -1,10 +1,11 @@
 package domainapp.webapp;
 
-import org.apache.causeway.extensions.fullcalendar.wkt.ui.viewer.CausewayModuleExtFullCalendarWicketUi;
 import org.apache.causeway.extensions.layoutloaders.github.CausewayModuleExtLayoutLoadersGithub;
 
 
 import org.apache.causeway.viewer.graphql.viewer.CausewayModuleViewerGraphqlViewer;
+
+import org.apache.causeway.viewer.restfulobjects.viewer.CausewayModuleViewerRestfulObjectsViewer;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -31,7 +32,6 @@ import org.apache.causeway.testing.fixtures.applib.CausewayModuleTestingFixtures
 import org.apache.causeway.testing.h2console.ui.CausewayModuleTestingH2ConsoleUi;
 import org.apache.causeway.valuetypes.asciidoc.metamodel.CausewayModuleValAsciidocMetaModel;
 import org.apache.causeway.valuetypes.asciidoc.ui.wkt.CausewayModuleValAsciidocUiWkt;
-import org.apache.causeway.viewer.restfulobjects.jaxrsresteasy.CausewayModuleViewerRestfulObjectsJaxrsResteasy;
 import org.apache.causeway.viewer.wicket.applib.CausewayModuleViewerWicketApplibMixins;
 import org.apache.causeway.viewer.wicket.viewer.CausewayModuleViewerWicketViewer;
 
@@ -50,7 +50,7 @@ import domainapp.webapp.quartz.QuartzModule;
 
         CausewayModuleCoreRuntimeServices.class,
         CausewayModulePersistenceJpaEclipselink.class,
-        CausewayModuleViewerRestfulObjectsJaxrsResteasy.class,
+        CausewayModuleViewerRestfulObjectsViewer.class,
         CausewayModuleViewerWicketViewer.class,
 
         CausewayModuleViewerGraphqlViewer.class,
