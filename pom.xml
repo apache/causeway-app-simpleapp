@@ -23,19 +23,8 @@
 
         <datasource-proxy-spring-boot-starter.version>1.8.1</datasource-proxy-spring-boot-starter.version>
         <eclipselink-maven-plugin.version>3.0.2</eclipselink-maven-plugin.version>
-        <maven-timeline.version>1.8</maven-timeline.version>
         <sql-formatter.version>2.0.4</sql-formatter.version>
     </properties>
-
-    <build>
-        <extensions>
-            <extension>
-                <groupId>io.takari.maven</groupId>
-                <artifactId>maven-timeline</artifactId>
-                <version>${maven-timeline.version}</version>
-            </extension>
-        </extensions>
-    </build>
 
     <dependencyManagement>
         <dependencies>
