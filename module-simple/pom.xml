@@ -29,6 +29,22 @@
                 </excludes>
             </resource>
         </resources>
+        <plugins>
+            <plugin>
+                <groupId>com.ethlo.persistence.tools</groupId>
+                <artifactId>eclipselink-maven-plugin</artifactId>
+                <version>${eclipselink-maven-plugin.version}</version>
+                <executions>
+                    <execution>
+                        <id>weave</id>
+                        <phase>process-classes</phase>
+                        <goals>
+                            <goal>weave</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
     </build>
 
     <dependencies>
