@@ -232,4 +232,10 @@ public class SimpleObject implements Comparable<SimpleObject>, CalendarEventable
         return comparator.compare(this, other);
     }
 
+    @Property(optionality = Optionality.OPTIONAL, editing = Editing.ENABLED)
+    @PropertyLayout(fieldSetId = LayoutConstants.FieldSetId.DETAILS, sequence = "4")
+    @Column(nullable = true)
+    @Getter @Setter
+    private Position position;
+
 }
