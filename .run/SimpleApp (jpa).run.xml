@@ -3,10 +3,10 @@
     <module name="simpleapp-jpa-webapp" />
     <option name="SHORTEN_COMMAND_LINE" value="ARGS_FILE" />
     <option name="SPRING_BOOT_MAIN_CLASS" value="domainapp.webapp.SimpleApp" />
-    <option name="VM_PARAMETERS" value="-javaagent:../lib/spring-instrument.jar" />
     <option name="WORKING_DIRECTORY" value="file://$MODULE_WORKING_DIR$" />
     <method v="2">
       <option name="Make" enabled="true" />
+      <option name="RunConfigurationTask" enabled="true" run_configuration_name="simpleapp-jpa-module-simple [eclipselink:weave]" run_configuration_type="MavenRunConfiguration" />
     </method>
   </configuration>
 </component>
