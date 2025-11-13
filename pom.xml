@@ -6,13 +6,13 @@
     <parent>
         <groupId>org.apache.causeway.app</groupId>
         <artifactId>causeway-app-starter-parent</artifactId>
-        <version>3.4.0</version>
+        <version>3.5.0</version>
         <relativePath/>
     </parent>
 
     <artifactId>simpleapp-jpa</artifactId>
     <groupId>org.apache.causeway.starters</groupId>
-    <version>3.4.0</version>
+    <version>3.5.0</version>
 
     <name>SimpleApp (JPA) - Parent</name>
 
@@ -103,7 +103,7 @@
             <id>nightly</id>
             <activation>
                 <property>
-                    <name>!skip.nightly</name>
+                    <name>use.nightly</name>
                 </property>
             </activation>
             <repositories>
