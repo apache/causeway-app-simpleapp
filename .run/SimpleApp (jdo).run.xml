@@ -1,13 +1,10 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="simpleapp (jdo)" type="Application" factoryName="Application">
-    <option name="ALTERNATIVE_JRE_PATH" value="zulu-11" />
-    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-    <option name="MAIN_CLASS_NAME" value="domainapp.webapp.SimpleApp" />
-    <module name="simpleapp-jdo-webapp" />
-    <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+  <configuration default="false" name="SimpleApp (jdo)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="simpleapp-jpa-webapp" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="domainapp.webapp.SimpleApp" />
     <method v="2">
       <option name="Make" enabled="true" />
-      <option name="RunConfigurationTask" enabled="true" run_configuration_name="simpleapp-jdo [enhance]" run_configuration_type="MavenRunConfiguration" />
+      <option name="RunConfigurationTask" enabled="true" run_configuration_name="simpleapp-jdo-module-simple [datanucleus:enhance]" run_configuration_type="MavenRunConfiguration" />
     </method>
   </configuration>
 </component>

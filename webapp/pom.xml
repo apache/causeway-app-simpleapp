@@ -6,7 +6,7 @@
     <parent>
         <artifactId>simpleapp-jdo</artifactId>
         <groupId>org.apache.causeway.starters</groupId>
-        <version>3.4.0</version>
+        <version>3.5.0</version>
     </parent>
 
     <artifactId>simpleapp-jdo-webapp</artifactId>
@@ -241,7 +241,7 @@
                 <dependency>
                     <groupId>com.microsoft.sqlserver</groupId>
                     <artifactId>mssql-jdbc</artifactId>
-                    <version>7.4.1.jre8</version>
+                    <version>11.1.0.jre8-preview</version>
                 </dependency>
             </dependencies>
         </profile>
