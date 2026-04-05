@@ -3,7 +3,6 @@ package domainapp.modules.simple.integtests.tests;
 import java.util.List;
 
 import jakarta.inject.Inject;
-import jakarta.persistence.RollbackException;
 
 import org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException;
 import org.hamcrest.MatcherAssert;
@@ -17,7 +16,7 @@ import org.springframework.dao.DuplicateKeyException;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import org.apache.causeway.applib.services.iactnlayer.InteractionService;
+import org.apache.causeway.applib.services.iactn.InteractionService;
 import org.apache.causeway.commons.functional.Try;
 import org.apache.causeway.testing.unittestsupport.applib.matchers.ThrowableMatchers;
 
