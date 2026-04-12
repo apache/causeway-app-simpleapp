@@ -1,4 +1,4 @@
-package domainapp.webapp.integtests.metamodel;
+package domainapp.webapp.metamodel;
 
 import java.io.IOException;
 
@@ -18,7 +18,7 @@ import org.apache.causeway.testing.integtestsupport.applib.swagger.SwaggerExport
 
 import lombok.val;
 
-import domainapp.webapp.integtests.WebAppIntegTestAbstract;
+import domainapp.webapp.WebAppIntegTestAbstract;
 
 @Import({
         CausewayModuleViewerRestfulObjectsViewer.class,

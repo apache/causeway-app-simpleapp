@@ -1,4 +1,4 @@
-package domainapp.webapp.integtests.metamodel;
+package domainapp.webapp.metamodel;
 
 import jakarta.inject.Inject;
 
@@ -9,9 +9,8 @@ import org.apache.causeway.testing.integtestsupport.applib.validate.DomainModelV
 
 import org.springframework.test.annotation.DirtiesContext;
 
-import domainapp.webapp.integtests.WebAppIntegTestAbstract;
+import domainapp.webapp.WebAppIntegTestAbstract;
 
-@DirtiesContext
 class ValidateDomainModel_IntegTest extends WebAppIntegTestAbstract {
 
     @Inject ServiceRegistry serviceRegistry;

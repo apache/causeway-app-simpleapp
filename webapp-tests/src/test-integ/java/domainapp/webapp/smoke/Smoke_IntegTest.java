@@ -1,8 +1,10 @@
-package domainapp.webapp.integtests.smoke;
+package domainapp.webapp.smoke;
 
 import java.util.List;
 
 import jakarta.inject.Inject;
+
+import org.apache.causeway.testing.integtestsupport.applib.validate.DomainModelValidator;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -17,10 +19,8 @@ import org.apache.causeway.applib.services.xactn.TransactionService;
 
 import domainapp.modules.simple.dom.so.SimpleObject;
 import domainapp.modules.simple.dom.so.SimpleObjects;
-import domainapp.webapp.integtests.WebAppIntegTestAbstract;
+import domainapp.webapp.WebAppIntegTestAbstract;
 
-@DirtiesContext
-@Transactional
 class Smoke_IntegTest extends WebAppIntegTestAbstract {
 
     @Inject SimpleObjects menu;

@@ -1,4 +1,4 @@
-package domainapp.modules.simple.integtests.tests;
+package domainapp.modules.simple.dom;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Nested;
@@ -7,18 +7,16 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-import org.springframework.transaction.annotation.Transactional;
-
 import org.apache.causeway.applib.services.wrapper.DisabledException;
 import org.apache.causeway.applib.services.wrapper.InvalidException;
 
 import domainapp.modules.simple.dom.so.SimpleObject;
 import domainapp.modules.simple.fixture.SimpleObject_persona;
-import domainapp.modules.simple.integtests.SimpleModuleIntegTestAbstract;
+import domainapp.modules.simple.SimpleModuleIntegTestAbstract;
 
-public class SimpleObject_IntegTest {
+class SimpleObject_IntegTest {
 
-    public static abstract class Base extends SimpleModuleIntegTestAbstract {
+    static abstract class Base extends SimpleModuleIntegTestAbstract {
         SimpleObject simpleObject;
 
         @BeforeEach
@@ -29,7 +27,7 @@ public class SimpleObject_IntegTest {
     }
 
     @Nested
-    public class name extends Base {
+    class name extends Base {
 
         @Test
         public void accessible() {
@@ -54,7 +52,7 @@ public class SimpleObject_IntegTest {
     }
 
     @Nested
-    public class updateName extends Base {
+    class updateName extends Base {
 
 
         @Test

@@ -1,8 +1,6 @@
-package domainapp.modules.simple.integtests.tests;
+package domainapp.modules.simple.dom;
 
 import java.util.List;
-
-import jakarta.inject.Inject;
 
 import org.h2.jdbc.JdbcSQLIntegrityConstraintViolationException;
 import org.hamcrest.MatcherAssert;
@@ -14,7 +12,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
 import org.apache.causeway.applib.services.iactn.InteractionService;
 import org.apache.causeway.commons.functional.Try;
@@ -25,17 +22,18 @@ import lombok.val;
 import domainapp.modules.simple.dom.so.SimpleObject;
 import domainapp.modules.simple.dom.so.SimpleObjects;
 import domainapp.modules.simple.fixture.SimpleObject_persona;
-import domainapp.modules.simple.integtests.SimpleModuleIntegTestAbstract;
+import domainapp.modules.simple.SimpleModuleIntegTestAbstract;
+import jakarta.inject.Inject;
 
-public class SimpleObjects_IntegTest {
+class SimpleObjects_IntegTest {
 
-    public static abstract class Base extends SimpleModuleIntegTestAbstract {
+    static abstract class Base extends SimpleModuleIntegTestAbstract {
         @Inject
         SimpleObjects menu;
     }
 
     @Nested
-    public class listAll extends Base {
+    class listAll extends Base {
 
         @Test
         public void happyCase() {
@@ -63,7 +61,7 @@ public class SimpleObjects_IntegTest {
     }
 
     @Nested
-    public class create extends Base {
+    class create extends Base {
 
         @Test
         public void happyCase() {
