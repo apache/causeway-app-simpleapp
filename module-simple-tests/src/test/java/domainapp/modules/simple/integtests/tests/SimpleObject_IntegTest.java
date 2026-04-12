@@ -16,20 +16,20 @@ import domainapp.modules.simple.dom.so.SimpleObject;
 import domainapp.modules.simple.fixture.SimpleObject_persona;
 import domainapp.modules.simple.integtests.SimpleModuleIntegTestAbstract;
 
-@Transactional
-public class SimpleObject_IntegTest extends SimpleModuleIntegTestAbstract {
+public class SimpleObject_IntegTest {
 
-    SimpleObject simpleObject;
+    public static abstract class Base extends SimpleModuleIntegTestAbstract {
+        SimpleObject simpleObject;
 
-    @BeforeEach
-    public void setUp() {
-        // given
-        simpleObject = fixtureScripts.runPersona(SimpleObject_persona.FOO);
+        @BeforeEach
+        public void setUp() {
+            // given
+            simpleObject = fixtureScripts.runPersona(SimpleObject_persona.FOO);
+        }
     }
 
-
     @Nested
-    public static class name extends SimpleObject_IntegTest {
+    public class name extends Base {
 
         @Test
         public void accessible() {
@@ -54,7 +54,7 @@ public class SimpleObject_IntegTest extends SimpleModuleIntegTestAbstract {
     }
 
     @Nested
-    public static class updateName extends SimpleObject_IntegTest {
+    public class updateName extends Base {
 
 
         @Test

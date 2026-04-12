@@ -27,14 +27,15 @@ import domainapp.modules.simple.dom.so.SimpleObjects;
 import domainapp.modules.simple.fixture.SimpleObject_persona;
 import domainapp.modules.simple.integtests.SimpleModuleIntegTestAbstract;
 
-@Transactional
-public class SimpleObjects_IntegTest extends SimpleModuleIntegTestAbstract {
+public class SimpleObjects_IntegTest {
 
-    @Inject
-    SimpleObjects menu;
+    public static abstract class Base extends SimpleModuleIntegTestAbstract {
+        @Inject
+        SimpleObjects menu;
+    }
 
     @Nested
-    public static class listAll extends SimpleObjects_IntegTest {
+    public class listAll extends Base {
 
         @Test
         public void happyCase() {
@@ -62,7 +63,7 @@ public class SimpleObjects_IntegTest extends SimpleModuleIntegTestAbstract {
     }
 
     @Nested
-    public static class create extends SimpleObjects_IntegTest {
+    public class create extends Base {
 
         @Test
         public void happyCase() {
