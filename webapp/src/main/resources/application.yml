@@ -122,11 +122,12 @@ causeway:
   value-types:
     big-decimal:
       allow-grouping-separator-when-parse: false
+  persistence:
+    weaving:
+      safeguard-mode: require_weaved_when_any_sub_is_weaved
 
 eclipselink:
-  # if enabled, then must be run with JVM arg:
-  # -javaagent:lib/spring-instrument-5.3.8.jar
-  weaving: false
+  weaving: true
   # if weaving subproperties are required, then specify all eclipselink.weaving
   # properties using application.properties instead (it's not possible to
   # specify both eclipselink.weaving property and its subproperties using yaml syntax)
