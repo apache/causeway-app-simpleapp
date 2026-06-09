@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="SimpleApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+    <module name="simpleapp-jdo-webapp" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="domainapp.webapp.SimpleApp" />
+    <option name="VM_PARAMETERS" value="-Dserver.port=8080 -Dserver.servlet.session.cookie.name=JSESSION_JDO" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

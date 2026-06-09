@@ -5,6 +5,8 @@ import java.io.InputStream;
 
 import javax.inject.Inject;
 
+import org.apache.causeway.applib.services.wrapper.control.SyncControl;
+
 import org.springframework.core.io.ClassPathResource;
 
 import org.apache.causeway.applib.services.clock.ClockService;
@@ -61,7 +63,7 @@ implements Persona<SimpleObject, SimpleObject_persona.Builder> {
         @Override
         protected SimpleObject buildResult(final ExecutionContext ec) {
 
-            val simpleObject = wrap(simpleObjects).create(persona.name);
+            val simpleObject = wrap(simpleObjects, SyncControl.control().withSkipRules()).create(persona.name);
 
             if (persona.contentFileName != null) {
                 val bytes = toBytes(persona.contentFileName);

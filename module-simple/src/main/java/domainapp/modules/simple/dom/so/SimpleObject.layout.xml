@@ -41,6 +41,12 @@
                     <cpt:fieldSet name="Details" id="details"/>
                 </bs3:col>
             </bs3:row>
+            <bs3:row>
+                <bs3:col span="12">
+                    <cpt:collection id="others"/>
+                    <cpt:collection id="moreOthers"/>
+                </bs3:col>
+            </bs3:row>
         </bs3:col>
         <bs3:col span="6">
             <bs3:row>

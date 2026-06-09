@@ -3,6 +3,8 @@ package domainapp.modules.simple.dom.so;
 import java.time.LocalTime;
 import java.time.ZoneOffset;
 import java.util.Comparator;
+import java.util.List;
+import java.util.stream.Collectors;
 
 import javax.inject.Inject;
 import javax.inject.Named;
@@ -20,6 +22,10 @@ import javax.jdo.annotations.Version;
 import javax.jdo.annotations.VersionStrategy;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
+import org.apache.causeway.applib.annotation.Collection;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.lang.Nullable;
 
 import org.apache.causeway.applib.annotation.Action;
@@ -95,6 +101,7 @@ public class SimpleObject implements Comparable<SimpleObject>, CalendarEventable
 
     static final String NAMED_QUERY__FIND_BY_NAME_LIKE = "SimpleObject.findByNameLike";
     static final String NAMED_QUERY__FIND_BY_NAME_EXACT = "SimpleObject.findByNameExact";
+    @Qualifier("simple.SimpleObjects") @Autowired private SimpleObjects simpleObjects;
 
     public static SimpleObject withName(final String name) {
         val simpleObject = new SimpleObject();
@@ -206,7 +213,24 @@ public class SimpleObject implements Comparable<SimpleObject>, CalendarEventable
         repositoryService.removeAndFlush(this);
     }
 
+    @Action(semantics = NON_IDEMPOTENT_ARE_YOU_SURE)
+    public String sameAs(SimpleObject simpleObject) {
+        if(simpleObject == this) {
+            return "SAME";
+        } else {
+            return "DIFFERENT";
+        }
+    }
+    @MemberSupport
+    public List<SimpleObject> choices0SameAs() {
+        return simpleObjects.listAll();
+    }
 
+
+    @Collection
+    public List<SimpleObject> getOthers() {
+        return simpleObjects.listAll().stream().filter(x -> x != this).collect(Collectors.toList());
+    }
 
     private final static Comparator<SimpleObject> comparator =
             Comparator.comparing(SimpleObject::getName);
